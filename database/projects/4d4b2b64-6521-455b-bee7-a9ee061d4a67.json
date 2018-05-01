@@ -11,7 +11,9 @@
             "03165514-55c0-4d78-ba8c-1ef8c55d6d91",
             "5ffb9b8b-b42a-4c87-a525-34872ffad3e8",
             "d02577cd-5cd0-4cbe-9f46-17793cf5ce8a",
-            "c810a301-edef-4d85-8a2c-4864192834d0"
+            "c810a301-edef-4d85-8a2c-4864192834d0",
+            "fc6acdd4-90cd-45f0-996c-b1aa4510674a",
+            "f6ddfc14-7dd8-4d52-b2f7-81339d3c5e01"
         ],
         "roles_list": [],
         "user_project_relations_list": []
@@ -25,9 +27,7 @@
         {
             "unique_id": "70ee354d-a325-405e-98fd-7c09ea53fd56",
             "name": "The To Do task list",
-            "tasks_list": [
-                "8371258a-cf48-4e45-8585-ae6e8c4fd851"
-            ]
+            "tasks_list": []
         },
         {
             "unique_id": "46e7b433-3a0f-468b-9cb4-39dbe93bd0ef",
@@ -42,7 +42,13 @@
         {
             "unique_id": "ea4a6c5a-488b-478e-a0c9-1ea58b3c77f3",
             "name": "some test task list",
-            "tasks_list": []
+            "tasks_list": [
+                "20a798fc-0231-4b18-8ec4-d3b01ccc1a02",
+                "58a175f0-9da0-4cce-8e07-a9eab4fccd2e",
+                "b98c0b46-5f25-4dab-8563-8f95523290ae",
+                "0bff50f5-91e7-4f28-943d-2a95e5c8a522",
+                "c7903c55-f19c-4a8e-8799-d88320ebe3e7"
+            ]
         },
         {
             "unique_id": "03165514-55c0-4d78-ba8c-1ef8c55d6d91",
@@ -63,11 +69,89 @@
             "unique_id": "c810a301-edef-4d85-8a2c-4864192834d0",
             "name": "some test task list",
             "tasks_list": []
+        },
+        {
+            "unique_id": "fc6acdd4-90cd-45f0-996c-b1aa4510674a",
+            "name": "some test task list",
+            "tasks_list": []
+        },
+        {
+            "unique_id": "f6ddfc14-7dd8-4d52-b2f7-81339d3c5e01",
+            "name": "some test task list",
+            "tasks_list": []
         }
     ],
     "tasks": [
         {
-            "unique_id": "8371258a-cf48-4e45-8585-ae6e8c4fd851",
+            "unique_id": "20a798fc-0231-4b18-8ec4-d3b01ccc1a02",
+            "name": "Do Labs",
+            "description": null,
+            "expiration_date": null,
+            "priority": {
+                "__enum__": "Priority.MIDDLE"
+            },
+            "status": {
+                "__enum__": "Status.CREATED"
+            },
+            "tags_list": [],
+            "comment_ids_list": [],
+            "responsible_ids_list": [],
+            "author": null,
+            "sub_tasks_list": []
+        },
+        {
+            "unique_id": "58a175f0-9da0-4cce-8e07-a9eab4fccd2e",
+            "name": "Do Labs",
+            "description": null,
+            "expiration_date": null,
+            "priority": {
+                "__enum__": "Priority.MIDDLE"
+            },
+            "status": {
+                "__enum__": "Status.CREATED"
+            },
+            "tags_list": [],
+            "comment_ids_list": [],
+            "responsible_ids_list": [],
+            "author": null,
+            "sub_tasks_list": []
+        },
+        {
+            "unique_id": "b98c0b46-5f25-4dab-8563-8f95523290ae",
+            "name": "Do Labs",
+            "description": null,
+            "expiration_date": null,
+            "priority": {
+                "__enum__": "Priority.MIDDLE"
+            },
+            "status": {
+                "__enum__": "Status.CREATED"
+            },
+            "tags_list": [],
+            "comment_ids_list": [],
+            "responsible_ids_list": [],
+            "author": null,
+            "sub_tasks_list": []
+        },
+        {
+            "unique_id": "0bff50f5-91e7-4f28-943d-2a95e5c8a522",
+            "name": "Do Labs",
+            "description": null,
+            "expiration_date": null,
+            "priority": {
+                "__enum__": "Priority.MIDDLE"
+            },
+            "status": {
+                "__enum__": "Status.CREATED"
+            },
+            "tags_list": [],
+            "comment_ids_list": [],
+            "responsible_ids_list": [],
+            "author": null,
+            "sub_tasks_list": []
+        },
+        {
+            "unique_id": "c7903c55-f19c-4a8e-8799-d88320ebe3e7",
             "name": "Do Labs",
             "description": null,
             "expiration_date": null,
