@@ -25,7 +25,9 @@
         {
             "unique_id": "70ee354d-a325-405e-98fd-7c09ea53fd56",
             "name": "The To Do task list",
-            "tasks_list": []
+            "tasks_list": [
+                "8371258a-cf48-4e45-8585-ae6e8c4fd851"
+            ]
         },
         {
             "unique_id": "46e7b433-3a0f-468b-9cb4-39dbe93bd0ef",
@@ -61,6 +63,25 @@
             "unique_id": "c810a301-edef-4d85-8a2c-4864192834d0",
             "name": "some test task list",
             "tasks_list": []
+        }
+    ],
+    "tasks": [
+        {
+            "unique_id": "8371258a-cf48-4e45-8585-ae6e8c4fd851",
+            "name": "Do Labs",
+            "description": null,
+            "expiration_date": null,
+            "priority": {
+                "__enum__": "Priority.MIDDLE"
+            },
+            "status": {
+                "__enum__": "Status.CREATED"
+            },
+            "tags_list": [],
+            "comment_ids_list": [],
+            "responsible_ids_list": [],
+            "author": null,
+            "sub_tasks_list": []
         }
     ]
 }

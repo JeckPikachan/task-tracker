@@ -1,7 +1,9 @@
 import json
 
 from model.project import Project
+from model.task import Task
 from model.tasklist import TaskList
+from util.enum_json import EnumEncoder, enum_serializable
 
 
 class DBConfig:
@@ -26,9 +28,11 @@ class DataBase:
                 loaded = json.load(project_file)
                 project = loaded.get('project')
                 lists = loaded.get('task_lists', [])
+                tasks = loaded.get('tasks', [])
 
                 self.project = Project(**project)
                 self._task_lists = [TaskList(**task_list) for task_list in lists]
+                self._tasks = [Task(**task) for task in tasks]
 
                 self.config.current_project_id = self.project.unique_id
             return None
@@ -50,11 +54,13 @@ class DataBase:
             return error
 
     def save(self, project=None):
+        tasks = [] if project is not None \
+            else [self.task_serializable(task) for task in self._tasks]
         task_lists = [] if project is not None \
             else [self.json_serializable(task_list) for task_list in self._task_lists]
         project = self.json_serializable(project if project is not None else self.project)
 
-        dict_to_save = {'project': project, 'task_lists': task_lists}
+        dict_to_save = {'project': project, 'task_lists': task_lists, 'tasks': tasks}
 
         try:
             with open("../database/projects/" + str(project.get('unique_id')) + ".json", "w+") as project_file:
@@ -83,11 +89,27 @@ class DataBase:
         return [{'unique_id': task_list.unique_id, 'name': task_list.name} for task_list in self._task_lists]
 
     def change_task_list_name(self, task_list_id, new_name):
-        task_list = next((x for x in self._task_lists if x.unique_id == task_list_id), None)
+        task_list = self._get_task_list_by_id(task_list_id)
         if task_list is not None:
             task_list.name = new_name
             self.save()
 
+    def add_task(self, task_list_id, task):
+        task_list = self._get_task_list_by_id(task_list_id)
+        if task_list is not None:
+            self._tasks.append(task)
+            task_list.tasks_list.append(task.unique_id)
+            self.save()
+
+    def _get_task_list_by_id(self, task_list_id):
+        return next((x for x in self._task_lists if x.unique_id == task_list_id), None)
+
     def json_serializable(self, obj):
         new_dict = obj.__dict__ or obj
         return new_dict
+
+    def task_serializable(self, task):
+        task_dict = self.json_serializable(task)
+        task_dict['status'] = enum_serializable(task_dict['status'])
+        task_dict['priority'] = enum_serializable(task_dict['priority'])
+        return task_dict

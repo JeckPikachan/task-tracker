@@ -1,5 +1,6 @@
 from database.db import DataBase
 from model.project import Project
+from model.task import Task
 from model.tasklist import TaskList
 
 
@@ -24,3 +25,7 @@ class App:
 
     def change_task_list_name(self, task_list_id, new_name):
         self._db.change_task_list_name(task_list_id, new_name)
+
+    def add_task(self, task_list_id, name):
+        new_task = Task(name=name)
+        self._db.add_task(task_list_id, new_task)
