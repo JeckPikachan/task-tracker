@@ -2,11 +2,11 @@ import json
 
 import copy
 
-from model.projectcontainer import ProjectContainer
-from model.project import Project
-from model.task import Task
-from model.tasklist import TaskList
-from util.enum_json import enum_serializable
+from app.model.projectcontainer import ProjectContainer
+from app.model.project import Project
+from app.model.task import Task
+from app.model.tasklist import TaskList
+from app.util.enum_json import enum_serializable
 
 
 class DBConfig:
@@ -15,19 +15,20 @@ class DBConfig:
 
 
 class DataBase:
-    def __init__(self):
+    def __init__(self, db_path):
         self.project = None
         self._task_lists = []
         self._tasks = []
+        self._db_path = db_path
         try:
-            with open("../database/db_config.json","r") as config_file:
+            with open(self._db_path + "db_config.json","r") as config_file:
                 self.config = DBConfig(**json.load(config_file))
         except IOError:
             self.config = DBConfig()
 
     def load_from_file(self, project_id):
         try:
-            with open("../database/projects/" + project_id + ".json", "r") as project_file:
+            with open(self._db_path + "projects/" + project_id + ".json", "r") as project_file:
                 loaded = json.load(project_file)
                 project = loaded.get('project')
                 lists = loaded.get('task_lists', [])
@@ -41,7 +42,7 @@ class DataBase:
                 self.config.current_project_id = project.get('unique_id')
             return container
         except IOError as e:
-            return None
+            raise
 
     def load(self, project_id=None):
         if project_id is None:
@@ -66,7 +67,7 @@ class DataBase:
         dict_to_save = {'project': project, 'task_lists': task_lists, 'tasks': tasks}
 
         try:
-            with open("../database/projects/" + str(project.get('unique_id')) + ".json", "w+") as project_file:
+            with open(self._db_path + "projects/" + str(project.get('unique_id')) + ".json", "w+") as project_file:
                 json.dump(dict_to_save, project_file, indent=4)
             return None
         except IOError as e:
@@ -74,7 +75,7 @@ class DataBase:
 
     def save_config(self):
         try:
-            with open("../database/db_config.json", "w+") as config_file:
+            with open(self._db_path + "db_config.json", "w+") as config_file:
                 json.dump(self._json_serializable(self.config), config_file, indent=4)
             return None
         except IOError as e:

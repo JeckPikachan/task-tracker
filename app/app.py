@@ -1,15 +1,15 @@
 import copy
 
-from database.db import DataBase
-from model.project import Project
-from model.projectcontainer import ProjectContainer
-from model.task import Task
-from model.tasklist import TaskList
+from app.database.db import DataBase
+from app.model.project import Project
+from app.model.projectcontainer import ProjectContainer
+from app.model.task import Task
+from app.model.tasklist import TaskList
 
 
 class App:
-    def __init__(self):
-        self._db = DataBase()
+    def __init__(self, app_path):
+        self._db = DataBase(app_path + "database/")
         self.container = self._db.load()
 
     def add_project(self, name):
@@ -19,6 +19,9 @@ class App:
 
     def load_project(self, project_id):
         self.container = self._db.load(project_id)
+
+    def get_project(self):
+        return copy.deepcopy(self.container.project)
 
     def add_list(self, name):
         new_list = TaskList(name=name)

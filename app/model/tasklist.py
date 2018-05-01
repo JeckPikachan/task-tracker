@@ -1,4 +1,4 @@
-from model.UniqueObject import UniqueObject
+from app.model.UniqueObject import UniqueObject
 
 
 class TaskList(UniqueObject):

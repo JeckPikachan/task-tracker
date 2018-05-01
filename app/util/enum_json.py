@@ -1,7 +1,7 @@
 import json
 
-from util.priority import Priority
-from util.status import Status
+from app.util.priority import Priority
+from app.util.status import Status
 
 PUBLIC_ENUMS = {
     'Priority': Priority,

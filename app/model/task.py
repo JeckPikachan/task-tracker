@@ -1,7 +1,7 @@
-from model.UniqueObject import UniqueObject
-from util.enum_json import as_enum
-from util.priority import Priority
-from util.status import Status
+from app.model.UniqueObject import UniqueObject
+from app.util.enum_json import as_enum
+from app.util.priority import Priority
+from app.util.status import Status
 
 
 class Task(UniqueObject):
