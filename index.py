@@ -113,6 +113,13 @@ def main():
                          status=args.status,
                          priority=args.priority)
 
+    if args.command == 'remove':
+        if args.kind == 'task':
+            if args.id is not None:
+                app.remove_task(args.id)
+            elif args.list is not None:
+                app.free_tasks_list(args.list)
+
     if args.command == 'checkout':
         app.load_project(args.project_id)
 

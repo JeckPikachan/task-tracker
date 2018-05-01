@@ -21,6 +21,8 @@ def enum_serializable(obj):
 
 
 def as_enum(d):
+    if d is None:
+        return None
     if "__enum__" in d:
         name, member = d["__enum__"].split(".")
         return getattr(PUBLIC_ENUMS[name], member)

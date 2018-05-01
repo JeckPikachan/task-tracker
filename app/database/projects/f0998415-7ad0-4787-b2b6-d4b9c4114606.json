@@ -12,28 +12,8 @@
         {
             "unique_id": "d390a357-ead3-4d69-ae8c-bf9b854bb20d",
             "name": "New list from CLI",
-            "tasks_list": [
-                "5ea0d7b4-e272-4ed9-ad4c-7dddf605606d"
-            ]
+            "tasks_list": []
         }
     ],
-    "tasks": [
-        {
-            "unique_id": "5ea0d7b4-e272-4ed9-ad4c-7dddf605606d",
-            "name": "New task from CLI",
-            "description": "Hey, some description here!",
-            "expiration_date": null,
-            "priority": {
-                "__enum__": "Priority.HIGH"
-            },
-            "status": {
-                "__enum__": "Status.IN_WORK"
-            },
-            "tags_list": [],
-            "comment_ids_list": [],
-            "responsible_ids_list": [],
-            "author": null,
-            "sub_tasks_list": []
-        }
-    ]
+    "tasks": []
 }

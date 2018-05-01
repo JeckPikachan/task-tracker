@@ -44,6 +44,10 @@ class App:
         self.container.remove_task(task_id)
         self._db.save(self.container)
 
+    def free_tasks_list(self, task_list_id):
+        self.container.free_tasks_list(task_list_id)
+        self._db.save(self.container)
+
     def get_tasks(self, task_list_id=None):
         return copy.deepcopy(self.container.get_tasks(task_list_id))
 

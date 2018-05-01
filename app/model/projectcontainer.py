@@ -20,7 +20,14 @@ class ProjectContainer:
             task_list.tasks_list.append(task.unique_id)
 
     def remove_task(self, task_id):
+        for task_list in self.lists:
+            task_list.tasks_list.remove(task_id)
         self.tasks = [task for task in self.tasks if task.unique_id != task_id]
+
+    def free_tasks_list(self, task_list_id):
+        task_list = self._get_task_list_by_id(task_list_id)
+        self.tasks = [task for task in self.tasks if task.unique_id not in task_list.tasks_list]
+        task_list.tasks_list.clear()
 
     def get_tasks(self, task_list_id=None):
         if task_list_id is None:

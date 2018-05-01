@@ -47,6 +47,16 @@ class Parser:
         parser_add_task.add_argument('-s', '--status', type=int, choices=[0, 1, 2],
                                      help="0 - created (default), 1 - in work, 2 - done")
 
+        # parser for 'remove' #
+        parser_remove = self.subparsers_for_command.add_parser('remove')
+        subparsers_for_remove = parser_remove.add_subparsers(dest='kind')
+
+        parser_remove_task = subparsers_for_remove.add_parser('task')
+        remove_task_group = parser_remove_task.add_mutually_exclusive_group(required=True)
+        remove_task_group.add_argument('--id')
+        remove_task_group.add_argument('-l', '--list')
+
+
         # parser for 'checkout' #
         parser_checkout = self.subparsers_for_command.add_parser('checkout')
         parser_checkout.add_argument('project_id')
