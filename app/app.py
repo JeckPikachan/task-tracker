@@ -46,3 +46,6 @@ class App:
 
     def get_tasks(self, task_list_id=None):
         return copy.deepcopy(self.container.get_tasks(task_list_id))
+
+    def get_projects(self):
+        return self._db.get_config().projects_info

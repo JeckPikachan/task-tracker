@@ -10,8 +10,16 @@ from app.util.enum_json import enum_serializable
 
 
 class DBConfig:
-    def __init__(self, current_project_id=None):
+    def __init__(self, current_project_id=None, projects_info=None):
         self.current_project_id = current_project_id
+        self.projects_info = projects_info if projects_info is not None else []
+
+    def add_project_info(self, name, unique_id):
+        found = next((x for x in self.projects_info if x['unique_id'] == unique_id), None)
+        if found is None:
+            self.projects_info.append({'unique_id': unique_id, 'name': name})
+        else:
+            found['name'] = name
 
 
 class DataBase:
@@ -64,11 +72,17 @@ class DataBase:
         task_lists = [self._json_serializable(task_list) for task_list in container.lists]
         project = self._json_serializable(container.project)
 
+        project_name = project.get('name')
+        project_id = project.get('unique_id')
+
         dict_to_save = {'project': project, 'task_lists': task_lists, 'tasks': tasks}
 
         try:
-            with open(self._db_path + "projects/" + str(project.get('unique_id')) + ".json", "w+") as project_file:
+            with open(self._db_path + "projects/" + project_id + ".json", "w+") as project_file:
                 json.dump(dict_to_save, project_file, indent=4)
+
+            self.config.add_project_info(project_name, project_id)
+            self.save_config()
             return None
         except IOError as e:
             return e
@@ -80,6 +94,9 @@ class DataBase:
             return None
         except IOError as e:
             return e
+
+    def get_config(self):
+        return copy.copy(self.config)
 
     def _json_serializable(self, obj):
         new_dict = obj.__dict__ or obj

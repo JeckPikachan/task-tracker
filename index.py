@@ -50,6 +50,15 @@ def print_tasks(tasks, verbose=False):
         print()
 
 
+def print_projects(projects, current_project_id):
+    for project in projects:
+        if current_project_id == project.get('unique_id'):
+            print("(CURRENT)")
+        print("name: " + project.get('name'))
+        print("id: " + project.get('unique_id'))
+        print()
+
+
 def main():
     app = App(str(os.getcwd()) + '/app/')
     parser = Parser()
@@ -58,10 +67,14 @@ def main():
     if args.command == 'show':
         if args.kind == 'project':
             project = app.get_project()
-            print("name: " + str(project.name))
-            print("id: " + str(project.unique_id))
-            if args.verbose:
-                print("lists: " + str(project.lists))
+            if args.all:
+                projects = app.get_projects()
+                print_projects(projects, project.unique_id)
+            else:
+                print("name: " + str(project.name))
+                print("id: " + str(project.unique_id))
+                if args.verbose:
+                    print("lists: " + str(project.lists))
 
         if args.kind == 'list':
             lists = app.get_task_lists()
@@ -85,6 +98,13 @@ def main():
                 tasks = [next((x for x in tasks if x.unique_id == args.id), None)]
 
             print_tasks(tasks, verbose)
+
+    if args.command == 'add':
+        if args.kind == 'project':
+            app.add_project(args.name)
+
+    if args.command == 'checkout':
+        app.load_project(args.project_id)
 
 
 if __name__ == "__main__":
