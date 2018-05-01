@@ -35,6 +35,18 @@ class Parser:
         parser_add_project = subparsers_for_add.add_parser('project')
         parser_add_project.add_argument('name')
 
+        parser_add_list = subparsers_for_add.add_parser('list')
+        parser_add_list.add_argument('name')
+
+        parser_add_task = subparsers_for_add.add_parser('task')
+        parser_add_task.add_argument('list_id')
+        parser_add_task.add_argument('name')
+        parser_add_task.add_argument('-d', '--description')
+        parser_add_task.add_argument('-p', '--priority', type=int, choices=[0, 1, 2],
+                                     help="0 - low, 1 - middle (default), 2 - high")
+        parser_add_task.add_argument('-s', '--status', type=int, choices=[0, 1, 2],
+                                     help="0 - created (default), 1 - in work, 2 - done")
+
         # parser for 'checkout' #
         parser_checkout = self.subparsers_for_command.add_parser('checkout')
         parser_checkout.add_argument('project_id')

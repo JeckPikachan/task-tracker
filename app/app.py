@@ -35,8 +35,8 @@ class App:
         self.container.change_task_list_name(task_list_id, new_name)
         self._db.save(self.container)
 
-    def add_task(self, task_list_id, name):
-        new_task = Task(name=name)
+    def add_task(self, task_list_id, name, **kwargs):
+        new_task = Task(name=name, **kwargs)
         self.container.add_task(task_list_id, new_task)
         self._db.save(self.container)
 

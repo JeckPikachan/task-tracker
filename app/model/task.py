@@ -20,8 +20,13 @@ class Task(UniqueObject):
         self.author = kwargs.get('author', None)
         self.sub_tasks_list = kwargs.get('sub_tasks_list', [])
 
-        if not isinstance(self.status, Status):
+        if isinstance(self.status, int):
+            self.status = Status.get_by_number(self.status)
+        elif not isinstance(self.status, Status):
             self.status = as_enum(self.status)
-        if not isinstance(self.priority, Priority):
+
+        if isinstance(self.priority, int):
+            self.priority = Priority.get_by_number(self.priority)
+        elif not isinstance(self.priority, Priority):
             self.priority = as_enum(self.priority)
 

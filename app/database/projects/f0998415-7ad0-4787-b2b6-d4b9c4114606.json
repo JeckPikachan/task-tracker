@@ -2,10 +2,38 @@
     "project": {
         "unique_id": "f0998415-7ad0-4787-b2b6-d4b9c4114606",
         "name": "Project created from CLI",
-        "lists": [],
+        "lists": [
+            "d390a357-ead3-4d69-ae8c-bf9b854bb20d"
+        ],
         "roles_list": [],
         "user_project_relations_list": []
     },
-    "task_lists": [],
-    "tasks": []
+    "task_lists": [
+        {
+            "unique_id": "d390a357-ead3-4d69-ae8c-bf9b854bb20d",
+            "name": "New list from CLI",
+            "tasks_list": [
+                "5ea0d7b4-e272-4ed9-ad4c-7dddf605606d"
+            ]
+        }
+    ],
+    "tasks": [
+        {
+            "unique_id": "5ea0d7b4-e272-4ed9-ad4c-7dddf605606d",
+            "name": "New task from CLI",
+            "description": "Hey, some description here!",
+            "expiration_date": null,
+            "priority": {
+                "__enum__": "Priority.HIGH"
+            },
+            "status": {
+                "__enum__": "Status.IN_WORK"
+            },
+            "tags_list": [],
+            "comment_ids_list": [],
+            "responsible_ids_list": [],
+            "author": null,
+            "sub_tasks_list": []
+        }
+    ]
 }

@@ -103,6 +103,16 @@ def main():
         if args.kind == 'project':
             app.add_project(args.name)
 
+        elif args.kind == 'list':
+            app.add_list(args.name)
+
+        elif args.kind == 'task':
+            app.add_task(args.list_id,
+                         args.name,
+                         description=args.description,
+                         status=args.status,
+                         priority=args.priority)
+
     if args.command == 'checkout':
         app.load_project(args.project_id)
 
