@@ -1,31 +1,11 @@
+from app.app import App
 from database.db import DataBase
 from model.project import Project
 
-project = Project(name="Some test project")
+app = App()
 
-print(project.__dict__)
-
-db = DataBase()
-error = db.load()
-
-if error is not None:
-    print("ERROR!")
-    print(error)
-    exit(1)
-
-error = db.add(project)
-
-
-if error is not None:
-    print("ERROR!")
-    print(error)
-    exit(2)
-
-error = db.load(project.unique_id)
-
-if error is not None:
-    print("ERROR!")
-    print(error)
-    exit(3)
-
-print(db.project.__dict__)
+# app.add_list('some test task list')
+app.change_task_list_name('70ee354d-a325-405e-98fd-7c09ea53fd56', 'The To Do task list')
+task_lists = app.get_task_lists()
+for task_list in task_lists:
+    print(task_list.get('name') + "\t: " + task_list.get('unique_id'))

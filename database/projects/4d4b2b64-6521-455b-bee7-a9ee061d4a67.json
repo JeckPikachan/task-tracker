@@ -1,0 +1,66 @@
+{
+    "project": {
+        "unique_id": "4d4b2b64-6521-455b-bee7-a9ee061d4a67",
+        "name": "Some test project",
+        "lists": [
+            "eea7c7c2-e973-450f-bb98-26309a6422cf",
+            "70ee354d-a325-405e-98fd-7c09ea53fd56",
+            "46e7b433-3a0f-468b-9cb4-39dbe93bd0ef",
+            "fa825901-3673-4fea-86ad-00a12ed8c2b9",
+            "ea4a6c5a-488b-478e-a0c9-1ea58b3c77f3",
+            "03165514-55c0-4d78-ba8c-1ef8c55d6d91",
+            "5ffb9b8b-b42a-4c87-a525-34872ffad3e8",
+            "d02577cd-5cd0-4cbe-9f46-17793cf5ce8a",
+            "c810a301-edef-4d85-8a2c-4864192834d0"
+        ],
+        "roles_list": [],
+        "user_project_relations_list": []
+    },
+    "task_lists": [
+        {
+            "unique_id": "eea7c7c2-e973-450f-bb98-26309a6422cf",
+            "name": "some test task list",
+            "tasks_list": []
+        },
+        {
+            "unique_id": "70ee354d-a325-405e-98fd-7c09ea53fd56",
+            "name": "The To Do task list",
+            "tasks_list": []
+        },
+        {
+            "unique_id": "46e7b433-3a0f-468b-9cb4-39dbe93bd0ef",
+            "name": "some test task list",
+            "tasks_list": []
+        },
+        {
+            "unique_id": "fa825901-3673-4fea-86ad-00a12ed8c2b9",
+            "name": "some test task list",
+            "tasks_list": []
+        },
+        {
+            "unique_id": "ea4a6c5a-488b-478e-a0c9-1ea58b3c77f3",
+            "name": "some test task list",
+            "tasks_list": []
+        },
+        {
+            "unique_id": "03165514-55c0-4d78-ba8c-1ef8c55d6d91",
+            "name": "some test task list",
+            "tasks_list": []
+        },
+        {
+            "unique_id": "5ffb9b8b-b42a-4c87-a525-34872ffad3e8",
+            "name": "some test task list",
+            "tasks_list": []
+        },
+        {
+            "unique_id": "d02577cd-5cd0-4cbe-9f46-17793cf5ce8a",
+            "name": "some test task list",
+            "tasks_list": []
+        },
+        {
+            "unique_id": "c810a301-edef-4d85-8a2c-4864192834d0",
+            "name": "some test task list",
+            "tasks_list": []
+        }
+    ]
+}
