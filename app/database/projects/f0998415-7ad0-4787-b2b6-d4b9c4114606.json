@@ -34,18 +34,18 @@
             "unique_id": "3bd08189-2f90-447b-88e6-f3cdc6ffe988",
             "name": "Hey, I've been renamed!",
             "description": "Shh, want some description?..",
-            "expiration_date": null,
             "tags_list": [],
             "comment_ids_list": [],
             "responsible_ids_list": [],
             "author": null,
             "sub_tasks_list": [],
             "status": {
-                "__enum__": "Status.IN_WORK"
+                "__enum__": "Status.DONE"
             },
             "priority": {
                 "__enum__": "Priority.HIGH"
-            }
+            },
+            "expiration_date": "2018-05-05 18:00"
         }
     ]
 }

@@ -51,6 +51,10 @@ class ProjectContainer:
         if priority is not None:
             task.priority = priority
 
+        expiration_date = kwargs.get('expiration_date')
+        if expiration_date is not None:
+            task.expiration_date = expiration_date
+
     def free_tasks_list(self, task_list_id):
         task_list = self._get_task_list_by_id(task_list_id)
         self.tasks = [task for task in self.tasks if task.unique_id not in task_list.tasks_list]

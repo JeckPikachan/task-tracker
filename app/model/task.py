@@ -1,3 +1,5 @@
+from datetime import date, datetime
+
 from app.model.UniqueObject import UniqueObject
 from app.util.enum_json import as_enum
 from app.util.priority import Priority
@@ -12,6 +14,7 @@ class Task(UniqueObject):
 
         self._status = None
         self._priority = None
+        self._expiration_date = None
 
         self.description = kwargs.get('description', None)
         self.expiration_date = kwargs.get('expiration_date', None)
@@ -22,6 +25,19 @@ class Task(UniqueObject):
         self.responsible_ids_list = kwargs.get('responsible_ids_list', [])
         self.author = kwargs.get('author', None)
         self.sub_tasks_list = kwargs.get('sub_tasks_list', [])
+
+    @property
+    def expiration_date(self):
+        return self._expiration_date
+
+    @expiration_date.setter
+    def expiration_date(self, expiration_date):
+        if isinstance(expiration_date, datetime):
+            self._expiration_date = expiration_date
+        elif isinstance(expiration_date, str):
+            self._expiration_date = datetime.strptime(expiration_date, '%Y-%m-%d %H:%M')
+        else:
+            self._expiration_date = None
 
     @property
     def priority(self):

@@ -120,6 +120,9 @@ class DataBase:
         task_dict = self._json_serializable(task)
         task_dict['status'] = enum_serializable(task_dict['_status'])
         task_dict['priority'] = enum_serializable(task_dict['_priority'])
+        task_dict['expiration_date'] = '{0:%Y-%m-%d %H:%M}'.format(task_dict['_expiration_date']) if \
+            task_dict['_expiration_date'] is not None else None
+        del task_dict['_expiration_date']
         del task_dict['_status']
         del task_dict['_priority']
         return task_dict

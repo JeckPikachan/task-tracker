@@ -1,4 +1,13 @@
 import argparse
+from datetime import datetime
+
+
+def valid_date(s):
+    try:
+        return datetime.strptime(s, '%Y-%m-%d %H:%M')
+    except ValueError:
+        msg = "Not a valid date: '{0}'.".format(s)
+        raise argparse.ArgumentTypeError(msg)
 
 
 class Parser:
@@ -80,6 +89,11 @@ class Parser:
                                       help="0 - low, 1 - middle (default), 2 - high")
         parser_edit_task.add_argument('-s', '--status', type=int, choices=[0, 1, 2],
                                       help="0 - created (default), 1 - in work, 2 - done")
+        parser_edit_task.add_argument("-e",
+                                      "--expiration_date",
+                                      help="The Expiration Date - format YYYY-MM-DD hh:mm",
+                                      required=True,
+                                      type=valid_date)
         parser_edit_task.add_argument('task_id')
 
         # parser for 'checkout' #
