@@ -62,6 +62,17 @@ class Parser:
         parser_remove_project = subparsers_for_remove.add_parser('project')
         parser_remove_project.add_argument('project_id')
 
+        # parser for 'edit' #
+        parser_edit = self.subparsers_for_command.add_parser('edit')
+        subparsers_for_edit = parser_edit.add_subparsers(dest='kind')
+
+        parser_edit_project = subparsers_for_edit.add_parser('project')
+        parser_edit_project.add_argument('-n', '--name')
+
+        parser_edit_list = subparsers_for_edit.add_parser('list')
+        parser_edit_list.add_argument('-n', '--name')
+        parser_edit_list.add_argument('list_id')
+
         # parser for 'checkout' #
         parser_checkout = self.subparsers_for_command.add_parser('checkout')
         parser_checkout.add_argument('project_id')

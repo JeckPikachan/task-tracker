@@ -113,6 +113,13 @@ def main():
             if args.kind == 'project':
                 app.remove_project(args.project_id)
 
+        if args.command == 'edit':
+            if args.kind == 'project':
+                app.edit_project(args.name)
+
+            if args.kind == 'list':
+                app.edit_task_list(args.list_id, args.name)
+
         if args.command == 'checkout':
             app.load_project(args.project_id)
 

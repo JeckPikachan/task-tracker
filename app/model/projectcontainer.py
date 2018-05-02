@@ -8,9 +8,9 @@ class ProjectContainer:
         self.lists.append(task_list)
         self.project.lists.append(task_list.unique_id)
 
-    def change_task_list_name(self, task_list_id, new_name):
+    def edit_task_list(self, task_list_id, new_name):
         task_list = self._get_task_list_by_id(task_list_id)
-        if task_list is not None:
+        if task_list is not None and new_name is not None:
             task_list.name = new_name
 
     def remove_list(self, task_list_id):

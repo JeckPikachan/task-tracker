@@ -48,6 +48,12 @@ class App:
             self.container = None
 
     @check_attribute("container")
+    def edit_project(self, new_name):
+        if new_name is not None:
+            self.container.project.name = new_name
+            self._db.save(self.container)
+
+    @check_attribute("container")
     def add_list(self, name):
         new_list = TaskList(name=name)
         self.container.add_list(new_list)
@@ -58,8 +64,8 @@ class App:
         return copy.deepcopy(self.container.lists)
 
     @check_attribute("container")
-    def change_task_list_name(self, task_list_id, new_name):
-        self.container.change_task_list_name(task_list_id, new_name)
+    def edit_task_list(self, task_list_id, new_name):
+        self.container.edit_task_list(task_list_id, new_name)
         self._db.save(self.container)
 
     @check_attribute("container")

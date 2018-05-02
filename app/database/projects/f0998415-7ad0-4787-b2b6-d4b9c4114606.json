@@ -1,7 +1,7 @@
 {
     "project": {
         "unique_id": "f0998415-7ad0-4787-b2b6-d4b9c4114606",
-        "name": "Project created from CLI",
+        "name": "Project renamed from CLI",
         "lists": [
             "d390a357-ead3-4d69-ae8c-bf9b854bb20d",
             "d95e2e24-a12b-44bf-97af-cc5e51acfa31",
@@ -23,7 +23,7 @@
         },
         {
             "unique_id": "2372258f-fe1e-44fd-b8f1-76a745eb866a",
-            "name": "Hello",
+            "name": "Renamed from CLI",
             "tasks_list": []
         }
     ],
