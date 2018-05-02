@@ -2,6 +2,8 @@ import json
 
 import copy
 
+import os
+
 from app.model.projectcontainer import ProjectContainer
 from app.model.project import Project
 from app.model.task import Task
@@ -94,6 +96,18 @@ class DataBase:
             return None
         except IOError as e:
             return e
+
+    def remove(self, project_id):
+        try:
+            os.remove(self._db_path + "projects/" + project_id + ".json")
+            self.config.projects_info = [project_info for project_info in
+                                         self.config.projects_info if
+                                         project_info.get('unique_id') != project_id]
+            if self.config.current_project_id == project_id:
+                self.config.current_project_id = None
+            self.save_config()
+        except OSError:
+            pass
 
     def get_config(self):
         return copy.copy(self.config)

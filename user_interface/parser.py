@@ -56,6 +56,11 @@ class Parser:
         remove_task_group.add_argument('--id')
         remove_task_group.add_argument('-l', '--list')
 
+        parser_remove_list = subparsers_for_remove.add_parser('list')
+        parser_remove_list.add_argument('list_id')
+
+        parser_remove_project = subparsers_for_remove.add_parser('project')
+        parser_remove_project.add_argument('project_id')
 
         # parser for 'checkout' #
         parser_checkout = self.subparsers_for_command.add_parser('checkout')
