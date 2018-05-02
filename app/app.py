@@ -76,6 +76,7 @@ class App:
     @check_attribute("container")
     def add_task(self, task_list_id, name, **kwargs):
         new_task = Task(name=name, **kwargs)
+        print(new_task.__dict__)
         self.container.add_task(task_list_id, new_task)
         self._db.save(self.container)
 

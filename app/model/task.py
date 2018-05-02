@@ -10,6 +10,9 @@ class Task(UniqueObject):
         name = kwargs.get('name', None)
         super(Task, self).__init__(name, unique_id)
 
+        self._status = None
+        self._priority = None
+
         self.description = kwargs.get('description', None)
         self.expiration_date = kwargs.get('expiration_date', None)
         self.priority = kwargs.get('priority', Priority.MIDDLE)
@@ -20,13 +23,32 @@ class Task(UniqueObject):
         self.author = kwargs.get('author', None)
         self.sub_tasks_list = kwargs.get('sub_tasks_list', [])
 
-        if isinstance(self.status, int):
-            self.status = Status.get_by_number(self.status)
-        elif not isinstance(self.status, Status):
-            self.status = as_enum(self.status)
+    @property
+    def priority(self):
+        return self._priority
 
-        if isinstance(self.priority, int):
-            self.priority = Priority.get_by_number(self.priority)
-        elif not isinstance(self.priority, Priority):
-            self.priority = as_enum(self.priority)
+    @priority.setter
+    def priority(self, priority):
+        if priority is None:
+            self._priority = Priority.MIDDLE
+        elif isinstance(priority, int):
+            self._priority = Priority.get_by_number(priority)
+        elif not isinstance(priority, Priority):
+            self._priority = as_enum(priority)
+        else:
+            self._priority = priority
 
+    @property
+    def status(self):
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        if status is None:
+            self._status = Status.CREATED
+        elif isinstance(status, int):
+            self._status = Status.get_by_number(status)
+        elif not isinstance(status, Status):
+            self._status = as_enum(status)
+        else:
+            self._status = status

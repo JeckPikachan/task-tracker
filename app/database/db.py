@@ -118,6 +118,8 @@ class DataBase:
 
     def _task_serializable(self, task):
         task_dict = self._json_serializable(task)
-        task_dict['status'] = enum_serializable(task_dict['status'])
-        task_dict['priority'] = enum_serializable(task_dict['priority'])
+        task_dict['status'] = enum_serializable(task_dict['_status'])
+        task_dict['priority'] = enum_serializable(task_dict['_priority'])
+        del task_dict['_status']
+        del task_dict['_priority']
         return task_dict

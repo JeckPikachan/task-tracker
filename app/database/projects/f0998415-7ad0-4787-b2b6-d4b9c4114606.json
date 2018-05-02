@@ -19,7 +19,9 @@
         {
             "unique_id": "d95e2e24-a12b-44bf-97af-cc5e51acfa31",
             "name": "My new list",
-            "tasks_list": []
+            "tasks_list": [
+                "3bd08189-2f90-447b-88e6-f3cdc6ffe988"
+            ]
         },
         {
             "unique_id": "2372258f-fe1e-44fd-b8f1-76a745eb866a",
@@ -27,5 +29,23 @@
             "tasks_list": []
         }
     ],
-    "tasks": []
+    "tasks": [
+        {
+            "unique_id": "3bd08189-2f90-447b-88e6-f3cdc6ffe988",
+            "name": "New Task",
+            "description": null,
+            "expiration_date": null,
+            "tags_list": [],
+            "comment_ids_list": [],
+            "responsible_ids_list": [],
+            "author": null,
+            "sub_tasks_list": [],
+            "status": {
+                "__enum__": "Status.CREATED"
+            },
+            "priority": {
+                "__enum__": "Priority.MIDDLE"
+            }
+        }
+    ]
 }
