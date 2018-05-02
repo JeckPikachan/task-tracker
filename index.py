@@ -120,11 +120,15 @@ def main():
             if args.kind == 'list':
                 app.edit_task_list(args.list_id, args.name)
 
+            if args.kind == 'task':
+                app.edit_task(**args.__dict__)
+
         if args.command == 'checkout':
             app.load_project(args.project_id)
 
     except NoContainerError as e:
         print(e.message)
+
 
 if __name__ == "__main__":
     main()

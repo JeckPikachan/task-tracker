@@ -65,7 +65,7 @@ class App:
 
     @check_attribute("container")
     def edit_task_list(self, task_list_id, new_name):
-        self.container.edit_task_list(task_list_id, new_name)
+        self.container.edit_list(task_list_id, new_name)
         self._db.save(self.container)
 
     @check_attribute("container")
@@ -83,6 +83,11 @@ class App:
     @check_attribute("container")
     def remove_task(self, task_id):
         self.container.remove_task(task_id)
+        self._db.save(self.container)
+
+    @check_attribute("container")
+    def edit_task(self, **kwargs):
+        self.container.edit_task(**kwargs)
         self._db.save(self.container)
 
     @check_attribute("container")

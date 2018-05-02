@@ -8,7 +8,7 @@ class ProjectContainer:
         self.lists.append(task_list)
         self.project.lists.append(task_list.unique_id)
 
-    def edit_task_list(self, task_list_id, new_name):
+    def edit_list(self, task_list_id, new_name):
         task_list = self._get_task_list_by_id(task_list_id)
         if task_list is not None and new_name is not None:
             task_list.name = new_name
@@ -29,6 +29,28 @@ class ProjectContainer:
             task_list.tasks_list.remove(task_id)
         self.tasks = [task for task in self.tasks if task.unique_id != task_id]
 
+    def edit_task(self, **kwargs):
+        task_id = kwargs.get('task_id')
+        task = self._get_task_by_id(task_id)
+        if task is None:
+            return
+
+        name = kwargs.get('name')
+        if name is not None:
+            task.name = name
+
+        description = kwargs.get('description')
+        if description is not None:
+            task.description = description
+
+        status = kwargs.get('status')
+        if status is not None:
+            task.status = status
+
+        priority = kwargs.get('priority')
+        if priority is not None:
+            task.priority = priority
+
     def free_tasks_list(self, task_list_id):
         task_list = self._get_task_list_by_id(task_list_id)
         self.tasks = [task for task in self.tasks if task.unique_id not in task_list.tasks_list]
@@ -44,4 +66,11 @@ class ProjectContainer:
             return None
 
     def _get_task_list_by_id(self, task_list_id):
+        if task_list_id is None:
+            return None
         return next((x for x in self.lists if x.unique_id == task_list_id), None)
+
+    def _get_task_by_id(self, task_id):
+        if task_id is None:
+            return None
+        return next((x for x in self.tasks if x.unique_id == task_id), None)
