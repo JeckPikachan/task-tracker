@@ -20,7 +20,8 @@
             "unique_id": "d95e2e24-a12b-44bf-97af-cc5e51acfa31",
             "name": "My new list",
             "tasks_list": [
-                "3bd08189-2f90-447b-88e6-f3cdc6ffe988"
+                "3bd08189-2f90-447b-88e6-f3cdc6ffe988",
+                "4187a8d6-2348-4410-a323-88124dc2efaa"
             ]
         },
         {
@@ -46,6 +47,23 @@
                 "__enum__": "Priority.HIGH"
             },
             "expiration_date": "2018-05-05 18:00"
+        },
+        {
+            "unique_id": "4187a8d6-2348-4410-a323-88124dc2efaa",
+            "name": "Something to be logged",
+            "description": null,
+            "tags_list": [],
+            "comment_ids_list": [],
+            "responsible_ids_list": [],
+            "author": null,
+            "sub_tasks_list": [],
+            "status": {
+                "__enum__": "Status.CREATED"
+            },
+            "priority": {
+                "__enum__": "Priority.MIDDLE"
+            },
+            "expiration_date": null
         }
     ]
 }

@@ -1,0 +1,4 @@
+
+    [console_scripts]
+    adastra=index:main
+    

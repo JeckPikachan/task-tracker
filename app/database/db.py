@@ -9,6 +9,7 @@ from app.model.project import Project
 from app.model.task import Task
 from app.model.tasklist import TaskList
 from app.util.enum_json import enum_serializable
+from app.util.log import log_func
 
 
 class DBConfig:
@@ -25,11 +26,11 @@ class DBConfig:
 
 
 class DataBase:
-    def __init__(self, db_path):
+    def __init__(self):
         self.project = None
         self._task_lists = []
         self._tasks = []
-        self._db_path = db_path
+        self._db_path = os.path.dirname(__file__) + "/"
         try:
             with open(self._db_path + "db_config.json","r") as config_file:
                 self.config = DBConfig(**json.load(config_file))
@@ -54,6 +55,7 @@ class DataBase:
         except IOError as e:
             raise
 
+    @log_func
     def load(self, project_id=None):
         if project_id is None:
             current_project_id = self.config.current_project_id
@@ -68,6 +70,7 @@ class DataBase:
                 self.save_config()
             return container
 
+    @log_func
     def save(self, container):
         container = copy.deepcopy(container)
         tasks = [self._task_serializable(task) for task in container.tasks]
@@ -89,6 +92,7 @@ class DataBase:
         except IOError as e:
             return e
 
+    @log_func
     def save_config(self):
         try:
             with open(self._db_path + "db_config.json", "w+") as config_file:
@@ -97,6 +101,7 @@ class DataBase:
         except IOError as e:
             return e
 
+    @log_func
     def remove(self, project_id):
         try:
             os.remove(self._db_path + "projects/" + project_id + ".json")
@@ -109,6 +114,7 @@ class DataBase:
         except OSError:
             pass
 
+    @log_func
     def get_config(self):
         return copy.copy(self.config)
 

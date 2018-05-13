@@ -7,6 +7,9 @@ from user_interface.parser import Parser
 
 
 def print_unique_object(obj):
+    if obj is None:
+        print()
+        return
     print("name: " + str(obj.name))
     print("id: " + str(obj.unique_id))
 
@@ -45,7 +48,7 @@ def print_projects(projects, current_project_id):
 
 
 def main():
-    app = App(str(os.getcwd()) + '/app/')
+    app = App()
     parser = Parser()
     args = parser.parse()
 

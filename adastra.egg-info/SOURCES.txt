@@ -1,0 +1,5 @@
+adastra.egg-info/PKG-INFO
+adastra.egg-info/SOURCES.txt
+adastra.egg-info/dependency_links.txt
+adastra.egg-info/entry_points.txt
+adastra.egg-info/top_level.txt

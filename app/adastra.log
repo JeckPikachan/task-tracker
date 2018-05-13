@@ -1,0 +1,84 @@
+13/05/2018 22:07:38 - root - INFO - App started
+13/05/2018 22:07:38 - root - INFO - Called function: load
+13/05/2018 22:07:38 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+13/05/2018 22:07:38 - root - DEBUG - load returned: <app.model.projectcontainer.ProjectContainer object at 0xb71ea6ac>
+13/05/2018 22:07:38 - root - INFO - Called function: get_task_lists
+13/05/2018 22:07:38 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: (), 
+	Kwargs: {}
+13/05/2018 22:07:38 - root - DEBUG - get_task_lists returned: [<app.model.tasklist.TaskList object at 0xb710cf4c>, <app.model.tasklist.TaskList object at 0xb710ceec>, <app.model.tasklist.TaskList object at 0xb710cfec>]
+13/05/2018 22:07:38 - root - INFO - App is about to finish
+13/05/2018 22:07:42 - root - INFO - App started
+13/05/2018 22:07:42 - root - INFO - Called function: load
+13/05/2018 22:07:42 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+13/05/2018 22:07:42 - root - DEBUG - load returned: <app.model.projectcontainer.ProjectContainer object at 0xb721d6cc>
+13/05/2018 22:07:42 - root - INFO - Called function: get_task_lists
+13/05/2018 22:07:42 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: (), 
+	Kwargs: {}
+13/05/2018 22:07:42 - root - DEBUG - get_task_lists returned: [<app.model.tasklist.TaskList object at 0xb7140f0c>, <app.model.tasklist.TaskList object at 0xb7140eac>, <app.model.tasklist.TaskList object at 0xb714408c>]
+13/05/2018 22:07:42 - root - INFO - App is about to finish
+13/05/2018 22:08:05 - root - INFO - App started
+13/05/2018 22:08:05 - root - INFO - Called function: load
+13/05/2018 22:08:05 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+13/05/2018 22:08:05 - root - DEBUG - load returned: <app.model.projectcontainer.ProjectContainer object at 0xb719a6cc>
+13/05/2018 22:08:05 - root - INFO - App is about to finish
+13/05/2018 22:08:41 - root - INFO - App started
+13/05/2018 22:08:41 - root - INFO - Called function: load
+13/05/2018 22:08:41 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+13/05/2018 22:08:41 - root - DEBUG - load returned: <app.model.projectcontainer.ProjectContainer object at 0xb71f26ac>
+13/05/2018 22:08:41 - root - INFO - Called function: add_task
+13/05/2018 22:08:41 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: ('d95e2e24-a12b-44bf-97af-cc5e51acfa31', 'Something to be logged'), 
+	Kwargs: {'description': None, 'status': None, 'priority': None}
+13/05/2018 22:08:41 - root - INFO - Called function: save
+13/05/2018 22:08:41 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (<app.model.projectcontainer.ProjectContainer object at 0xb71f26ac>,), 
+	Kwargs: {}
+13/05/2018 22:08:41 - root - INFO - Called function: save_config
+13/05/2018 22:08:41 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+13/05/2018 22:08:41 - root - DEBUG - save_config returned: None
+13/05/2018 22:08:41 - root - DEBUG - save returned: None
+13/05/2018 22:08:41 - root - DEBUG - add_task returned: None
+13/05/2018 22:08:41 - root - INFO - App is about to finish
+13/05/2018 22:10:49 - root - INFO - App started
+13/05/2018 22:10:49 - root - INFO - Called function: load
+13/05/2018 22:10:49 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+13/05/2018 22:10:49 - root - DEBUG - load returned: <app.model.projectcontainer.ProjectContainer object at 0xb72786ac>
+13/05/2018 22:10:49 - root - INFO - App is about to finish
+13/05/2018 22:10:57 - root - INFO - App started
+13/05/2018 22:10:57 - root - INFO - Called function: load
+13/05/2018 22:10:57 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+13/05/2018 22:10:57 - root - DEBUG - load returned: <app.model.projectcontainer.ProjectContainer object at 0xb72126cc>
+13/05/2018 22:10:57 - root - INFO - Called function: get_tasks
+13/05/2018 22:10:57 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: ('d95e2e24-a12b-44bf-97af-cc5e51acfa31',), 
+	Kwargs: {}
+13/05/2018 22:10:57 - root - DEBUG - get_tasks returned: [<app.model.task.Task object at 0xb7133e8c>, <app.model.task.Task object at 0xb713718c>]
+13/05/2018 22:10:57 - root - INFO - App is about to finish
