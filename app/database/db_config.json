@@ -1,24 +1,32 @@
 {
-    "current_project_id": "f0998415-7ad0-4787-b2b6-d4b9c4114606",
-    "current_user_id": "4f0d043d-bfa0-4193-ba73-57a7479a0caa",
+    "current_project_id": null,
+    "current_user_id": "b707bbe6-d50a-4552-9367-a0851f1bc8dd",
     "projects_info": [
         {
             "unique_id": "f0998415-7ad0-4787-b2b6-d4b9c4114606",
             "name": "Project renamed from CLI"
         },
         {
-            "unique_id": "ac20dac4-c77d-409c-8200-3eaa6d93fd98",
+            "unique_id": "512663c6-0f0f-4ab2-a8e1-b9747b1c794a",
             "name": "Project by Jack"
         },
         {
-            "unique_id": "512663c6-0f0f-4ab2-a8e1-b9747b1c794a",
-            "name": "Project by Jack"
+            "unique_id": "91f99329-b92a-499e-a7f0-f4318e68ad61",
+            "name": "One more Jack's project"
+        },
+        {
+            "unique_id": "b7d8c5bd-1e59-4ad8-a513-0a2763a02eb4",
+            "name": "This one by Mary"
         }
     ],
     "users_info": [
         {
             "unique_id": "4f0d043d-bfa0-4193-ba73-57a7479a0caa",
             "name": "Jack"
+        },
+        {
+            "unique_id": "b707bbe6-d50a-4552-9367-a0851f1bc8dd",
+            "name": "Mary"
         }
     ]
 }

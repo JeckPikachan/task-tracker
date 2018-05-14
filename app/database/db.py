@@ -154,6 +154,11 @@ class DataBase:
             raise e
 
     @log_func
+    def leave_project(self):
+        self.config.current_project_id = None
+        self.save_config()
+
+    @log_func
     def save_uprs(self, uprs_collection):
         try:
             with open(self._db_path + "uprs/uprs.json", "w+") as uprs_file:

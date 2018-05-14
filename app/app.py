@@ -67,6 +67,8 @@ class App:
     @log_func
     def change_user(self, user_id):
         self.user = self._db.load_user(user_id)
+        self._db.leave_project()
+        self.container = self._db.load()
 
     @log_func
     @check_attribute("user")
@@ -81,12 +83,21 @@ class App:
     @log_func
     @check_attribute("user")
     def load_project(self, project_id):
-        self.container = self._db.load(project_id)
+        has_access = self._has_user_access(project_id)
+        if has_access:
+            self.container = self._db.load(project_id)
+        else:
+            raise PermissionError("Access denied to project with id: " + project_id)
 
     @log_func
     @check_attribute("container", "user")
     def get_project(self):
         return copy.deepcopy(self.container.project)
+
+    @log_func
+    @check_attribute("user")
+    def get_user(self):
+        return copy.deepcopy(self.user)
 
     @log_func
     @check_attribute("user")
@@ -156,7 +167,17 @@ class App:
     def get_tasks(self, task_list_id=None):
         return copy.deepcopy(self.container.get_tasks(task_list_id))
 
+    def _has_user_access(self, project_id):
+        upr = next((x for x in self.uprs_collection.uprs if
+                    x.project_id == project_id and x.user_id == self.user.unique_id), None)
+        return upr is not None
+
     @log_func
     @check_attribute("user")
     def get_projects_info(self):
-        return self._db.get_config()
+        return ([x for x in self._db.get_config().projects_info if self._has_user_access(x['unique_id'])],
+                self._db.get_config().current_project_id)
+
+    @log_func
+    def get_users_info(self):
+        return [x for x in self._db.get_config().users_info], self._db.get_config().current_user_id

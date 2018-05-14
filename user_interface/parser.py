@@ -37,6 +37,9 @@ class Parser:
         parser_show_project.add_argument('-a', '--all', action='store_true')
         parser_show_project.add_argument('-v', '--verbose', action='store_true')
 
+        parser_show_user = subparsers_for_show.add_parser('user')
+        parser_show_user.add_argument('-a', '--all', action='store_true')
+
         # parser for 'add' #
         parser_add = self.subparsers_for_command.add_parser('add')
         subparsers_for_add = parser_add.add_subparsers(dest='kind')

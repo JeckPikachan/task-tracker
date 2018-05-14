@@ -1,7 +1,5 @@
 #! /usr/bin/python3.6
 
-import os
-
 from app import App, NoContainerError
 from user_interface.parser import Parser
 
@@ -47,6 +45,15 @@ def print_projects(projects, current_project_id):
         print()
 
 
+def print_users(users, current_user_id):
+    for user in users:
+        if current_user_id == user.get('unique_id'):
+            print("(CURRENT)")
+        print("name: " + user.get('name'))
+        print("id: " + user.get('unique_id'))
+        print()
+
+
 def main():
     app = App()
     parser = Parser()
@@ -57,8 +64,8 @@ def main():
             if args.kind == 'project':
 
                 if args.all:
-                    projects = app.get_projects_info()
-                    print_projects(projects.projects_info, projects.current_project_id)
+                    projects_info, current_project_id = app.get_projects_info()
+                    print_projects(projects_info, current_project_id)
                 else:
                     project = app.get_project()
                     print("name: " + str(project.name))
@@ -88,6 +95,15 @@ def main():
                     tasks = [next((x for x in tasks if x.unique_id == args.id), None)]
 
                 print_tasks(tasks, verbose)
+
+            if args.kind == 'user':
+                if args.all:
+                    users_info, current_user_id = app.get_users_info()
+                    print_users(users_info, current_user_id)
+                else:
+                    user = app.get_user()
+                    print("name: " + str(user.name))
+                    print("id: " + str(user.unique_id))
 
         if args.command == 'add':
             if args.kind == 'project':
