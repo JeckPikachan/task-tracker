@@ -9,6 +9,7 @@ from app.model.project import Project
 from app.model.projectcontainer import ProjectContainer
 from app.model.task import Task
 from app.model.tasklist import TaskList
+from app.model.user import User
 from app.util.log import log_func
 
 
@@ -17,13 +18,20 @@ class NoContainerError(AttributeError):
         self.message = message
 
 
-def check_attribute(attribute):
+def check_attribute(*attributes):
     def _check_attribute(func):
         def wrapper(self, *args, **kwargs):
-            if getattr(self, attribute) is not None:
+            flag = True
+            not_chosen = ""
+            for attr in attributes:
+                if getattr(self, attr) is None:
+                    flag = False
+                    not_chosen = attr
+                    break
+            if flag:
                 return func(self, *args, **kwargs)
             else:
-                raise NoContainerError("ERROR: Please choose project before making any actions.")
+                raise AttributeError("Not chosen: " + not_chosen)
 
         wrapper.__name__ = func.__name__
         return wrapper
@@ -44,93 +52,111 @@ class App:
                 datefmt=log_config['datefmt'])
         logging.info("App started")
         self._db = DataBase()
+        self.user = self._db.load_user()
+        self.uprs_collection = self._db.load_uprs()
         self.container = self._db.load()
 
     def __del__(self):
         logging.info("App is about to finish")
 
     @log_func
+    def add_user(self, name):
+        new_user = User(name=name)
+        self._db.save_user(new_user)
+
+    @log_func
+    def change_user(self, user_id):
+        self.user = self._db.load_user(user_id)
+
+    @log_func
+    @check_attribute("user")
     def add_project(self, name):
         new_project = Project(name=name)
         new_container = ProjectContainer(project=new_project)
+        current_user_id = self.user.unique_id
         self._db.save(new_container)
+        self.uprs_collection.add_upr(current_user_id, new_project.unique_id)
+        self._db.save_uprs(self.uprs_collection)
 
     @log_func
+    @check_attribute("user")
     def load_project(self, project_id):
         self.container = self._db.load(project_id)
 
     @log_func
-    @check_attribute("container")
+    @check_attribute("container", "user")
     def get_project(self):
         return copy.deepcopy(self.container.project)
 
     @log_func
+    @check_attribute("user")
     def remove_project(self, project_id):
         self._db.remove(project_id)
         if self.container.project.unique_id == project_id:
             self.container = None
 
     @log_func
-    @check_attribute("container")
+    @check_attribute("container", "user")
     def edit_project(self, new_name):
         if new_name is not None:
             self.container.project.name = new_name
             self._db.save(self.container)
 
     @log_func
-    @check_attribute("container")
+    @check_attribute("container", "user")
     def add_list(self, name):
         new_list = TaskList(name=name)
         self.container.add_list(new_list)
         self._db.save(self.container)
 
     @log_func
-    @check_attribute("container")
+    @check_attribute("container", "user")
     def get_task_lists(self):
         return copy.deepcopy(self.container.lists)
 
     @log_func
-    @check_attribute("container")
+    @check_attribute("container", "user")
     def edit_task_list(self, task_list_id, new_name):
         self.container.edit_list(task_list_id, new_name)
         self._db.save(self.container)
 
     @log_func
-    @check_attribute("container")
+    @check_attribute("container", "user")
     def remove_list(self, task_list_id):
         self.container.remove_list(task_list_id)
         self._db.save(self.container)
 
     @log_func
-    @check_attribute("container")
+    @check_attribute("container", "user")
     def add_task(self, task_list_id, name, **kwargs):
         new_task = Task(name=name, **kwargs)
         self.container.add_task(task_list_id, new_task)
         self._db.save(self.container)
 
     @log_func
-    @check_attribute("container")
+    @check_attribute("container", "user")
     def remove_task(self, task_id):
         self.container.remove_task(task_id)
         self._db.save(self.container)
 
     @log_func
-    @check_attribute("container")
+    @check_attribute("container", "user")
     def edit_task(self, **kwargs):
         self.container.edit_task(**kwargs)
         self._db.save(self.container)
 
     @log_func
-    @check_attribute("container")
+    @check_attribute("container", "user")
     def free_tasks_list(self, task_list_id):
         self.container.free_tasks_list(task_list_id)
         self._db.save(self.container)
 
     @log_func
-    @check_attribute("container")
+    @check_attribute("container", "user")
     def get_tasks(self, task_list_id=None):
         return copy.deepcopy(self.container.get_tasks(task_list_id))
 
     @log_func
+    @check_attribute("user")
     def get_projects_info(self):
         return self._db.get_config()

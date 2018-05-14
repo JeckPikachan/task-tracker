@@ -8,14 +8,18 @@ from app.model.projectcontainer import ProjectContainer
 from app.model.project import Project
 from app.model.task import Task
 from app.model.tasklist import TaskList
+from app.model.uprscollection import UPRSCollection
+from app.model.user import User
 from app.util.enum_json import enum_serializable
 from app.util.log import log_func
 
 
 class DBConfig:
-    def __init__(self, current_project_id=None, projects_info=None):
+    def __init__(self, current_project_id=None, current_user_id=None, projects_info=None, users_info=None):
         self.current_project_id = current_project_id
+        self.current_user_id = current_user_id
         self.projects_info = projects_info if projects_info is not None else []
+        self.users_info = users_info if users_info is not None else []
 
     def add_project_info(self, name, unique_id):
         found = next((x for x in self.projects_info if x['unique_id'] == unique_id), None)
@@ -24,12 +28,16 @@ class DBConfig:
         else:
             found['name'] = name
 
+    def add_user_info(self, name, unique_id):
+        found = next((x for x in self.users_info if x['unique_id'] == unique_id), None)
+        if found is None:
+            self.users_info.append({'unique_id': unique_id, 'name': name})
+        else:
+            found['name'] = name
+
 
 class DataBase:
     def __init__(self):
-        self.project = None
-        self._task_lists = []
-        self._tasks = []
         self._db_path = os.path.dirname(__file__) + "/"
         try:
             with open(self._db_path + "db_config.json","r") as config_file:
@@ -118,9 +126,59 @@ class DataBase:
     def get_config(self):
         return copy.copy(self.config)
 
+    @log_func
+    def save_user(self, user):
+        try:
+            with open(self._db_path + "users/" + user.unique_id + ".json", "w+") as user_file:
+                json.dump(self._json_serializable(user), user_file, indent=4)
+            self.config.add_user_info(user.name, user.unique_id)
+            self.save_config()
+            return None
+        except IOError as e:
+            return e
+
+    @log_func
+    def load_user(self, user_id=None):
+        if user_id is None:
+            user_id = self.config.current_user_id
+            if user_id is None:
+                return None
+        try:
+            with open(self._db_path + "users/" + user_id + ".json", "r") as user_file:
+                loaded = json.load(user_file)
+                user = User(**loaded)
+                self.config.current_user_id = user_id
+                self.save_config()
+            return user
+        except IOError as e:
+            raise e
+
+    @log_func
+    def save_uprs(self, uprs_collection):
+        try:
+            with open(self._db_path + "uprs/uprs.json", "w+") as uprs_file:
+                json.dump(self._uprs_collection_serializable(uprs_collection), uprs_file, indent=4)
+            return None
+        except IOError as e:
+            return e
+
+    @log_func
+    def load_uprs(self):
+        try:
+            with open(self._db_path + "uprs/uprs.json", "r") as uprs_file:
+                loaded = json.load(uprs_file)
+                uprs_collection = UPRSCollection(**loaded)
+            return uprs_collection
+        except IOError as e:
+            raise e
+
     def _json_serializable(self, obj):
         new_dict = obj.__dict__ or obj
         return new_dict
+
+    def _uprs_collection_serializable(self, uprs_collection):
+        uprs_collection.uprs = [self._json_serializable(upr) for upr in uprs_collection.uprs]
+        return uprs_collection.__dict__
 
     def _task_serializable(self, task):
         task_dict = self._json_serializable(task)

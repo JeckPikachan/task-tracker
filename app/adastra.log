@@ -82,3 +82,224 @@
 	Kwargs: {}
 13/05/2018 22:10:57 - root - DEBUG - get_tasks returned: [<app.model.task.Task object at 0xb7133e8c>, <app.model.task.Task object at 0xb713718c>]
 13/05/2018 22:10:57 - root - INFO - App is about to finish
+14/05/2018 21:27:18 - root - INFO - App started
+14/05/2018 21:27:18 - root - INFO - Called function: load
+14/05/2018 21:27:18 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+14/05/2018 21:27:18 - root - DEBUG - load returned: <app.model.projectcontainer.ProjectContainer object at 0xb724468c>
+14/05/2018 21:27:18 - root - INFO - App is about to finish
+14/05/2018 22:26:03 - root - INFO - App started
+14/05/2018 22:26:03 - root - INFO - Called function: load_uprs
+14/05/2018 22:26:03 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+14/05/2018 22:26:03 - root - DEBUG - load_uprs returned: <app.model.uprscollection.UPRSCollection object at 0xb726ec0c>
+14/05/2018 22:26:03 - root - INFO - Called function: load
+14/05/2018 22:26:03 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+14/05/2018 22:26:03 - root - DEBUG - load returned: <app.model.projectcontainer.ProjectContainer object at 0xb726ecec>
+14/05/2018 22:26:03 - root - INFO - Called function: get_projects_info
+14/05/2018 22:26:03 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: (), 
+	Kwargs: {}
+14/05/2018 22:26:03 - root - INFO - Called function: get_config
+14/05/2018 22:26:03 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+14/05/2018 22:26:03 - root - DEBUG - get_config returned: <app.database.db.DBConfig object at 0xb719174c>
+14/05/2018 22:26:03 - root - DEBUG - get_projects_info returned: None
+14/05/2018 22:26:03 - root - INFO - App is about to finish
+14/05/2018 22:28:53 - root - INFO - App started
+14/05/2018 22:28:53 - root - INFO - Called function: load_uprs
+14/05/2018 22:28:53 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+14/05/2018 22:28:53 - root - DEBUG - load_uprs returned: <app.model.uprscollection.UPRSCollection object at 0xb723ac0c>
+14/05/2018 22:28:53 - root - INFO - Called function: load
+14/05/2018 22:28:53 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+14/05/2018 22:28:53 - root - DEBUG - load returned: <app.model.projectcontainer.ProjectContainer object at 0xb723acec>
+14/05/2018 22:28:54 - root - INFO - Called function: get_projects_info
+14/05/2018 22:28:54 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: (), 
+	Kwargs: {}
+14/05/2018 22:28:54 - root - INFO - Called function: get_config
+14/05/2018 22:28:54 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+14/05/2018 22:28:54 - root - DEBUG - get_config returned: <app.database.db.DBConfig object at 0xb715e74c>
+14/05/2018 22:28:54 - root - DEBUG - get_projects_info returned: <app.database.db.DBConfig object at 0xb715e74c>
+14/05/2018 22:28:54 - root - INFO - App is about to finish
+14/05/2018 22:28:59 - root - INFO - App started
+14/05/2018 22:28:59 - root - INFO - Called function: load_uprs
+14/05/2018 22:28:59 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+14/05/2018 22:28:59 - root - DEBUG - load_uprs returned: <app.model.uprscollection.UPRSCollection object at 0xb720fc2c>
+14/05/2018 22:28:59 - root - INFO - Called function: load
+14/05/2018 22:28:59 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+14/05/2018 22:28:59 - root - DEBUG - load returned: <app.model.projectcontainer.ProjectContainer object at 0xb720fd0c>
+14/05/2018 22:28:59 - root - INFO - Called function: get_project
+14/05/2018 22:28:59 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: (), 
+	Kwargs: {}
+14/05/2018 22:28:59 - root - DEBUG - get_project returned: <app.model.project.Project object at 0xb713272c>
+14/05/2018 22:28:59 - root - INFO - App is about to finish
+14/05/2018 22:46:42 - root - INFO - App started
+14/05/2018 22:46:42 - root - INFO - Called function: load_user
+14/05/2018 22:46:42 - root - INFO - Called function: load_uprs
+14/05/2018 22:46:42 - root - INFO - Called function: load
+14/05/2018 22:46:42 - root - INFO - Called function: get_project
+14/05/2018 22:46:42 - root - ERROR - Not chosen: user
+14/05/2018 22:46:42 - root - INFO - App is about to finish
+14/05/2018 22:46:52 - root - INFO - App started
+14/05/2018 22:46:52 - root - INFO - Called function: load_user
+14/05/2018 22:46:52 - root - INFO - Called function: load_uprs
+14/05/2018 22:46:52 - root - INFO - Called function: load
+14/05/2018 22:46:52 - root - INFO - Called function: add_user
+14/05/2018 22:46:52 - root - INFO - Called function: save_user
+14/05/2018 22:46:52 - root - INFO - Called function: save_config
+14/05/2018 22:46:52 - root - INFO - App is about to finish
+14/05/2018 22:49:39 - root - INFO - App started
+14/05/2018 22:49:39 - root - INFO - Called function: load_user
+14/05/2018 22:49:39 - root - INFO - Called function: load_uprs
+14/05/2018 22:49:39 - root - INFO - Called function: load
+14/05/2018 22:49:39 - root - INFO - Called function: change_user
+14/05/2018 22:49:39 - root - INFO - Called function: load_user
+14/05/2018 22:49:39 - root - ERROR - 'str' object has no attribute 'unique_id'
+14/05/2018 22:49:39 - root - ERROR - 'str' object has no attribute 'unique_id'
+14/05/2018 22:49:39 - root - INFO - App is about to finish
+14/05/2018 22:50:15 - root - INFO - App started
+14/05/2018 22:50:15 - root - INFO - Called function: load_user
+14/05/2018 22:50:15 - root - INFO - Called function: load_uprs
+14/05/2018 22:50:15 - root - INFO - Called function: load
+14/05/2018 22:50:15 - root - INFO - Called function: change_user
+14/05/2018 22:50:15 - root - INFO - Called function: load_user
+14/05/2018 22:50:15 - root - INFO - App is about to finish
+14/05/2018 22:50:55 - root - INFO - App started
+14/05/2018 22:50:55 - root - INFO - Called function: load_user
+14/05/2018 22:50:55 - root - INFO - Called function: load_uprs
+14/05/2018 22:50:55 - root - INFO - Called function: load
+14/05/2018 22:50:55 - root - INFO - Called function: change_user
+14/05/2018 22:50:55 - root - INFO - Called function: load_user
+14/05/2018 22:50:55 - root - INFO - Called function: save_config
+14/05/2018 22:50:55 - root - INFO - App is about to finish
+14/05/2018 22:51:23 - root - INFO - App started
+14/05/2018 22:51:23 - root - INFO - Called function: load_user
+14/05/2018 22:51:23 - root - INFO - Called function: save_config
+14/05/2018 22:51:23 - root - INFO - Called function: load_uprs
+14/05/2018 22:51:23 - root - INFO - Called function: load
+14/05/2018 22:51:23 - root - INFO - Called function: add_project
+14/05/2018 22:51:23 - root - INFO - Called function: save
+14/05/2018 22:51:23 - root - INFO - Called function: save_config
+14/05/2018 22:51:23 - root - INFO - Called function: save_uprs
+14/05/2018 22:51:23 - root - ERROR - Object of type 'UserProjectRelation' is not JSON serializable
+14/05/2018 22:51:23 - root - ERROR - Object of type 'UserProjectRelation' is not JSON serializable
+14/05/2018 22:51:23 - root - INFO - App is about to finish
+14/05/2018 22:52:00 - root - INFO - App started
+14/05/2018 22:52:00 - root - INFO - Called function: load_user
+14/05/2018 22:52:00 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+14/05/2018 22:52:00 - root - INFO - Called function: save_config
+14/05/2018 22:52:00 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+14/05/2018 22:52:00 - root - DEBUG - save_config returned: None
+14/05/2018 22:52:00 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb71b6f0c>
+14/05/2018 22:52:00 - root - INFO - Called function: load_uprs
+14/05/2018 22:52:00 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+14/05/2018 22:52:00 - root - ERROR - Expecting value: line 3 column 9 (char 24)
+14/05/2018 22:52:00 - root - INFO - App is about to finish
+14/05/2018 22:52:07 - root - INFO - App started
+14/05/2018 22:52:07 - root - INFO - Called function: load_user
+14/05/2018 22:52:07 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+14/05/2018 22:52:07 - root - INFO - Called function: save_config
+14/05/2018 22:52:07 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+14/05/2018 22:52:07 - root - DEBUG - save_config returned: None
+14/05/2018 22:52:07 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb721af0c>
+14/05/2018 22:52:07 - root - INFO - Called function: load_uprs
+14/05/2018 22:52:07 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+14/05/2018 22:52:07 - root - ERROR - Expecting value: line 3 column 9 (char 24)
+14/05/2018 22:52:07 - root - INFO - App is about to finish
+14/05/2018 22:55:35 - root - INFO - App started
+14/05/2018 22:55:35 - root - INFO - Called function: load_user
+14/05/2018 22:55:35 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+14/05/2018 22:55:35 - root - INFO - Called function: save_config
+14/05/2018 22:55:35 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+14/05/2018 22:55:35 - root - DEBUG - save_config returned: None
+14/05/2018 22:55:35 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb724bfcc>
+14/05/2018 22:55:35 - root - INFO - Called function: load_uprs
+14/05/2018 22:55:35 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+14/05/2018 22:55:35 - root - DEBUG - load_uprs returned: <app.model.uprscollection.UPRSCollection object at 0xb724bfec>
+14/05/2018 22:55:35 - root - INFO - Called function: load
+14/05/2018 22:55:35 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+14/05/2018 22:55:35 - root - DEBUG - load returned: <app.model.projectcontainer.ProjectContainer object at 0xb725716c>
+14/05/2018 22:55:35 - root - INFO - Called function: add_project
+14/05/2018 22:55:35 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: ('Project by Jack',), 
+	Kwargs: {}
+14/05/2018 22:55:35 - root - INFO - Called function: save
+14/05/2018 22:55:35 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (<app.model.projectcontainer.ProjectContainer object at 0xb716ec8c>,), 
+	Kwargs: {}
+14/05/2018 22:55:35 - root - INFO - Called function: save_config
+14/05/2018 22:55:35 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+14/05/2018 22:55:35 - root - DEBUG - save_config returned: None
+14/05/2018 22:55:35 - root - DEBUG - save returned: None
+14/05/2018 22:55:35 - root - INFO - Called function: save_uprs
+14/05/2018 22:55:35 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (<app.model.uprscollection.UPRSCollection object at 0xb724bfec>,), 
+	Kwargs: {}
+14/05/2018 22:55:35 - root - DEBUG - save_uprs returned: None
+14/05/2018 22:55:35 - root - DEBUG - add_project returned: None
+14/05/2018 22:55:35 - root - INFO - App is about to finish

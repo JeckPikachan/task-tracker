@@ -103,6 +103,9 @@ def main():
                              status=args.status,
                              priority=args.priority)
 
+            elif args.kind == 'user':
+                app.add_user(args.name)
+
         if args.command == 'remove':
             if args.kind == 'task':
                 if args.id is not None:
@@ -128,6 +131,9 @@ def main():
 
         if args.command == 'checkout':
             app.load_project(args.project_id)
+
+        if args.command == 'chuser':
+            app.change_user(args.user_id)
 
     except NoContainerError as e:
         print(e.message)

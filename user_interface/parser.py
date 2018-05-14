@@ -56,6 +56,9 @@ class Parser:
         parser_add_task.add_argument('-s', '--status', type=int, choices=[0, 1, 2],
                                      help="0 - created (default), 1 - in work, 2 - done")
 
+        parser_add_user = subparsers_for_add.add_parser('user')
+        parser_add_user.add_argument('name')
+
         # parser for 'remove' #
         parser_remove = self.subparsers_for_command.add_parser('remove')
         subparsers_for_remove = parser_remove.add_subparsers(dest='kind')
@@ -99,6 +102,10 @@ class Parser:
         # parser for 'checkout' #
         parser_checkout = self.subparsers_for_command.add_parser('checkout')
         parser_checkout.add_argument('project_id')
+
+        # parser for 'chuser' #
+        parser_chuser = self.subparsers_for_command.add_parser('chuser')
+        parser_chuser.add_argument('user_id')
 
         args = self.parser.parse_args()
         return args
