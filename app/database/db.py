@@ -197,4 +197,7 @@ class DataBase:
         del task_dict['_expiration_date']
         del task_dict['_status']
         del task_dict['_priority']
+        task_dict['related_tasks_list'] = [self._json_serializable(x) for
+                                           x in task_dict['related_tasks_list']]
+
         return task_dict

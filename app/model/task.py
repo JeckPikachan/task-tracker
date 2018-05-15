@@ -1,9 +1,15 @@
-from datetime import date, datetime
+from datetime import datetime
 
 from app.model.UniqueObject import UniqueObject
 from app.util.enum_json import as_enum
 from app.util.priority import Priority
 from app.util.status import Status
+
+
+class TaskRelation:
+    def __init__(self, to, description=None):
+        self.to = to
+        self.description = description
 
 
 class Task(UniqueObject):
@@ -24,7 +30,7 @@ class Task(UniqueObject):
         self.comment_ids_list = kwargs.get('comment_ids_list', [])
         self.responsible_ids_list = kwargs.get('responsible_ids_list', [])
         self.author = kwargs.get('author', None)
-        self.sub_tasks_list = kwargs.get('sub_tasks_list', [])
+        self.related_tasks_list = [TaskRelation(**x) for x in kwargs.get('related_tasks_list', [])]
 
     @property
     def expiration_date(self):
@@ -68,3 +74,6 @@ class Task(UniqueObject):
             self._status = as_enum(status)
         else:
             self._status = status
+
+    def add_relation(self, to_id, description=None):
+        self.related_tasks_list.append(TaskRelation(to_id, description))

@@ -8,21 +8,13 @@ def print_unique_object(obj):
     if obj is None:
         print()
         return
-    print("name: " + str(obj.name))
-    print("id: " + str(obj.unique_id))
+    print("* name : " + str(obj.name))
+    print("  id   : " + str(obj.unique_id))
 
 
 def print_unique_objects(objs):
     for obj in objs:
         print_unique_object(obj)
-
-
-def print_task_lists(task_lists, verbose=False):
-    for task_list in task_lists:
-        print_unique_object(task_list)
-        if verbose:
-            print("tasks: ", task_list.tasks_list)
-        print()
 
 
 def print_tasks(tasks, verbose=False):
@@ -82,7 +74,16 @@ def main():
                 elif args.id is not None:
                     lists = [next((x for x in lists if x.unique_id == args.id), None)]
 
-                print_task_lists(lists, verbose)
+                for list in lists:
+                    tasks = app.get_tasks(list.unique_id)
+                    print("* name : " + list.name)
+                    print("  id   : " + list.unique_id)
+                    if verbose:
+                        print("  tasks:")
+                        for task in tasks:
+                            print("    * name : " + task.name)
+                            print("      id   : " + task.unique_id)
+                    print()
 
             if args.kind == 'task':
                 list_id = args.list
@@ -94,7 +95,23 @@ def main():
                 elif args.id is not None:
                     tasks = [next((x for x in tasks if x.unique_id == args.id), None)]
 
-                print_tasks(tasks, verbose)
+                for task in tasks:
+                    related_tasks = [app.get_task_by_id(x.to) for x in task.related_tasks_list]
+                    print("* name            : " + task.name)
+                    print("  id              : " + task.unique_id)
+                    if verbose:
+                        print("  description     : " + str(task.description))
+                        print("  expiration date : " + str(task.expiration_date))
+                        print("  status          : " + str(task.status))
+                        print("  priority        : " + str(task.priority))
+                        if related_tasks:
+                            print("  related tasks   :")
+                            for i in range(len(related_tasks)):
+                                print("        * name            : " + related_tasks[i].name)
+                                print("          id              : " + related_tasks[i].unique_id)
+                                print("          relation        : " + task.related_tasks_list[i].description)
+
+                    print()
 
             if args.kind == 'user':
                 if args.all:
@@ -124,6 +141,9 @@ def main():
 
             elif args.kind == 'upr':
                 app.add_upr(args.user_id, args.project_id)
+
+            elif args.kind == 'relation':
+                app.add_relation(args.from_id, args.to_id, args.description)
 
         if args.command == 'remove':
             if args.kind == 'task':

@@ -31,7 +31,7 @@ class ProjectContainer:
 
     def edit_task(self, **kwargs):
         task_id = kwargs.get('task_id')
-        task = self._get_task_by_id(task_id)
+        task = self.get_task_by_id(task_id)
         if task is None:
             return
 
@@ -72,12 +72,19 @@ class ProjectContainer:
     # def add_upr(self, upr):
     #     self.project.user_project_relations_list.append(upr)
 
+    def add_relation(self, from_id, to_id, description=None):
+        from_task = self.get_task_by_id(from_id)
+        to_task = self.get_task_by_id(to_id)
+        if from_task is None or to_task is None:
+            raise NameError("No task(s) with such id")
+        from_task.add_relation(to_id, description)
+
     def _get_task_list_by_id(self, task_list_id):
         if task_list_id is None:
             return None
         return next((x for x in self.lists if x.unique_id == task_list_id), None)
 
-    def _get_task_by_id(self, task_id):
+    def get_task_by_id(self, task_id):
         if task_id is None:
             return None
         return next((x for x in self.tasks if x.unique_id == task_id), None)

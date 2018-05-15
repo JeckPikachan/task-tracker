@@ -65,6 +65,12 @@ class App:
         self._db.save_user(new_user)
 
     @log_func
+    @check_attribute("container", "user")
+    def add_relation(self, from_id, to_id, description=None):
+        self.container.add_relation(from_id, to_id, description)
+        self._db.save(self.container)
+
+    @log_func
     def change_user(self, user_id):
         self.user = self._db.load_user(user_id)
         self._db.leave_project()
@@ -180,6 +186,11 @@ class App:
     @check_attribute("container", "user")
     def get_tasks(self, task_list_id=None):
         return copy.deepcopy(self.container.get_tasks(task_list_id))
+
+    @log_func
+    @check_attribute("container", "user")
+    def get_task_by_id(self, task_id):
+        return self.container.get_task_by_id(task_id)
 
     def _has_user_access(self, project_id):
         upr = self._find_upr(self.user.unique_id, project_id)
