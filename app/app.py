@@ -82,6 +82,16 @@ class App:
 
     @log_func
     @check_attribute("user")
+    def add_upr(self, user_id, project_id):
+        if not self._has_user_access(project_id):
+            raise PermissionError("Access denied to project with id: " + project_id)
+        upr = self._find_upr(user_id, project_id)
+        if upr is None:
+            self.uprs_collection.add_upr(user_id, project_id)
+            self._db.save_uprs(self.uprs_collection)
+
+    @log_func
+    @check_attribute("user")
     def load_project(self, project_id):
         has_access = self._has_user_access(project_id)
         if has_access:
@@ -102,9 +112,13 @@ class App:
     @log_func
     @check_attribute("user")
     def remove_project(self, project_id):
-        self._db.remove(project_id)
-        if self.container.project.unique_id == project_id:
-            self.container = None
+        if not self._has_user_access(project_id):
+            raise PermissionError("Access denied to project with id: " + project_id)
+        else:
+            self._db.remove(project_id)
+            self.uprs_collection.remove_by_project_id(project_id)
+            if self.container.project.unique_id == project_id:
+                self.container = None
 
     @log_func
     @check_attribute("container", "user")
@@ -140,7 +154,7 @@ class App:
     @log_func
     @check_attribute("container", "user")
     def add_task(self, task_list_id, name, **kwargs):
-        new_task = Task(name=name, **kwargs)
+        new_task = Task(name=name, author=self.user.unique_id, **kwargs)
         self.container.add_task(task_list_id, new_task)
         self._db.save(self.container)
 
@@ -168,9 +182,12 @@ class App:
         return copy.deepcopy(self.container.get_tasks(task_list_id))
 
     def _has_user_access(self, project_id):
-        upr = next((x for x in self.uprs_collection.uprs if
-                    x.project_id == project_id and x.user_id == self.user.unique_id), None)
+        upr = self._find_upr(self.user.unique_id, project_id)
         return upr is not None
+
+    def _find_upr(self, user_id, project_id):
+        return next((x for x in self.uprs_collection.uprs if
+                    x.project_id == project_id and x.user_id == user_id), None)
 
     @log_func
     @check_attribute("user")

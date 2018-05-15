@@ -83,7 +83,7 @@ class DataBase:
         container = copy.deepcopy(container)
         tasks = [self._task_serializable(task) for task in container.tasks]
         task_lists = [self._json_serializable(task_list) for task_list in container.lists]
-        project = self._json_serializable(container.project)
+        project = self._project_serializable(container.project)
 
         project_name = project.get('name')
         project_id = project.get('unique_id')
@@ -180,6 +180,9 @@ class DataBase:
     def _json_serializable(self, obj):
         new_dict = obj.__dict__ or obj
         return new_dict
+
+    def _project_serializable(self, project):
+        return project.__dict__
 
     def _uprs_collection_serializable(self, uprs_collection):
         uprs_collection.uprs = [self._json_serializable(upr) for upr in uprs_collection.uprs]

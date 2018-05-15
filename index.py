@@ -122,6 +122,9 @@ def main():
             elif args.kind == 'user':
                 app.add_user(args.name)
 
+            elif args.kind == 'upr':
+                app.add_upr(args.user_id, args.project_id)
+
         if args.command == 'remove':
             if args.kind == 'task':
                 if args.id is not None:

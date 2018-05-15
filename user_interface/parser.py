@@ -62,6 +62,10 @@ class Parser:
         parser_add_user = subparsers_for_add.add_parser('user')
         parser_add_user.add_argument('name')
 
+        parser_add_upr = subparsers_for_add.add_parser('upr')
+        parser_add_upr.add_argument("user_id")
+        parser_add_upr.add_argument("project_id")
+
         # parser for 'remove' #
         parser_remove = self.subparsers_for_command.add_parser('remove')
         subparsers_for_remove = parser_remove.add_subparsers(dest='kind')

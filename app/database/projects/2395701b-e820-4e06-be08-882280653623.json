@@ -1,0 +1,185 @@
+{
+    "project": {
+        "unique_id": "2395701b-e820-4e06-be08-882280653623",
+        "name": "We create songs",
+        "lists": [
+            "320b463d-f2d3-4516-b3de-163e1909dcf0",
+            "15afbdeb-41a2-4549-a6ae-228685f53466",
+            "febd4a86-f0e7-479a-8aaf-0fdbed08560d",
+            "5be3119a-3075-4b42-8d59-6ed2c4aa947c"
+        ],
+        "roles_list": []
+    },
+    "task_lists": [
+        {
+            "unique_id": "320b463d-f2d3-4516-b3de-163e1909dcf0",
+            "name": "Create drum part",
+            "tasks_list": [
+                "7e9cb992-57f1-4618-98ab-a94f247f0a58",
+                "3a1596c7-9cd6-400b-a5e2-e000c92b5635"
+            ]
+        },
+        {
+            "unique_id": "15afbdeb-41a2-4549-a6ae-228685f53466",
+            "name": "Create bass part",
+            "tasks_list": [
+                "a9d9dce8-d5ee-4441-b317-1baabfb595b8",
+                "eabe1f30-f09a-4bac-9eac-59805ac43f6b"
+            ]
+        },
+        {
+            "unique_id": "febd4a86-f0e7-479a-8aaf-0fdbed08560d",
+            "name": "Create guitar part",
+            "tasks_list": [
+                "a08d3a4d-320b-4b31-93e7-daa8bf6a0995",
+                "d849d08b-0600-4176-a9f6-f1c0b1a9b083"
+            ]
+        },
+        {
+            "unique_id": "5be3119a-3075-4b42-8d59-6ed2c4aa947c",
+            "name": "Create vocal part",
+            "tasks_list": [
+                "959870e6-85a6-4d0e-856d-632cf65f5051",
+                "22dbf86d-0624-463d-a756-47dfea35de64"
+            ]
+        }
+    ],
+    "tasks": [
+        {
+            "unique_id": "7e9cb992-57f1-4618-98ab-a94f247f0a58",
+            "name": "Create Intro",
+            "description": null,
+            "tags_list": [],
+            "comment_ids_list": [],
+            "responsible_ids_list": [],
+            "author": "324b4e76-1c1b-45fe-a4a1-8ae00045101d",
+            "sub_tasks_list": [],
+            "status": {
+                "__enum__": "Status.CREATED"
+            },
+            "priority": {
+                "__enum__": "Priority.MIDDLE"
+            },
+            "expiration_date": null
+        },
+        {
+            "unique_id": "3a1596c7-9cd6-400b-a5e2-e000c92b5635",
+            "name": "Create Outro",
+            "description": null,
+            "tags_list": [],
+            "comment_ids_list": [],
+            "responsible_ids_list": [],
+            "author": "324b4e76-1c1b-45fe-a4a1-8ae00045101d",
+            "sub_tasks_list": [],
+            "status": {
+                "__enum__": "Status.CREATED"
+            },
+            "priority": {
+                "__enum__": "Priority.MIDDLE"
+            },
+            "expiration_date": null
+        },
+        {
+            "unique_id": "a9d9dce8-d5ee-4441-b317-1baabfb595b8",
+            "name": "Create Intro",
+            "description": null,
+            "tags_list": [],
+            "comment_ids_list": [],
+            "responsible_ids_list": [],
+            "author": "324b4e76-1c1b-45fe-a4a1-8ae00045101d",
+            "sub_tasks_list": [],
+            "status": {
+                "__enum__": "Status.CREATED"
+            },
+            "priority": {
+                "__enum__": "Priority.MIDDLE"
+            },
+            "expiration_date": null
+        },
+        {
+            "unique_id": "eabe1f30-f09a-4bac-9eac-59805ac43f6b",
+            "name": "Create Outro",
+            "description": null,
+            "tags_list": [],
+            "comment_ids_list": [],
+            "responsible_ids_list": [],
+            "author": "324b4e76-1c1b-45fe-a4a1-8ae00045101d",
+            "sub_tasks_list": [],
+            "status": {
+                "__enum__": "Status.CREATED"
+            },
+            "priority": {
+                "__enum__": "Priority.MIDDLE"
+            },
+            "expiration_date": null
+        },
+        {
+            "unique_id": "a08d3a4d-320b-4b31-93e7-daa8bf6a0995",
+            "name": "Create Intro",
+            "description": null,
+            "tags_list": [],
+            "comment_ids_list": [],
+            "responsible_ids_list": [],
+            "author": "324b4e76-1c1b-45fe-a4a1-8ae00045101d",
+            "sub_tasks_list": [],
+            "status": {
+                "__enum__": "Status.CREATED"
+            },
+            "priority": {
+                "__enum__": "Priority.MIDDLE"
+            },
+            "expiration_date": null
+        },
+        {
+            "unique_id": "d849d08b-0600-4176-a9f6-f1c0b1a9b083",
+            "name": "Create Outro",
+            "description": null,
+            "tags_list": [],
+            "comment_ids_list": [],
+            "responsible_ids_list": [],
+            "author": "324b4e76-1c1b-45fe-a4a1-8ae00045101d",
+            "sub_tasks_list": [],
+            "status": {
+                "__enum__": "Status.CREATED"
+            },
+            "priority": {
+                "__enum__": "Priority.MIDDLE"
+            },
+            "expiration_date": null
+        },
+        {
+            "unique_id": "959870e6-85a6-4d0e-856d-632cf65f5051",
+            "name": "Create Intro",
+            "description": null,
+            "tags_list": [],
+            "comment_ids_list": [],
+            "responsible_ids_list": [],
+            "author": "324b4e76-1c1b-45fe-a4a1-8ae00045101d",
+            "sub_tasks_list": [],
+            "status": {
+                "__enum__": "Status.CREATED"
+            },
+            "priority": {
+                "__enum__": "Priority.MIDDLE"
+            },
+            "expiration_date": null
+        },
+        {
+            "unique_id": "22dbf86d-0624-463d-a756-47dfea35de64",
+            "name": "Create Outro",
+            "description": null,
+            "tags_list": [],
+            "comment_ids_list": [],
+            "responsible_ids_list": [],
+            "author": "324b4e76-1c1b-45fe-a4a1-8ae00045101d",
+            "sub_tasks_list": [],
+            "status": {
+                "__enum__": "Status.CREATED"
+            },
+            "priority": {
+                "__enum__": "Priority.MIDDLE"
+            },
+            "expiration_date": null
+        }
+    ]
+}
