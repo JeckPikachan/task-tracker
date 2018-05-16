@@ -40,6 +40,7 @@ def check_attribute(*attributes):
 
 
 class App:
+    # region magic methods
     def __init__(self):
         with open(os.path.dirname(__file__) + '/log_config.json', 'r') as log_config_file:
             log_config = json.load(log_config_file)
@@ -58,11 +59,17 @@ class App:
 
     def __del__(self):
         logging.info("App is about to finish")
+    # endregion
+    # region add/remove methods
+    # region user
 
     @log_func
     def add_user(self, name):
         new_user = User(name=name)
         self._db.save_user(new_user)
+
+    # endregion
+    # region relation
 
     @log_func
     @check_attribute("container", "user")
@@ -70,11 +77,8 @@ class App:
         self.container.add_relation(from_id, to_id, description)
         self._db.save(self.container)
 
-    @log_func
-    def change_user(self, user_id):
-        self.user = self._db.load_user(user_id)
-        self._db.leave_project()
-        self.container = self._db.load()
+    # endregion
+    # region project
 
     @log_func
     @check_attribute("user")
@@ -88,35 +92,6 @@ class App:
 
     @log_func
     @check_attribute("user")
-    def add_upr(self, user_id, project_id):
-        if not self._has_user_access(project_id):
-            raise PermissionError("Access denied to project with id: " + project_id)
-        upr = self._find_upr(user_id, project_id)
-        if upr is None:
-            self.uprs_collection.add_upr(user_id, project_id)
-            self._db.save_uprs(self.uprs_collection)
-
-    @log_func
-    @check_attribute("user")
-    def load_project(self, project_id):
-        has_access = self._has_user_access(project_id)
-        if has_access:
-            self.container = self._db.load(project_id)
-        else:
-            raise PermissionError("Access denied to project with id: " + project_id)
-
-    @log_func
-    @check_attribute("container", "user")
-    def get_project(self):
-        return copy.deepcopy(self.container.project)
-
-    @log_func
-    @check_attribute("user")
-    def get_user(self):
-        return copy.deepcopy(self.user)
-
-    @log_func
-    @check_attribute("user")
     def remove_project(self, project_id):
         if not self._has_user_access(project_id):
             raise PermissionError("Access denied to project with id: " + project_id)
@@ -126,12 +101,21 @@ class App:
             if self.container.project.unique_id == project_id:
                 self.container = None
 
+    # endregion
+    # region upr
+
     @log_func
-    @check_attribute("container", "user")
-    def edit_project(self, new_name):
-        if new_name is not None:
-            self.container.project.name = new_name
-            self._db.save(self.container)
+    @check_attribute("user")
+    def add_upr(self, user_id, project_id):
+        if not self._has_user_access(project_id):
+            raise PermissionError("Access denied to project with id: " + project_id)
+        upr = self._find_upr(user_id, project_id)
+        if upr is None:
+            self.uprs_collection.add_upr(user_id, project_id)
+            self._db.save_uprs(self.uprs_collection)
+
+    # endregion
+    # region list
 
     @log_func
     @check_attribute("container", "user")
@@ -142,20 +126,12 @@ class App:
 
     @log_func
     @check_attribute("container", "user")
-    def get_task_lists(self):
-        return copy.deepcopy(self.container.lists)
-
-    @log_func
-    @check_attribute("container", "user")
-    def edit_task_list(self, task_list_id, new_name):
-        self.container.edit_list(task_list_id, new_name)
-        self._db.save(self.container)
-
-    @log_func
-    @check_attribute("container", "user")
     def remove_list(self, task_list_id):
         self.container.remove_list(task_list_id)
         self._db.save(self.container)
+
+    # endregion
+    # region task
 
     @log_func
     @check_attribute("container", "user")
@@ -170,6 +146,92 @@ class App:
         self.container.remove_task(task_id)
         self._db.save(self.container)
 
+    # endregion
+    # endregion
+    # region change/checkout methods
+
+    @log_func
+    def change_user(self, user_id):
+        self.user = self._db.load_user(user_id)
+        self._db.leave_project()
+        self.container = self._db.load()
+
+    @log_func
+    @check_attribute("user")
+    def load_project(self, project_id):
+        has_access = self._has_user_access(project_id)
+        if has_access:
+            self.container = self._db.load(project_id)
+        else:
+            raise PermissionError("Access denied to project with id: " + project_id)
+
+    # endregion
+    # region get methods
+    # region project
+
+    @log_func
+    @check_attribute("container", "user")
+    def get_project(self):
+        return copy.deepcopy(self.container.project)
+
+    @log_func
+    @check_attribute("user")
+    def get_projects_info(self):
+        return ([x for x in self._db.get_config().projects_info if
+                 self._has_user_access(x['unique_id'])],
+                self._db.get_config().current_project_id)
+
+    # endregion
+    # region user
+
+    @log_func
+    @check_attribute("user")
+    def get_user(self):
+        return copy.deepcopy(self.user)
+
+    @log_func
+    def get_users_info(self):
+        return [x for x in self._db.get_config().users_info],\
+               self._db.get_config().current_user_id
+
+    # endregion
+    # region list
+
+    @log_func
+    @check_attribute("container", "user")
+    def get_task_lists(self):
+        return copy.deepcopy(self.container.lists)
+
+    # endregion
+    # region task
+
+    @log_func
+    @check_attribute("container", "user")
+    def get_tasks(self, task_list_id=None):
+        return copy.deepcopy(self.container.get_tasks(task_list_id))
+
+    @log_func
+    @check_attribute("container", "user")
+    def get_task_by_id(self, task_id):
+        return self.container.get_task_by_id(task_id)
+
+    # endregion
+    # endregion
+    # region edit methods
+
+    @log_func
+    @check_attribute("container", "user")
+    def edit_project(self, new_name):
+        if new_name is not None:
+            self.container.project.name = new_name
+            self._db.save(self.container)
+
+    @log_func
+    @check_attribute("container", "user")
+    def edit_task_list(self, task_list_id, new_name):
+        self.container.edit_list(task_list_id, new_name)
+        self._db.save(self.container)
+
     @log_func
     @check_attribute("container", "user")
     def edit_task(self, **kwargs):
@@ -182,15 +244,8 @@ class App:
         self.container.free_tasks_list(task_list_id)
         self._db.save(self.container)
 
-    @log_func
-    @check_attribute("container", "user")
-    def get_tasks(self, task_list_id=None):
-        return copy.deepcopy(self.container.get_tasks(task_list_id))
-
-    @log_func
-    @check_attribute("container", "user")
-    def get_task_by_id(self, task_id):
-        return self.container.get_task_by_id(task_id)
+    # endregion
+    # region private methods
 
     def _has_user_access(self, project_id):
         upr = self._find_upr(self.user.unique_id, project_id)
@@ -200,12 +255,4 @@ class App:
         return next((x for x in self.uprs_collection.uprs if
                     x.project_id == project_id and x.user_id == user_id), None)
 
-    @log_func
-    @check_attribute("user")
-    def get_projects_info(self):
-        return ([x for x in self._db.get_config().projects_info if self._has_user_access(x['unique_id'])],
-                self._db.get_config().current_project_id)
-
-    @log_func
-    def get_users_info(self):
-        return [x for x in self._db.get_config().users_info], self._db.get_config().current_user_id
+    # endregion

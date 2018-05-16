@@ -16,7 +16,7 @@ class Parser:
         self.subparsers_for_command = self.parser.add_subparsers(dest='command')
 
     def parse(self):
-        # parser for 'show' #
+        # region parser for 'show'
         parser_show = self.subparsers_for_command.add_parser('show')
         subparsers_for_show = parser_show.add_subparsers(dest='kind')
 
@@ -39,8 +39,8 @@ class Parser:
 
         parser_show_user = subparsers_for_show.add_parser('user')
         parser_show_user.add_argument('-a', '--all', action='store_true')
-
-        # parser for 'add' #
+        # endregion
+        # region parser for 'add'
         parser_add = self.subparsers_for_command.add_parser('add')
         subparsers_for_add = parser_add.add_subparsers(dest='kind')
 
@@ -70,8 +70,8 @@ class Parser:
         parser_add_relation.add_argument('-d', '--description')
         parser_add_relation.add_argument('from_id')
         parser_add_relation.add_argument('to_id')
-
-        # parser for 'remove' #
+        # endregion
+        # region parser for 'remove'
         parser_remove = self.subparsers_for_command.add_parser('remove')
         subparsers_for_remove = parser_remove.add_subparsers(dest='kind')
 
@@ -85,8 +85,8 @@ class Parser:
 
         parser_remove_project = subparsers_for_remove.add_parser('project')
         parser_remove_project.add_argument('project_id')
-
-        # parser for 'edit' #
+        # endregion
+        # region parser for 'edit'
         parser_edit = self.subparsers_for_command.add_parser('edit')
         subparsers_for_edit = parser_edit.add_subparsers(dest='kind')
 
@@ -110,15 +110,15 @@ class Parser:
                                       required=True,
                                       type=valid_date)
         parser_edit_task.add_argument('task_id')
-
-        # parser for 'checkout' #
+        # endregion
+        # region parser for 'checkout'
         parser_checkout = self.subparsers_for_command.add_parser('checkout')
         parser_checkout.add_argument('project_id')
-
-        # parser for 'chuser' #
+        # endregion
+        # region parser for 'chuser'
         parser_chuser = self.subparsers_for_command.add_parser('chuser')
         parser_chuser.add_argument('user_id')
-
+        # endregion
         args = self.parser.parse_args()
         return args
 

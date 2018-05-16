@@ -15,11 +15,16 @@ from app.util.log import log_func
 
 
 class DBConfig:
+    # region magic methods
+
     def __init__(self, current_project_id=None, current_user_id=None, projects_info=None, users_info=None):
         self.current_project_id = current_project_id
         self.current_user_id = current_user_id
         self.projects_info = projects_info if projects_info is not None else []
         self.users_info = users_info if users_info is not None else []
+
+    # endregion
+    # region add methods
 
     def add_project_info(self, name, unique_id):
         found = next((x for x in self.projects_info if x['unique_id'] == unique_id), None)
@@ -35,8 +40,12 @@ class DBConfig:
         else:
             found['name'] = name
 
+    # endregion
+
 
 class DataBase:
+    # region magic methods
+
     def __init__(self):
         self._db_path = os.path.dirname(__file__) + "/"
         try:
@@ -45,6 +54,8 @@ class DataBase:
         except IOError:
             self.config = DBConfig()
 
+    # endregion
+    # region load methods
     def load_from_file(self, project_id):
         try:
             with open(self._db_path + "projects/" + project_id + ".json", "r") as project_file:
@@ -79,6 +90,35 @@ class DataBase:
             return container
 
     @log_func
+    def load_user(self, user_id=None):
+        if user_id is None:
+            user_id = self.config.current_user_id
+            if user_id is None:
+                return None
+        try:
+            with open(self._db_path + "users/" + user_id + ".json", "r") as user_file:
+                loaded = json.load(user_file)
+                user = User(**loaded)
+                self.config.current_user_id = user_id
+                self.save_config()
+            return user
+        except IOError as e:
+            raise e
+
+    @log_func
+    def load_uprs(self):
+        try:
+            with open(self._db_path + "uprs/uprs.json", "r") as uprs_file:
+                loaded = json.load(uprs_file)
+                uprs_collection = UPRSCollection(**loaded)
+            return uprs_collection
+        except IOError as e:
+            raise e
+
+    # endregion
+    # region save methods
+
+    @log_func
     def save(self, container):
         container = copy.deepcopy(container)
         tasks = [self._task_serializable(task) for task in container.tasks]
@@ -110,6 +150,29 @@ class DataBase:
             return e
 
     @log_func
+    def save_user(self, user):
+        try:
+            with open(self._db_path + "users/" + user.unique_id + ".json", "w+") as user_file:
+                json.dump(self._json_serializable(user), user_file, indent=4)
+            self.config.add_user_info(user.name, user.unique_id)
+            self.save_config()
+            return None
+        except IOError as e:
+            return e
+
+    @log_func
+    def save_uprs(self, uprs_collection):
+        try:
+            with open(self._db_path + "uprs/uprs.json", "w+") as uprs_file:
+                json.dump(self._uprs_collection_serializable(uprs_collection), uprs_file, indent=4)
+            return None
+        except IOError as e:
+            return e
+
+    # endregion
+    # region remove methods
+
+    @log_func
     def remove(self, project_id):
         try:
             os.remove(self._db_path + "projects/" + project_id + ".json")
@@ -122,60 +185,23 @@ class DataBase:
         except OSError:
             pass
 
+    # endregion
+    # region get methods
+
     @log_func
     def get_config(self):
         return copy.copy(self.config)
 
-    @log_func
-    def save_user(self, user):
-        try:
-            with open(self._db_path + "users/" + user.unique_id + ".json", "w+") as user_file:
-                json.dump(self._json_serializable(user), user_file, indent=4)
-            self.config.add_user_info(user.name, user.unique_id)
-            self.save_config()
-            return None
-        except IOError as e:
-            return e
-
-    @log_func
-    def load_user(self, user_id=None):
-        if user_id is None:
-            user_id = self.config.current_user_id
-            if user_id is None:
-                return None
-        try:
-            with open(self._db_path + "users/" + user_id + ".json", "r") as user_file:
-                loaded = json.load(user_file)
-                user = User(**loaded)
-                self.config.current_user_id = user_id
-                self.save_config()
-            return user
-        except IOError as e:
-            raise e
+    # endregion
+    # region change methods
 
     @log_func
     def leave_project(self):
         self.config.current_project_id = None
         self.save_config()
 
-    @log_func
-    def save_uprs(self, uprs_collection):
-        try:
-            with open(self._db_path + "uprs/uprs.json", "w+") as uprs_file:
-                json.dump(self._uprs_collection_serializable(uprs_collection), uprs_file, indent=4)
-            return None
-        except IOError as e:
-            return e
-
-    @log_func
-    def load_uprs(self):
-        try:
-            with open(self._db_path + "uprs/uprs.json", "r") as uprs_file:
-                loaded = json.load(uprs_file)
-                uprs_collection = UPRSCollection(**loaded)
-            return uprs_collection
-        except IOError as e:
-            raise e
+    # endregion
+    # region serialization methods
 
     def _json_serializable(self, obj):
         new_dict = obj.__dict__ or obj
@@ -201,3 +227,5 @@ class DataBase:
                                            x in task_dict['related_tasks_list']]
 
         return task_dict
+
+    # endregion
