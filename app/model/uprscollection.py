@@ -12,3 +12,7 @@ class UPRSCollection:
 
     def remove_by_project_id(self, project_id):
         self.uprs = [upr for upr in self.uprs if upr.project_id != project_id]
+
+    def remove_upr(self, user_id, project_id):
+        self.uprs = [upr for upr in self.uprs if
+                     upr.project_id != project_id or upr.user_id != user_id]

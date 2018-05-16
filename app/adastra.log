@@ -5127,3 +5127,1175 @@
 	Kwargs: {}
 15/05/2018 22:57:36 - root - DEBUG - get_task_by_id returned: <app.model.task.Task object at 0xb71cac8c>
 15/05/2018 22:57:36 - root - INFO - App is about to finish
+17/05/2018 00:13:01 - root - INFO - App started
+17/05/2018 00:13:01 - root - INFO - Called function: load_user
+17/05/2018 00:13:01 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:13:01 - root - INFO - Called function: save_config
+17/05/2018 00:13:01 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:13:01 - root - DEBUG - save_config returned: None
+17/05/2018 00:13:01 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb7212c4c>
+17/05/2018 00:13:01 - root - INFO - Called function: load_uprs
+17/05/2018 00:13:01 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:13:01 - root - DEBUG - load_uprs returned: <app.model.uprscollection.UPRSCollection object at 0xb7212ccc>
+17/05/2018 00:13:01 - root - INFO - Called function: load
+17/05/2018 00:13:01 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:13:01 - root - DEBUG - load returned: <app.model.projectcontainer.ProjectContainer object at 0xb7212dec>
+17/05/2018 00:13:01 - root - INFO - Called function: get_user
+17/05/2018 00:13:01 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:13:01 - root - DEBUG - get_user returned: <app.model.user.User object at 0xb71357ec>
+17/05/2018 00:13:01 - root - INFO - App is about to finish
+17/05/2018 00:13:05 - root - INFO - App started
+17/05/2018 00:13:05 - root - INFO - Called function: load_user
+17/05/2018 00:13:05 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:13:05 - root - INFO - Called function: save_config
+17/05/2018 00:13:05 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:13:05 - root - DEBUG - save_config returned: None
+17/05/2018 00:13:05 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb728ac6c>
+17/05/2018 00:13:05 - root - INFO - Called function: load_uprs
+17/05/2018 00:13:05 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:13:05 - root - DEBUG - load_uprs returned: <app.model.uprscollection.UPRSCollection object at 0xb728acec>
+17/05/2018 00:13:05 - root - INFO - Called function: load
+17/05/2018 00:13:05 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:13:05 - root - DEBUG - load returned: <app.model.projectcontainer.ProjectContainer object at 0xb728ae0c>
+17/05/2018 00:13:05 - root - INFO - Called function: get_users_info
+17/05/2018 00:13:05 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:13:05 - root - INFO - Called function: get_config
+17/05/2018 00:13:05 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:13:05 - root - DEBUG - get_config returned: <app.database.db.DBConfig object at 0xb71ad70c>
+17/05/2018 00:13:05 - root - INFO - Called function: get_config
+17/05/2018 00:13:05 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:13:05 - root - DEBUG - get_config returned: <app.database.db.DBConfig object at 0xb71ad70c>
+17/05/2018 00:13:05 - root - DEBUG - get_users_info returned: ([{'unique_id': 'c1588472-4fcd-43f2-a32d-dfca99a46c19', 'name': 'Bobby'}, {'unique_id': '324b4e76-1c1b-45fe-a4a1-8ae00045101d', 'name': 'Peter'}, {'unique_id': '5c6a134b-0a41-4c0a-ad91-b02479c7c5b0', 'name': 'Kate'}, {'unique_id': '2546194e-dbf1-4915-b04c-4ff075ca4c94', 'name': 'Mary'}], '324b4e76-1c1b-45fe-a4a1-8ae00045101d')
+17/05/2018 00:13:05 - root - INFO - App is about to finish
+17/05/2018 00:13:24 - root - INFO - App started
+17/05/2018 00:13:24 - root - INFO - Called function: load_user
+17/05/2018 00:13:24 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:13:24 - root - INFO - Called function: save_config
+17/05/2018 00:13:24 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:13:24 - root - DEBUG - save_config returned: None
+17/05/2018 00:13:24 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb71e9c2c>
+17/05/2018 00:13:24 - root - INFO - Called function: load_uprs
+17/05/2018 00:13:24 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:13:24 - root - DEBUG - load_uprs returned: <app.model.uprscollection.UPRSCollection object at 0xb71e9cac>
+17/05/2018 00:13:24 - root - INFO - Called function: load
+17/05/2018 00:13:24 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:13:24 - root - DEBUG - load returned: <app.model.projectcontainer.ProjectContainer object at 0xb71e9dcc>
+17/05/2018 00:13:24 - root - INFO - Called function: change_user
+17/05/2018 00:13:24 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: ('2546194e-dbf1-4915-b04c-4ff075ca4c94',), 
+	Kwargs: {}
+17/05/2018 00:13:24 - root - INFO - Called function: load_user
+17/05/2018 00:13:24 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: ('2546194e-dbf1-4915-b04c-4ff075ca4c94',), 
+	Kwargs: {}
+17/05/2018 00:13:24 - root - INFO - Called function: save_config
+17/05/2018 00:13:24 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:13:24 - root - DEBUG - save_config returned: None
+17/05/2018 00:13:24 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb710c96c>
+17/05/2018 00:13:24 - root - INFO - Called function: leave_project
+17/05/2018 00:13:24 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:13:24 - root - INFO - Called function: save_config
+17/05/2018 00:13:24 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:13:24 - root - DEBUG - save_config returned: None
+17/05/2018 00:13:24 - root - DEBUG - leave_project returned: None
+17/05/2018 00:13:24 - root - INFO - Called function: load
+17/05/2018 00:13:24 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:13:24 - root - DEBUG - load returned: None
+17/05/2018 00:13:24 - root - DEBUG - change_user returned: None
+17/05/2018 00:13:24 - root - INFO - App is about to finish
+17/05/2018 00:13:30 - root - INFO - App started
+17/05/2018 00:13:30 - root - INFO - Called function: load_user
+17/05/2018 00:13:30 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:13:30 - root - INFO - Called function: save_config
+17/05/2018 00:13:30 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:13:30 - root - DEBUG - save_config returned: None
+17/05/2018 00:13:30 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb7292c6c>
+17/05/2018 00:13:30 - root - INFO - Called function: load_uprs
+17/05/2018 00:13:30 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:13:30 - root - DEBUG - load_uprs returned: <app.model.uprscollection.UPRSCollection object at 0xb7292cec>
+17/05/2018 00:13:30 - root - INFO - Called function: load
+17/05/2018 00:13:30 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:13:30 - root - DEBUG - load returned: None
+17/05/2018 00:13:30 - root - INFO - Called function: get_projects_info
+17/05/2018 00:13:30 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:13:30 - root - INFO - Called function: get_config
+17/05/2018 00:13:30 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:13:30 - root - DEBUG - get_config returned: <app.database.db.DBConfig object at 0xb71aa18c>
+17/05/2018 00:13:30 - root - INFO - Called function: get_config
+17/05/2018 00:13:30 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:13:30 - root - DEBUG - get_config returned: <app.database.db.DBConfig object at 0xb71aa18c>
+17/05/2018 00:13:30 - root - DEBUG - get_projects_info returned: ([{'unique_id': '2395701b-e820-4e06-be08-882280653623', 'name': 'We create songs'}], None)
+17/05/2018 00:13:30 - root - INFO - App is about to finish
+17/05/2018 00:13:46 - root - INFO - App started
+17/05/2018 00:13:46 - root - INFO - Called function: load_user
+17/05/2018 00:13:46 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:13:46 - root - INFO - Called function: save_config
+17/05/2018 00:13:46 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:13:46 - root - DEBUG - save_config returned: None
+17/05/2018 00:13:46 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb721cc2c>
+17/05/2018 00:13:46 - root - INFO - Called function: load_uprs
+17/05/2018 00:13:46 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:13:46 - root - DEBUG - load_uprs returned: <app.model.uprscollection.UPRSCollection object at 0xb721ccac>
+17/05/2018 00:13:46 - root - INFO - Called function: load
+17/05/2018 00:13:46 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:13:46 - root - DEBUG - load returned: None
+17/05/2018 00:13:46 - root - INFO - App is about to finish
+17/05/2018 00:14:03 - root - INFO - App started
+17/05/2018 00:14:03 - root - INFO - Called function: load_user
+17/05/2018 00:14:03 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:14:03 - root - INFO - Called function: save_config
+17/05/2018 00:14:03 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:14:03 - root - DEBUG - save_config returned: None
+17/05/2018 00:14:03 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb7217c4c>
+17/05/2018 00:14:03 - root - INFO - Called function: load_uprs
+17/05/2018 00:14:03 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:14:03 - root - DEBUG - load_uprs returned: <app.model.uprscollection.UPRSCollection object at 0xb7217ccc>
+17/05/2018 00:14:03 - root - INFO - Called function: load
+17/05/2018 00:14:03 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:14:03 - root - DEBUG - load returned: None
+17/05/2018 00:14:03 - root - INFO - Called function: remove_upr
+17/05/2018 00:14:03 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: ('2546194e-dbf1-4915-b04c-4ff075ca4c94', '2395701b-e820-4e06-be08-882280653623'), 
+	Kwargs: {}
+17/05/2018 00:14:03 - root - INFO - Called function: save_uprs
+17/05/2018 00:14:03 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (<app.model.uprscollection.UPRSCollection object at 0xb7217ccc>,), 
+	Kwargs: {}
+17/05/2018 00:14:03 - root - DEBUG - save_uprs returned: None
+17/05/2018 00:14:03 - root - ERROR - 'NoneType' object has no attribute 'project'
+17/05/2018 00:14:03 - root - INFO - App is about to finish
+17/05/2018 00:15:49 - root - INFO - App started
+17/05/2018 00:15:49 - root - INFO - Called function: load_user
+17/05/2018 00:15:49 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:15:49 - root - INFO - Called function: save_config
+17/05/2018 00:15:49 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:15:49 - root - DEBUG - save_config returned: None
+17/05/2018 00:15:49 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb725dc4c>
+17/05/2018 00:15:49 - root - INFO - Called function: load_uprs
+17/05/2018 00:15:49 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:15:49 - root - DEBUG - load_uprs returned: <app.model.uprscollection.UPRSCollection object at 0xb725dccc>
+17/05/2018 00:15:49 - root - INFO - Called function: load
+17/05/2018 00:15:49 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:15:49 - root - DEBUG - load returned: None
+17/05/2018 00:15:49 - root - INFO - Called function: remove_upr
+17/05/2018 00:15:49 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: ('2546194e-dbf1-4915-b04c-4ff075ca4c94', '2395701b-e820-4e06-be08-882280653623'), 
+	Kwargs: {}
+17/05/2018 00:15:49 - root - ERROR - Access denied to project with id: 2395701b-e820-4e06-be08-882280653623
+17/05/2018 00:15:49 - root - INFO - App is about to finish
+17/05/2018 00:16:01 - root - INFO - App started
+17/05/2018 00:16:01 - root - INFO - Called function: load_user
+17/05/2018 00:16:01 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:16:01 - root - INFO - Called function: save_config
+17/05/2018 00:16:01 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:16:01 - root - DEBUG - save_config returned: None
+17/05/2018 00:16:01 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb7237c2c>
+17/05/2018 00:16:01 - root - INFO - Called function: load_uprs
+17/05/2018 00:16:01 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:16:01 - root - DEBUG - load_uprs returned: <app.model.uprscollection.UPRSCollection object at 0xb7237cac>
+17/05/2018 00:16:01 - root - INFO - Called function: load
+17/05/2018 00:16:01 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:16:01 - root - DEBUG - load returned: None
+17/05/2018 00:16:01 - root - INFO - Called function: get_users_info
+17/05/2018 00:16:01 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:16:01 - root - INFO - Called function: get_config
+17/05/2018 00:16:01 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:16:01 - root - DEBUG - get_config returned: <app.database.db.DBConfig object at 0xb714f1cc>
+17/05/2018 00:16:01 - root - INFO - Called function: get_config
+17/05/2018 00:16:01 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:16:01 - root - DEBUG - get_config returned: <app.database.db.DBConfig object at 0xb714f1cc>
+17/05/2018 00:16:01 - root - DEBUG - get_users_info returned: ([{'unique_id': 'c1588472-4fcd-43f2-a32d-dfca99a46c19', 'name': 'Bobby'}, {'unique_id': '324b4e76-1c1b-45fe-a4a1-8ae00045101d', 'name': 'Peter'}, {'unique_id': '5c6a134b-0a41-4c0a-ad91-b02479c7c5b0', 'name': 'Kate'}, {'unique_id': '2546194e-dbf1-4915-b04c-4ff075ca4c94', 'name': 'Mary'}], '2546194e-dbf1-4915-b04c-4ff075ca4c94')
+17/05/2018 00:16:01 - root - INFO - App is about to finish
+17/05/2018 00:16:11 - root - INFO - App started
+17/05/2018 00:16:11 - root - INFO - Called function: load_user
+17/05/2018 00:16:11 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:16:11 - root - INFO - Called function: save_config
+17/05/2018 00:16:11 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:16:11 - root - DEBUG - save_config returned: None
+17/05/2018 00:16:11 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb71f3c2c>
+17/05/2018 00:16:11 - root - INFO - Called function: load_uprs
+17/05/2018 00:16:11 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:16:11 - root - DEBUG - load_uprs returned: <app.model.uprscollection.UPRSCollection object at 0xb71f3cac>
+17/05/2018 00:16:11 - root - INFO - Called function: load
+17/05/2018 00:16:11 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:16:11 - root - DEBUG - load returned: None
+17/05/2018 00:16:11 - root - INFO - Called function: change_user
+17/05/2018 00:16:11 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: ('324b4e76-1c1b-45fe-a4a1-8ae00045101d',), 
+	Kwargs: {}
+17/05/2018 00:16:11 - root - INFO - Called function: load_user
+17/05/2018 00:16:11 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: ('324b4e76-1c1b-45fe-a4a1-8ae00045101d',), 
+	Kwargs: {}
+17/05/2018 00:16:11 - root - INFO - Called function: save_config
+17/05/2018 00:16:11 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:16:11 - root - DEBUG - save_config returned: None
+17/05/2018 00:16:11 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb710b10c>
+17/05/2018 00:16:11 - root - INFO - Called function: leave_project
+17/05/2018 00:16:11 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:16:11 - root - INFO - Called function: save_config
+17/05/2018 00:16:11 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:16:11 - root - DEBUG - save_config returned: None
+17/05/2018 00:16:11 - root - DEBUG - leave_project returned: None
+17/05/2018 00:16:11 - root - INFO - Called function: load
+17/05/2018 00:16:11 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:16:11 - root - DEBUG - load returned: None
+17/05/2018 00:16:11 - root - DEBUG - change_user returned: None
+17/05/2018 00:16:11 - root - INFO - App is about to finish
+17/05/2018 00:16:19 - root - INFO - App started
+17/05/2018 00:16:19 - root - INFO - Called function: load_user
+17/05/2018 00:16:19 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:16:19 - root - INFO - Called function: save_config
+17/05/2018 00:16:19 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:16:19 - root - DEBUG - save_config returned: None
+17/05/2018 00:16:19 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb7206c6c>
+17/05/2018 00:16:19 - root - INFO - Called function: load_uprs
+17/05/2018 00:16:19 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:16:19 - root - DEBUG - load_uprs returned: <app.model.uprscollection.UPRSCollection object at 0xb7206cec>
+17/05/2018 00:16:19 - root - INFO - Called function: load
+17/05/2018 00:16:19 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:16:19 - root - DEBUG - load returned: None
+17/05/2018 00:16:19 - root - INFO - Called function: get_projects_info
+17/05/2018 00:16:19 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:16:19 - root - INFO - Called function: get_config
+17/05/2018 00:16:19 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:16:19 - root - DEBUG - get_config returned: <app.database.db.DBConfig object at 0xb711e14c>
+17/05/2018 00:16:19 - root - INFO - Called function: get_config
+17/05/2018 00:16:19 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:16:19 - root - DEBUG - get_config returned: <app.database.db.DBConfig object at 0xb711e14c>
+17/05/2018 00:16:19 - root - DEBUG - get_projects_info returned: ([{'unique_id': '2395701b-e820-4e06-be08-882280653623', 'name': 'We create songs'}], None)
+17/05/2018 00:16:19 - root - INFO - App is about to finish
+17/05/2018 00:16:36 - root - INFO - App started
+17/05/2018 00:16:36 - root - INFO - Called function: load_user
+17/05/2018 00:16:36 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:16:36 - root - INFO - Called function: save_config
+17/05/2018 00:16:36 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:16:36 - root - DEBUG - save_config returned: None
+17/05/2018 00:16:36 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb71a1c6c>
+17/05/2018 00:16:36 - root - INFO - Called function: load_uprs
+17/05/2018 00:16:36 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:16:36 - root - DEBUG - load_uprs returned: <app.model.uprscollection.UPRSCollection object at 0xb71a1cec>
+17/05/2018 00:16:36 - root - INFO - Called function: load
+17/05/2018 00:16:36 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:16:36 - root - DEBUG - load returned: None
+17/05/2018 00:16:36 - root - INFO - App is about to finish
+17/05/2018 00:16:58 - root - INFO - App started
+17/05/2018 00:16:58 - root - INFO - Called function: load_user
+17/05/2018 00:16:58 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:16:58 - root - INFO - Called function: save_config
+17/05/2018 00:16:58 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:16:58 - root - DEBUG - save_config returned: None
+17/05/2018 00:16:58 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb7270c4c>
+17/05/2018 00:16:58 - root - INFO - Called function: load_uprs
+17/05/2018 00:16:58 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:16:58 - root - DEBUG - load_uprs returned: <app.model.uprscollection.UPRSCollection object at 0xb7270ccc>
+17/05/2018 00:16:58 - root - INFO - Called function: load
+17/05/2018 00:16:58 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:16:58 - root - DEBUG - load returned: None
+17/05/2018 00:16:58 - root - INFO - Called function: add_upr
+17/05/2018 00:16:58 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: ('2546194e-dbf1-4915-b04c-4ff075ca4c94', '2395701b-e820-4e06-be08-882280653623'), 
+	Kwargs: {}
+17/05/2018 00:16:58 - root - INFO - Called function: save_uprs
+17/05/2018 00:16:58 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (<app.model.uprscollection.UPRSCollection object at 0xb7270ccc>,), 
+	Kwargs: {}
+17/05/2018 00:16:58 - root - DEBUG - save_uprs returned: None
+17/05/2018 00:16:58 - root - DEBUG - add_upr returned: None
+17/05/2018 00:16:58 - root - INFO - App is about to finish
+17/05/2018 00:17:08 - root - INFO - App started
+17/05/2018 00:17:08 - root - INFO - Called function: load_user
+17/05/2018 00:17:08 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:08 - root - INFO - Called function: save_config
+17/05/2018 00:17:08 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:08 - root - DEBUG - save_config returned: None
+17/05/2018 00:17:08 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb71e2c2c>
+17/05/2018 00:17:08 - root - INFO - Called function: load_uprs
+17/05/2018 00:17:08 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:08 - root - DEBUG - load_uprs returned: <app.model.uprscollection.UPRSCollection object at 0xb71e2cac>
+17/05/2018 00:17:08 - root - INFO - Called function: load
+17/05/2018 00:17:08 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:08 - root - DEBUG - load returned: None
+17/05/2018 00:17:08 - root - INFO - Called function: change_user
+17/05/2018 00:17:08 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: ('2395701b-e820-4e06-be08-882280653623',), 
+	Kwargs: {}
+17/05/2018 00:17:08 - root - INFO - Called function: load_user
+17/05/2018 00:17:08 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: ('2395701b-e820-4e06-be08-882280653623',), 
+	Kwargs: {}
+17/05/2018 00:17:08 - root - ERROR - [Errno 2] No such file or directory: '/home/eugene/Projects/isp_business_tracker/app/database/users/2395701b-e820-4e06-be08-882280653623.json'
+17/05/2018 00:17:08 - root - ERROR - [Errno 2] No such file or directory: '/home/eugene/Projects/isp_business_tracker/app/database/users/2395701b-e820-4e06-be08-882280653623.json'
+17/05/2018 00:17:08 - root - INFO - App is about to finish
+17/05/2018 00:17:19 - root - INFO - App started
+17/05/2018 00:17:19 - root - INFO - Called function: load_user
+17/05/2018 00:17:19 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:19 - root - INFO - Called function: save_config
+17/05/2018 00:17:19 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:19 - root - DEBUG - save_config returned: None
+17/05/2018 00:17:19 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb7221c6c>
+17/05/2018 00:17:19 - root - INFO - Called function: load_uprs
+17/05/2018 00:17:19 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:19 - root - DEBUG - load_uprs returned: <app.model.uprscollection.UPRSCollection object at 0xb7221cec>
+17/05/2018 00:17:19 - root - INFO - Called function: load
+17/05/2018 00:17:19 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:19 - root - DEBUG - load returned: None
+17/05/2018 00:17:19 - root - INFO - Called function: get_users_info
+17/05/2018 00:17:19 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:19 - root - INFO - Called function: get_config
+17/05/2018 00:17:19 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:19 - root - DEBUG - get_config returned: <app.database.db.DBConfig object at 0xb713918c>
+17/05/2018 00:17:19 - root - INFO - Called function: get_config
+17/05/2018 00:17:19 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:19 - root - DEBUG - get_config returned: <app.database.db.DBConfig object at 0xb713918c>
+17/05/2018 00:17:19 - root - DEBUG - get_users_info returned: ([{'unique_id': 'c1588472-4fcd-43f2-a32d-dfca99a46c19', 'name': 'Bobby'}, {'unique_id': '324b4e76-1c1b-45fe-a4a1-8ae00045101d', 'name': 'Peter'}, {'unique_id': '5c6a134b-0a41-4c0a-ad91-b02479c7c5b0', 'name': 'Kate'}, {'unique_id': '2546194e-dbf1-4915-b04c-4ff075ca4c94', 'name': 'Mary'}], '324b4e76-1c1b-45fe-a4a1-8ae00045101d')
+17/05/2018 00:17:19 - root - INFO - App is about to finish
+17/05/2018 00:17:31 - root - INFO - App started
+17/05/2018 00:17:31 - root - INFO - Called function: load_user
+17/05/2018 00:17:31 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:31 - root - INFO - Called function: save_config
+17/05/2018 00:17:31 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:31 - root - DEBUG - save_config returned: None
+17/05/2018 00:17:31 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb7288bec>
+17/05/2018 00:17:31 - root - INFO - Called function: load_uprs
+17/05/2018 00:17:31 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:31 - root - DEBUG - load_uprs returned: <app.model.uprscollection.UPRSCollection object at 0xb7288c6c>
+17/05/2018 00:17:31 - root - INFO - Called function: load
+17/05/2018 00:17:31 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:31 - root - DEBUG - load returned: None
+17/05/2018 00:17:31 - root - INFO - Called function: change_user
+17/05/2018 00:17:31 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: ('2546194e-dbf1-4915-b04c-4ff075ca4c94',), 
+	Kwargs: {}
+17/05/2018 00:17:31 - root - INFO - Called function: load_user
+17/05/2018 00:17:31 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: ('2546194e-dbf1-4915-b04c-4ff075ca4c94',), 
+	Kwargs: {}
+17/05/2018 00:17:31 - root - INFO - Called function: save_config
+17/05/2018 00:17:31 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:31 - root - DEBUG - save_config returned: None
+17/05/2018 00:17:31 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb71a1f6c>
+17/05/2018 00:17:31 - root - INFO - Called function: leave_project
+17/05/2018 00:17:31 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:31 - root - INFO - Called function: save_config
+17/05/2018 00:17:31 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:31 - root - DEBUG - save_config returned: None
+17/05/2018 00:17:31 - root - DEBUG - leave_project returned: None
+17/05/2018 00:17:31 - root - INFO - Called function: load
+17/05/2018 00:17:31 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:31 - root - DEBUG - load returned: None
+17/05/2018 00:17:31 - root - DEBUG - change_user returned: None
+17/05/2018 00:17:31 - root - INFO - App is about to finish
+17/05/2018 00:17:37 - root - INFO - App started
+17/05/2018 00:17:37 - root - INFO - Called function: load_user
+17/05/2018 00:17:37 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:37 - root - INFO - Called function: save_config
+17/05/2018 00:17:37 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:37 - root - DEBUG - save_config returned: None
+17/05/2018 00:17:37 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb721ac0c>
+17/05/2018 00:17:37 - root - INFO - Called function: load_uprs
+17/05/2018 00:17:37 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:37 - root - DEBUG - load_uprs returned: <app.model.uprscollection.UPRSCollection object at 0xb721ac8c>
+17/05/2018 00:17:37 - root - INFO - Called function: load
+17/05/2018 00:17:37 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:37 - root - DEBUG - load returned: None
+17/05/2018 00:17:37 - root - INFO - Called function: get_project
+17/05/2018 00:17:37 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:37 - root - ERROR - Not chosen: container
+17/05/2018 00:17:37 - root - INFO - App is about to finish
+17/05/2018 00:17:42 - root - INFO - App started
+17/05/2018 00:17:42 - root - INFO - Called function: load_user
+17/05/2018 00:17:42 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:42 - root - INFO - Called function: save_config
+17/05/2018 00:17:42 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:42 - root - DEBUG - save_config returned: None
+17/05/2018 00:17:42 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb7281c6c>
+17/05/2018 00:17:42 - root - INFO - Called function: load_uprs
+17/05/2018 00:17:42 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:42 - root - DEBUG - load_uprs returned: <app.model.uprscollection.UPRSCollection object at 0xb7281cec>
+17/05/2018 00:17:42 - root - INFO - Called function: load
+17/05/2018 00:17:42 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:42 - root - DEBUG - load returned: None
+17/05/2018 00:17:42 - root - INFO - Called function: get_projects_info
+17/05/2018 00:17:42 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:42 - root - INFO - Called function: get_config
+17/05/2018 00:17:42 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:42 - root - DEBUG - get_config returned: <app.database.db.DBConfig object at 0xb719918c>
+17/05/2018 00:17:42 - root - INFO - Called function: get_config
+17/05/2018 00:17:42 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:42 - root - DEBUG - get_config returned: <app.database.db.DBConfig object at 0xb719918c>
+17/05/2018 00:17:42 - root - DEBUG - get_projects_info returned: ([{'unique_id': '2395701b-e820-4e06-be08-882280653623', 'name': 'We create songs'}], None)
+17/05/2018 00:17:42 - root - INFO - App is about to finish
+17/05/2018 00:17:56 - root - INFO - App started
+17/05/2018 00:17:56 - root - INFO - Called function: load_user
+17/05/2018 00:17:56 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:56 - root - INFO - Called function: save_config
+17/05/2018 00:17:56 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:56 - root - DEBUG - save_config returned: None
+17/05/2018 00:17:56 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb71f8c0c>
+17/05/2018 00:17:56 - root - INFO - Called function: load_uprs
+17/05/2018 00:17:56 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:56 - root - DEBUG - load_uprs returned: <app.model.uprscollection.UPRSCollection object at 0xb71f8c8c>
+17/05/2018 00:17:56 - root - INFO - Called function: load
+17/05/2018 00:17:56 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:56 - root - DEBUG - load returned: None
+17/05/2018 00:17:56 - root - INFO - Called function: load_project
+17/05/2018 00:17:56 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: ('2395701b-e820-4e06-be08-882280653623',), 
+	Kwargs: {}
+17/05/2018 00:17:56 - root - INFO - Called function: load
+17/05/2018 00:17:56 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: ('2395701b-e820-4e06-be08-882280653623',), 
+	Kwargs: {}
+17/05/2018 00:17:56 - root - INFO - Called function: save_config
+17/05/2018 00:17:56 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:17:56 - root - DEBUG - save_config returned: None
+17/05/2018 00:17:56 - root - DEBUG - load returned: <app.model.projectcontainer.ProjectContainer object at 0xb710988c>
+17/05/2018 00:17:56 - root - DEBUG - load_project returned: None
+17/05/2018 00:17:56 - root - INFO - App is about to finish
+17/05/2018 00:18:03 - root - INFO - App started
+17/05/2018 00:18:03 - root - INFO - Called function: load_user
+17/05/2018 00:18:03 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:18:03 - root - INFO - Called function: save_config
+17/05/2018 00:18:03 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:18:03 - root - DEBUG - save_config returned: None
+17/05/2018 00:18:03 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb71b6c4c>
+17/05/2018 00:18:03 - root - INFO - Called function: load_uprs
+17/05/2018 00:18:03 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:18:03 - root - DEBUG - load_uprs returned: <app.model.uprscollection.UPRSCollection object at 0xb71b6ccc>
+17/05/2018 00:18:03 - root - INFO - Called function: load
+17/05/2018 00:18:03 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:18:03 - root - DEBUG - load returned: <app.model.projectcontainer.ProjectContainer object at 0xb71b6dec>
+17/05/2018 00:18:03 - root - INFO - Called function: get_task_lists
+17/05/2018 00:18:03 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:18:03 - root - DEBUG - get_task_lists returned: [<app.model.tasklist.TaskList object at 0xb70d98ac>, <app.model.tasklist.TaskList object at 0xb70d984c>, <app.model.tasklist.TaskList object at 0xb70d998c>, <app.model.tasklist.TaskList object at 0xb70d99ac>]
+17/05/2018 00:18:03 - root - INFO - Called function: get_tasks
+17/05/2018 00:18:03 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: ('320b463d-f2d3-4516-b3de-163e1909dcf0',), 
+	Kwargs: {}
+17/05/2018 00:18:03 - root - DEBUG - get_tasks returned: [<app.model.task.Task object at 0xb70d9a2c>, <app.model.task.Task object at 0xb70d9b6c>]
+17/05/2018 00:18:03 - root - INFO - Called function: get_tasks
+17/05/2018 00:18:03 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: ('15afbdeb-41a2-4549-a6ae-228685f53466',), 
+	Kwargs: {}
+17/05/2018 00:18:03 - root - DEBUG - get_tasks returned: [<app.model.task.Task object at 0xb70d9b8c>, <app.model.task.Task object at 0xb70d9c8c>]
+17/05/2018 00:18:03 - root - INFO - Called function: get_tasks
+17/05/2018 00:18:03 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: ('febd4a86-f0e7-479a-8aaf-0fdbed08560d',), 
+	Kwargs: {}
+17/05/2018 00:18:03 - root - DEBUG - get_tasks returned: [<app.model.task.Task object at 0xb70d9a0c>, <app.model.task.Task object at 0xb70d9d6c>]
+17/05/2018 00:18:03 - root - INFO - Called function: get_tasks
+17/05/2018 00:18:03 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: ('5be3119a-3075-4b42-8d59-6ed2c4aa947c',), 
+	Kwargs: {}
+17/05/2018 00:18:03 - root - DEBUG - get_tasks returned: [<app.model.task.Task object at 0xb70d9c8c>, <app.model.task.Task object at 0xb70d9dcc>]
+17/05/2018 00:18:03 - root - INFO - App is about to finish
+17/05/2018 00:18:06 - root - INFO - App started
+17/05/2018 00:18:06 - root - INFO - Called function: load_user
+17/05/2018 00:18:06 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:18:06 - root - INFO - Called function: save_config
+17/05/2018 00:18:06 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:18:06 - root - DEBUG - save_config returned: None
+17/05/2018 00:18:06 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb7228c6c>
+17/05/2018 00:18:06 - root - INFO - Called function: load_uprs
+17/05/2018 00:18:06 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:18:06 - root - DEBUG - load_uprs returned: <app.model.uprscollection.UPRSCollection object at 0xb7228cec>
+17/05/2018 00:18:06 - root - INFO - Called function: load
+17/05/2018 00:18:06 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:18:06 - root - DEBUG - load returned: <app.model.projectcontainer.ProjectContainer object at 0xb7228e0c>
+17/05/2018 00:18:06 - root - INFO - Called function: get_task_lists
+17/05/2018 00:18:06 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:18:06 - root - DEBUG - get_task_lists returned: [<app.model.tasklist.TaskList object at 0xb714b86c>, <app.model.tasklist.TaskList object at 0xb714b80c>, <app.model.tasklist.TaskList object at 0xb714b9cc>, <app.model.tasklist.TaskList object at 0xb714ba0c>]
+17/05/2018 00:18:06 - root - INFO - Called function: get_tasks
+17/05/2018 00:18:06 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: ('320b463d-f2d3-4516-b3de-163e1909dcf0',), 
+	Kwargs: {}
+17/05/2018 00:18:06 - root - DEBUG - get_tasks returned: [<app.model.task.Task object at 0xb714ba4c>, <app.model.task.Task object at 0xb714bc2c>]
+17/05/2018 00:18:06 - root - INFO - Called function: get_tasks
+17/05/2018 00:18:06 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: ('15afbdeb-41a2-4549-a6ae-228685f53466',), 
+	Kwargs: {}
+17/05/2018 00:18:06 - root - DEBUG - get_tasks returned: [<app.model.task.Task object at 0xb714bb2c>, <app.model.task.Task object at 0xb714bd4c>]
+17/05/2018 00:18:06 - root - INFO - Called function: get_tasks
+17/05/2018 00:18:06 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: ('febd4a86-f0e7-479a-8aaf-0fdbed08560d',), 
+	Kwargs: {}
+17/05/2018 00:18:06 - root - DEBUG - get_tasks returned: [<app.model.task.Task object at 0xb714ba4c>, <app.model.task.Task object at 0xb714bdcc>]
+17/05/2018 00:18:06 - root - INFO - Called function: get_tasks
+17/05/2018 00:18:06 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: ('5be3119a-3075-4b42-8d59-6ed2c4aa947c',), 
+	Kwargs: {}
+17/05/2018 00:18:06 - root - DEBUG - get_tasks returned: [<app.model.task.Task object at 0xb714bb2c>, <app.model.task.Task object at 0xb714be2c>]
+17/05/2018 00:18:06 - root - INFO - App is about to finish
+17/05/2018 00:18:30 - root - INFO - App started
+17/05/2018 00:18:30 - root - INFO - Called function: load_user
+17/05/2018 00:18:30 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:18:30 - root - INFO - Called function: save_config
+17/05/2018 00:18:30 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:18:30 - root - DEBUG - save_config returned: None
+17/05/2018 00:18:30 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb725fc8c>
+17/05/2018 00:18:30 - root - INFO - Called function: load_uprs
+17/05/2018 00:18:30 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:18:30 - root - DEBUG - load_uprs returned: <app.model.uprscollection.UPRSCollection object at 0xb725fd0c>
+17/05/2018 00:18:30 - root - INFO - Called function: load
+17/05/2018 00:18:30 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:18:30 - root - DEBUG - load returned: <app.model.projectcontainer.ProjectContainer object at 0xb725fe2c>
+17/05/2018 00:18:30 - root - INFO - Called function: get_tasks
+17/05/2018 00:18:30 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: ('15afbdeb-41a2-4549-a6ae-228685f53466',), 
+	Kwargs: {}
+17/05/2018 00:18:30 - root - DEBUG - get_tasks returned: [<app.model.task.Task object at 0xb718272c>, <app.model.task.Task object at 0xb71829ec>]
+17/05/2018 00:18:30 - root - INFO - Called function: get_task_by_id
+17/05/2018 00:18:30 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: ('7e9cb992-57f1-4618-98ab-a94f247f0a58',), 
+	Kwargs: {}
+17/05/2018 00:18:30 - root - DEBUG - get_task_by_id returned: <app.model.task.Task object at 0xb725ff8c>
+17/05/2018 00:18:30 - root - INFO - App is about to finish
+17/05/2018 00:19:14 - root - INFO - App started
+17/05/2018 00:19:14 - root - INFO - Called function: load_user
+17/05/2018 00:19:14 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:19:14 - root - INFO - Called function: save_config
+17/05/2018 00:19:14 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:19:14 - root - DEBUG - save_config returned: None
+17/05/2018 00:19:14 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb722ac2c>
+17/05/2018 00:19:14 - root - INFO - Called function: load_uprs
+17/05/2018 00:19:14 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:19:14 - root - DEBUG - load_uprs returned: <app.model.uprscollection.UPRSCollection object at 0xb722acac>
+17/05/2018 00:19:14 - root - INFO - Called function: load
+17/05/2018 00:19:14 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:19:14 - root - DEBUG - load returned: <app.model.projectcontainer.ProjectContainer object at 0xb722adcc>
+17/05/2018 00:19:14 - root - INFO - Called function: get_tasks
+17/05/2018 00:19:14 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: (None,), 
+	Kwargs: {}
+17/05/2018 00:19:14 - root - DEBUG - get_tasks returned: [<app.model.task.Task object at 0xb714d82c>, <app.model.task.Task object at 0xb714d98c>, <app.model.task.Task object at 0xb714d9cc>, <app.model.task.Task object at 0xb714da2c>, <app.model.task.Task object at 0xb714db8c>, <app.model.task.Task object at 0xb714dc4c>, <app.model.task.Task object at 0xb714dcac>, <app.model.task.Task object at 0xb714dd6c>]
+17/05/2018 00:19:14 - root - INFO - Called function: get_task_by_id
+17/05/2018 00:19:14 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: ('7e9cb992-57f1-4618-98ab-a94f247f0a58',), 
+	Kwargs: {}
+17/05/2018 00:19:14 - root - DEBUG - get_task_by_id returned: <app.model.task.Task object at 0xb722af2c>
+17/05/2018 00:19:14 - root - INFO - App is about to finish
+17/05/2018 00:20:45 - root - INFO - App started
+17/05/2018 00:20:45 - root - INFO - Called function: load_user
+17/05/2018 00:20:45 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:20:45 - root - INFO - Called function: save_config
+17/05/2018 00:20:45 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:20:45 - root - DEBUG - save_config returned: None
+17/05/2018 00:20:45 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb71e2ccc>
+17/05/2018 00:20:45 - root - INFO - Called function: load_uprs
+17/05/2018 00:20:45 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:20:45 - root - DEBUG - load_uprs returned: <app.model.uprscollection.UPRSCollection object at 0xb71e2d4c>
+17/05/2018 00:20:45 - root - INFO - Called function: load
+17/05/2018 00:20:45 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:20:45 - root - DEBUG - load returned: <app.model.projectcontainer.ProjectContainer object at 0xb71e2e6c>
+17/05/2018 00:20:45 - root - INFO - App is about to finish
+17/05/2018 00:20:57 - root - INFO - App started
+17/05/2018 00:20:57 - root - INFO - Called function: load_user
+17/05/2018 00:20:57 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:20:57 - root - INFO - Called function: save_config
+17/05/2018 00:20:57 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:20:57 - root - DEBUG - save_config returned: None
+17/05/2018 00:20:57 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb720bc6c>
+17/05/2018 00:20:57 - root - INFO - Called function: load_uprs
+17/05/2018 00:20:57 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:20:57 - root - DEBUG - load_uprs returned: <app.model.uprscollection.UPRSCollection object at 0xb720bcec>
+17/05/2018 00:20:57 - root - INFO - Called function: load
+17/05/2018 00:20:57 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:20:57 - root - DEBUG - load returned: <app.model.projectcontainer.ProjectContainer object at 0xb720be0c>
+17/05/2018 00:20:57 - root - INFO - Called function: edit_task
+17/05/2018 00:20:57 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: (), 
+	Kwargs: {'command': 'edit', 'kind': 'task', 'name': None, 'description': 'Это очень важноadastra show task -v', 'priority': 2, 'status': None, 'expiration_date': datetime.datetime(2018, 6, 1, 10, 0), 'task_id': 'a9d9dce8-d5ee-4441-b317-1baabfb595b8'}
+17/05/2018 00:20:57 - root - INFO - Called function: save
+17/05/2018 00:20:57 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (<app.model.projectcontainer.ProjectContainer object at 0xb720be0c>,), 
+	Kwargs: {}
+17/05/2018 00:20:57 - root - INFO - Called function: save_config
+17/05/2018 00:20:57 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:20:57 - root - DEBUG - save_config returned: None
+17/05/2018 00:20:57 - root - DEBUG - save returned: None
+17/05/2018 00:20:57 - root - DEBUG - edit_task returned: None
+17/05/2018 00:20:57 - root - INFO - App is about to finish
+17/05/2018 00:21:15 - root - INFO - App started
+17/05/2018 00:21:15 - root - INFO - Called function: load_user
+17/05/2018 00:21:15 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:21:15 - root - INFO - Called function: save_config
+17/05/2018 00:21:15 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:21:15 - root - DEBUG - save_config returned: None
+17/05/2018 00:21:15 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb71ccc2c>
+17/05/2018 00:21:15 - root - INFO - Called function: load_uprs
+17/05/2018 00:21:15 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:21:15 - root - DEBUG - load_uprs returned: <app.model.uprscollection.UPRSCollection object at 0xb71cccac>
+17/05/2018 00:21:15 - root - INFO - Called function: load
+17/05/2018 00:21:15 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:21:15 - root - DEBUG - load returned: <app.model.projectcontainer.ProjectContainer object at 0xb71ccdcc>
+17/05/2018 00:21:15 - root - INFO - Called function: get_tasks
+17/05/2018 00:21:15 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: (None,), 
+	Kwargs: {}
+17/05/2018 00:21:15 - root - DEBUG - get_tasks returned: [<app.model.task.Task object at 0xb70f8d0c>, <app.model.task.Task object at 0xb70f8e6c>, <app.model.task.Task object at 0xb70f8eac>, <app.model.task.Task object at 0xb70ff04c>, <app.model.task.Task object at 0xb70ff10c>, <app.model.task.Task object at 0xb70ff1cc>, <app.model.task.Task object at 0xb70ff20c>, <app.model.task.Task object at 0xb70ff2ac>]
+17/05/2018 00:21:15 - root - INFO - Called function: get_task_by_id
+17/05/2018 00:21:15 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: ('7e9cb992-57f1-4618-98ab-a94f247f0a58',), 
+	Kwargs: {}
+17/05/2018 00:21:15 - root - DEBUG - get_task_by_id returned: <app.model.task.Task object at 0xb71ccf2c>
+17/05/2018 00:21:15 - root - INFO - App is about to finish
+17/05/2018 00:21:20 - root - INFO - App started
+17/05/2018 00:21:20 - root - INFO - Called function: load_user
+17/05/2018 00:21:20 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:21:20 - root - INFO - Called function: save_config
+17/05/2018 00:21:20 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:21:20 - root - DEBUG - save_config returned: None
+17/05/2018 00:21:20 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb725dc8c>
+17/05/2018 00:21:20 - root - INFO - Called function: load_uprs
+17/05/2018 00:21:20 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:21:20 - root - DEBUG - load_uprs returned: <app.model.uprscollection.UPRSCollection object at 0xb725dd0c>
+17/05/2018 00:21:20 - root - INFO - Called function: load
+17/05/2018 00:21:20 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:21:20 - root - DEBUG - load returned: <app.model.projectcontainer.ProjectContainer object at 0xb725de2c>
+17/05/2018 00:21:20 - root - INFO - Called function: get_tasks
+17/05/2018 00:21:20 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: (None,), 
+	Kwargs: {}
+17/05/2018 00:21:20 - root - DEBUG - get_tasks returned: [<app.model.task.Task object at 0xb718ac0c>, <app.model.task.Task object at 0xb718ae6c>, <app.model.task.Task object at 0xb718aecc>, <app.model.task.Task object at 0xb718afac>, <app.model.task.Task object at 0xb718afcc>, <app.model.task.Task object at 0xb719024c>, <app.model.task.Task object at 0xb71900cc>, <app.model.task.Task object at 0xb719034c>]
+17/05/2018 00:21:20 - root - INFO - Called function: get_task_by_id
+17/05/2018 00:21:20 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: ('7e9cb992-57f1-4618-98ab-a94f247f0a58',), 
+	Kwargs: {}
+17/05/2018 00:21:20 - root - DEBUG - get_task_by_id returned: <app.model.task.Task object at 0xb725df8c>
+17/05/2018 00:21:20 - root - INFO - App is about to finish
+17/05/2018 00:21:51 - root - INFO - App started
+17/05/2018 00:21:51 - root - INFO - Called function: load_user
+17/05/2018 00:21:51 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:21:51 - root - INFO - Called function: save_config
+17/05/2018 00:21:51 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:21:51 - root - DEBUG - save_config returned: None
+17/05/2018 00:21:51 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb721bcac>
+17/05/2018 00:21:51 - root - INFO - Called function: load_uprs
+17/05/2018 00:21:51 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:21:51 - root - DEBUG - load_uprs returned: <app.model.uprscollection.UPRSCollection object at 0xb721bd2c>
+17/05/2018 00:21:51 - root - INFO - Called function: load
+17/05/2018 00:21:51 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:21:51 - root - DEBUG - load returned: <app.model.projectcontainer.ProjectContainer object at 0xb721be4c>
+17/05/2018 00:21:51 - root - INFO - Called function: edit_task
+17/05/2018 00:21:51 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: (), 
+	Kwargs: {'command': 'edit', 'kind': 'task', 'name': None, 'description': 'Это очень важно', 'priority': 2, 'status': None, 'expiration_date': datetime.datetime(2018, 6, 1, 10, 0), 'task_id': 'a9d9dce8-d5ee-4441-b317-1baabfb595b8'}
+17/05/2018 00:21:51 - root - INFO - Called function: save
+17/05/2018 00:21:51 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (<app.model.projectcontainer.ProjectContainer object at 0xb721be4c>,), 
+	Kwargs: {}
+17/05/2018 00:21:51 - root - INFO - Called function: save_config
+17/05/2018 00:21:51 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:21:51 - root - DEBUG - save_config returned: None
+17/05/2018 00:21:51 - root - DEBUG - save returned: None
+17/05/2018 00:21:51 - root - DEBUG - edit_task returned: None
+17/05/2018 00:21:51 - root - INFO - App is about to finish
+17/05/2018 00:21:54 - root - INFO - App started
+17/05/2018 00:21:54 - root - INFO - Called function: load_user
+17/05/2018 00:21:54 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:21:54 - root - INFO - Called function: save_config
+17/05/2018 00:21:54 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:21:54 - root - DEBUG - save_config returned: None
+17/05/2018 00:21:54 - root - DEBUG - load_user returned: <app.model.user.User object at 0xb71afc4c>
+17/05/2018 00:21:54 - root - INFO - Called function: load_uprs
+17/05/2018 00:21:54 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:21:54 - root - DEBUG - load_uprs returned: <app.model.uprscollection.UPRSCollection object at 0xb71afccc>
+17/05/2018 00:21:54 - root - INFO - Called function: load
+17/05/2018 00:21:54 - root - DEBUG - 
+	Self type: <class 'app.database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+17/05/2018 00:21:54 - root - DEBUG - load returned: <app.model.projectcontainer.ProjectContainer object at 0xb71afdec>
+17/05/2018 00:21:54 - root - INFO - Called function: get_tasks
+17/05/2018 00:21:54 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: (None,), 
+	Kwargs: {}
+17/05/2018 00:21:54 - root - DEBUG - get_tasks returned: [<app.model.task.Task object at 0xb70dabcc>, <app.model.task.Task object at 0xb70dae2c>, <app.model.task.Task object at 0xb70dae8c>, <app.model.task.Task object at 0xb70daf6c>, <app.model.task.Task object at 0xb70daf8c>, <app.model.task.Task object at 0xb70e220c>, <app.model.task.Task object at 0xb70e208c>, <app.model.task.Task object at 0xb70e230c>]
+17/05/2018 00:21:54 - root - INFO - Called function: get_task_by_id
+17/05/2018 00:21:54 - root - DEBUG - 
+	Self type: <class 'app.app.App'>, 
+	Args: ('7e9cb992-57f1-4618-98ab-a94f247f0a58',), 
+	Kwargs: {}
+17/05/2018 00:21:54 - root - DEBUG - get_task_by_id returned: <app.model.task.Task object at 0xb71aff4c>
+17/05/2018 00:21:54 - root - INFO - App is about to finish

@@ -165,6 +165,12 @@ def main():
             if args.kind == 'project':
                 app.remove_project(args.project_id)
 
+            if args.kind == 'upr':
+                app.remove_upr(args.user_id, args.project_id)
+
+            if args.kind == 'relation':
+                app.remove_relation(args.from_id, args.to_id)
+
         if args.command == 'edit':
             if args.kind == 'project':
                 app.edit_project(args.name)

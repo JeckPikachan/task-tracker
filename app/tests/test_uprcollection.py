@@ -21,3 +21,10 @@ class TestUPRSCollection(unittest.TestCase):
         upr = self.uprs_collection.add_upr("any", "any other")
         self.uprs_collection.remove_by_project_id(upr.project_id)
         self.assertListEqual(self.uprs_collection.uprs, [])
+
+    def test_remove_upr(self):
+        upr = self.uprs_collection.add_upr("some", "any")
+        upr2 = self.uprs_collection.add_upr("some other", "any other")
+        self.uprs_collection.remove_upr(upr.user_id, upr.project_id)
+        self.assertIn(upr2, self.uprs_collection.uprs)
+        self.assertNotIn(upr, self.uprs_collection.uprs)

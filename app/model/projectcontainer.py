@@ -48,7 +48,15 @@ class ProjectContainer:
         to_task = self.get_task_by_id(to_id)
         if from_task is None or to_task is None:
             raise NameError("No task(s) with such id")
+        if to_task.unique_id in [x.to for x in from_task.related_tasks_list]:
+            raise NameError("Such relation already exists")
         return from_task.add_relation(to_id, description)
+
+    def remove_relation(self, from_id, to_id):
+        from_task = self.get_task_by_id(from_id)
+        if from_task is None:
+            raise NameError("No task with such id")
+        from_task.remove_relation(to_id)
 
     # endregion
     # endregion

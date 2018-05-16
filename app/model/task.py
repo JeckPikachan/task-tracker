@@ -85,3 +85,8 @@ class Task(UniqueObject):
         task_relation = TaskRelation(to_id, description)
         self.related_tasks_list.append(task_relation)
         return task_relation
+
+    def remove_relation(self, to_id):
+        self.related_tasks_list = [x for x in
+                                   self.related_tasks_list if
+                                   x.to != to_id]

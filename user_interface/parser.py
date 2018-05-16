@@ -90,6 +90,14 @@ class Parser:
 
         parser_remove_project = subparsers_for_remove.add_parser('project')
         parser_remove_project.add_argument('project_id')
+
+        parser_remove_upr = subparsers_for_remove.add_parser('upr')
+        parser_remove_upr.add_argument('user_id')
+        parser_remove_upr.add_argument('project_id')
+
+        parser_remove_relation = subparsers_for_remove.add_parser('relation')
+        parser_remove_relation.add_argument('from_id')
+        parser_remove_relation.add_argument('to_id')
         # endregion
         # region parser for 'edit'
         parser_edit = self.subparsers_for_command.add_parser('edit')

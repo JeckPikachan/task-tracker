@@ -82,7 +82,7 @@
         {
             "unique_id": "a9d9dce8-d5ee-4441-b317-1baabfb595b8",
             "name": "Create Intro",
-            "description": null,
+            "description": "\u042d\u0442\u043e \u043e\u0447\u0435\u043d\u044c \u0432\u0430\u0436\u043d\u043e",
             "tags_list": [],
             "comment_ids_list": [],
             "responsible_ids_list": [],
@@ -97,9 +97,9 @@
                 "__enum__": "Status.CREATED"
             },
             "priority": {
-                "__enum__": "Priority.MIDDLE"
+                "__enum__": "Priority.HIGH"
             },
-            "expiration_date": null
+            "expiration_date": "2018-06-01 10:00"
         },
         {
             "unique_id": "eabe1f30-f09a-4bac-9eac-59805ac43f6b",

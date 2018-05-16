@@ -73,6 +73,27 @@ class TestProjectContainer(unittest.TestCase):
         self.assertIsInstance(task_relation, TaskRelation)
         with self.assertRaises(NameError):
             self.container.add_relation("asd", "fgh")
+        with self.assertRaises(NameError):
+            self.container.add_relation(
+                task.unique_id,
+                task2.unique_id,
+                "Some description")
+
+    def test_remove_relation(self):
+        task_list = TaskList(name="Name")
+        self.container.add_list(task_list)
+        task = Task(name="Task name")
+        task2 = Task(name="Task2 name")
+        self.container.add_task(task_list.unique_id, task)
+        self.container.add_task(task_list.unique_id, task2)
+        task_relation = self.container.add_relation(
+            task.unique_id,
+            task2.unique_id,
+            "Some description")
+        with self.assertRaises(NameError):
+            self.container.remove_relation("asd", task2.unique_id)
+        self.container.remove_relation(task.unique_id, task2.unique_id)
+        self.assertNotIn(task_relation, task.related_tasks_list)
 
     def test_get_tasks(self):
         task_list = TaskList(name="Name")

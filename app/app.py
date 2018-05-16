@@ -90,6 +90,12 @@ class App:
         self.container.add_relation(from_id, to_id, description)
         self._db.save(self.container)
 
+    @log_func
+    @check_attribute("container", "user")
+    def remove_relation(self, from_id, to_id):
+        self.container.remove_relation(from_id, to_id)
+        self._db.save(self.container)
+
     # endregion
     # region project
 
@@ -126,6 +132,20 @@ class App:
         if upr is None:
             self.uprs_collection.add_upr(user_id, project_id)
             self._db.save_uprs(self.uprs_collection)
+
+    @log_func
+    @check_attribute("user")
+    def remove_upr(self, user_id, project_id):
+        if not self._has_user_access(project_id):
+            raise PermissionError("Access denied to project with id: " + project_id)
+        self.uprs_collection.remove_upr(user_id, project_id)
+        self._db.save_uprs(self.uprs_collection)
+        if user_id == self.user.unique_id and\
+                self.container and\
+                project_id == self.container.project.unique_id:
+            self._db.config.current_project_id = None
+            self.container = None
+            self._db.save_config()
 
     # endregion
     # region list
