@@ -17,7 +17,8 @@ class ProjectContainer:
     def remove_list(self, task_list_id):
         self.free_tasks_list(task_list_id)
         self.project.lists.remove(task_list_id)
-        self.lists = [task_list for task_list in self.lists if task_list.unique_id != task_list_id]
+        self.lists = [task_list for task_list in self.lists if
+                      task_list.unique_id != task_list_id]
 
     # endregion
     # region task
@@ -34,12 +35,13 @@ class ProjectContainer:
 
     # endregion
     # region relation
+
     def add_relation(self, from_id, to_id, description=None):
         from_task = self.get_task_by_id(from_id)
         to_task = self.get_task_by_id(to_id)
         if from_task is None or to_task is None:
             raise NameError("No task(s) with such id")
-        from_task.add_relation(to_id, description)
+        return from_task.add_relation(to_id, description)
 
     # endregion
     # endregion

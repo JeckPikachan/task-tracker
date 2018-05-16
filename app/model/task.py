@@ -76,4 +76,6 @@ class Task(UniqueObject):
             self._status = status
 
     def add_relation(self, to_id, description=None):
-        self.related_tasks_list.append(TaskRelation(to_id, description))
+        task_relation = TaskRelation(to_id, description)
+        self.related_tasks_list.append(task_relation)
+        return task_relation
