@@ -47,6 +47,13 @@ def print_users(users, current_user_id):
 
 
 def main():
+    """
+    Entry point of Adastra Task Tracker.
+    UI is represented by CLI.
+
+    :return:
+    """
+
     app = App()
     parser = Parser()
     args = parser.parse()

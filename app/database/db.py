@@ -44,6 +44,12 @@ class DBConfig:
 
 
 class DataBase:
+    """
+
+    DataBase class is used to manage simple json data base
+    and to encapsulate operations on json files.
+    """
+
     # region magic methods
 
     def __init__(self):

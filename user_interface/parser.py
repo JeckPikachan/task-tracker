@@ -11,6 +11,11 @@ def valid_date(s):
 
 
 class Parser:
+    """
+
+    Parser class implements basic CLI params
+    """
+
     def __init__(self):
         self.parser = argparse.ArgumentParser(description='Issue Tracker CLI')
         self.subparsers_for_command = self.parser.add_subparsers(dest='command')

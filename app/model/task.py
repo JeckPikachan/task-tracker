@@ -13,6 +13,12 @@ class TaskRelation:
 
 
 class Task(UniqueObject):
+    """
+
+    Task is the most basic element of Task Tracker
+    Tasks are grouped into Task Lists (TaskList)
+    Tasks exist in terms of task lists only
+    """
     def __init__(self, **kwargs):
         unique_id = kwargs.get('unique_id', None)
         name = kwargs.get('name', None)

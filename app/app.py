@@ -19,6 +19,13 @@ class NoContainerError(AttributeError):
 
 
 def check_attribute(*attributes):
+    """
+    Decorator to check whether some attribute is defined
+    before executing method
+
+    :param attributes: args of str type
+    :return: sets a wrapper on method
+    """
     def _check_attribute(func):
         def wrapper(self, *args, **kwargs):
             flag = True
@@ -40,6 +47,12 @@ def check_attribute(*attributes):
 
 
 class App:
+    """
+
+    App class represent Task Tracker Library interface to use
+    wherever in other projects. It doesn't implements any
+    user interface.
+    """
     # region magic methods
     def __init__(self):
         with open(os.path.dirname(__file__) + '/log_config.json', 'r') as log_config_file:

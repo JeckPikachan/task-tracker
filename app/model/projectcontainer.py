@@ -1,4 +1,11 @@
 class ProjectContainer:
+    """
+
+    Project container unites the whole project in
+    one object. It includes methods to manage the
+    whole project.
+    """
+
     # region magic methods
 
     def __init__(self, **kwargs):
