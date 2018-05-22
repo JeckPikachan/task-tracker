@@ -152,6 +152,16 @@ def main():
             elif args.kind == 'relation':
                 app.add_relation(args.from_id, args.to_id, args.description)
 
+            elif args.kind == 'plan':
+                app.add_plan(name=args.name,
+                             task_list_id=args.list_id,
+                             delta=args.delta,
+                             status=args.status,
+                             priority=args.priority,
+                             description=args.description,
+                             start_date=args.start_date,
+                             end_date=args.end_date)
+
         if args.command == 'remove':
             if args.kind == 'task':
                 if args.id is not None:

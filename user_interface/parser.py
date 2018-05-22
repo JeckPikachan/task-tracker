@@ -75,6 +75,25 @@ class Parser:
         parser_add_relation.add_argument('-d', '--description')
         parser_add_relation.add_argument('from_id')
         parser_add_relation.add_argument('to_id')
+
+        parser_add_plan = subparsers_for_add.add_parser('plan')
+        parser_add_plan.add_argument('delta', type=int, choices=[0, 1, 2, 3],
+                                     help="0 - day, 1 - week, 2 - month, 3 - year")
+        parser_add_plan.add_argument('list_id')
+        parser_add_plan.add_argument('name')
+        parser_add_plan.add_argument('-d', '--description')
+        parser_add_plan.add_argument('-p', '--priority', type=int, choices=[0, 1, 2],
+                                     help="0 - low, 1 - middle (default), 2 - high")
+        parser_add_plan.add_argument('-s', '--status', type=int, choices=[0, 1, 2],
+                                     help="0 - created (default), 1 - in work, 2 - done")
+        parser_add_plan.add_argument("-t",
+                                     "--start_date",
+                                     help="Start Date - format YYYY-MM-DD hh:mm",
+                                     type=valid_date)
+        parser_add_plan.add_argument("-e",
+                                     "--end_date",
+                                     help="End Date - format YYYY-MM-DD hh:mm",
+                                     type=valid_date)
         # endregion
         # region parser for 'remove'
         parser_remove = self.subparsers_for_command.add_parser('remove')
@@ -120,7 +139,6 @@ class Parser:
         parser_edit_task.add_argument("-e",
                                       "--expiration_date",
                                       help="The Expiration Date - format YYYY-MM-DD hh:mm",
-                                      required=True,
                                       type=valid_date)
         parser_edit_task.add_argument('task_id')
         # endregion
@@ -134,4 +152,3 @@ class Parser:
         # endregion
         args = self.parser.parse_args()
         return args
-

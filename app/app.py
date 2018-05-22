@@ -4,12 +4,17 @@ import logging
 
 import os
 
+import time
+
 from app.database.db import DataBase
+from app.model.planmanager import PlanManager
 from app.model.project import Project
 from app.model.projectcontainer import ProjectContainer
 from app.model.task import Task
 from app.model.tasklist import TaskList
+from app.model.taskpattern import TaskPattern
 from app.model.user import User
+from app.util.deltatime import get_time_from_delta
 from app.util.log import log_func
 
 
@@ -55,7 +60,8 @@ class App:
     """
     # region magic methods
     def __init__(self):
-        with open(os.path.dirname(__file__) + '/log_config.json', 'r') as log_config_file:
+        with open(os.path.dirname(__file__) + '/log_config.json', 'r') as \
+                log_config_file:
             log_config = json.load(log_config_file)
 
         if not log_config['level'] == 'OFF':
@@ -180,6 +186,30 @@ class App:
         self._db.save(self.container)
 
     # endregion
+    # region plan
+
+    @log_func
+    @check_attribute("user", "container")
+    def add_plan(self,
+                 name,
+                 task_list_id,
+                 delta,
+                 status=None,
+                 priority=None,
+                 description=None,
+                 start_date=None,
+                 end_date=None):
+        delta = get_time_from_delta(delta)
+        if start_date is not None:
+            start_date = time.mktime(start_date.timetuple())
+        if end_date is not None:
+            end_date = time.mktime(end_date.timetuple())
+        task_pattern = TaskPattern(name, description, priority, status, self.user.unique_id)
+        new_plan = PlanManager(delta, task_pattern, task_list_id, start_date, end_date)
+        self.container.add_plan(task_list_id, new_plan)
+        self._db.save(self.container)
+
+    # endregion
     # endregion
     # region change/checkout methods
 
@@ -241,7 +271,9 @@ class App:
     @log_func
     @check_attribute("container", "user")
     def get_tasks(self, task_list_id=None):
-        return copy.deepcopy(self.container.get_tasks(task_list_id))
+        tasks = copy.deepcopy(self.container.get_tasks(task_list_id))
+        self._db.save(self.container)
+        return tasks
 
     @log_func
     @check_attribute("container", "user")

@@ -6299,3 +6299,254 @@
 	Kwargs: {}
 17/05/2018 00:21:54 - root - DEBUG - get_task_by_id returned: <app.model.task.Task object at 0xb71aff4c>
 17/05/2018 00:21:54 - root - INFO - App is about to finish
+17/05/2018 11:00:39 - root - INFO - App started
+17/05/2018 11:00:39 - root - INFO - Called function: load_user
+17/05/2018 11:00:39 - root - INFO - Called function: save_config
+17/05/2018 11:00:39 - root - INFO - Called function: load_uprs
+17/05/2018 11:00:39 - root - INFO - Called function: load
+17/05/2018 11:00:39 - root - INFO - Called function: get_user
+17/05/2018 11:00:39 - root - INFO - App is about to finish
+17/05/2018 11:00:42 - root - INFO - App started
+17/05/2018 11:00:42 - root - INFO - Called function: load_user
+17/05/2018 11:00:42 - root - INFO - Called function: save_config
+17/05/2018 11:00:42 - root - INFO - Called function: load_uprs
+17/05/2018 11:00:42 - root - INFO - Called function: load
+17/05/2018 11:00:42 - root - INFO - Called function: get_users_info
+17/05/2018 11:00:42 - root - INFO - Called function: get_config
+17/05/2018 11:00:42 - root - INFO - Called function: get_config
+17/05/2018 11:00:42 - root - INFO - App is about to finish
+17/05/2018 11:00:49 - root - INFO - App started
+17/05/2018 11:00:49 - root - INFO - Called function: load_user
+17/05/2018 11:00:49 - root - INFO - Called function: save_config
+17/05/2018 11:00:49 - root - INFO - Called function: load_uprs
+17/05/2018 11:00:49 - root - INFO - Called function: load
+17/05/2018 11:00:49 - root - INFO - Called function: get_project
+17/05/2018 11:00:49 - root - INFO - App is about to finish
+17/05/2018 11:00:53 - root - INFO - App started
+17/05/2018 11:00:53 - root - INFO - Called function: load_user
+17/05/2018 11:00:53 - root - INFO - Called function: save_config
+17/05/2018 11:00:53 - root - INFO - Called function: load_uprs
+17/05/2018 11:00:53 - root - INFO - Called function: load
+17/05/2018 11:00:53 - root - INFO - Called function: get_project
+17/05/2018 11:00:53 - root - INFO - App is about to finish
+17/05/2018 11:01:02 - root - INFO - App started
+17/05/2018 11:01:02 - root - INFO - Called function: load_user
+17/05/2018 11:01:02 - root - INFO - Called function: save_config
+17/05/2018 11:01:02 - root - INFO - Called function: load_uprs
+17/05/2018 11:01:02 - root - INFO - Called function: load
+17/05/2018 11:01:02 - root - INFO - Called function: get_task_lists
+17/05/2018 11:01:02 - root - INFO - Called function: get_tasks
+17/05/2018 11:01:02 - root - INFO - Called function: get_tasks
+17/05/2018 11:01:02 - root - INFO - Called function: get_tasks
+17/05/2018 11:01:02 - root - INFO - Called function: get_tasks
+17/05/2018 11:01:02 - root - INFO - App is about to finish
+17/05/2018 11:01:04 - root - INFO - App started
+17/05/2018 11:01:04 - root - INFO - Called function: load_user
+17/05/2018 11:01:04 - root - INFO - Called function: save_config
+17/05/2018 11:01:04 - root - INFO - Called function: load_uprs
+17/05/2018 11:01:04 - root - INFO - Called function: load
+17/05/2018 11:01:04 - root - INFO - Called function: get_task_lists
+17/05/2018 11:01:04 - root - INFO - Called function: get_tasks
+17/05/2018 11:01:04 - root - INFO - Called function: get_tasks
+17/05/2018 11:01:04 - root - INFO - Called function: get_tasks
+17/05/2018 11:01:04 - root - INFO - Called function: get_tasks
+17/05/2018 11:01:04 - root - INFO - App is about to finish
+17/05/2018 11:01:24 - root - INFO - App started
+17/05/2018 11:01:24 - root - INFO - Called function: load_user
+17/05/2018 11:01:24 - root - INFO - Called function: save_config
+17/05/2018 11:01:24 - root - INFO - Called function: load_uprs
+17/05/2018 11:01:24 - root - INFO - Called function: load
+17/05/2018 11:01:24 - root - INFO - Called function: get_tasks
+17/05/2018 11:01:24 - root - INFO - Called function: get_task_by_id
+17/05/2018 11:01:24 - root - INFO - App is about to finish
+22/05/2018 22:09:04 - root - INFO - App started
+22/05/2018 22:09:04 - root - INFO - Called function: load_user
+22/05/2018 22:09:04 - root - INFO - Called function: save_config
+22/05/2018 22:09:04 - root - INFO - Called function: load_uprs
+22/05/2018 22:09:04 - root - INFO - Called function: load
+22/05/2018 22:09:04 - root - INFO - App is about to finish
+22/05/2018 22:09:07 - root - INFO - App started
+22/05/2018 22:09:07 - root - INFO - Called function: load_user
+22/05/2018 22:09:07 - root - INFO - Called function: save_config
+22/05/2018 22:09:07 - root - INFO - Called function: load_uprs
+22/05/2018 22:09:07 - root - INFO - Called function: load
+22/05/2018 22:09:07 - root - INFO - App is about to finish
+22/05/2018 22:09:17 - root - INFO - App started
+22/05/2018 22:09:17 - root - INFO - Called function: load_user
+22/05/2018 22:09:17 - root - INFO - Called function: save_config
+22/05/2018 22:09:17 - root - INFO - Called function: load_uprs
+22/05/2018 22:09:17 - root - INFO - Called function: load
+22/05/2018 22:09:17 - root - INFO - Called function: get_user
+22/05/2018 22:09:17 - root - INFO - App is about to finish
+22/05/2018 22:09:24 - root - INFO - App started
+22/05/2018 22:09:24 - root - INFO - Called function: load_user
+22/05/2018 22:09:24 - root - INFO - Called function: save_config
+22/05/2018 22:09:24 - root - INFO - Called function: load_uprs
+22/05/2018 22:09:24 - root - INFO - Called function: load
+22/05/2018 22:09:24 - root - INFO - Called function: get_project
+22/05/2018 22:09:24 - root - INFO - App is about to finish
+22/05/2018 22:09:32 - root - INFO - App started
+22/05/2018 22:09:32 - root - INFO - Called function: load_user
+22/05/2018 22:09:32 - root - INFO - Called function: save_config
+22/05/2018 22:09:32 - root - INFO - Called function: load_uprs
+22/05/2018 22:09:32 - root - INFO - Called function: load
+22/05/2018 22:09:32 - root - INFO - Called function: get_tasks
+22/05/2018 22:09:32 - root - INFO - Called function: get_task_by_id
+22/05/2018 22:09:32 - root - INFO - App is about to finish
+22/05/2018 22:10:05 - root - INFO - App started
+22/05/2018 22:10:05 - root - INFO - Called function: load_user
+22/05/2018 22:10:05 - root - INFO - Called function: save_config
+22/05/2018 22:10:05 - root - INFO - Called function: load_uprs
+22/05/2018 22:10:05 - root - INFO - Called function: load
+22/05/2018 22:10:05 - root - INFO - App is about to finish
+22/05/2018 22:29:30 - root - INFO - App started
+22/05/2018 22:29:30 - root - INFO - Called function: load_user
+22/05/2018 22:29:30 - root - INFO - Called function: save_config
+22/05/2018 22:29:30 - root - INFO - Called function: load_uprs
+22/05/2018 22:29:30 - root - INFO - Called function: load
+22/05/2018 22:29:30 - root - INFO - Called function: get_task_lists
+22/05/2018 22:29:30 - root - INFO - Called function: get_tasks
+22/05/2018 22:29:30 - root - INFO - Called function: get_tasks
+22/05/2018 22:29:30 - root - INFO - Called function: get_tasks
+22/05/2018 22:29:30 - root - INFO - Called function: get_tasks
+22/05/2018 22:29:30 - root - INFO - App is about to finish
+22/05/2018 22:30:00 - root - INFO - App started
+22/05/2018 22:30:00 - root - INFO - Called function: load_user
+22/05/2018 22:30:00 - root - INFO - Called function: save_config
+22/05/2018 22:30:00 - root - INFO - Called function: load_uprs
+22/05/2018 22:30:00 - root - INFO - Called function: load
+22/05/2018 22:30:00 - root - INFO - Called function: add_task
+22/05/2018 22:30:00 - root - INFO - Called function: save
+22/05/2018 22:30:00 - root - INFO - Called function: save_config
+22/05/2018 22:30:00 - root - INFO - App is about to finish
+22/05/2018 22:30:10 - root - INFO - App started
+22/05/2018 22:30:10 - root - INFO - Called function: load_user
+22/05/2018 22:30:10 - root - INFO - Called function: save_config
+22/05/2018 22:30:10 - root - INFO - Called function: load_uprs
+22/05/2018 22:30:10 - root - INFO - Called function: load
+22/05/2018 22:30:10 - root - INFO - Called function: get_tasks
+22/05/2018 22:30:10 - root - INFO - Called function: get_task_by_id
+22/05/2018 22:30:10 - root - INFO - App is about to finish
+22/05/2018 22:56:24 - root - INFO - App started
+22/05/2018 22:56:24 - root - INFO - Called function: load_user
+22/05/2018 22:56:24 - root - INFO - Called function: save_config
+22/05/2018 22:56:24 - root - INFO - Called function: load_uprs
+22/05/2018 22:56:24 - root - INFO - Called function: load
+22/05/2018 22:56:24 - root - INFO - App is about to finish
+22/05/2018 22:56:44 - root - INFO - App started
+22/05/2018 22:56:44 - root - INFO - Called function: load_user
+22/05/2018 22:56:44 - root - INFO - Called function: save_config
+22/05/2018 22:56:44 - root - INFO - Called function: load_uprs
+22/05/2018 22:56:44 - root - INFO - Called function: load
+22/05/2018 22:56:44 - root - INFO - Called function: add_plan
+22/05/2018 22:56:44 - root - ERROR - Tuple or struct_time argument required
+22/05/2018 22:56:44 - root - INFO - App is about to finish
+22/05/2018 22:57:22 - root - INFO - App started
+22/05/2018 22:57:22 - root - INFO - Called function: load_user
+22/05/2018 22:57:22 - root - INFO - Called function: save_config
+22/05/2018 22:57:22 - root - INFO - Called function: load_uprs
+22/05/2018 22:57:22 - root - INFO - Called function: load
+22/05/2018 22:57:22 - root - INFO - Called function: add_plan
+22/05/2018 22:57:22 - root - ERROR - Tuple or struct_time argument required
+22/05/2018 22:57:22 - root - INFO - App is about to finish
+22/05/2018 22:57:36 - root - INFO - App started
+22/05/2018 22:57:36 - root - INFO - Called function: load_user
+22/05/2018 22:57:36 - root - INFO - Called function: save_config
+22/05/2018 22:57:36 - root - INFO - Called function: load_uprs
+22/05/2018 22:57:36 - root - INFO - Called function: load
+22/05/2018 22:57:36 - root - INFO - Called function: add_plan
+22/05/2018 22:57:36 - root - ERROR - Tuple or struct_time argument required
+22/05/2018 22:57:36 - root - INFO - App is about to finish
+22/05/2018 22:58:38 - root - INFO - App started
+22/05/2018 22:58:38 - root - INFO - Called function: load_user
+22/05/2018 22:58:38 - root - INFO - Called function: save_config
+22/05/2018 22:58:38 - root - INFO - Called function: load_uprs
+22/05/2018 22:58:38 - root - INFO - Called function: load
+22/05/2018 22:58:38 - root - INFO - Called function: add_plan
+22/05/2018 22:58:38 - root - INFO - Called function: save
+22/05/2018 22:58:38 - root - ERROR - 'list' object has no attribute 'task_pattern'
+22/05/2018 22:58:38 - root - ERROR - 'list' object has no attribute 'task_pattern'
+22/05/2018 22:58:38 - root - INFO - App is about to finish
+22/05/2018 23:00:07 - root - INFO - App started
+22/05/2018 23:00:07 - root - INFO - Called function: load_user
+22/05/2018 23:00:07 - root - INFO - Called function: save_config
+22/05/2018 23:00:07 - root - INFO - Called function: load_uprs
+22/05/2018 23:00:07 - root - INFO - Called function: load
+22/05/2018 23:00:07 - root - INFO - Called function: add_plan
+22/05/2018 23:00:07 - root - INFO - Called function: save
+22/05/2018 23:00:07 - root - INFO - Called function: save_config
+22/05/2018 23:00:07 - root - INFO - App is about to finish
+22/05/2018 23:00:14 - root - INFO - App started
+22/05/2018 23:00:14 - root - INFO - Called function: load_user
+22/05/2018 23:00:14 - root - INFO - Called function: save_config
+22/05/2018 23:00:14 - root - INFO - Called function: load_uprs
+22/05/2018 23:00:14 - root - INFO - Called function: load
+22/05/2018 23:00:14 - root - INFO - Called function: get_tasks
+22/05/2018 23:00:14 - root - ERROR - get_planned_tasks() missing 1 required positional argument: 'current_time'
+22/05/2018 23:00:14 - root - INFO - App is about to finish
+22/05/2018 23:03:12 - root - INFO - App started
+22/05/2018 23:03:12 - root - INFO - Called function: load_user
+22/05/2018 23:03:12 - root - INFO - Called function: save_config
+22/05/2018 23:03:12 - root - INFO - Called function: load_uprs
+22/05/2018 23:03:12 - root - INFO - Called function: load
+22/05/2018 23:03:12 - root - INFO - Called function: get_tasks
+22/05/2018 23:03:12 - root - INFO - Called function: get_task_by_id
+22/05/2018 23:03:12 - root - INFO - App is about to finish
+22/05/2018 23:06:09 - root - INFO - App started
+22/05/2018 23:06:09 - root - INFO - Called function: load_user
+22/05/2018 23:06:09 - root - INFO - Called function: save_config
+22/05/2018 23:06:09 - root - INFO - Called function: load_uprs
+22/05/2018 23:06:09 - root - INFO - Called function: load
+22/05/2018 23:06:09 - root - INFO - Called function: get_tasks
+22/05/2018 23:06:09 - root - INFO - Called function: save
+22/05/2018 23:06:09 - root - INFO - Called function: save_config
+22/05/2018 23:06:09 - root - INFO - Called function: get_task_by_id
+22/05/2018 23:06:09 - root - INFO - App is about to finish
+22/05/2018 23:06:35 - root - INFO - App started
+22/05/2018 23:06:35 - root - INFO - Called function: load_user
+22/05/2018 23:06:35 - root - INFO - Called function: save_config
+22/05/2018 23:06:35 - root - INFO - Called function: load_uprs
+22/05/2018 23:06:35 - root - INFO - Called function: load
+22/05/2018 23:06:35 - root - INFO - Called function: get_tasks
+22/05/2018 23:06:35 - root - INFO - Called function: save
+22/05/2018 23:06:35 - root - INFO - Called function: save_config
+22/05/2018 23:06:35 - root - INFO - Called function: get_task_by_id
+22/05/2018 23:06:35 - root - INFO - App is about to finish
+22/05/2018 23:07:01 - root - INFO - App started
+22/05/2018 23:07:01 - root - INFO - Called function: load_user
+22/05/2018 23:07:01 - root - INFO - Called function: save_config
+22/05/2018 23:07:01 - root - INFO - Called function: load_uprs
+22/05/2018 23:07:01 - root - INFO - Called function: load
+22/05/2018 23:07:01 - root - INFO - Called function: get_tasks
+22/05/2018 23:07:01 - root - INFO - Called function: save
+22/05/2018 23:07:01 - root - INFO - Called function: save_config
+22/05/2018 23:07:01 - root - INFO - Called function: get_task_by_id
+22/05/2018 23:07:01 - root - INFO - App is about to finish
+22/05/2018 23:07:51 - root - INFO - App started
+22/05/2018 23:07:51 - root - INFO - Called function: load_user
+22/05/2018 23:07:51 - root - INFO - Called function: save_config
+22/05/2018 23:07:51 - root - INFO - Called function: load_uprs
+22/05/2018 23:07:51 - root - INFO - Called function: load
+22/05/2018 23:07:51 - root - INFO - Called function: get_task_lists
+22/05/2018 23:07:51 - root - INFO - Called function: get_tasks
+22/05/2018 23:07:51 - root - INFO - Called function: save
+22/05/2018 23:07:51 - root - INFO - Called function: save_config
+22/05/2018 23:07:51 - root - INFO - Called function: get_tasks
+22/05/2018 23:07:51 - root - INFO - Called function: save
+22/05/2018 23:07:51 - root - INFO - Called function: save_config
+22/05/2018 23:07:51 - root - INFO - Called function: get_tasks
+22/05/2018 23:07:51 - root - INFO - Called function: save
+22/05/2018 23:07:51 - root - INFO - Called function: save_config
+22/05/2018 23:07:51 - root - INFO - Called function: get_tasks
+22/05/2018 23:07:51 - root - INFO - Called function: save
+22/05/2018 23:07:51 - root - INFO - Called function: save_config
+22/05/2018 23:07:51 - root - INFO - App is about to finish
+22/05/2018 23:08:08 - root - INFO - App started
+22/05/2018 23:08:08 - root - INFO - Called function: load_user
+22/05/2018 23:08:08 - root - INFO - Called function: save_config
+22/05/2018 23:08:08 - root - INFO - Called function: load_uprs
+22/05/2018 23:08:08 - root - INFO - Called function: load
+22/05/2018 23:08:08 - root - INFO - Called function: get_tasks
+22/05/2018 23:08:08 - root - INFO - Called function: save
+22/05/2018 23:08:08 - root - INFO - Called function: save_config
+22/05/2018 23:08:08 - root - INFO - App is about to finish

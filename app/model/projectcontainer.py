@@ -1,3 +1,6 @@
+import time
+
+
 class ProjectContainer:
     """
 
@@ -12,6 +15,7 @@ class ProjectContainer:
         self.project = kwargs.get('project')
         self.lists = kwargs.get('lists', [])
         self.tasks = kwargs.get('tasks', [])
+        self.plans = kwargs.get('plans', [])
 
     # endregion
     # region add/remove methods
@@ -34,6 +38,8 @@ class ProjectContainer:
         if task_list is not None:
             self.tasks.append(task)
             task_list.tasks_list.append(task.unique_id)
+        else:
+            raise ValueError("No task list with such id")
 
     def remove_task(self, task_id):
         for task_list in self.lists:
@@ -57,6 +63,16 @@ class ProjectContainer:
         if from_task is None:
             raise NameError("No task with such id")
         from_task.remove_relation(to_id)
+
+    # endregion
+    # region plan
+
+    def add_plan(self, task_list_id, plan):
+        task_list = self._get_task_list_by_id(task_list_id)
+        if task_list is not None:
+            self.plans.append(plan)
+        else:
+            raise ValueError("No task list with such id")
 
     # endregion
     # endregion
@@ -95,18 +111,21 @@ class ProjectContainer:
 
     def free_tasks_list(self, task_list_id):
         task_list = self._get_task_list_by_id(task_list_id)
-        self.tasks = [task for task in self.tasks if task.unique_id not in task_list.tasks_list]
+        self.tasks = [task for task in self.tasks if
+                      task.unique_id not in task_list.tasks_list]
         task_list.tasks_list.clear()
 
     # endregion
     # region get methods
     def get_tasks(self, task_list_id=None):
+        self._check_plans()
         if task_list_id is None:
             return self.tasks
         else:
             task_list = self._get_task_list_by_id(task_list_id)
             if task_list is not None:
-                return [task for task in self.tasks if task.unique_id in task_list.tasks_list]
+                return [task for task in self.tasks if
+                        task.unique_id in task_list.tasks_list]
             return None
 
     def _get_task_list_by_id(self, task_list_id):
@@ -120,3 +139,13 @@ class ProjectContainer:
         return next((x for x in self.tasks if x.unique_id == task_id), None)
 
     # endregion
+
+    def _check_plans(self):
+        for plan in self.plans:
+            tasks, task_list_id = plan.get_planned_tasks(time.time())
+            task_list = self._get_task_list_by_id(task_list_id)
+            if task_list is not None:
+                for task in tasks:
+                    self.add_task(task_list_id, task)
+            else:
+                self.plans.remove(plan)

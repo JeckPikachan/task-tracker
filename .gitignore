@@ -1,2 +1,3 @@
 .idea/
 issue_tracker/venv/
+__pycache__/
