@@ -176,7 +176,6 @@ def main():
                     plans = app.get_plans()
                     print_plans(plans)
 
-
         if args.command == 'add':
             if args.kind == 'project':
                 app.add_project(args.name)

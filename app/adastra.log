@@ -6717,3 +6717,9 @@
 25/05/2018 22:11:54 - root - INFO - Called function: load
 25/05/2018 22:11:54 - root - INFO - Called function: get_plans
 25/05/2018 22:11:54 - root - INFO - App is about to finish
+25/05/2018 22:16:01 - root - INFO - App started
+25/05/2018 22:16:01 - root - INFO - Called function: load_user
+25/05/2018 22:16:01 - root - INFO - Called function: save_config
+25/05/2018 22:16:01 - root - INFO - Called function: load_uprs
+25/05/2018 22:16:01 - root - INFO - Called function: load
+25/05/2018 22:16:01 - root - INFO - App is about to finish

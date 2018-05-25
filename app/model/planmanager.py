@@ -5,6 +5,12 @@ from app.model.task import Task
 
 
 class PlanManager(UniqueObject):
+    """
+
+    PlanManager is used to plan tasks in determined task list
+    with some time delta. Also can have start and end dates of
+    plan. Needs a TaskPattern instance.
+    """
     def __init__(self,
                  delta,
                  task_pattern,
@@ -24,6 +30,12 @@ class PlanManager(UniqueObject):
             start_date - delta if start_date else time.time()
 
     def get_planned_tasks(self, current_time):
+        """
+        :param current_time: a timestamp of time until which
+        user wants to get tasks
+        :return: returns planned tasks which weren't returned
+        earlier and a task list id to which tasks should be appended
+        """
         tasks = []
         if self.start_date is not None and current_time < self.start_date:
             return tasks
