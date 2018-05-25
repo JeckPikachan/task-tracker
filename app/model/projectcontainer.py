@@ -138,6 +138,14 @@ class ProjectContainer:
             return None
         return next((x for x in self.tasks if x.unique_id == task_id), None)
 
+    def get_plans(self):
+        return self.plans
+
+    def get_plan_by_id(self, plan_id):
+        if plan_id is None:
+            return None
+        return next((x for x in self.plans if x.unique_id == plan_id), None)
+
     # endregion
 
     def _check_plans(self):

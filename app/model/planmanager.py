@@ -1,16 +1,20 @@
 import time
 
+from app.model.UniqueObject import UniqueObject
 from app.model.task import Task
 
 
-class PlanManager:
+class PlanManager(UniqueObject):
     def __init__(self,
                  delta,
                  task_pattern,
                  task_list_id,
                  start_date=None,
                  end_date=None,
-                 last_created=None):
+                 last_created=None,
+                 unique_id=None,
+                 **kwargs):
+        super(PlanManager, self).__init__(name="Plan Manager", unique_id=unique_id)
         self.delta = delta
         self.task_list_id = task_list_id
         self.start_date = start_date

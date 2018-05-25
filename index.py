@@ -1,6 +1,8 @@
 #! /usr/bin/python3.6
+import datetime
 
 from app import App, NoContainerError
+from app.util.deltatime import get_delta_from_time
 from user_interface.parser import Parser
 
 
@@ -43,6 +45,43 @@ def print_users(users, current_user_id):
             print("(CURRENT)")
         print("name: " + user.get('name'))
         print("id: " + user.get('unique_id'))
+        print()
+
+
+def get_date(timestamp):
+    return datetime.datetime.fromtimestamp(timestamp) if\
+        timestamp is not None else None
+
+
+def get_delta(timestamp):
+    delta = get_delta_from_time(timestamp)
+    deltas = {0: "DAILY", 1: "WEEKLY", 2: "MONTHLY", 3: "YEARLY"}
+    return deltas.get(delta, None)
+
+
+def print_pattern(task_pattern, indent):
+    spaces = " " * indent
+    print("{0}name        : {1}".format(spaces, task_pattern.name))
+    print("{0}description : {1}".format(spaces, task_pattern.description))
+    print("{0}priority    : {1}".format(spaces, task_pattern.priority))
+    print("{0}status      : {1}".format(spaces, task_pattern.status))
+    print("{0}author id   : {1}".format(spaces, task_pattern.author))
+
+
+def print_plan(plan):
+    print("* plan id    : {}".format(plan.unique_id))
+    print("  list id    : {}".format(plan.task_list_id))
+    print("  start date : {}".format(get_date(plan.start_date)))
+    print("  end date   : {}".format(get_date(plan.end_date)))
+    print("  last       : {}".format(get_date(plan.last_created)))
+    print("  delta      : {}".format(get_delta(plan.delta)))
+    print("  pattern    : ")
+    print_pattern(plan.task_pattern, 8)
+
+
+def print_plans(plans):
+    for plan in plans:
+        print_plan(plan)
         print()
 
 
@@ -128,6 +167,15 @@ def main():
                     user = app.get_user()
                     print("name: " + str(user.name))
                     print("id: " + str(user.unique_id))
+
+            if args.kind == 'plan':
+                if args.id is not None:
+                    plan = app.get_plan_by_id(args.id)
+
+                else:
+                    plans = app.get_plans()
+                    print_plans(plans)
+
 
         if args.command == 'add':
             if args.kind == 'project':

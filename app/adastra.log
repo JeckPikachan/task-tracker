@@ -6550,3 +6550,170 @@
 22/05/2018 23:08:08 - root - INFO - Called function: save
 22/05/2018 23:08:08 - root - INFO - Called function: save_config
 22/05/2018 23:08:08 - root - INFO - App is about to finish
+25/05/2018 21:13:34 - root - INFO - App started
+25/05/2018 21:13:34 - root - INFO - Called function: load_user
+25/05/2018 21:13:34 - root - INFO - Called function: save_config
+25/05/2018 21:13:34 - root - INFO - Called function: load_uprs
+25/05/2018 21:13:34 - root - INFO - Called function: load
+25/05/2018 21:13:34 - root - INFO - Called function: get_tasks
+25/05/2018 21:13:34 - root - INFO - Called function: save
+25/05/2018 21:13:34 - root - INFO - Called function: save_config
+25/05/2018 21:13:34 - root - INFO - Called function: get_task_by_id
+25/05/2018 21:13:34 - root - INFO - App is about to finish
+25/05/2018 21:13:58 - root - INFO - App started
+25/05/2018 21:13:58 - root - INFO - Called function: load_user
+25/05/2018 21:13:58 - root - INFO - Called function: save_config
+25/05/2018 21:13:58 - root - INFO - Called function: load_uprs
+25/05/2018 21:13:58 - root - INFO - Called function: load
+25/05/2018 21:13:58 - root - ERROR - __init__() got an unexpected keyword argument 'unique_id'
+25/05/2018 21:13:58 - root - INFO - App is about to finish
+25/05/2018 21:14:59 - root - INFO - App started
+25/05/2018 21:14:59 - root - INFO - Called function: load_user
+25/05/2018 21:14:59 - root - INFO - Called function: save_config
+25/05/2018 21:14:59 - root - INFO - Called function: load_uprs
+25/05/2018 21:14:59 - root - INFO - Called function: load
+25/05/2018 21:14:59 - root - ERROR - __init__() got an unexpected keyword argument 'name'
+25/05/2018 21:14:59 - root - INFO - App is about to finish
+25/05/2018 21:15:15 - root - INFO - App started
+25/05/2018 21:15:15 - root - INFO - Called function: load_user
+25/05/2018 21:15:15 - root - INFO - Called function: save_config
+25/05/2018 21:15:15 - root - INFO - Called function: load_uprs
+25/05/2018 21:15:15 - root - INFO - Called function: load
+25/05/2018 21:15:15 - root - ERROR - __init__() got an unexpected keyword argument 'name'
+25/05/2018 21:15:15 - root - INFO - App is about to finish
+25/05/2018 21:16:23 - root - INFO - App started
+25/05/2018 21:16:23 - root - INFO - Called function: load_user
+25/05/2018 21:16:23 - root - INFO - Called function: save_config
+25/05/2018 21:16:23 - root - INFO - Called function: load_uprs
+25/05/2018 21:16:23 - root - INFO - Called function: load
+25/05/2018 21:16:23 - root - INFO - Called function: get_task_lists
+25/05/2018 21:16:23 - root - INFO - Called function: get_tasks
+25/05/2018 21:16:23 - root - INFO - Called function: save
+25/05/2018 21:16:23 - root - INFO - Called function: save_config
+25/05/2018 21:16:23 - root - INFO - Called function: get_tasks
+25/05/2018 21:16:23 - root - INFO - Called function: save
+25/05/2018 21:16:23 - root - INFO - Called function: save_config
+25/05/2018 21:16:23 - root - INFO - Called function: get_tasks
+25/05/2018 21:16:23 - root - INFO - Called function: save
+25/05/2018 21:16:23 - root - INFO - Called function: save_config
+25/05/2018 21:16:23 - root - INFO - Called function: get_tasks
+25/05/2018 21:16:23 - root - INFO - Called function: save
+25/05/2018 21:16:23 - root - INFO - Called function: save_config
+25/05/2018 21:16:23 - root - INFO - App is about to finish
+25/05/2018 21:16:57 - root - INFO - App started
+25/05/2018 21:16:57 - root - INFO - Called function: load_user
+25/05/2018 21:16:57 - root - INFO - Called function: save_config
+25/05/2018 21:16:57 - root - INFO - Called function: load_uprs
+25/05/2018 21:16:57 - root - INFO - Called function: load
+25/05/2018 21:16:57 - root - INFO - Called function: get_tasks
+25/05/2018 21:16:57 - root - INFO - Called function: save
+25/05/2018 21:16:57 - root - INFO - Called function: save_config
+25/05/2018 21:16:57 - root - INFO - App is about to finish
+25/05/2018 21:50:37 - root - INFO - App started
+25/05/2018 21:50:37 - root - INFO - Called function: load_user
+25/05/2018 21:50:37 - root - INFO - Called function: save_config
+25/05/2018 21:50:37 - root - INFO - Called function: load_uprs
+25/05/2018 21:50:37 - root - INFO - Called function: load
+25/05/2018 21:50:37 - root - INFO - Called function: get_plans
+25/05/2018 21:50:37 - root - INFO - App is about to finish
+25/05/2018 21:51:42 - root - INFO - App started
+25/05/2018 21:51:42 - root - INFO - Called function: load_user
+25/05/2018 21:51:42 - root - INFO - Called function: save_config
+25/05/2018 21:51:42 - root - INFO - Called function: load_uprs
+25/05/2018 21:51:42 - root - INFO - Called function: load
+25/05/2018 21:51:42 - root - INFO - Called function: get_plans
+25/05/2018 21:51:42 - root - INFO - App is about to finish
+25/05/2018 21:53:43 - root - INFO - App started
+25/05/2018 21:53:43 - root - INFO - Called function: load_user
+25/05/2018 21:53:43 - root - INFO - Called function: save_config
+25/05/2018 21:53:43 - root - INFO - Called function: load_uprs
+25/05/2018 21:53:43 - root - INFO - Called function: load
+25/05/2018 21:53:43 - root - INFO - Called function: get_plans
+25/05/2018 21:53:43 - root - INFO - App is about to finish
+25/05/2018 21:54:10 - root - INFO - App started
+25/05/2018 21:54:10 - root - INFO - Called function: load_user
+25/05/2018 21:54:10 - root - INFO - Called function: save_config
+25/05/2018 21:54:10 - root - INFO - Called function: load_uprs
+25/05/2018 21:54:10 - root - INFO - Called function: load
+25/05/2018 21:54:10 - root - INFO - Called function: get_plans
+25/05/2018 21:54:10 - root - INFO - App is about to finish
+25/05/2018 21:56:10 - root - INFO - App started
+25/05/2018 21:56:10 - root - INFO - Called function: load_user
+25/05/2018 21:56:10 - root - INFO - Called function: save_config
+25/05/2018 21:56:10 - root - INFO - Called function: load_uprs
+25/05/2018 21:56:10 - root - INFO - Called function: load
+25/05/2018 21:56:10 - root - INFO - App is about to finish
+25/05/2018 21:56:34 - root - INFO - App started
+25/05/2018 21:56:34 - root - INFO - Called function: load_user
+25/05/2018 21:56:34 - root - INFO - Called function: save_config
+25/05/2018 21:56:34 - root - INFO - Called function: load_uprs
+25/05/2018 21:56:34 - root - INFO - Called function: load
+25/05/2018 21:56:34 - root - INFO - App is about to finish
+25/05/2018 21:58:24 - root - INFO - App started
+25/05/2018 21:58:24 - root - INFO - Called function: load_user
+25/05/2018 21:58:24 - root - INFO - Called function: save_config
+25/05/2018 21:58:24 - root - INFO - Called function: load_uprs
+25/05/2018 21:58:24 - root - INFO - Called function: load
+25/05/2018 21:58:24 - root - INFO - Called function: add_plan
+25/05/2018 21:58:24 - root - INFO - Called function: save
+25/05/2018 21:58:24 - root - INFO - Called function: save_config
+25/05/2018 21:58:24 - root - INFO - App is about to finish
+25/05/2018 21:58:30 - root - INFO - App started
+25/05/2018 21:58:30 - root - INFO - Called function: load_user
+25/05/2018 21:58:30 - root - INFO - Called function: save_config
+25/05/2018 21:58:30 - root - INFO - Called function: load_uprs
+25/05/2018 21:58:30 - root - INFO - Called function: load
+25/05/2018 21:58:30 - root - INFO - Called function: get_plans
+25/05/2018 21:58:30 - root - INFO - App is about to finish
+25/05/2018 21:58:48 - root - INFO - App started
+25/05/2018 21:58:48 - root - INFO - Called function: load_user
+25/05/2018 21:58:48 - root - INFO - Called function: save_config
+25/05/2018 21:58:48 - root - INFO - Called function: load_uprs
+25/05/2018 21:58:48 - root - INFO - Called function: load
+25/05/2018 21:58:48 - root - INFO - Called function: get_tasks
+25/05/2018 21:58:48 - root - INFO - Called function: save
+25/05/2018 21:58:48 - root - INFO - Called function: save_config
+25/05/2018 21:58:48 - root - INFO - Called function: get_task_by_id
+25/05/2018 21:58:48 - root - INFO - App is about to finish
+25/05/2018 21:58:54 - root - INFO - App started
+25/05/2018 21:58:54 - root - INFO - Called function: load_user
+25/05/2018 21:58:54 - root - INFO - Called function: save_config
+25/05/2018 21:58:54 - root - INFO - Called function: load_uprs
+25/05/2018 21:58:54 - root - INFO - Called function: load
+25/05/2018 21:58:54 - root - INFO - Called function: get_plans
+25/05/2018 21:58:54 - root - INFO - App is about to finish
+25/05/2018 22:06:36 - root - INFO - App started
+25/05/2018 22:06:36 - root - INFO - Called function: load_user
+25/05/2018 22:06:36 - root - INFO - Called function: save_config
+25/05/2018 22:06:36 - root - INFO - Called function: load_uprs
+25/05/2018 22:06:36 - root - INFO - Called function: load
+25/05/2018 22:06:36 - root - INFO - Called function: get_plans
+25/05/2018 22:06:36 - root - INFO - App is about to finish
+25/05/2018 22:08:48 - root - INFO - App started
+25/05/2018 22:08:48 - root - INFO - Called function: load_user
+25/05/2018 22:08:48 - root - INFO - Called function: save_config
+25/05/2018 22:08:48 - root - INFO - Called function: load_uprs
+25/05/2018 22:08:48 - root - INFO - Called function: load
+25/05/2018 22:08:48 - root - INFO - Called function: get_plans
+25/05/2018 22:08:48 - root - INFO - App is about to finish
+25/05/2018 22:09:15 - root - INFO - App started
+25/05/2018 22:09:15 - root - INFO - Called function: load_user
+25/05/2018 22:09:15 - root - INFO - Called function: save_config
+25/05/2018 22:09:15 - root - INFO - Called function: load_uprs
+25/05/2018 22:09:15 - root - INFO - Called function: load
+25/05/2018 22:09:15 - root - INFO - Called function: get_plans
+25/05/2018 22:09:15 - root - INFO - App is about to finish
+25/05/2018 22:09:26 - root - INFO - App started
+25/05/2018 22:09:26 - root - INFO - Called function: load_user
+25/05/2018 22:09:26 - root - INFO - Called function: save_config
+25/05/2018 22:09:26 - root - INFO - Called function: load_uprs
+25/05/2018 22:09:26 - root - INFO - Called function: load
+25/05/2018 22:09:26 - root - INFO - Called function: get_plans
+25/05/2018 22:09:26 - root - INFO - App is about to finish
+25/05/2018 22:11:54 - root - INFO - App started
+25/05/2018 22:11:54 - root - INFO - Called function: load_user
+25/05/2018 22:11:54 - root - INFO - Called function: save_config
+25/05/2018 22:11:54 - root - INFO - Called function: load_uprs
+25/05/2018 22:11:54 - root - INFO - Called function: load
+25/05/2018 22:11:54 - root - INFO - Called function: get_plans
+25/05/2018 22:11:54 - root - INFO - App is about to finish

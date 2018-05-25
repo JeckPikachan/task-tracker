@@ -44,6 +44,9 @@ class Parser:
 
         parser_show_user = subparsers_for_show.add_parser('user')
         parser_show_user.add_argument('-a', '--all', action='store_true')
+
+        parser_show_plan = subparsers_for_show.add_parser('plan')
+        parser_show_plan.add_argument('--id')
         # endregion
         # region parser for 'add'
         parser_add = self.subparsers_for_command.add_parser('add')

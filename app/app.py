@@ -266,6 +266,19 @@ class App:
         return copy.deepcopy(self.container.lists)
 
     # endregion
+    # region plan
+
+    @log_func
+    @check_attribute("user", "container")
+    def get_plans(self):
+        return copy.deepcopy(self.container.get_plans())
+
+    @log_func
+    @check_attribute("user", "container")
+    def get_plan_by_id(self, plan_id):
+        return copy.deepcopy(self.container.get_plan_by_id(plan_id))
+
+    # endregion
     # region task
 
     @log_func
