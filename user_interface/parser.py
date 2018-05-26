@@ -21,7 +21,20 @@ class Parser:
         self.subparsers_for_command = self.parser.add_subparsers(dest='command')
 
     def parse(self):
-        # region parser for 'show'
+        self._add_all_parsers()
+
+        args = self.parser.parse_args()
+        return args
+
+    def _add_all_parsers(self):
+        self._add_parser_for_add()
+        self._add_parser_for_show()
+        self._add_parser_for_remove()
+        self._add_parser_for_edit()
+        self._add_parser_for_checkout()
+        self._add_parser_for_chuser()
+
+    def _add_parser_for_show(self):
         parser_show = self.subparsers_for_command.add_parser('show')
         subparsers_for_show = parser_show.add_subparsers(dest='kind')
 
@@ -47,8 +60,8 @@ class Parser:
 
         parser_show_plan = subparsers_for_show.add_parser('plan')
         parser_show_plan.add_argument('--id')
-        # endregion
-        # region parser for 'add'
+
+    def _add_parser_for_add(self):
         parser_add = self.subparsers_for_command.add_parser('add')
         subparsers_for_add = parser_add.add_subparsers(dest='kind')
 
@@ -97,8 +110,8 @@ class Parser:
                                      "--end_date",
                                      help="End Date - format YYYY-MM-DD hh:mm",
                                      type=valid_date)
-        # endregion
-        # region parser for 'remove'
+
+    def _add_parser_for_remove(self):
         parser_remove = self.subparsers_for_command.add_parser('remove')
         subparsers_for_remove = parser_remove.add_subparsers(dest='kind')
 
@@ -120,8 +133,8 @@ class Parser:
         parser_remove_relation = subparsers_for_remove.add_parser('relation')
         parser_remove_relation.add_argument('from_id')
         parser_remove_relation.add_argument('to_id')
-        # endregion
-        # region parser for 'edit'
+
+    def _add_parser_for_edit(self):
         parser_edit = self.subparsers_for_command.add_parser('edit')
         subparsers_for_edit = parser_edit.add_subparsers(dest='kind')
 
@@ -144,14 +157,11 @@ class Parser:
                                       help="The Expiration Date - format YYYY-MM-DD hh:mm",
                                       type=valid_date)
         parser_edit_task.add_argument('task_id')
-        # endregion
-        # region parser for 'checkout'
+
+    def _add_parser_for_checkout(self):
         parser_checkout = self.subparsers_for_command.add_parser('checkout')
         parser_checkout.add_argument('project_id')
-        # endregion
-        # region parser for 'chuser'
+
+    def _add_parser_for_chuser(self):
         parser_chuser = self.subparsers_for_command.add_parser('chuser')
         parser_chuser.add_argument('user_id')
-        # endregion
-        args = self.parser.parse_args()
-        return args

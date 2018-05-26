@@ -34,7 +34,8 @@
                 "eeda96d2-b7a4-4bc8-967e-f7ccf0637c2e",
                 "e772cad5-b2cf-4f16-a6c9-57a9e3d5b523",
                 "f22c39a6-8b0c-4ea3-a391-0f53457292fe",
-                "ca2436d6-3a59-4580-bd6e-8a9b02f7f401"
+                "ca2436d6-3a59-4580-bd6e-8a9b02f7f401",
+                "74c63783-7ee5-4fe5-84a7-cb75f41dfeb9"
             ]
         },
         {
@@ -509,6 +510,23 @@
                 "__enum__": "Priority.MIDDLE"
             },
             "expiration_date": null
+        },
+        {
+            "unique_id": "74c63783-7ee5-4fe5-84a7-cb75f41dfeb9",
+            "name": "Train drums",
+            "description": "This one was PLANNED!!!",
+            "tags_list": [],
+            "comment_ids_list": [],
+            "responsible_ids_list": [],
+            "author": "2546194e-dbf1-4915-b04c-4ff075ca4c94",
+            "related_tasks_list": [],
+            "status": {
+                "__enum__": "Status.CREATED"
+            },
+            "priority": {
+                "__enum__": "Priority.MIDDLE"
+            },
+            "expiration_date": null
         }
     ],
     "plans": [
@@ -526,7 +544,7 @@
                 "status": null,
                 "author": "2546194e-dbf1-4915-b04c-4ff075ca4c94"
             },
-            "last_created": 1527209200.0
+            "last_created": 1527295600.0
         },
         {
             "unique_id": "be4f28bf-310c-4006-9eec-00c416e27357",
