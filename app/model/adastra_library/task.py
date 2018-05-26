@@ -1,8 +1,8 @@
 from datetime import datetime
 
-from app.model.UniqueObject import UniqueObject
-from app.model.priority import Priority
-from app.model.status import Status
+from app.model.adastra_library.UniqueObject import UniqueObject
+from app.model.adastra_library.priority import Priority
+from app.model.adastra_library.status import Status
 from app.util.enum_json import as_enum
 
 

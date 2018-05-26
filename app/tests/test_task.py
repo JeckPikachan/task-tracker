@@ -1,6 +1,8 @@
 import unittest
 
-from app.model.task import Task, Priority, Status
+from app.model.adastra_library.priority import Priority
+from app.model.adastra_library.status import Status
+from app.model.adastra_library.task import Task
 
 
 class TestTask(unittest.TestCase):

@@ -1,6 +1,6 @@
 import unittest
 
-from app.model.user import User
+from app.model.adastra_library.user import User
 
 
 class TestUser(unittest.TestCase):

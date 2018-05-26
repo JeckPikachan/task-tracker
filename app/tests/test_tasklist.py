@@ -1,6 +1,6 @@
 import unittest
 
-from app.model.tasklist import TaskList
+from app.model.adastra_library.tasklist import TaskList
 
 NAME = "Some name"
 

@@ -1,6 +1,6 @@
 import unittest
 
-from app.model.project import Project
+from app.model.adastra_library.project import Project
 
 NAME = "Some Name"
 

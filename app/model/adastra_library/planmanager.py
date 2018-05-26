@@ -1,7 +1,7 @@
 import time
 
-from app.model.UniqueObject import UniqueObject
-from app.model.task import Task
+from app.model.adastra_library.UniqueObject import UniqueObject
+from app.model.adastra_library.task import Task
 
 
 class PlanManager(UniqueObject):

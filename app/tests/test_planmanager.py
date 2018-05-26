@@ -2,10 +2,11 @@ import unittest
 
 import time
 
-from app.model.planmanager import PlanManager
-from app.model.taskpattern import TaskPattern
+from app.model.adastra_library.planmanager import PlanManager
+from app.model.adastra_library.priority import Priority
+from app.model.adastra_library.status import Status
+from app.model.adastra_library.taskpattern import TaskPattern
 from app.util.deltatime import get_time_from_delta
-from app.model.task import Priority, Status
 
 DELTA = get_time_from_delta(2)
 NAME = "Name"

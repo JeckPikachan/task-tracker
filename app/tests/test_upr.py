@@ -1,6 +1,6 @@
 import unittest
 
-from app.model.userprojectrelation import UserProjectRelation
+from app.model.adastra_library.userprojectrelation import UserProjectRelation
 
 USER_ID = "SOME ID NO MATTER WHAT"
 PROJECT_ID = "ANY OTHER OR NOT ID"

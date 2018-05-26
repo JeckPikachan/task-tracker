@@ -1,6 +1,6 @@
 import unittest
 
-from app.model.uprscollection import UPRSCollection
+from app.model.adastra_library.uprscollection import UPRSCollection
 
 
 class TestUPRSCollection(unittest.TestCase):

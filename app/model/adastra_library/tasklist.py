@@ -1,4 +1,4 @@
-from app.model.UniqueObject import UniqueObject
+from app.model.adastra_library.UniqueObject import UniqueObject
 
 
 class TaskList(UniqueObject):

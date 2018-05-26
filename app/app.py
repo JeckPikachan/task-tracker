@@ -1,5 +1,4 @@
 import copy
-import json
 import logging
 
 import os
@@ -8,13 +7,13 @@ import time
 
 from app.database.db import DataBase
 from app.log_config import LOG_CONFIG
-from app.model.planmanager import PlanManager
-from app.model.project import Project
-from app.model.projectcontainer import ProjectContainer
-from app.model.task import Task
-from app.model.tasklist import TaskList
-from app.model.taskpattern import TaskPattern
-from app.model.user import User
+from app.model.adastra_library.planmanager import PlanManager
+from app.model.adastra_library.project import Project
+from app.model.adastra_library.projectcontainer import ProjectContainer
+from app.model.adastra_library.task import Task
+from app.model.adastra_library.tasklist import TaskList
+from app.model.adastra_library.taskpattern import TaskPattern
+from app.model.adastra_library.user import User
 from app.util.deltatime import get_time_from_delta
 from app.logging.log import log_func, init_logging
 

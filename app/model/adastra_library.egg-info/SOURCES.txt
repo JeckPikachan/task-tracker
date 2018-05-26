@@ -1,0 +1,17 @@
+adastra_library/UniqueObject.py
+adastra_library/__init__.py
+adastra_library/planmanager.py
+adastra_library/priority.py
+adastra_library/project.py
+adastra_library/projectcontainer.py
+adastra_library/status.py
+adastra_library/task.py
+adastra_library/tasklist.py
+adastra_library/taskpattern.py
+adastra_library/uprscollection.py
+adastra_library/user.py
+adastra_library/userprojectrelation.py
+adastra_library.egg-info/PKG-INFO
+adastra_library.egg-info/SOURCES.txt
+adastra_library.egg-info/dependency_links.txt
+adastra_library.egg-info/top_level.txt
