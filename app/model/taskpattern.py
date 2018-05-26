@@ -7,7 +7,12 @@ class TaskPattern:
     TaskPattern class is used to create task patterns
     for further planning and creating tasks based on it
     """
-    def __init__(self, name, description, priority, status, author):
+    def __init__(self,
+                 name,
+                 description=None,
+                 priority=None,
+                 status=None,
+                 author=None):
         self.name = name
         self.description = description
         self.priority = priority

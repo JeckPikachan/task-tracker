@@ -74,6 +74,10 @@ class ProjectContainer:
         else:
             raise ValueError("No task list with such id")
 
+    def remove_plan(self, plan_id):
+        self.plans = [plan for plan in
+                      self.plans if plan.unique_id != plan_id]
+
     # endregion
     # endregion
     # region edit methods

@@ -134,6 +134,9 @@ class Parser:
         parser_remove_relation.add_argument('from_id')
         parser_remove_relation.add_argument('to_id')
 
+        parser_remove_plan = subparsers_for_remove.add_parser('plan')
+        parser_remove_plan.add_argument('plan_id')
+
     def _add_parser_for_edit(self):
         parser_edit = self.subparsers_for_command.add_parser('edit')
         subparsers_for_edit = parser_edit.add_subparsers(dest='kind')

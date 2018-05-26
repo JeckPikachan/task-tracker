@@ -14,3 +14,12 @@ def log_func(func):
             logging.error(e)
             raise e
     return _log
+
+
+def init_logging(level, filename, log_format, log_datefmt):
+    if not level == 'OFF':
+        logging.basicConfig(
+            filename=filename,
+            level=logging.getLevelName(level),
+            format=log_format,
+            datefmt=log_datefmt)

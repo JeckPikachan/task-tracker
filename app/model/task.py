@@ -1,9 +1,9 @@
 from datetime import datetime
 
 from app.model.UniqueObject import UniqueObject
+from app.model.priority import Priority
+from app.model.status import Status
 from app.util.enum_json import as_enum
-from app.util.priority import Priority
-from app.util.status import Status
 
 
 class TaskRelation:

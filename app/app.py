@@ -15,7 +15,7 @@ from app.model.tasklist import TaskList
 from app.model.taskpattern import TaskPattern
 from app.model.user import User
 from app.util.deltatime import get_time_from_delta
-from app.util.log import log_func
+from app.logging.log import log_func, init_logging
 
 
 class NoContainerError(AttributeError):
@@ -64,12 +64,11 @@ class App:
                 log_config_file:
             log_config = json.load(log_config_file)
 
-        if not log_config['level'] == 'OFF':
-            logging.basicConfig(
-                filename=os.path.dirname(__file__) + '/adastra.log',
-                level=logging.getLevelName(log_config['level']),
-                format=log_config['format'],
-                datefmt=log_config['datefmt'])
+        init_logging(log_config['level'],
+                     os.path.dirname(__file__) + '/adastra.log',
+                     log_config['format'],
+                     log_config['datefmt'])
+
         logging.info("App started")
         self._db = DataBase()
         self.user = self._db.load_user()
@@ -207,6 +206,12 @@ class App:
         task_pattern = TaskPattern(name, description, priority, status, self.user.unique_id)
         new_plan = PlanManager(delta, task_pattern, task_list_id, start_date, end_date)
         self.container.add_plan(task_list_id, new_plan)
+        self._db.save(self.container)
+
+    @log_func
+    @check_attribute("user", "container")
+    def remove_plan(self, plan_id):
+        self.container.remove_plan(plan_id)
         self._db.save(self.container)
 
     # endregion

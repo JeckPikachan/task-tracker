@@ -51,7 +51,8 @@
             "name": "Create guitar part",
             "tasks_list": [
                 "a08d3a4d-320b-4b31-93e7-daa8bf6a0995",
-                "d849d08b-0600-4176-a9f6-f1c0b1a9b083"
+                "d849d08b-0600-4176-a9f6-f1c0b1a9b083",
+                "f1563f87-095f-4919-8400-275324528e18"
             ]
         },
         {
@@ -525,6 +526,23 @@
             },
             "priority": {
                 "__enum__": "Priority.MIDDLE"
+            },
+            "expiration_date": null
+        },
+        {
+            "unique_id": "f1563f87-095f-4919-8400-275324528e18",
+            "name": "Really important task",
+            "description": null,
+            "tags_list": [],
+            "comment_ids_list": [],
+            "responsible_ids_list": [],
+            "author": "2546194e-dbf1-4915-b04c-4ff075ca4c94",
+            "related_tasks_list": [],
+            "status": {
+                "__enum__": "Status.CREATED"
+            },
+            "priority": {
+                "__enum__": "Priority.HIGH"
             },
             "expiration_date": null
         }

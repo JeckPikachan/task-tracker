@@ -1,9 +1,12 @@
 import unittest
 
+from app.model.planmanager import PlanManager
 from app.model.project import Project
 from app.model.projectcontainer import ProjectContainer
 from app.model.task import Task, TaskRelation
 from app.model.tasklist import TaskList
+from app.model.taskpattern import TaskPattern
+from app.util.deltatime import get_time_from_delta
 
 
 class TestProjectContainer(unittest.TestCase):
@@ -116,3 +119,27 @@ class TestProjectContainer(unittest.TestCase):
         self.container.add_task(task_list.unique_id, task)
         got_task = self.container.get_task_by_id(task.unique_id)
         self.assertEqual(got_task, task)
+
+    def test_add_plan(self):
+        delta = get_time_from_delta(1)
+        name = "Some name"
+        task_pattern = TaskPattern(name)
+        task_list = TaskList()
+        task_list_id = task_list.unique_id
+        self.container.add_list(task_list)
+        plan = PlanManager(delta, task_pattern, task_list_id)
+        self.container.add_plan(task_list_id, plan)
+        self.assertIn(plan, self.container.plans)
+
+    def test_remove_plan(self):
+        delta = get_time_from_delta(1)
+        name = "Some name"
+        task_pattern = TaskPattern(name)
+        task_list = TaskList()
+        task_list_id = task_list.unique_id
+        self.container.add_list(task_list)
+        plan = PlanManager(delta, task_pattern, task_list_id)
+        self.container.add_plan(task_list_id, plan)
+        self.assertIn(plan, self.container.plans)
+        self.container.remove_plan(plan.unique_id)
+        self.assertNotIn(plan, self.container.plans)

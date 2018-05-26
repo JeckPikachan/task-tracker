@@ -5,8 +5,7 @@ import time
 from app.model.planmanager import PlanManager
 from app.model.taskpattern import TaskPattern
 from app.util.deltatime import get_time_from_delta
-from app.util.priority import Priority
-from app.util.status import Status
+from app.model.task import Priority, Status
 
 DELTA = get_time_from_delta(2)
 NAME = "Name"

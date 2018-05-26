@@ -13,7 +13,7 @@ from app.model.taskpattern import TaskPattern
 from app.model.uprscollection import UPRSCollection
 from app.model.user import User
 from app.util.enum_json import enum_serializable
-from app.util.log import log_func
+from app.logging.log import log_func
 
 
 class DBConfig:

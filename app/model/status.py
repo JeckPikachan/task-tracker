@@ -1,18 +1,18 @@
 from enum import Enum, auto
 
 
-class Priority(Enum):
-    LOW = auto()
-    MIDDLE = auto()
-    HIGH = auto()
+class Status(Enum):
+    CREATED = auto()
+    IN_WORK = auto()
+    DONE = auto()
 
     @staticmethod
     def get_by_number(number):
         if number is None:
             return None
         if number == 0:
-            return Priority.LOW
+            return Status.CREATED
         if number == 1:
-            return Priority.MIDDLE
+            return Status.IN_WORK
         if number == 2:
-            return Priority.HIGH
+            return Status.DONE

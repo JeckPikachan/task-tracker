@@ -228,6 +228,9 @@ def main():
             if args.kind == 'relation':
                 app.remove_relation(args.from_id, args.to_id)
 
+            if args.kind == 'plan':
+                app.remove_plan(args.plan_id)
+
         if args.command == 'edit':
             if args.kind == 'project':
                 app.edit_project(args.name)

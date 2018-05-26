@@ -1,8 +1,6 @@
 import unittest
 
-from app.model.task import Task
-from app.util.priority import Priority
-from app.util.status import Status
+from app.model.task import Task, Priority, Status
 
 
 class TestTask(unittest.TestCase):
