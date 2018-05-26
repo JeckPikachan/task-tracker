@@ -68,7 +68,8 @@ class ProjectContainer:
         :return:
         """
         for task_list in self.lists:
-            task_list.tasks_list.remove(task_id)
+            if task_id in task_list.tasks_list:
+                task_list.tasks_list.remove(task_id)
         self.tasks = [task for task in self.tasks if task.unique_id != task_id]
 
     # endregion

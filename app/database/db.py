@@ -144,11 +144,11 @@ class DataBase:
     @log_func
     def save(self, container):
         container = copy.deepcopy(container)
-        tasks = [self._task_serializable(task) for task in container.tasks]
-        task_lists = [self._json_serializable(task_list) for
+        tasks = [Serialization.task_serializable(task) for task in container.tasks]
+        task_lists = [Serialization.json_serializable(task_list) for
                       task_list in container.lists]
-        project = self._project_serializable(container.project)
-        plans = [self._plan_serializable(plan) for plan in container.plans]
+        project = Serialization.project_serializable(container.project)
+        plans = [Serialization.plan_serializable(plan) for plan in container.plans]
 
         project_name = project.get('name')
         project_id = project.get('unique_id')
@@ -171,7 +171,7 @@ class DataBase:
     def save_config(self):
         try:
             with open(self._db_path + "db_config.json", "w+") as config_file:
-                json.dump(self._json_serializable(self.config),
+                json.dump(Serialization.json_serializable(self.config),
                           config_file, indent=4)
             return None
         except IOError as e:
@@ -182,7 +182,7 @@ class DataBase:
         try:
             with open(self._db_path + "users/" + user.unique_id + ".json", "w+") as\
                     user_file:
-                json.dump(self._json_serializable(user), user_file, indent=4)
+                json.dump(Serialization.json_serializable(user), user_file, indent=4)
             self.config.add_user_info(user.name, user.unique_id)
             self.save_config()
             return None
@@ -193,7 +193,7 @@ class DataBase:
     def save_uprs(self, uprs_collection):
         try:
             with open(self._db_path + "uprs/uprs.json", "w+") as uprs_file:
-                json.dump(self._uprs_collection_serializable(uprs_collection),
+                json.dump(Serialization.uprs_collection_serializable(uprs_collection),
                           uprs_file, indent=4)
             return None
         except IOError as e:
@@ -232,26 +232,32 @@ class DataBase:
         self.save_config()
 
     # endregion
-    # region serialization methods
 
-    def _json_serializable(self, obj):
+
+class Serialization:
+    @staticmethod
+    def json_serializable(obj):
         new_dict = obj.__dict__ or obj
         return new_dict
 
-    def _project_serializable(self, project):
+    @staticmethod
+    def project_serializable(project):
         return project.__dict__
 
-    def _uprs_collection_serializable(self, uprs_collection):
-        uprs_collection.uprs = [self._json_serializable(upr) for upr in
+    @staticmethod
+    def uprs_collection_serializable(uprs_collection):
+        uprs_collection.uprs = [Serialization.json_serializable(upr) for upr in
                                 uprs_collection.uprs]
         return uprs_collection.__dict__
 
-    def _plan_serializable(self, plan):
-        plan.task_pattern = self._json_serializable(plan.task_pattern)
-        return self._json_serializable(plan)
+    @staticmethod
+    def plan_serializable(plan):
+        plan.task_pattern = Serialization.json_serializable(plan.task_pattern)
+        return Serialization.json_serializable(plan)
 
-    def _task_serializable(self, task):
-        task_dict = self._json_serializable(task)
+    @staticmethod
+    def task_serializable(task):
+        task_dict = Serialization.json_serializable(task)
         task_dict['status'] = enum_serializable(task_dict['_status'])
         task_dict['priority'] = enum_serializable(task_dict['_priority'])
         task_dict['expiration_date'] = '{0:%Y-%m-%d %H:%M}'\
@@ -260,9 +266,7 @@ class DataBase:
         del task_dict['_expiration_date']
         del task_dict['_status']
         del task_dict['_priority']
-        task_dict['related_tasks_list'] = [self._json_serializable(x) for
+        task_dict['related_tasks_list'] = [Serialization.json_serializable(x) for
                                            x in task_dict['related_tasks_list']]
 
         return task_dict
-
-    # endregion
