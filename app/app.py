@@ -7,6 +7,7 @@ import os
 import time
 
 from app.database.db import DataBase
+from app.log_config import LOG_CONFIG
 from app.model.planmanager import PlanManager
 from app.model.project import Project
 from app.model.projectcontainer import ProjectContainer
@@ -60,9 +61,7 @@ class App:
     """
     # region magic methods
     def __init__(self):
-        with open(os.path.dirname(__file__) + '/log_config.json', 'r') as \
-                log_config_file:
-            log_config = json.load(log_config_file)
+        log_config = LOG_CONFIG
 
         init_logging(log_config['level'],
                      os.path.dirname(__file__) + '/adastra.log',
