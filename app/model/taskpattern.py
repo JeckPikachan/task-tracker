@@ -13,6 +13,14 @@ class TaskPattern:
                  priority=None,
                  status=None,
                  author=None):
+        """
+
+        :param name: {string} Name of task to be created
+        :param description: {string} Description of task to be created
+        :param priority: {int} Priority of task to be created
+        :param status: {int} Status of task to be created
+        :param author: {string} Author id of task to be created
+        """
         self.name = name
         self.description = description
         self.priority = priority

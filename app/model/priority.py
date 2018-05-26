@@ -8,6 +8,12 @@ class Priority(Enum):
 
     @staticmethod
     def get_by_number(number):
+        """
+
+        :param number: {int} Number form 0 to 2 to be transformed
+            into Priority object
+        :return: Priority object or None
+        """
         if number is None:
             return None
         if number == 0:

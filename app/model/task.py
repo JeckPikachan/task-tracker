@@ -20,6 +20,18 @@ class Task(UniqueObject):
     Tasks exist in terms of task lists only
     """
     def __init__(self, **kwargs):
+        """
+
+        :param kwargs: Can include:
+             name {string}: Name of task
+             unique_id {string}: Sets unique id of task
+                (use for restoring only )
+             description {string}: Description of task
+             expiration_date {date}: A date when task expires
+             priority {Priority}: task priority
+             status {Status}: task status
+             author {string}: author id
+        """
         unique_id = kwargs.get('unique_id', None)
         name = kwargs.get('name', None)
         super(Task, self).__init__(name, unique_id)
@@ -82,6 +94,12 @@ class Task(UniqueObject):
             self._status = status
 
     def add_relation(self, to_id, description=None):
+        """
+
+        :param to_id: {string} id of task on which relation will be set
+        :param description: {string} should describe task relation
+        :return: {TaskRelation} An object of created task relation
+        """
         task_relation = TaskRelation(to_id, description)
         self.related_tasks_list.append(task_relation)
         return task_relation

@@ -9,9 +9,15 @@ class Project(UniqueObject):
     """
 
     def __init__(self, **kwargs):
+        """
+
+        :param kwargs: can include:
+            name: {string} Name of project
+            unique_id: {string} Sets unique id of task
+                (use for restoring only)
+            lists: {string[]} List of included task ids
+        """
         name = kwargs.get('name')
         super(Project, self).__init__(name, kwargs.get('unique_id', None))
         self.lists = kwargs.get('lists', [])
         self.roles_list = kwargs.get('roles_list', [])
-        # self.user_project_relations_list = kwargs.get('user_project_relations_list', [])
-
