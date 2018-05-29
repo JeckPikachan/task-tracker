@@ -1,0 +1,150 @@
+from datetime import datetime
+from enum import Enum, auto
+
+from .UniqueObject import UniqueObject
+
+
+class TaskRelation:
+    def __init__(self, to, description=None):
+        self.to = to
+        self.description = description
+
+
+class Status(Enum):
+    CREATED = auto()
+    IN_WORK = auto()
+    DONE = auto()
+
+    @staticmethod
+    def get_by_number(number):
+        """
+
+        :param number: {int} Number form 0 to 2 to be transformed
+            into Status object
+        :return: Status object or None
+        """
+        if number is None:
+            return None
+        if number == 0:
+            return Status.CREATED
+        if number == 1:
+            return Status.IN_WORK
+        if number == 2:
+            return Status.DONE
+
+
+class Priority(Enum):
+    LOW = auto()
+    MIDDLE = auto()
+    HIGH = auto()
+
+    @staticmethod
+    def get_by_number(number):
+        """
+
+        :param number: {int} Number form 0 to 2 to be transformed
+            into Priority object
+        :return: Priority object or None
+        """
+        if number is None:
+            return None
+        if number == 0:
+            return Priority.LOW
+        if number == 1:
+            return Priority.MIDDLE
+        if number == 2:
+            return Priority.HIGH
+
+
+class Task(UniqueObject):
+    """
+
+    Task is the most basic element of Task Tracker
+    Tasks are grouped into Task Lists (TaskList)
+    Tasks exist in terms of task lists only
+    """
+    def __init__(self, **kwargs):
+        """
+
+        :param kwargs: Can include:
+             name {string}: Name of task
+             unique_id {string}: Sets unique id of task
+                (use for restoring only )
+             description {string}: Description of task
+             expiration_date {date}: A date when task expires
+             priority {Priority}: task priority
+             status {Status}: task status
+             author {string}: author id
+        """
+        unique_id = kwargs.get('unique_id', None)
+        name = kwargs.get('name', None)
+        super(Task, self).__init__(name, unique_id)
+
+        self._status = None
+        self._priority = None
+        self._expiration_date = None
+
+        self.description = kwargs.get('description', None)
+        self.expiration_date = kwargs.get('expiration_date', None)
+        self.priority = kwargs.get('priority', Priority.MIDDLE)
+        self.status = kwargs.get('status', Status.CREATED)
+        self.tags_list = kwargs.get('tags_list', [])
+        self.comment_ids_list = kwargs.get('comment_ids_list', [])
+        self.responsible_ids_list = kwargs.get('responsible_ids_list', [])
+        self.author = kwargs.get('author', None)
+        self.related_tasks_list = [TaskRelation(**x) for x in kwargs.get('related_tasks_list', [])]
+
+    @property
+    def expiration_date(self):
+        return self._expiration_date
+
+    @expiration_date.setter
+    def expiration_date(self, expiration_date):
+        if isinstance(expiration_date, datetime):
+            self._expiration_date = expiration_date
+        elif isinstance(expiration_date, str):
+            self._expiration_date = datetime.strptime(expiration_date, '%Y-%m-%d %H:%M')
+        else:
+            self._expiration_date = None
+
+    @property
+    def priority(self):
+        return self._priority
+
+    @priority.setter
+    def priority(self, priority):
+        if priority is None:
+            self._priority = Priority.MIDDLE
+        elif isinstance(priority, int):
+            self._priority = Priority.get_by_number(priority)
+        else:
+            self._priority = priority
+
+    @property
+    def status(self):
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        if status is None:
+            self._status = Status.CREATED
+        elif isinstance(status, int):
+            self._status = Status.get_by_number(status)
+        else:
+            self._status = status
+
+    def add_relation(self, to_id, description=None):
+        """
+
+        :param to_id: {string} id of task on which relation will be set
+        :param description: {string} should describe task relation
+        :return: {TaskRelation} An object of created task relation
+        """
+        task_relation = TaskRelation(to_id, description)
+        self.related_tasks_list.append(task_relation)
+        return task_relation
+
+    def remove_relation(self, to_id):
+        self.related_tasks_list = [x for x in
+                                   self.related_tasks_list if
+                                   x.to != to_id]

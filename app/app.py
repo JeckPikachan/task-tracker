@@ -5,17 +5,17 @@ import os
 
 import time
 
-from app.database.db import DataBase
+from database.db import DataBase
 from app.log_config import LOG_CONFIG
-from app.model.adastra_library.planmanager import PlanManager
-from app.model.adastra_library.project import Project
-from app.model.adastra_library.projectcontainer import ProjectContainer
-from app.model.adastra_library.task import Task
-from app.model.adastra_library.tasklist import TaskList
-from app.model.adastra_library.taskpattern import TaskPattern
-from app.model.adastra_library.user import User
-from app.util.deltatime import get_time_from_delta
-from app.logging.log import log_func, init_logging
+from adastra_library.adastra_library.planmanager import PlanManager
+from adastra_library import Project
+from adastra_library.adastra_library.projectcontainer import ProjectContainer
+from adastra_library.adastra_library.task import Task
+from adastra_library import TaskList
+from adastra_library.adastra_library.taskpattern import TaskPattern
+from adastra_library.adastra_library.user import User
+from util.deltatime import get_time_from_delta
+from util.log import log_func, init_logging
 
 
 class NoContainerError(AttributeError):
@@ -59,11 +59,14 @@ class App:
     user interface.
     """
     # region magic methods
-    def __init__(self):
-        log_config = LOG_CONFIG
+    def __init__(self, log_config=None):
+        log_config = log_config if log_config is not None else LOG_CONFIG
+        log_path = (log_config['log_path'] if
+                    log_config.get('log_path', None) is not None else
+                    os.path.dirname(__file__) + '/adastra.log')
 
         init_logging(log_config['level'],
-                     os.path.dirname(__file__) + '/adastra.log',
+                     log_path,
                      log_config['format'],
                      log_config['datefmt'])
 

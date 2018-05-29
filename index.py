@@ -2,8 +2,8 @@
 import datetime
 
 from app import App, NoContainerError
-from app.util.deltatime import get_delta_from_time
-from user_interface.parser import Parser
+from util.deltatime import get_delta_from_time
+from comand_line_interface.parser import Parser
 
 
 def print_unique_object(obj):
@@ -120,10 +120,10 @@ def main():
                 elif args.id is not None:
                     lists = [next((x for x in lists if x.unique_id == args.id), None)]
 
-                for list in lists:
-                    tasks = app.get_tasks(list.unique_id)
-                    print("* name : " + list.name)
-                    print("  id   : " + list.unique_id)
+                for task_list in lists:
+                    tasks = app.get_tasks(task_list.unique_id)
+                    print("* name : " + task_list.name)
+                    print("  id   : " + task_list.unique_id)
                     if verbose:
                         print("  tasks:")
                         for task in tasks:
