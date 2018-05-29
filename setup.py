@@ -6,6 +6,6 @@ setup(
     py_modules=['app', 'comand_line_interface'],
     entry_points='''
     [console_scripts]
-    adastra=index:main
+    adastra=comand_line_interface.main:main
     '''
 )

@@ -1,7 +1,7 @@
-from .userprojectrelation import UserProjectRelation
+from .user_project_relation import UserProjectRelation
 
 
-class UPRSCollection:
+class UPRCollection:
     def __init__(self, uprs=None):
         """
 

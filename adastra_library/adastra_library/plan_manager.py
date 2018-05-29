@@ -1,6 +1,6 @@
 import time
 
-from .UniqueObject import UniqueObject
+from .unique_object import UniqueObject
 from .task import Task
 
 

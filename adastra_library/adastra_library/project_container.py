@@ -11,11 +11,11 @@ class ProjectContainer:
 
     # region magic methods
 
-    def __init__(self, **kwargs):
-        self.project = kwargs.get('project')
-        self.lists = kwargs.get('lists', [])
-        self.tasks = kwargs.get('tasks', [])
-        self.plans = kwargs.get('plans', [])
+    def __init__(self, project, lists=None, tasks=None, plans=None, **kwargs):
+        self.project = project
+        self.lists = lists if lists is not None else []
+        self.tasks = tasks if tasks is not None else []
+        self.plans = plans if plans is not None else []
 
     # endregion
     # region add/remove methods

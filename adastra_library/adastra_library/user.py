@@ -1,4 +1,4 @@
-from .UniqueObject import UniqueObject
+from .unique_object import UniqueObject
 
 
 class User(UniqueObject):
@@ -8,12 +8,11 @@ class User(UniqueObject):
     Only contains name and unique id
     """
 
-    def __init__(self, **kwargs):
+    def __init__(self, name=None, unique_id=None):
         """
 
             :param name: {string} Name
             :param unique_id: {string} Unique id of object
                 (use for restoring only )
         """
-        name = kwargs.get('name', None)
-        super(User, self).__init__(name, kwargs.get('unique_id', None))
+        super(User, self).__init__(name, unique_id)

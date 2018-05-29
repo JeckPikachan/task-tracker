@@ -2,7 +2,7 @@
 import datetime
 
 from app import App, NoContainerError
-from util.deltatime import get_delta_from_time
+from util.delta_time import get_delta_from_time
 from comand_line_interface.parser import Parser
 
 
@@ -105,7 +105,7 @@ def main():
                     projects_info, current_project_id = app.get_projects_info()
                     print_projects(projects_info, current_project_id)
                 else:
-                    project = app.get_project()
+                    project = app.get_current_project()
                     print("name: " + str(project.name))
                     print("id: " + str(project.unique_id))
                     if args.verbose:

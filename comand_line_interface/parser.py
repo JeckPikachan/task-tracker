@@ -1,6 +1,8 @@
 import argparse
 from datetime import datetime
 
+from util import delta_time
+
 
 def valid_date(s):
     try:
@@ -93,7 +95,11 @@ class Parser:
         parser_add_relation.add_argument('to_id')
 
         parser_add_plan = subparsers_for_add.add_parser('plan')
-        parser_add_plan.add_argument('delta', type=int, choices=[0, 1, 2, 3],
+        parser_add_plan.add_argument('delta', type=int,
+                                     choices=[delta_time.DAILY,
+                                              delta_time.WEEKLY,
+                                              delta_time.MONTHLY,
+                                              delta_time.YEARLY],
                                      help="0 - day, 1 - week, 2 - month, 3 - year")
         parser_add_plan.add_argument('list_id')
         parser_add_plan.add_argument('name')

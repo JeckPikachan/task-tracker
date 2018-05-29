@@ -1,4 +1,4 @@
-from .UniqueObject import UniqueObject
+from .unique_object import UniqueObject
 
 
 class Project(UniqueObject):
@@ -8,16 +8,15 @@ class Project(UniqueObject):
     Task lists and tasks exist in terms of project only
     """
 
-    def __init__(self, **kwargs):
+    def __init__(self, name=None, unique_id=None, lists=None, roles_list=None):
         """
 
-        :param kwargs: can include:
-            name: {string} Name of project
-            unique_id: {string} Sets unique id of task
+        :param name: {string} Name of project
+        :param unique_id: {string} Sets unique id of task
                 (use for restoring only)
-            lists: {string[]} List of included task ids
+        :param lists: {string[]} List of included task ids
+        :param roles_list: not implemented
         """
-        name = kwargs.get('name')
-        super(Project, self).__init__(name, kwargs.get('unique_id', None))
-        self.lists = kwargs.get('lists', [])
-        self.roles_list = kwargs.get('roles_list', [])
+        super(Project, self).__init__(name, unique_id)
+        self.lists = lists if lists is not None else []
+        self.roles_list = roles_list if roles_list is not None else []

@@ -1,7 +1,7 @@
 from datetime import datetime
 from enum import Enum, auto
 
-from .UniqueObject import UniqueObject
+from .unique_object import UniqueObject
 
 
 class TaskRelation:
@@ -63,36 +63,53 @@ class Task(UniqueObject):
     Tasks are grouped into Task Lists (TaskList)
     Tasks exist in terms of task lists only
     """
-    def __init__(self, **kwargs):
+    def __init__(self,
+                 name=None,
+                 unique_id=None,
+                 description=None,
+                 expiration_date=None,
+                 priority=None,
+                 status=None,
+                 author=None,
+                 tags_list=None,
+                 comment_ids_list=None,
+                 responsible_ids_list=None,
+                 related_tasks_list=None):
         """
 
-        :param kwargs: Can include:
-             name {string}: Name of task
-             unique_id {string}: Sets unique id of task
+        :param name: {string} Name of task
+        :param unique_id: {string} Sets unique id of task
                 (use for restoring only )
-             description {string}: Description of task
-             expiration_date {date}: A date when task expires
-             priority {Priority}: task priority
-             status {Status}: task status
-             author {string}: author id
+        :param description: {string} Description of task
+        :param expiration_date: {date} A date when task expires
+        :param priority: {Priority} task priority
+        :param status: {Status} task status
+        :param author: {string} author id
+        :param tags_list: not implemented
+        :param comment_ids_list: not implemented
+        :param responsible_ids_list: not implemented
+        :param related_tasks_list: not implemented
         """
-        unique_id = kwargs.get('unique_id', None)
-        name = kwargs.get('name', None)
+        unique_id = unique_id
+        name = name
         super(Task, self).__init__(name, unique_id)
 
         self._status = None
         self._priority = None
         self._expiration_date = None
 
-        self.description = kwargs.get('description', None)
-        self.expiration_date = kwargs.get('expiration_date', None)
-        self.priority = kwargs.get('priority', Priority.MIDDLE)
-        self.status = kwargs.get('status', Status.CREATED)
-        self.tags_list = kwargs.get('tags_list', [])
-        self.comment_ids_list = kwargs.get('comment_ids_list', [])
-        self.responsible_ids_list = kwargs.get('responsible_ids_list', [])
-        self.author = kwargs.get('author', None)
-        self.related_tasks_list = [TaskRelation(**x) for x in kwargs.get('related_tasks_list', [])]
+        self.description = description
+        self.expiration_date = expiration_date
+        self.priority = priority if priority is not None else Priority.MIDDLE
+        self.status = status if status is not None else Status.CREATED
+        self.tags_list = tags_list if tags_list is not None else []
+        self.comment_ids_list = (comment_ids_list if
+                                 comment_ids_list is not None else [])
+        self.responsible_ids_list = (responsible_ids_list if
+                                     responsible_ids_list is not None else [])
+        self.author = author
+        self.related_tasks_list = ([TaskRelation(**x) for x in related_tasks_list] if
+                                   related_tasks_list is not None else [])
 
     @property
     def expiration_date(self):

@@ -1,11 +1,11 @@
 import unittest
 
-from adastra_library import UPRSCollection
+from adastra_library import UPRCollection
 
 
 class TestUPRSCollection(unittest.TestCase):
     def setUp(self):
-        self.uprs_collection = UPRSCollection()
+        self.uprs_collection = UPRCollection()
 
     def tearDown(self):
         self.uprs_collection = None

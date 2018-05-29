@@ -1,12 +1,12 @@
 import unittest
 
-from adastra_library.adastra_library.planmanager import PlanManager
+from adastra_library.adastra_library.plan_manager import PlanManager
 from adastra_library import Project
-from adastra_library.adastra_library.projectcontainer import ProjectContainer
+from adastra_library.adastra_library.project_container import ProjectContainer
 from adastra_library.adastra_library.task import Task, TaskRelation
 from adastra_library import TaskList
-from adastra_library.adastra_library.taskpattern import TaskPattern
-from util.deltatime import get_time_from_delta
+from adastra_library.adastra_library.task_pattern import TaskPattern
+from util.delta_time import get_time_from_delta
 
 
 class TestProjectContainer(unittest.TestCase):

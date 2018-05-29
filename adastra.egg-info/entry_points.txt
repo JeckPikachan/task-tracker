@@ -1,4 +1,4 @@
 
     [console_scripts]
-    adastra=index:main
+    adastra=comand_line_interface.main:main
     

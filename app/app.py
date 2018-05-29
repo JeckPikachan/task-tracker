@@ -7,14 +7,14 @@ import time
 
 from database.db import DataBase
 from app.log_config import LOG_CONFIG
-from adastra_library.adastra_library.planmanager import PlanManager
+from adastra_library.adastra_library.plan_manager import PlanManager
 from adastra_library import Project
-from adastra_library.adastra_library.projectcontainer import ProjectContainer
+from adastra_library.adastra_library.project_container import ProjectContainer
 from adastra_library.adastra_library.task import Task
 from adastra_library import TaskList
-from adastra_library.adastra_library.taskpattern import TaskPattern
+from adastra_library.adastra_library.task_pattern import TaskPattern
 from adastra_library.adastra_library.user import User
-from util.deltatime import get_time_from_delta
+from util.delta_time import get_time_from_delta
 from util.log import log_func, init_logging
 
 
@@ -149,9 +149,9 @@ class App:
         if user_id == self.user.unique_id and\
                 self.container and\
                 project_id == self.container.project.unique_id:
-            self._db.config.current_project_id = None
+            self._db.db_info.current_project_id = None
             self.container = None
-            self._db.save_config()
+            self._db.save_db_info()
 
     # endregion
     # region list
@@ -240,15 +240,15 @@ class App:
 
     @log_func
     @check_attribute("container", "user")
-    def get_project(self):
+    def get_current_project(self):
         return copy.deepcopy(self.container.project)
 
     @log_func
     @check_attribute("user")
     def get_projects_info(self):
-        return ([x for x in self._db.get_config().projects_info if
+        return ([x for x in self._db.get_db_info().projects_info if
                  self._has_user_access(x['unique_id'])],
-                self._db.get_config().current_project_id)
+                self._db.get_db_info().current_project_id)
 
     # endregion
     # region user
@@ -260,8 +260,8 @@ class App:
 
     @log_func
     def get_users_info(self):
-        return [x for x in self._db.get_config().users_info],\
-               self._db.get_config().current_user_id
+        return [x for x in self._db.get_db_info().users_info],\
+               self._db.get_db_info().current_user_id
 
     # endregion
     # region list

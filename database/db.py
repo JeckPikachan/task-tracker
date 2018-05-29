@@ -2,12 +2,13 @@ import copy
 import json
 import os
 
-from adastra_library import Project, TaskList, Task, TaskPattern, PlanManager, ProjectContainer, User, UPRSCollection
+from adastra_library import Project, TaskList, Task, TaskPattern, PlanManager, ProjectContainer, User, UPRCollection
+from database import serialization
+from util.enum_json import as_enum
 from util.log import log_func
-from util.enum_json import enum_serializable, as_enum
 
 
-class DBConfig:
+class DBInfo:
     # region magic methods
 
     def __init__(self, current_project_id=None, current_user_id=None,
@@ -55,9 +56,9 @@ class DataBase:
                          os.path.dirname(__file__) + "/data/")
         try:
             with open(self._db_path + "db_info.json", "r") as config_file:
-                self.config = DBConfig(**json.load(config_file))
+                self.db_info = DBInfo(**json.load(config_file))
         except IOError:
-            self.config = DBConfig()
+            self.db_info = DBInfo()
 
     # endregion
     # region load methods
@@ -88,7 +89,7 @@ class DataBase:
 
                 container = ProjectContainer(**loaded)
 
-                self.config.current_project_id = project.get('unique_id')
+                self.db_info.current_project_id = project.get('unique_id')
             return container
         except IOError as e:
             raise
@@ -96,7 +97,7 @@ class DataBase:
     @log_func
     def load(self, project_id=None):
         if project_id is None:
-            current_project_id = self.config.current_project_id
+            current_project_id = self.db_info.current_project_id
 
             if current_project_id is not None:
                 return self.load_from_file(current_project_id)
@@ -105,21 +106,21 @@ class DataBase:
         else:
             container = self.load_from_file(project_id)
             if container is not None:
-                self.save_config()
+                self.save_db_info()
             return container
 
     @log_func
     def load_user(self, user_id=None):
         if user_id is None:
-            user_id = self.config.current_user_id
+            user_id = self.db_info.current_user_id
             if user_id is None:
                 return None
         try:
             with open(self._db_path + "users/" + user_id + ".json", "r") as user_file:
                 loaded = json.load(user_file)
                 user = User(**loaded)
-                self.config.current_user_id = user_id
-                self.save_config()
+                self.db_info.current_user_id = user_id
+                self.save_db_info()
             return user
         except IOError as e:
             raise e
@@ -129,7 +130,7 @@ class DataBase:
         try:
             with open(self._db_path + "uprs/uprs.json", "r") as uprs_file:
                 loaded = json.load(uprs_file)
-                uprs_collection = UPRSCollection(**loaded)
+                uprs_collection = UPRCollection(**loaded)
             return uprs_collection
         except IOError as e:
             raise e
@@ -140,11 +141,11 @@ class DataBase:
     @log_func
     def save(self, container):
         container = copy.deepcopy(container)
-        tasks = [Serialization.task_serializable(task) for task in container.tasks]
-        task_lists = [Serialization.json_serializable(task_list) for
+        tasks = [serialization.transform_task(task) for task in container.tasks]
+        task_lists = [serialization.transform_object(task_list) for
                       task_list in container.lists]
-        project = Serialization.project_serializable(container.project)
-        plans = [Serialization.plan_serializable(plan) for plan in container.plans]
+        project = serialization.transform_project(container.project)
+        plans = [serialization.transform_plan(plan) for plan in container.plans]
 
         project_name = project.get('name')
         project_id = project.get('unique_id')
@@ -157,17 +158,17 @@ class DataBase:
                     project_file:
                 json.dump(dict_to_save, project_file, indent=4)
 
-            self.config.add_project_info(project_name, project_id)
-            self.save_config()
+            self.db_info.add_project_info(project_name, project_id)
+            self.save_db_info()
             return None
         except IOError as e:
             return e
 
     @log_func
-    def save_config(self):
+    def save_db_info(self):
         try:
             with open(self._db_path + "db_info.json", "w+") as config_file:
-                json.dump(Serialization.json_serializable(self.config),
+                json.dump(serialization.transform_object(self.db_info),
                           config_file, indent=4)
             return None
         except IOError as e:
@@ -178,9 +179,9 @@ class DataBase:
         try:
             with open(self._db_path + "users/" + user.unique_id + ".json", "w+") as \
                     user_file:
-                json.dump(Serialization.json_serializable(user), user_file, indent=4)
-            self.config.add_user_info(user.name, user.unique_id)
-            self.save_config()
+                json.dump(serialization.transform_object(user), user_file, indent=4)
+            self.db_info.add_user_info(user.name, user.unique_id)
+            self.save_db_info()
             return None
         except IOError as e:
             return e
@@ -189,7 +190,7 @@ class DataBase:
     def save_uprs(self, uprs_collection):
         try:
             with open(self._db_path + "uprs/uprs.json", "w+") as uprs_file:
-                json.dump(Serialization.uprs_collection_serializable(uprs_collection),
+                json.dump(serialization.transform_upr_collection(uprs_collection),
                           uprs_file, indent=4)
             return None
         except IOError as e:
@@ -202,13 +203,13 @@ class DataBase:
     def remove(self, project_id):
         try:
             os.remove(self._db_path + "projects/" + project_id + ".json")
-            self.config.projects_info = \
+            self.db_info.projects_info = \
                 [project_info for project_info in
-                 self.config.projects_info if
+                 self.db_info.projects_info if
                  project_info.get('unique_id') != project_id]
-            if self.config.current_project_id == project_id:
-                self.config.current_project_id = None
-            self.save_config()
+            if self.db_info.current_project_id == project_id:
+                self.db_info.current_project_id = None
+            self.save_db_info()
         except OSError:
             pass
 
@@ -216,53 +217,15 @@ class DataBase:
     # region get methods
 
     @log_func
-    def get_config(self):
-        return copy.copy(self.config)
+    def get_db_info(self):
+        return copy.copy(self.db_info)
 
     # endregion
     # region change methods
 
     @log_func
     def leave_project(self):
-        self.config.current_project_id = None
-        self.save_config()
+        self.db_info.current_project_id = None
+        self.save_db_info()
 
     # endregion
-
-
-class Serialization:
-    @staticmethod
-    def json_serializable(obj):
-        new_dict = obj.__dict__ or obj
-        return new_dict
-
-    @staticmethod
-    def project_serializable(project):
-        return project.__dict__
-
-    @staticmethod
-    def uprs_collection_serializable(uprs_collection):
-        uprs_collection.uprs = [Serialization.json_serializable(upr) for upr in
-                                uprs_collection.uprs]
-        return uprs_collection.__dict__
-
-    @staticmethod
-    def plan_serializable(plan):
-        plan.task_pattern = Serialization.json_serializable(plan.task_pattern)
-        return Serialization.json_serializable(plan)
-
-    @staticmethod
-    def task_serializable(task):
-        task_dict = Serialization.json_serializable(task)
-        task_dict['status'] = enum_serializable(task_dict['_status'])
-        task_dict['priority'] = enum_serializable(task_dict['_priority'])
-        task_dict['expiration_date'] = '{0:%Y-%m-%d %H:%M}' \
-            .format(task_dict['_expiration_date']) if \
-            task_dict['_expiration_date'] is not None else None
-        del task_dict['_expiration_date']
-        del task_dict['_status']
-        del task_dict['_priority']
-        task_dict['related_tasks_list'] = [Serialization.json_serializable(x) for
-                                           x in task_dict['related_tasks_list']]
-
-        return task_dict
