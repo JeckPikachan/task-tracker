@@ -5,6 +5,7 @@ import os
 from adastra_library import Project, TaskList, Task, TaskPattern, PlanManager, ProjectContainer, User, UPRCollection
 from database import serialization
 from util.enum_json import as_enum
+from util.find import find_one_in_dicts
 from util.log import log_func
 
 
@@ -22,17 +23,14 @@ class DBInfo:
     # region add methods
 
     def add_project_info(self, name, unique_id):
-        found = next((x for x in self.projects_info if
-                      x['unique_id'] == unique_id),
-                     None)
+        found = find_one_in_dicts(self.projects_info, unique_id)
         if found is None:
             self.projects_info.append({'unique_id': unique_id, 'name': name})
         else:
             found['name'] = name
 
     def add_user_info(self, name, unique_id):
-        found = next((x for x in self.users_info if x['unique_id'] == unique_id),
-                     None)
+        found = find_one_in_dicts(self.users_info, unique_id)
         if found is None:
             self.users_info.append({'unique_id': unique_id, 'name': name})
         else:

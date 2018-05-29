@@ -2,6 +2,7 @@ import datetime
 
 from adastra_library import UniqueObject
 from util import delta_time
+from util.find import find_one
 
 SHOW_COMMAND = {'project': lambda app, args: show_project(app, args),
                 'list': lambda app, args: show_list(app, args),
@@ -29,7 +30,7 @@ def show_list(app, args):
     if args.title is not None:
         lists = [task_list for task_list in lists if task_list.name == args.title]
     elif args.id is not None:
-        lists = [next((x for x in lists if x.unique_id == args.id), None)]
+        lists = find_one(lists, args.id)
 
     for task_list in lists:
         tasks = app.get_tasks(task_list.unique_id)
@@ -51,7 +52,7 @@ def show_task(app, args):
     if args.title is not None:
         tasks = [task for task in tasks if task.name == args.title]
     elif args.id is not None:
-        tasks = [next((x for x in tasks if x.unique_id == args.id), None)]
+        tasks = find_one(tasks, args.id)
 
     for task in tasks:
         related_tasks = [app.get_task_by_id(x.to) for x in task.related_tasks_list]

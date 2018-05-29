@@ -1,5 +1,7 @@
 import time
 
+from util.find import find_one
+
 
 class ProjectContainer:
     """
@@ -217,7 +219,7 @@ class ProjectContainer:
     def _get_task_list_by_id(self, task_list_id):
         if task_list_id is None:
             return None
-        return next((x for x in self.lists if x.unique_id == task_list_id), None)
+        return find_one(self.lists, task_list_id)
 
     def get_task_by_id(self, task_id):
         """
@@ -227,7 +229,7 @@ class ProjectContainer:
         """
         if task_id is None:
             return None
-        return next((x for x in self.tasks if x.unique_id == task_id), None)
+        return find_one(self.tasks, task_id)
 
     def get_plans(self):
         """
@@ -244,7 +246,7 @@ class ProjectContainer:
         """
         if plan_id is None:
             return None
-        return next((x for x in self.plans if x.unique_id == plan_id), None)
+        return find_one(self.plans, plan_id)
 
     # endregion
 
