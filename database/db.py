@@ -215,8 +215,14 @@ class DataBase:
     # region get methods
 
     @log_func
-    def get_db_info(self):
-        return copy.copy(self.db_info)
+    def get_projects_info(self):
+        return (self.db_info.projects_info,
+                self.db_info.current_project_id)
+
+    @log_func
+    def get_users_info(self):
+        return (self.db_info.users_info,
+                self.db_info.current_user_id)
 
     # endregion
     # region change methods

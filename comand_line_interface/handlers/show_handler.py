@@ -52,7 +52,7 @@ def show_task(app, args):
     if args.title is not None:
         tasks = [task for task in tasks if task.name == args.title]
     elif args.id is not None:
-        tasks = find_one(tasks, args.id)
+        tasks = [find_one(tasks, args.id)]
 
     for task in tasks:
         related_tasks = [app.get_task_by_id(x.to) for x in task.related_tasks_list]

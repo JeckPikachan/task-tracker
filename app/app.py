@@ -246,9 +246,10 @@ class App:
     @log_func
     @check_attribute("user")
     def get_projects_info(self):
-        return ([x for x in self._db.get_db_info().projects_info if
+        projects_info, current_project_id = self._db.get_projects_info()
+        return ([x for x in projects_info if
                  self._has_user_access(x['unique_id'])],
-                self._db.get_db_info().current_project_id)
+                current_project_id)
 
     # endregion
     # region user
@@ -260,8 +261,7 @@ class App:
 
     @log_func
     def get_users_info(self):
-        return [x for x in self._db.get_db_info().users_info],\
-               self._db.get_db_info().current_user_id
+        return self._db.get_users_info
 
     # endregion
     # region list
