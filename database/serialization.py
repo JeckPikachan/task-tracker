@@ -1,3 +1,5 @@
+import copy
+
 from util.enum_json import enum_serializable
 
 
@@ -7,21 +9,24 @@ def transform_object(obj):
 
 
 def transform_project(project):
-    return project.__dict__
+    return copy.deepcopy(project.__dict__)
 
 
 def transform_upr_collection(uprs_collection):
+    uprs_collection = copy.deepcopy(uprs_collection)
     uprs_collection.uprs = [transform_object(upr) for upr in
                             uprs_collection.uprs]
     return uprs_collection.__dict__
 
 
 def transform_plan(plan):
+    plan = copy.deepcopy(plan)
     plan.task_pattern = transform_object(plan.task_pattern)
     return transform_object(plan)
 
 
 def transform_task(task):
+    task = copy.deepcopy(task)
     task_dict = transform_object(task)
     task_dict['status'] = enum_serializable(task_dict['_status'])
     task_dict['priority'] = enum_serializable(task_dict['_priority'])

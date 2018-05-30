@@ -74,7 +74,7 @@ class App:
         self._db = DataBase()
         self.user = self._db.load_user()
         self.uprs_collection = self._db.load_uprs()
-        self.container = self._db.load()
+        self.container = ProjectContainer(self._db)
 
     def __del__(self):
         logging.info("App is about to finish")
@@ -94,13 +94,11 @@ class App:
     @check_attribute("container", "user")
     def add_relation(self, from_id, to_id, description=None):
         self.container.add_relation(from_id, to_id, description)
-        self._db.save(self.container)
 
     @log_func
     @check_attribute("container", "user")
     def remove_relation(self, from_id, to_id):
         self.container.remove_relation(from_id, to_id)
-        self._db.save(self.container)
 
     # endregion
     # region project
@@ -109,9 +107,8 @@ class App:
     @check_attribute("user")
     def add_project(self, name):
         new_project = Project(name=name)
-        new_container = ProjectContainer(project=new_project)
+        self._db.add_project(new_project)
         current_user_id = self.user.unique_id
-        self._db.save(new_container)
         self.uprs_collection.add_upr(current_user_id, new_project.unique_id)
         self._db.save_uprs(self.uprs_collection)
 
@@ -121,10 +118,10 @@ class App:
         if not self._has_user_access(project_id):
             raise PermissionError("Access denied to project with id: " + project_id)
         else:
-            self._db.remove(project_id)
             self.uprs_collection.remove_by_project_id(project_id)
-            if self.container.project.unique_id == project_id:
+            if self.container.get_current_project_id() == project_id:
                 self.container = None
+            self._db.remove(project_id)
 
     # endregion
     # region upr
@@ -148,7 +145,7 @@ class App:
         self._db.save_uprs(self.uprs_collection)
         if user_id == self.user.unique_id and\
                 self.container and\
-                project_id == self.container.project.unique_id:
+                project_id == self.container.get_current_project_id():
             self._db.db_info.current_project_id = None
             self.container = None
             self._db.save_db_info()
@@ -161,13 +158,11 @@ class App:
     def add_list(self, name):
         new_list = TaskList(name=name)
         self.container.add_list(new_list)
-        self._db.save(self.container)
 
     @log_func
     @check_attribute("container", "user")
     def remove_list(self, task_list_id):
         self.container.remove_list(task_list_id)
-        self._db.save(self.container)
 
     # endregion
     # region task
@@ -177,13 +172,11 @@ class App:
     def add_task(self, task_list_id, name, **kwargs):
         new_task = Task(name=name, author=self.user.unique_id, **kwargs)
         self.container.add_task(task_list_id, new_task)
-        self._db.save(self.container)
 
     @log_func
     @check_attribute("container", "user")
     def remove_task(self, task_id):
         self.container.remove_task(task_id)
-        self._db.save(self.container)
 
     # endregion
     # region plan
@@ -207,13 +200,11 @@ class App:
         task_pattern = TaskPattern(name, description, priority, status, self.user.unique_id)
         new_plan = PlanManager(delta, task_pattern, task_list_id, start_date, end_date)
         self.container.add_plan(task_list_id, new_plan)
-        self._db.save(self.container)
 
     @log_func
     @check_attribute("user", "container")
     def remove_plan(self, plan_id):
         self.container.remove_plan(plan_id)
-        self._db.save(self.container)
 
     # endregion
     # endregion
@@ -222,15 +213,16 @@ class App:
     @log_func
     def change_user(self, user_id):
         self.user = self._db.load_user(user_id)
-        self._db.leave_project()
-        self.container = self._db.load()
+        self.container.leave_project()
+        self.container = None
 
     @log_func
     @check_attribute("user")
     def load_project(self, project_id):
         has_access = self._has_user_access(project_id)
         if has_access:
-            self.container = self._db.load(project_id)
+            self.container = ProjectContainer(self._db)
+            self.container.load(project_id)
         else:
             raise PermissionError("Access denied to project with id: " + project_id)
 
@@ -241,7 +233,7 @@ class App:
     @log_func
     @check_attribute("container", "user")
     def get_current_project(self):
-        return copy.deepcopy(self.container.project)
+        return copy.deepcopy(self.container.get_current_project())
 
     @log_func
     @check_attribute("user")
@@ -261,7 +253,7 @@ class App:
 
     @log_func
     def get_users_info(self):
-        return self._db.get_users_info
+        return self._db.get_users_info()
 
     # endregion
     # region list
@@ -269,7 +261,7 @@ class App:
     @log_func
     @check_attribute("container", "user")
     def get_task_lists(self):
-        return copy.deepcopy(self.container.lists)
+        return copy.deepcopy(self.container.get_task_lists())
 
     # endregion
     # region plan
@@ -291,7 +283,6 @@ class App:
     @check_attribute("container", "user")
     def get_tasks(self, task_list_id=None):
         tasks = copy.deepcopy(self.container.get_tasks(task_list_id))
-        self._db.save(self.container)
         return tasks
 
     @log_func
@@ -307,26 +298,22 @@ class App:
     @check_attribute("container", "user")
     def edit_project(self, new_name):
         if new_name is not None:
-            self.container.project.name = new_name
-            self._db.save(self.container)
+            self.container.edit_project(new_name)
 
     @log_func
     @check_attribute("container", "user")
     def edit_task_list(self, task_list_id, new_name):
         self.container.edit_list(task_list_id, new_name)
-        self._db.save(self.container)
 
     @log_func
     @check_attribute("container", "user")
     def edit_task(self, **kwargs):
         self.container.edit_task(**kwargs)
-        self._db.save(self.container)
 
     @log_func
     @check_attribute("container", "user")
     def free_tasks_list(self, task_list_id):
         self.container.free_tasks_list(task_list_id)
-        self._db.save(self.container)
 
     # endregion
     # region private methods

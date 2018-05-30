@@ -1,7 +1,5 @@
 import time
 
-from util.find import find_one
-
 
 class ProjectContainer:
     """
@@ -13,11 +11,16 @@ class ProjectContainer:
 
     # region magic methods
 
-    def __init__(self, project, lists=None, tasks=None, plans=None, **kwargs):
-        self.project = project
-        self.lists = lists if lists is not None else []
-        self.tasks = tasks if tasks is not None else []
-        self.plans = plans if plans is not None else []
+    def __init__(self, db, **kwargs):
+        self._db = db
+        self.load()
+
+    def load(self, project_id=None):
+        self._db.load(project_id)
+
+    def leave_project(self):
+        self._db.leave_project()
+        self._db.load()
 
     # endregion
     # region add/remove methods
@@ -30,8 +33,7 @@ class ProjectContainer:
         :param task_list: {TaskList} TaskList object to be added
         :return:
         """
-        self.lists.append(task_list)
-        self.project.lists.append(task_list.unique_id)
+        self._db.add_list(task_list)
 
     def remove_list(self, task_list_id):
         """
@@ -40,10 +42,7 @@ class ProjectContainer:
         :param task_list_id: {string} task list id
         :return:
         """
-        self.free_tasks_list(task_list_id)
-        self.project.lists.remove(task_list_id)
-        self.lists = [task_list for task_list in self.lists if
-                      task_list.unique_id != task_list_id]
+        self._db.remove_list(task_list_id)
 
     # endregion
     # region task
@@ -55,12 +54,7 @@ class ProjectContainer:
         :param task: {Task} Task object to be added
         :return:
         """
-        task_list = self._get_task_list_by_id(task_list_id)
-        if task_list is not None:
-            self.tasks.append(task)
-            task_list.tasks_list.append(task.unique_id)
-        else:
-            raise ValueError("No task list with such id")
+        self._db.add_task(task_list_id, task)
 
     def remove_task(self, task_id):
         """
@@ -69,10 +63,7 @@ class ProjectContainer:
         :param task_id: {string} task id
         :return:
         """
-        for task_list in self.lists:
-            if task_id in task_list.tasks_list:
-                task_list.tasks_list.remove(task_id)
-        self.tasks = [task for task in self.tasks if task.unique_id != task_id]
+        self._db.remove_task(task_id)
 
     # endregion
     # region relation
@@ -86,13 +77,7 @@ class ProjectContainer:
         :param description: {string} Describes type of relation
         :return: Created TaskRelation object
         """
-        from_task = self.get_task_by_id(from_id)
-        to_task = self.get_task_by_id(to_id)
-        if from_task is None or to_task is None:
-            raise NameError("No task(s) with such id")
-        if to_task.unique_id in [x.to for x in from_task.related_tasks_list]:
-            raise NameError("Such relation already exists")
-        return from_task.add_relation(to_id, description)
+        return self._db.add_relation(from_id, to_id, description)
 
     def remove_relation(self, from_id, to_id):
         """
@@ -102,10 +87,7 @@ class ProjectContainer:
         :param to_id: {string} id of task to which relation will be unset
         :return:
         """
-        from_task = self.get_task_by_id(from_id)
-        if from_task is None:
-            raise NameError("No task with such id")
-        from_task.remove_relation(to_id)
+        self._db.remove_relation(from_id, to_id)
 
     # endregion
     # region plan
@@ -118,11 +100,7 @@ class ProjectContainer:
         :param plan: {PlanManager} Plan to be added
         :return:
         """
-        task_list = self._get_task_list_by_id(task_list_id)
-        if task_list is not None:
-            self.plans.append(plan)
-        else:
-            raise ValueError("No task list with such id")
+        self._db.add_plan(task_list_id, plan)
 
     def remove_plan(self, plan_id):
         """
@@ -131,8 +109,7 @@ class ProjectContainer:
         :param plan_id: {string} plan id
         :return:
         """
-        self.plans = [plan for plan in
-                      self.plans if plan.unique_id != plan_id]
+        self._db.remove_plan(plan_id)
 
     # endregion
     # endregion
@@ -145,9 +122,7 @@ class ProjectContainer:
         :param new_name: {string} new name
         :return:
         """
-        task_list = self._get_task_list_by_id(task_list_id)
-        if task_list is not None and new_name is not None:
-            task_list.name = new_name
+        self._db.edit_list(task_list_id, new_name)
 
     def edit_task(self, **kwargs):
         """
@@ -161,30 +136,10 @@ class ProjectContainer:
             expiration_date: {date} new expiration date
         :return:
         """
-        task_id = kwargs.get('task_id')
-        task = self.get_task_by_id(task_id)
-        if task is None:
-            return
+        self._db.edit_task(**kwargs)
 
-        name = kwargs.get('name')
-        if name is not None:
-            task.name = name
-
-        description = kwargs.get('description')
-        if description is not None:
-            task.description = description
-
-        status = kwargs.get('status')
-        if status is not None:
-            task.status = status
-
-        priority = kwargs.get('priority')
-        if priority is not None:
-            task.priority = priority
-
-        expiration_date = kwargs.get('expiration_date')
-        if expiration_date is not None:
-            task.expiration_date = expiration_date
+    def edit_project(self, new_name):
+        self._db.edit_project(new_name)
 
     def free_tasks_list(self, task_list_id):
         """
@@ -193,10 +148,7 @@ class ProjectContainer:
         :param task_list_id: {string} task list id
         :return:
         """
-        task_list = self._get_task_list_by_id(task_list_id)
-        self.tasks = [task for task in self.tasks if
-                      task.unique_id not in task_list.tasks_list]
-        task_list.tasks_list.clear()
+        self._db.free_tasks_list(task_list_id)
 
     # endregion
     # region get methods
@@ -207,19 +159,7 @@ class ProjectContainer:
         :return: All project tasks or from specified task list only
         """
         self._check_plans()
-        if task_list_id is None:
-            return self.tasks
-        else:
-            task_list = self._get_task_list_by_id(task_list_id)
-            if task_list is not None:
-                return [task for task in self.tasks if
-                        task.unique_id in task_list.tasks_list]
-            return None
-
-    def _get_task_list_by_id(self, task_list_id):
-        if task_list_id is None:
-            return None
-        return find_one(self.lists, task_list_id)
+        return self._db.get_tasks(task_list_id)
 
     def get_task_by_id(self, task_id):
         """
@@ -227,16 +167,17 @@ class ProjectContainer:
         :param task_id: {string} id of task
         :return: task with passed id or None
         """
-        if task_id is None:
-            return None
-        return find_one(self.tasks, task_id)
+        self._db.get_task_by_id(task_id)
+
+    def get_task_lists(self):
+        return self._db.get_task_lists()
 
     def get_plans(self):
         """
 
         :return: All plans
         """
-        return self.plans
+        return self._db.get_plans()
 
     def get_plan_by_id(self, plan_id):
         """
@@ -244,18 +185,23 @@ class ProjectContainer:
         :param plan_id: {string} plan id
         :return: Plan with passed id or None
         """
-        if plan_id is None:
-            return None
-        return find_one(self.plans, plan_id)
+        self._db.get_plan_by_id(plan_id)
+
+    def get_current_project_id(self):
+        return self._db.get_projects_info()[1]
+
+    def get_current_project(self):
+        return self._db.get_current_project()
 
     # endregion
 
     def _check_plans(self):
-        for plan in self.plans:
+        plans = self._db.get_plans()
+        for plan in plans:
             tasks, task_list_id = plan.get_planned_tasks(time.time())
-            task_list = self._get_task_list_by_id(task_list_id)
+            task_list = self._db.get_task_list_by_id(task_list_id)
             if task_list is not None:
                 for task in tasks:
                     self.add_task(task_list_id, task)
             else:
-                self.plans.remove(plan)
+                self._db.remove_plan(plan.unique_id)
