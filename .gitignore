@@ -4,3 +4,5 @@ __pycache__/
 database/data/
 app/adastra.log
 *.egg-info/
+wcl.sh
+edits.txt
