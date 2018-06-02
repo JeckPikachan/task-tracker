@@ -49,8 +49,8 @@ class DataBase:
     # region magic methods
 
     def __init__(self, config=None):
-        self._db_path = (config.db_path if config is not None and
-                         config.db_path is not None else
+        self._db_path = (config.get('db_path') if config is not None and
+                         config.get('db_path', None) is not None else
                          os.path.dirname(__file__) + "/data/")
         try:
             with open(self._db_path + "db_info.json", "r") as config_file:
@@ -58,10 +58,10 @@ class DataBase:
         except IOError:
             self.db_info = DBInfo()
 
-        self._project = None
-        self._task_lists = None
-        self._tasks = None
-        self._plans = None
+        self._project = Project()
+        self._task_lists = []
+        self._tasks = []
+        self._plans = []
 
     # endregion
     # region load methods
@@ -258,6 +258,7 @@ class DataBase:
     @log_func
     def add_list(self, task_list):
         self._task_lists.append(task_list)
+        self._project.lists.append(task_list.unique_id)
         self.save()
 
     @log_func

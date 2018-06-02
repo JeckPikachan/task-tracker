@@ -167,7 +167,7 @@ class ProjectContainer:
         :param task_id: {string} id of task
         :return: task with passed id or None
         """
-        self._db.get_task_by_id(task_id)
+        return self._db.get_task_by_id(task_id)
 
     def get_task_lists(self):
         return self._db.get_task_lists()
@@ -188,9 +188,17 @@ class ProjectContainer:
         self._db.get_plan_by_id(plan_id)
 
     def get_current_project_id(self):
+        """
+
+        :return: id of current project
+        """
         return self._db.get_projects_info()[1]
 
     def get_current_project(self):
+        """
+
+        :return: instance of current project
+        """
         return self._db.get_current_project()
 
     # endregion

@@ -6,39 +6,39 @@ from adastra_library.adastra_library.project_container import ProjectContainer
 from adastra_library.adastra_library.task import Task, TaskRelation
 from adastra_library import TaskList
 from adastra_library.adastra_library.task_pattern import TaskPattern
+
+from database.db import DataBase
 from util.delta_time import get_time_from_delta
 
 
 class TestProjectContainer(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(cls):
+        cls.db_test = DataBase({'db_path':
+                                '/home/eugene/Projects/isp_business_tracker/database/db_test/'})
+
+    @classmethod
+    def tearDownClass(cls):
+        pass
+
     def setUp(self):
-        project = Project()
-        self.container = ProjectContainer(project=project)
+        self.container = ProjectContainer(self.db_test)
 
     def tearDown(self):
         self.container = None
 
-    def test_project(self):
-        self.assertIsInstance(self.container.project, Project)
-
-    def test_lists(self):
-        self.assertListEqual(self.container.lists, [])
-
-    def test_tasks(self):
-        self.assertListEqual(self.container.tasks, [])
-
     def test_add_list(self):
         task_list = TaskList(name="Name")
         self.container.add_list(task_list)
-        self.assertIn(task_list, self.container.lists)
-        self.assertIn(task_list.unique_id,
-                      self.container.project.lists)
+        self.assertIn(task_list, self.container.get_task_lists())
 
     def test_add_task(self):
         task_list = TaskList(name="Name")
         self.container.add_list(task_list)
         task = Task(name="Task name")
         self.container.add_task(task_list.unique_id, task)
-        self.assertIn(task, self.container.tasks)
+        self.assertIn(task, self.container.get_tasks())
         self.assertIn(task.unique_id, task_list.tasks_list)
 
     def test_remove_task(self):
@@ -48,7 +48,7 @@ class TestProjectContainer(unittest.TestCase):
         self.container.add_task(task_list.unique_id, task)
         self.container.remove_task(task.unique_id)
         self.assertNotIn(task.unique_id, task_list.tasks_list)
-        self.assertNotIn(task, self.container.tasks)
+        self.assertNotIn(task, self.container.get_tasks())
 
     def test_remove_list(self):
         task_list = TaskList(name="Name")
@@ -56,10 +56,8 @@ class TestProjectContainer(unittest.TestCase):
         task = Task(name="Task name")
         self.container.add_task(task_list.unique_id, task)
         self.container.remove_list(task_list.unique_id)
-        self.assertNotIn(task_list, self.container.lists)
-        self.assertNotIn(task, self.container.tasks)
-        self.assertNotIn(task_list.unique_id,
-                         self.container.project.lists)
+        self.assertNotIn(task_list, self.container.get_task_lists())
+        self.assertNotIn(task, self.container.get_tasks())
 
     def test_add_relation(self):
         task_list = TaskList(name="Name")
@@ -129,7 +127,7 @@ class TestProjectContainer(unittest.TestCase):
         self.container.add_list(task_list)
         plan = PlanManager(delta, task_pattern, task_list_id)
         self.container.add_plan(task_list_id, plan)
-        self.assertIn(plan, self.container.plans)
+        self.assertIn(plan, self.container.get_plans())
 
     def test_remove_plan(self):
         delta = get_time_from_delta(1)
@@ -140,6 +138,6 @@ class TestProjectContainer(unittest.TestCase):
         self.container.add_list(task_list)
         plan = PlanManager(delta, task_pattern, task_list_id)
         self.container.add_plan(task_list_id, plan)
-        self.assertIn(plan, self.container.plans)
+        self.assertIn(plan, self.container.get_plans())
         self.container.remove_plan(plan.unique_id)
-        self.assertNotIn(plan, self.container.plans)
+        self.assertNotIn(plan, self.container.get_plans())
