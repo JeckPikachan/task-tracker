@@ -1,4 +1,0 @@
-
-    [console_scripts]
-    adastra=comand_line_interface.main:main
-    

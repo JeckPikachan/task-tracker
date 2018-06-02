@@ -1,2 +1,0 @@
-app
-comand_line_interface
