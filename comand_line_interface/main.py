@@ -57,6 +57,11 @@ def main():
         handle_args(app, args)
     except NoContainerError as e:
         print(e.message)
+    except PermissionError as e:
+        print(e.args[0])
+    except Exception as e:
+        print("Oops! Something went wrong!")
+        print(e.args[0])
 
 
 if __name__ == "__main__":
