@@ -14,7 +14,3 @@ deltas_inverted = {DAY: DAILY, WEEK: WEEKLY, MONTH: MONTHLY, YEAR: YEARLY}
 
 def get_time_from_delta(delta):
     return deltas.get(delta)
-
-
-def get_delta_from_time(timestamp):
-    return deltas_inverted.get(timestamp)

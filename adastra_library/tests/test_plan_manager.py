@@ -1,14 +1,17 @@
 import unittest
 
 import time
+from datetime import datetime
 
 from adastra_library.adastra_library.plan_manager import PlanManager
 from adastra_library import Priority
 from adastra_library import Status
 from adastra_library.adastra_library.task_pattern import TaskPattern
+from dateutil.relativedelta import relativedelta
+
 from util.delta_time import get_time_from_delta
 
-DELTA = get_time_from_delta(2)
+DELTA = 2
 NAME = "Name"
 DESCRIPTION = "Description"
 STATUS = 2
@@ -43,7 +46,7 @@ class TestPlanManager(unittest.TestCase):
     def test_get_planned_tasks(self):
         delta = DELTA
         n = 3
-        current_time = time.time() + n * delta
+        current_time = datetime.now() + relativedelta(months=+n)
         tasks, task_list_id = self.plan.get_planned_tasks(current_time)
         self.assertEqual(task_list_id, TASK_LIST_ID)
         self.assertEqual(len(tasks), n)

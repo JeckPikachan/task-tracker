@@ -139,8 +139,7 @@ def get_date(timestamp):
         timestamp is not None else None
 
 
-def get_delta(timestamp):
-    delta = delta_time.get_delta_from_time(timestamp)
+def get_delta(delta):
     deltas = {delta_time.DAILY: "DAILY",
               delta_time.WEEKLY: "WEEKLY",
               delta_time.MONTHLY: "MONTHLY",
@@ -160,9 +159,9 @@ def print_pattern(task_pattern, indent):
 def print_plan(plan):
     print("* plan id    : {}".format(plan.unique_id))
     print("  list id    : {}".format(plan.task_list_id))
-    print("  start date : {}".format(get_date(plan.start_date)))
-    print("  end date   : {}".format(get_date(plan.end_date)))
-    print("  last       : {}".format(get_date(plan.last_created)))
+    print("  start date : {}".format(plan.start_date))
+    print("  end date   : {}".format(plan.end_date))
+    print("  last       : {}".format(plan.last_created))
     print("  delta      : {}".format(get_delta(plan.delta)))
     print("  pattern    : ")
     print_pattern(plan.task_pattern, 8)

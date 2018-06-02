@@ -1,4 +1,5 @@
 import time
+from datetime import datetime
 
 
 class ProjectContainer:
@@ -206,7 +207,7 @@ class ProjectContainer:
     def _check_plans(self):
         plans = self._db.get_plans()
         for plan in plans:
-            tasks, task_list_id = plan.get_planned_tasks(time.time())
+            tasks, task_list_id = plan.get_planned_tasks(datetime.now())
             task_list = self._db.get_task_list_by_id(task_list_id)
             if task_list is not None:
                 for task in tasks:

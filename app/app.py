@@ -1,20 +1,18 @@
 import copy
 import logging
-
 import os
-
 import time
 
-from database.db import DataBase
-from app.log_config import LOG_CONFIG
-from adastra_library.adastra_library.plan_manager import PlanManager
 from adastra_library import Project
+from adastra_library import TaskList
+from adastra_library.adastra_library.plan_manager import PlanManager
 from adastra_library.adastra_library.project_container import ProjectContainer
 from adastra_library.adastra_library.task import Task
-from adastra_library import TaskList
 from adastra_library.adastra_library.task_pattern import TaskPattern
 from adastra_library.adastra_library.user import User
-from util.delta_time import get_time_from_delta
+
+from app.log_config import LOG_CONFIG
+from database.db import DataBase
 from util.log import log_func, init_logging
 
 
@@ -192,11 +190,6 @@ class App:
                  description=None,
                  start_date=None,
                  end_date=None):
-        delta = get_time_from_delta(delta)
-        if start_date is not None:
-            start_date = time.mktime(start_date.timetuple())
-        if end_date is not None:
-            end_date = time.mktime(end_date.timetuple())
         task_pattern = TaskPattern(name, description, priority, status, self.user.unique_id)
         new_plan = PlanManager(delta, task_pattern, task_list_id, start_date, end_date)
         self.container.add_plan(task_list_id, new_plan)

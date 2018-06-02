@@ -119,7 +119,7 @@ class TestProjectContainer(unittest.TestCase):
         self.assertEqual(got_task, task)
 
     def test_add_plan(self):
-        delta = get_time_from_delta(1)
+        delta = 1
         name = "Some name"
         task_pattern = TaskPattern(name)
         task_list = TaskList()
@@ -130,7 +130,7 @@ class TestProjectContainer(unittest.TestCase):
         self.assertIn(plan, self.container.get_plans())
 
     def test_remove_plan(self):
-        delta = get_time_from_delta(1)
+        delta = 1
         name = "Some name"
         task_pattern = TaskPattern(name)
         task_list = TaskList()

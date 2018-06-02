@@ -1,6 +1,7 @@
 import copy
 import json
 import os
+from datetime import datetime
 
 from adastra_library import Project, TaskList, Task, TaskPattern, PlanManager, ProjectContainer, User, UPRCollection
 from database import serialization
@@ -86,6 +87,12 @@ class DataBase:
                 for plan in loaded_plans:
                     task_pattern = TaskPattern(**plan.get('task_pattern'))
                     plan['task_pattern'] = task_pattern
+                    plan['start_date'] = datetime.fromtimestamp(plan['start_date']) if \
+                        plan['start_date'] is not None else None
+                    plan['end_date'] = datetime.fromtimestamp(plan['end_date']) if \
+                        plan['end_date'] is not None else None
+                    plan['last_created'] = datetime.fromtimestamp(plan['last_created']) if \
+                        plan['last_created'] is not None else None
                     plans.append(PlanManager(**plan))
 
                 self._plans = plans
@@ -240,7 +247,7 @@ class DataBase:
 
     @log_func
     def add_project(self, project):
-        dict_to_save = {'project': project}
+        dict_to_save = {'project': serialization.transform_project(project)}
         project_id = project.unique_id
         project_name = project.name
 

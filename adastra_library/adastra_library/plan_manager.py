@@ -1,7 +1,18 @@
 import time
+from datetime import datetime
 
+from dateutil.relativedelta import relativedelta
+
+from util import delta_time
 from .unique_object import UniqueObject
 from .task import Task
+
+DELTAS = {
+    delta_time.DAILY: {'days': +1},
+    delta_time.WEEKLY: {'weeks': +1},
+    delta_time.MONTHLY: {'months': +1},
+    delta_time.YEARLY: {'years': +1}
+}
 
 
 class PlanManager(UniqueObject):
@@ -27,23 +38,25 @@ class PlanManager(UniqueObject):
         self.end_date = end_date
         self.task_pattern = task_pattern
         self.last_created = last_created if last_created is not None else\
-            start_date - delta if start_date else time.time()
+            start_date - relativedelta(**DELTAS.get(delta)) if start_date else datetime.now()
 
-    def get_planned_tasks(self, current_time):
+    def get_planned_tasks(self, current_date):
         """
-        :param current_time: a timestamp of time until which
+        :param current_date: a date until which
         user wants to get tasks
         :return: returns planned tasks which weren't returned
         earlier and a task list id to which tasks should be appended
         """
         tasks = []
-        if self.start_date is not None and current_time < self.start_date:
+        if self.start_date is not None and current_date < self.start_date:
             return tasks
 
-        while self.last_created < current_time - self.delta and \
+        print(self.delta)
+        delta = relativedelta(**DELTAS.get(self.delta))
+        while self.last_created < current_date - delta and \
                 (self.end_date is None or
-                 self.last_created < self.end_date - self.delta):
+                 self.last_created < self.end_date - delta):
             tasks.append(Task(**self.task_pattern.get_task_create_params()))
-            self.last_created += self.delta
+            self.last_created += delta
 
         return tasks, self.task_list_id

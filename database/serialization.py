@@ -1,5 +1,7 @@
 import copy
 
+import time
+
 from util.enum_json import enum_serializable
 
 
@@ -22,6 +24,12 @@ def transform_upr_collection(uprs_collection):
 def transform_plan(plan):
     plan = copy.deepcopy(plan)
     plan.task_pattern = transform_object(plan.task_pattern)
+    if plan.start_date is not None:
+        plan.start_date = time.mktime(plan.start_date.timetuple())
+    if plan.end_date is not None:
+        plan.end_date = time.mktime(plan.end_date.timetuple())
+    if plan.last_created is not None:
+        plan.last_created = time.mktime(plan.last_created.timetuple())
     return transform_object(plan)
 
 
