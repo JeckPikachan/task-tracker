@@ -1,7 +1,7 @@
 .idea/
 issue_tracker/venv/
 **/__pycache__/
-database/data/
+**/database/data/
 app/adastra.log
 *.egg-info/
 wcl.sh
