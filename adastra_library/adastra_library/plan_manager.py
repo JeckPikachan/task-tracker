@@ -1,11 +1,10 @@
-import time
 from datetime import datetime
 
 from dateutil.relativedelta import relativedelta
 
 from util import delta_time
-from .unique_object import UniqueObject
 from .task import Task
+from .unique_object import UniqueObject
 
 DELTAS = {
     delta_time.DAILY: {'days': +1},

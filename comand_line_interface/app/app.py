@@ -1,7 +1,6 @@
 import copy
 import logging
 import os
-import time
 
 from adastra_library import Project
 from adastra_library import TaskList
@@ -11,7 +10,7 @@ from adastra_library.adastra_library.task import Task
 from adastra_library.adastra_library.task_pattern import TaskPattern
 from adastra_library.adastra_library.user import User
 
-from app.log_config import LOG_CONFIG
+from comand_line_interface.app.log_config import LOG_CONFIG
 from database.db import DataBase
 from util.log import log_func, init_logging
 

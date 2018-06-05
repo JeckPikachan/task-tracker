@@ -1,9 +1,9 @@
-import copy
 import json
 import os
 from datetime import datetime
 
-from adastra_library import Project, TaskList, Task, TaskPattern, PlanManager, ProjectContainer, User, UPRCollection
+from adastra_library import Project, TaskList, Task, TaskPattern, PlanManager, User, UPRCollection
+
 from database import serialization
 from util.enum_json import as_enum
 from util.find import find_one_in_dicts, find_one

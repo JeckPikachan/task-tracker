@@ -1,6 +1,6 @@
 #! /usr/bin/python3.6
 
-from app import App, NoContainerError
+from comand_line_interface.app import App, NoContainerError
 from comand_line_interface.handlers import add_handler, edit_handler, remove_handler, show_handler
 from comand_line_interface.parser import Parser
 

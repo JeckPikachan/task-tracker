@@ -7,5 +7,8 @@ setup(
     entry_points='''
     [console_scripts]
     adastra=comand_line_interface.main:main
-    '''
+    ''',
+    install_requires=[
+        "python-dateutil"
+    ]
 )

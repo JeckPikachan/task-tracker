@@ -1,6 +1,6 @@
 .idea/
 issue_tracker/venv/
-__pycache__/
+**/__pycache__/
 database/data/
 app/adastra.log
 *.egg-info/
