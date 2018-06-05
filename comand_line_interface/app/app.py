@@ -9,10 +9,10 @@ from adastra_library.adastra_library.project_container import ProjectContainer
 from adastra_library.adastra_library.task import Task
 from adastra_library.adastra_library.task_pattern import TaskPattern
 from adastra_library.adastra_library.user import User
+from database.db import DataBase
 
 from comand_line_interface.app.log_config import LOG_CONFIG
-from database.db import DataBase
-from util.log import log_func, init_logging
+from library_util.log import log_func, init_logging
 
 
 class NoContainerError(AttributeError):

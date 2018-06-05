@@ -11,7 +11,7 @@ class ProjectContainer:
 
     # region magic methods
 
-    def __init__(self, db, **kwargs):
+    def __init__(self, db):
         self._db = db
         self.load()
 

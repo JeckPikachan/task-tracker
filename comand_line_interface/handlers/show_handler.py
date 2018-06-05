@@ -1,8 +1,8 @@
 import datetime
 
 from adastra_library import UniqueObject
-from util import delta_time
-from util.find import find_one
+from library_util import delta_time
+from library_util.find import find_one
 
 SHOW_COMMAND = {'project': lambda app, args: show_project(app, args),
                 'list': lambda app, args: show_list(app, args),

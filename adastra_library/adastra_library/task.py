@@ -1,7 +1,7 @@
 from datetime import datetime
 from enum import Enum, auto
 
-from .unique_object import UniqueObject
+from adastra_library.adastra_library.unique_object import UniqueObject
 
 
 class TaskRelation:
@@ -11,9 +11,9 @@ class TaskRelation:
 
 
 class Status(Enum):
-    CREATED = auto()
-    IN_WORK = auto()
-    DONE = auto()
+    CREATED = 0
+    IN_WORK = 1
+    DONE = 2
 
     @staticmethod
     def get_by_number(number):
@@ -23,20 +23,13 @@ class Status(Enum):
             into Status object
         :return: Status object or None
         """
-        if number is None:
-            return None
-        if number == 0:
-            return Status.CREATED
-        if number == 1:
-            return Status.IN_WORK
-        if number == 2:
-            return Status.DONE
+        return Status(number)
 
 
 class Priority(Enum):
-    LOW = auto()
-    MIDDLE = auto()
-    HIGH = auto()
+    LOW = 0
+    MIDDLE = 1
+    HIGH = 2
 
     @staticmethod
     def get_by_number(number):
@@ -46,14 +39,7 @@ class Priority(Enum):
             into Priority object
         :return: Priority object or None
         """
-        if number is None:
-            return None
-        if number == 0:
-            return Priority.LOW
-        if number == 1:
-            return Priority.MIDDLE
-        if number == 2:
-            return Priority.HIGH
+        return Priority(number)
 
 
 class Task(UniqueObject):

@@ -2,9 +2,9 @@ from datetime import datetime
 
 from dateutil.relativedelta import relativedelta
 
-from util import delta_time
-from .task import Task
-from .unique_object import UniqueObject
+from library_util import delta_time
+from adastra_library.adastra_library.task import Task
+from adastra_library.adastra_library.unique_object import UniqueObject
 
 DELTAS = {
     delta_time.DAILY: {'days': +1},
@@ -28,8 +28,7 @@ class PlanManager(UniqueObject):
                  start_date=None,
                  end_date=None,
                  last_created=None,
-                 unique_id=None,
-                 **kwargs):
+                 unique_id=None):
         super(PlanManager, self).__init__(name="Plan Manager", unique_id=unique_id)
         self.delta = delta
         self.task_list_id = task_list_id

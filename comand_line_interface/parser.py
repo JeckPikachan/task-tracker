@@ -1,10 +1,10 @@
 import argparse
 from datetime import datetime
 
-from util import delta_time
+from library_util import delta_time
 
 
-def valid_date(s):
+def parse_valid_date(s):
     try:
         return datetime.strptime(s, '%Y-%m-%d %H:%M')
     except ValueError:
@@ -20,7 +20,7 @@ class Parser:
 
     def __init__(self):
         self.parser = argparse.ArgumentParser(description='Issue Tracker CLI')
-        self.subparsers_for_command = self.parser.add_subparsers(dest='command')
+        self.object_subparsers = self.parser.add_subparsers(dest='object')
 
     def parse(self):
         self._add_all_parsers()
@@ -36,8 +36,29 @@ class Parser:
         self._add_parser_for_checkout()
         self._add_parser_for_chuser()
 
+    def _add_task_parser(self):
+        pass
+
+    def _add_list_parser(self):
+        pass
+
+    def _add_project_parser(self):
+        pass
+
+    def _add_user_parser(self):
+        pass
+
+    def _add_upr_parser(self):
+        pass
+
+    def _add_relation_parser(self):
+        pass
+
+    def _add_plan_parser(self):
+        pass
+
     def _add_parser_for_show(self):
-        parser_show = self.subparsers_for_command.add_parser('show')
+        parser_show = self.object_subparsers.add_parser('show')
         subparsers_for_show = parser_show.add_subparsers(dest='kind')
 
         parser_show_task = subparsers_for_show.add_parser('task')
@@ -64,7 +85,7 @@ class Parser:
         parser_show_plan.add_argument('--id')
 
     def _add_parser_for_add(self):
-        parser_add = self.subparsers_for_command.add_parser('add')
+        parser_add = self.object_subparsers.add_parser('add')
         subparsers_for_add = parser_add.add_subparsers(dest='kind')
 
         parser_add_project = subparsers_for_add.add_parser('project')
@@ -111,14 +132,14 @@ class Parser:
         parser_add_plan.add_argument("-t",
                                      "--start_date",
                                      help="Start Date - format YYYY-MM-DD hh:mm",
-                                     type=valid_date)
+                                     type=parse_valid_date)
         parser_add_plan.add_argument("-e",
                                      "--end_date",
                                      help="End Date - format YYYY-MM-DD hh:mm",
-                                     type=valid_date)
+                                     type=parse_valid_date)
 
     def _add_parser_for_remove(self):
-        parser_remove = self.subparsers_for_command.add_parser('remove')
+        parser_remove = self.object_subparsers.add_parser('remove')
         subparsers_for_remove = parser_remove.add_subparsers(dest='kind')
 
         parser_remove_task = subparsers_for_remove.add_parser('task')
@@ -144,7 +165,7 @@ class Parser:
         parser_remove_plan.add_argument('plan_id')
 
     def _add_parser_for_edit(self):
-        parser_edit = self.subparsers_for_command.add_parser('edit')
+        parser_edit = self.object_subparsers.add_parser('edit')
         subparsers_for_edit = parser_edit.add_subparsers(dest='kind')
 
         parser_edit_project = subparsers_for_edit.add_parser('project')
@@ -164,13 +185,13 @@ class Parser:
         parser_edit_task.add_argument("-e",
                                       "--expiration_date",
                                       help="The Expiration Date - format YYYY-MM-DD hh:mm",
-                                      type=valid_date)
+                                      type=parse_valid_date)
         parser_edit_task.add_argument('task_id')
 
     def _add_parser_for_checkout(self):
-        parser_checkout = self.subparsers_for_command.add_parser('checkout')
+        parser_checkout = self.object_subparsers.add_parser('checkout')
         parser_checkout.add_argument('project_id')
 
     def _add_parser_for_chuser(self):
-        parser_chuser = self.subparsers_for_command.add_parser('chuser')
+        parser_chuser = self.object_subparsers.add_parser('chuser')
         parser_chuser.add_argument('user_id')

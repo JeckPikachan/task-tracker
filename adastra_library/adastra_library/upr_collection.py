@@ -1,7 +1,11 @@
-from .user_project_relation import UserProjectRelation
+from adastra_library.adastra_library.user_project_relation import UserProjectRelation
 
 
 class UPRCollection:
+    """
+    UPR stands for UserProjectRelation. It was shortened, because
+    full name makes it too long and uncomfortable to use.
+    """
     def __init__(self, uprs=None):
         """
 

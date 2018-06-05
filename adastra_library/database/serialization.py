@@ -1,8 +1,7 @@
 import copy
-
 import time
 
-from util.enum_json import enum_serializable
+from library_util.enum_json import enum_serializable
 
 
 def transform_object(obj):

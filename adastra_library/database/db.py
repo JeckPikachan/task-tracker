@@ -5,9 +5,9 @@ from datetime import datetime
 from adastra_library import Project, TaskList, Task, TaskPattern, PlanManager, User, UPRCollection
 
 from database import serialization
-from util.enum_json import as_enum
-from util.find import find_one_in_dicts, find_one
-from util.log import log_func
+from library_util.enum_json import as_enum
+from library_util.find import find_one_in_dicts, find_one
+from library_util.log import log_func
 
 
 class DBInfo:
@@ -51,7 +51,7 @@ class DataBase:
 
     def __init__(self, config=None):
         self._db_path = (config.get('db_path') if config is not None and
-                         config.get('db_path', None) is not None else
+                                                  config.get('db_path', None) is not None else
                          os.path.dirname(__file__) + "/data/")
         try:
             with open(self._db_path + "db_info.json", "r") as config_file:
@@ -93,7 +93,18 @@ class DataBase:
                         plan['end_date'] is not None else None
                     plan['last_created'] = datetime.fromtimestamp(plan['last_created']) if \
                         plan['last_created'] is not None else None
-                    plans.append(PlanManager(**plan))
+
+                    plans.append(
+                        PlanManager(
+                            delta=plan.get('delta', None),
+                            task_list_id=plan.get('task_list_id', None),
+                            task_pattern=plan.get('task_pattern', None),
+                            start_date=plan.get('start_date', None),
+                            end_date=plan.get('end_date', None),
+                            last_created=plan.get('last_created', None),
+                            unique_id=plan.get('unique_id', None)
+                        )
+                    )
 
                 self._plans = plans
 
