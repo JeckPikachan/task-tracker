@@ -1,43 +1,66 @@
 #! /usr/bin/python3.6
 
 from comand_line_interface.app import App, NoContainerError
-from comand_line_interface.handlers import add_handler, edit_handler, remove_handler, show_handler
 from comand_line_interface.parser import Parser
+from comand_line_interface.handlers import (task_handler,
+                                            plan_handler,
+                                            list_handler,
+                                            project_handler,
+                                            relation_handler,
+                                            upr_handler,
+                                            user_handler)
 
 
-COMMANDS = {'show': lambda app, args: use_show_command(app, args),
-            'add': lambda app, args: use_add_command(app, args),
-            'remove': lambda app, args: use_remove_command(app, args),
-            'edit': lambda app, args: use_edit_command(app, args),
-            'checkout': lambda app, args: use_checkout_command(app, args),
-            'chuser': lambda app, args: use_chuser_command(app, args)}
+HANDLER_MAP = {
+    'task': lambda app, args: use_task_handler(app, args),
+    'list': lambda app, args: use_list_handler(app, args),
+    'project': lambda app, args: use_project_handler(app, args),
+    'user': lambda app, args: use_user_handler(app, args),
+    'upr': lambda app, args: use_upr_handler(app, args),
+    'relation': lambda app, args: use_relation_handler(app, args),
+    'plan': lambda app, args: use_plan_handler(app, args),
+    'checkout': lambda app, args: use_checkout_handler(app, args),
+    'chuser': lambda app, args: use_chuser_handler(app, args)
+}
 
 
 def handle_args(app, args):
-    COMMANDS.get(args.command)(app, args)
+    HANDLER_MAP.get(args.object)(app, args)
 
 
-def use_show_command(app, args):
-    show_handler.SHOW_COMMAND.get(args.kind)(app, args)
+def use_task_handler(app, args):
+    task_handler.ACTIONS.get(args.action)(app, args)
 
 
-def use_add_command(app, args):
-    add_handler.ADD_COMMAND.get(args.kind)(app, args)
+def use_list_handler(app, args):
+    list_handler.ACTIONS.get(args.action)(app, args)
 
 
-def use_remove_command(app, args):
-    remove_handler.REMOVE_COMMAND.get(args.kind)(app, args)
+def use_project_handler(app, args):
+    project_handler.ACTIONS.get(args.action)(app, args)
 
 
-def use_edit_command(app, args):
-    edit_handler.EDIT_COMMAND.get(args.kind)(app, args)
+def use_user_handler(app, args):
+    user_handler.ACTIONS.get(args.action)(app, args)
 
 
-def use_checkout_command(app, args):
+def use_upr_handler(app, args):
+    upr_handler.ACTIONS.get(args.action)(app, args)
+
+
+def use_relation_handler(app, args):
+    relation_handler.ACTIONS.get(args.action)(app, args)
+
+
+def use_plan_handler(app, args):
+    plan_handler.ACTIONS.get(args.action)(app, args)
+
+
+def use_checkout_handler(app, args):
     app.load_project(args.project_id)
 
 
-def use_chuser_command(app, args):
+def use_chuser_handler(app, args):
     app.change_user(args.user_id)
 
 

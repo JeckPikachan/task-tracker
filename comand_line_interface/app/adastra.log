@@ -6151,3 +6151,593 @@
 05/06/2018 18:43:14 - root - DEBUG - get_tasks returned: [<adastra_library.adastra_library.task.Task object at 0xb716cfec>, <adastra_library.adastra_library.task.Task object at 0xb717402c>, <adastra_library.adastra_library.task.Task object at 0xb717404c>, <adastra_library.adastra_library.task.Task object at 0xb717406c>, <adastra_library.adastra_library.task.Task object at 0xb71740ac>, <adastra_library.adastra_library.task.Task object at 0xb717412c>, <adastra_library.adastra_library.task.Task object at 0xb7174cac>, <adastra_library.adastra_library.task.Task object at 0xb717418c>, <adastra_library.adastra_library.task.Task object at 0xb71741ac>]
 05/06/2018 18:43:14 - root - DEBUG - get_tasks returned: [<adastra_library.adastra_library.task.Task object at 0xb739db4c>, <adastra_library.adastra_library.task.Task object at 0xb739dcac>, <adastra_library.adastra_library.task.Task object at 0xb739dcec>, <adastra_library.adastra_library.task.Task object at 0xb739dc4c>, <adastra_library.adastra_library.task.Task object at 0xb739dd4c>, <adastra_library.adastra_library.task.Task object at 0xb739df0c>, <adastra_library.adastra_library.task.Task object at 0xb739df8c>, <adastra_library.adastra_library.task.Task object at 0xb73a506c>, <adastra_library.adastra_library.task.Task object at 0xb73a512c>]
 05/06/2018 18:43:14 - root - INFO - App is about to finish
+05/06/2018 19:34:21 - root - INFO - App started
+05/06/2018 19:34:21 - root - INFO - Called function: load_user
+05/06/2018 19:34:21 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:34:21 - root - INFO - Called function: save_db_info
+05/06/2018 19:34:21 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:34:21 - root - DEBUG - save_db_info returned: None
+05/06/2018 19:34:21 - root - DEBUG - load_user returned: <adastra_library.adastra_library.user.User object at 0xb716e30c>
+05/06/2018 19:34:21 - root - INFO - Called function: load_uprs
+05/06/2018 19:34:21 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:34:21 - root - DEBUG - load_uprs returned: <adastra_library.adastra_library.upr_collection.UPRCollection object at 0xb716e3ac>
+05/06/2018 19:34:21 - root - INFO - Called function: load
+05/06/2018 19:34:21 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (None,), 
+	Kwargs: {}
+05/06/2018 19:34:21 - root - DEBUG - load returned: None
+05/06/2018 19:34:21 - root - INFO - App is about to finish
+05/06/2018 19:34:26 - root - INFO - App started
+05/06/2018 19:34:26 - root - INFO - Called function: load_user
+05/06/2018 19:34:26 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:34:26 - root - INFO - Called function: save_db_info
+05/06/2018 19:34:26 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:34:26 - root - DEBUG - save_db_info returned: None
+05/06/2018 19:34:26 - root - DEBUG - load_user returned: <adastra_library.adastra_library.user.User object at 0xb710feec>
+05/06/2018 19:34:26 - root - INFO - Called function: load_uprs
+05/06/2018 19:34:26 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:34:26 - root - DEBUG - load_uprs returned: <adastra_library.adastra_library.upr_collection.UPRCollection object at 0xb710ff8c>
+05/06/2018 19:34:26 - root - INFO - Called function: load
+05/06/2018 19:34:26 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (None,), 
+	Kwargs: {}
+05/06/2018 19:34:26 - root - DEBUG - load returned: None
+05/06/2018 19:34:26 - root - INFO - App is about to finish
+05/06/2018 19:34:37 - root - INFO - App started
+05/06/2018 19:34:37 - root - INFO - Called function: load_user
+05/06/2018 19:34:37 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:34:37 - root - INFO - Called function: save_db_info
+05/06/2018 19:34:37 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:34:37 - root - DEBUG - save_db_info returned: None
+05/06/2018 19:34:37 - root - DEBUG - load_user returned: <adastra_library.adastra_library.user.User object at 0xb715bf0c>
+05/06/2018 19:34:37 - root - INFO - Called function: load_uprs
+05/06/2018 19:34:37 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:34:37 - root - DEBUG - load_uprs returned: <adastra_library.adastra_library.upr_collection.UPRCollection object at 0xb715bfac>
+05/06/2018 19:34:37 - root - INFO - Called function: load
+05/06/2018 19:34:37 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (None,), 
+	Kwargs: {}
+05/06/2018 19:34:37 - root - DEBUG - load returned: None
+05/06/2018 19:34:37 - root - INFO - Called function: get_tasks
+05/06/2018 19:34:37 - root - DEBUG - 
+	Self type: <class 'comand_line_interface.app.app.App'>, 
+	Args: (None,), 
+	Kwargs: {}
+05/06/2018 19:34:37 - root - INFO - Called function: get_plans
+05/06/2018 19:34:37 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:34:37 - root - DEBUG - get_plans returned: [<adastra_library.adastra_library.plan_manager.PlanManager object at 0xb71686ac>, <adastra_library.adastra_library.plan_manager.PlanManager object at 0xb716804c>]
+05/06/2018 19:34:37 - root - INFO - Called function: get_task_list_by_id
+05/06/2018 19:34:37 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: ('fdf9711b-25ce-4b7d-86b5-ce92f55551b7',), 
+	Kwargs: {}
+05/06/2018 19:34:37 - root - DEBUG - get_task_list_by_id returned: <adastra_library.adastra_library.task_list.TaskList object at 0xb71684ec>
+05/06/2018 19:34:37 - root - INFO - Called function: get_task_list_by_id
+05/06/2018 19:34:37 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: ('fdf9711b-25ce-4b7d-86b5-ce92f55551b7',), 
+	Kwargs: {}
+05/06/2018 19:34:37 - root - DEBUG - get_task_list_by_id returned: <adastra_library.adastra_library.task_list.TaskList object at 0xb71684ec>
+05/06/2018 19:34:37 - root - INFO - Called function: get_tasks
+05/06/2018 19:34:37 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (None,), 
+	Kwargs: {}
+05/06/2018 19:34:37 - root - DEBUG - get_tasks returned: [<adastra_library.adastra_library.task.Task object at 0xb716850c>, <adastra_library.adastra_library.task.Task object at 0xb716852c>, <adastra_library.adastra_library.task.Task object at 0xb716854c>, <adastra_library.adastra_library.task.Task object at 0xb716856c>, <adastra_library.adastra_library.task.Task object at 0xb71685ac>, <adastra_library.adastra_library.task.Task object at 0xb716862c>, <adastra_library.adastra_library.task.Task object at 0xb7170aec>, <adastra_library.adastra_library.task.Task object at 0xb7170b8c>, <adastra_library.adastra_library.task.Task object at 0xb716864c>]
+05/06/2018 19:34:37 - root - DEBUG - get_tasks returned: [<adastra_library.adastra_library.task.Task object at 0xb738feec>, <adastra_library.adastra_library.task.Task object at 0xb738fdac>, <adastra_library.adastra_library.task.Task object at 0xb738fa8c>, <adastra_library.adastra_library.task.Task object at 0xb738f64c>, <adastra_library.adastra_library.task.Task object at 0xb738f9cc>, <adastra_library.adastra_library.task.Task object at 0xb738f42c>, <adastra_library.adastra_library.task.Task object at 0xb738f3ac>, <adastra_library.adastra_library.task.Task object at 0xb738f30c>, <adastra_library.adastra_library.task.Task object at 0xb738f32c>]
+05/06/2018 19:34:37 - root - INFO - App is about to finish
+05/06/2018 19:34:40 - root - INFO - App started
+05/06/2018 19:34:40 - root - INFO - Called function: load_user
+05/06/2018 19:34:40 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:34:40 - root - INFO - Called function: save_db_info
+05/06/2018 19:34:40 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:34:40 - root - DEBUG - save_db_info returned: None
+05/06/2018 19:34:40 - root - DEBUG - load_user returned: <adastra_library.adastra_library.user.User object at 0xb70d3f2c>
+05/06/2018 19:34:40 - root - INFO - Called function: load_uprs
+05/06/2018 19:34:40 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:34:40 - root - DEBUG - load_uprs returned: <adastra_library.adastra_library.upr_collection.UPRCollection object at 0xb70d3fcc>
+05/06/2018 19:34:40 - root - INFO - Called function: load
+05/06/2018 19:34:40 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (None,), 
+	Kwargs: {}
+05/06/2018 19:34:40 - root - DEBUG - load returned: None
+05/06/2018 19:34:40 - root - INFO - Called function: get_tasks
+05/06/2018 19:34:40 - root - DEBUG - 
+	Self type: <class 'comand_line_interface.app.app.App'>, 
+	Args: (None,), 
+	Kwargs: {}
+05/06/2018 19:34:40 - root - INFO - Called function: get_plans
+05/06/2018 19:34:40 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:34:40 - root - DEBUG - get_plans returned: [<adastra_library.adastra_library.plan_manager.PlanManager object at 0xb70de6cc>, <adastra_library.adastra_library.plan_manager.PlanManager object at 0xb70de06c>]
+05/06/2018 19:34:40 - root - INFO - Called function: get_task_list_by_id
+05/06/2018 19:34:40 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: ('fdf9711b-25ce-4b7d-86b5-ce92f55551b7',), 
+	Kwargs: {}
+05/06/2018 19:34:40 - root - DEBUG - get_task_list_by_id returned: <adastra_library.adastra_library.task_list.TaskList object at 0xb70de50c>
+05/06/2018 19:34:40 - root - INFO - Called function: get_task_list_by_id
+05/06/2018 19:34:40 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: ('fdf9711b-25ce-4b7d-86b5-ce92f55551b7',), 
+	Kwargs: {}
+05/06/2018 19:34:40 - root - DEBUG - get_task_list_by_id returned: <adastra_library.adastra_library.task_list.TaskList object at 0xb70de50c>
+05/06/2018 19:34:40 - root - INFO - Called function: get_tasks
+05/06/2018 19:34:40 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (None,), 
+	Kwargs: {}
+05/06/2018 19:34:40 - root - DEBUG - get_tasks returned: [<adastra_library.adastra_library.task.Task object at 0xb70de52c>, <adastra_library.adastra_library.task.Task object at 0xb70de54c>, <adastra_library.adastra_library.task.Task object at 0xb70de56c>, <adastra_library.adastra_library.task.Task object at 0xb70de58c>, <adastra_library.adastra_library.task.Task object at 0xb70de5cc>, <adastra_library.adastra_library.task.Task object at 0xb70de64c>, <adastra_library.adastra_library.task.Task object at 0xb70e8b0c>, <adastra_library.adastra_library.task.Task object at 0xb70e8bac>, <adastra_library.adastra_library.task.Task object at 0xb70de66c>]
+05/06/2018 19:34:40 - root - DEBUG - get_tasks returned: [<adastra_library.adastra_library.task.Task object at 0xb7307eec>, <adastra_library.adastra_library.task.Task object at 0xb7307d0c>, <adastra_library.adastra_library.task.Task object at 0xb7307fac>, <adastra_library.adastra_library.task.Task object at 0xb7307a4c>, <adastra_library.adastra_library.task.Task object at 0xb73076cc>, <adastra_library.adastra_library.task.Task object at 0xb73079ec>, <adastra_library.adastra_library.task.Task object at 0xb730738c>, <adastra_library.adastra_library.task.Task object at 0xb730730c>, <adastra_library.adastra_library.task.Task object at 0xb73073ac>]
+05/06/2018 19:34:40 - root - INFO - App is about to finish
+05/06/2018 19:34:45 - root - INFO - App started
+05/06/2018 19:34:45 - root - INFO - Called function: load_user
+05/06/2018 19:34:45 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:34:45 - root - INFO - Called function: save_db_info
+05/06/2018 19:34:45 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:34:45 - root - DEBUG - save_db_info returned: None
+05/06/2018 19:34:45 - root - DEBUG - load_user returned: <adastra_library.adastra_library.user.User object at 0xb7113f2c>
+05/06/2018 19:34:45 - root - INFO - Called function: load_uprs
+05/06/2018 19:34:45 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:34:45 - root - DEBUG - load_uprs returned: <adastra_library.adastra_library.upr_collection.UPRCollection object at 0xb7113fcc>
+05/06/2018 19:34:45 - root - INFO - Called function: load
+05/06/2018 19:34:45 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (None,), 
+	Kwargs: {}
+05/06/2018 19:34:45 - root - DEBUG - load returned: None
+05/06/2018 19:34:45 - root - INFO - Called function: get_task_lists
+05/06/2018 19:34:45 - root - DEBUG - 
+	Self type: <class 'comand_line_interface.app.app.App'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:34:45 - root - INFO - Called function: get_task_lists
+05/06/2018 19:34:45 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:34:45 - root - DEBUG - get_task_lists returned: [<adastra_library.adastra_library.task_list.TaskList object at 0xb711e50c>]
+05/06/2018 19:34:45 - root - DEBUG - get_task_lists returned: [<adastra_library.adastra_library.task_list.TaskList object at 0xb7347e6c>]
+05/06/2018 19:34:45 - root - INFO - Called function: get_tasks
+05/06/2018 19:34:45 - root - DEBUG - 
+	Self type: <class 'comand_line_interface.app.app.App'>, 
+	Args: ('fdf9711b-25ce-4b7d-86b5-ce92f55551b7',), 
+	Kwargs: {}
+05/06/2018 19:34:45 - root - INFO - Called function: get_plans
+05/06/2018 19:34:45 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:34:45 - root - DEBUG - get_plans returned: [<adastra_library.adastra_library.plan_manager.PlanManager object at 0xb711e6cc>, <adastra_library.adastra_library.plan_manager.PlanManager object at 0xb711e06c>]
+05/06/2018 19:34:45 - root - INFO - Called function: get_task_list_by_id
+05/06/2018 19:34:45 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: ('fdf9711b-25ce-4b7d-86b5-ce92f55551b7',), 
+	Kwargs: {}
+05/06/2018 19:34:45 - root - DEBUG - get_task_list_by_id returned: <adastra_library.adastra_library.task_list.TaskList object at 0xb711e50c>
+05/06/2018 19:34:45 - root - INFO - Called function: get_task_list_by_id
+05/06/2018 19:34:45 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: ('fdf9711b-25ce-4b7d-86b5-ce92f55551b7',), 
+	Kwargs: {}
+05/06/2018 19:34:45 - root - DEBUG - get_task_list_by_id returned: <adastra_library.adastra_library.task_list.TaskList object at 0xb711e50c>
+05/06/2018 19:34:45 - root - INFO - Called function: get_tasks
+05/06/2018 19:34:45 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: ('fdf9711b-25ce-4b7d-86b5-ce92f55551b7',), 
+	Kwargs: {}
+05/06/2018 19:34:45 - root - INFO - Called function: get_task_list_by_id
+05/06/2018 19:34:45 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: ('fdf9711b-25ce-4b7d-86b5-ce92f55551b7',), 
+	Kwargs: {}
+05/06/2018 19:34:45 - root - DEBUG - get_task_list_by_id returned: <adastra_library.adastra_library.task_list.TaskList object at 0xb711e50c>
+05/06/2018 19:34:45 - root - DEBUG - get_tasks returned: [<adastra_library.adastra_library.task.Task object at 0xb711e52c>, <adastra_library.adastra_library.task.Task object at 0xb711e54c>, <adastra_library.adastra_library.task.Task object at 0xb711e56c>, <adastra_library.adastra_library.task.Task object at 0xb711e58c>, <adastra_library.adastra_library.task.Task object at 0xb711e5cc>, <adastra_library.adastra_library.task.Task object at 0xb711e64c>, <adastra_library.adastra_library.task.Task object at 0xb7128b0c>, <adastra_library.adastra_library.task.Task object at 0xb7128bac>, <adastra_library.adastra_library.task.Task object at 0xb711e66c>]
+05/06/2018 19:34:45 - root - DEBUG - get_tasks returned: [<adastra_library.adastra_library.task.Task object at 0xb7347e8c>, <adastra_library.adastra_library.task.Task object at 0xb7347acc>, <adastra_library.adastra_library.task.Task object at 0xb734772c>, <adastra_library.adastra_library.task.Task object at 0xb734744c>, <adastra_library.adastra_library.task.Task object at 0xb73479ec>, <adastra_library.adastra_library.task.Task object at 0xb734738c>, <adastra_library.adastra_library.task.Task object at 0xb734734c>, <adastra_library.adastra_library.task.Task object at 0xb73471cc>, <adastra_library.adastra_library.task.Task object at 0xb73472ac>]
+05/06/2018 19:34:45 - root - INFO - App is about to finish
+05/06/2018 19:34:55 - root - INFO - App started
+05/06/2018 19:34:55 - root - INFO - Called function: load_user
+05/06/2018 19:34:55 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:34:55 - root - INFO - Called function: save_db_info
+05/06/2018 19:34:55 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:34:55 - root - DEBUG - save_db_info returned: None
+05/06/2018 19:34:55 - root - DEBUG - load_user returned: <adastra_library.adastra_library.user.User object at 0xb71a2f2c>
+05/06/2018 19:34:55 - root - INFO - Called function: load_uprs
+05/06/2018 19:34:55 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:34:55 - root - DEBUG - load_uprs returned: <adastra_library.adastra_library.upr_collection.UPRCollection object at 0xb71a2fcc>
+05/06/2018 19:34:55 - root - INFO - Called function: load
+05/06/2018 19:34:55 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (None,), 
+	Kwargs: {}
+05/06/2018 19:34:55 - root - DEBUG - load returned: None
+05/06/2018 19:34:55 - root - INFO - Called function: get_projects_info
+05/06/2018 19:34:55 - root - DEBUG - 
+	Self type: <class 'comand_line_interface.app.app.App'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:34:55 - root - INFO - Called function: get_projects_info
+05/06/2018 19:34:55 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:34:55 - root - DEBUG - get_projects_info returned: ([{'unique_id': '2395701b-e820-4e06-be08-882280653623', 'name': 'We create songs'}, {'unique_id': '18f3d2f7-6e8c-4903-9843-f7cd72f40711', 'name': 'Some'}], '18f3d2f7-6e8c-4903-9843-f7cd72f40711')
+05/06/2018 19:34:55 - root - DEBUG - get_projects_info returned: ([{'unique_id': '2395701b-e820-4e06-be08-882280653623', 'name': 'We create songs'}, {'unique_id': '18f3d2f7-6e8c-4903-9843-f7cd72f40711', 'name': 'Some'}], '18f3d2f7-6e8c-4903-9843-f7cd72f40711')
+05/06/2018 19:34:55 - root - INFO - App is about to finish
+05/06/2018 19:35:00 - root - INFO - App started
+05/06/2018 19:35:00 - root - INFO - Called function: load_user
+05/06/2018 19:35:00 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:35:00 - root - INFO - Called function: save_db_info
+05/06/2018 19:35:00 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:35:00 - root - DEBUG - save_db_info returned: None
+05/06/2018 19:35:00 - root - DEBUG - load_user returned: <adastra_library.adastra_library.user.User object at 0xb7121f2c>
+05/06/2018 19:35:00 - root - INFO - Called function: load_uprs
+05/06/2018 19:35:00 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:35:00 - root - DEBUG - load_uprs returned: <adastra_library.adastra_library.upr_collection.UPRCollection object at 0xb7121fcc>
+05/06/2018 19:35:00 - root - INFO - Called function: load
+05/06/2018 19:35:00 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (None,), 
+	Kwargs: {}
+05/06/2018 19:35:00 - root - DEBUG - load returned: None
+05/06/2018 19:35:00 - root - INFO - Called function: get_users_info
+05/06/2018 19:35:00 - root - DEBUG - 
+	Self type: <class 'comand_line_interface.app.app.App'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:35:00 - root - INFO - Called function: get_users_info
+05/06/2018 19:35:00 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:35:00 - root - DEBUG - get_users_info returned: ([{'unique_id': 'c1588472-4fcd-43f2-a32d-dfca99a46c19', 'name': 'Bobby'}, {'unique_id': '324b4e76-1c1b-45fe-a4a1-8ae00045101d', 'name': 'Peter'}, {'unique_id': '5c6a134b-0a41-4c0a-ad91-b02479c7c5b0', 'name': 'Kate'}, {'unique_id': '2546194e-dbf1-4915-b04c-4ff075ca4c94', 'name': 'Mary'}], '5c6a134b-0a41-4c0a-ad91-b02479c7c5b0')
+05/06/2018 19:35:00 - root - DEBUG - get_users_info returned: ([{'unique_id': 'c1588472-4fcd-43f2-a32d-dfca99a46c19', 'name': 'Bobby'}, {'unique_id': '324b4e76-1c1b-45fe-a4a1-8ae00045101d', 'name': 'Peter'}, {'unique_id': '5c6a134b-0a41-4c0a-ad91-b02479c7c5b0', 'name': 'Kate'}, {'unique_id': '2546194e-dbf1-4915-b04c-4ff075ca4c94', 'name': 'Mary'}], '5c6a134b-0a41-4c0a-ad91-b02479c7c5b0')
+05/06/2018 19:35:00 - root - INFO - App is about to finish
+05/06/2018 19:35:10 - root - INFO - App started
+05/06/2018 19:35:10 - root - INFO - Called function: load_user
+05/06/2018 19:35:10 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:35:10 - root - INFO - Called function: save_db_info
+05/06/2018 19:35:10 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:35:10 - root - DEBUG - save_db_info returned: None
+05/06/2018 19:35:10 - root - DEBUG - load_user returned: <adastra_library.adastra_library.user.User object at 0xb7118f0c>
+05/06/2018 19:35:10 - root - INFO - Called function: load_uprs
+05/06/2018 19:35:10 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:35:10 - root - DEBUG - load_uprs returned: <adastra_library.adastra_library.upr_collection.UPRCollection object at 0xb7118fac>
+05/06/2018 19:35:10 - root - INFO - Called function: load
+05/06/2018 19:35:10 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (None,), 
+	Kwargs: {}
+05/06/2018 19:35:10 - root - DEBUG - load returned: None
+05/06/2018 19:35:10 - root - INFO - App is about to finish
+05/06/2018 19:35:39 - root - INFO - App started
+05/06/2018 19:35:39 - root - INFO - Called function: load_user
+05/06/2018 19:35:39 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:35:39 - root - INFO - Called function: save_db_info
+05/06/2018 19:35:39 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:35:39 - root - DEBUG - save_db_info returned: None
+05/06/2018 19:35:39 - root - DEBUG - load_user returned: <adastra_library.adastra_library.user.User object at 0xb7148ecc>
+05/06/2018 19:35:39 - root - INFO - Called function: load_uprs
+05/06/2018 19:35:39 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:35:39 - root - DEBUG - load_uprs returned: <adastra_library.adastra_library.upr_collection.UPRCollection object at 0xb7148f6c>
+05/06/2018 19:35:39 - root - INFO - Called function: load
+05/06/2018 19:35:39 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (None,), 
+	Kwargs: {}
+05/06/2018 19:35:39 - root - DEBUG - load returned: None
+05/06/2018 19:35:39 - root - INFO - Called function: get_plans
+05/06/2018 19:35:39 - root - DEBUG - 
+	Self type: <class 'comand_line_interface.app.app.App'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:35:39 - root - INFO - Called function: get_plans
+05/06/2018 19:35:39 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:35:39 - root - DEBUG - get_plans returned: [<adastra_library.adastra_library.plan_manager.PlanManager object at 0xb7167b4c>, <adastra_library.adastra_library.plan_manager.PlanManager object at 0xb7167e0c>]
+05/06/2018 19:35:39 - root - DEBUG - get_plans returned: [<adastra_library.adastra_library.plan_manager.PlanManager object at 0xb7386f6c>, <adastra_library.adastra_library.plan_manager.PlanManager object at 0xb7386eac>]
+05/06/2018 19:35:39 - root - INFO - App is about to finish
+05/06/2018 19:37:19 - root - INFO - App started
+05/06/2018 19:37:19 - root - INFO - Called function: load_user
+05/06/2018 19:37:19 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:37:19 - root - INFO - Called function: save_db_info
+05/06/2018 19:37:19 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:37:19 - root - DEBUG - save_db_info returned: None
+05/06/2018 19:37:19 - root - DEBUG - load_user returned: <adastra_library.adastra_library.user.User object at 0xb719af4c>
+05/06/2018 19:37:19 - root - INFO - Called function: load_uprs
+05/06/2018 19:37:19 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:37:19 - root - DEBUG - load_uprs returned: <adastra_library.adastra_library.upr_collection.UPRCollection object at 0xb719afec>
+05/06/2018 19:37:19 - root - INFO - Called function: load
+05/06/2018 19:37:19 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (None,), 
+	Kwargs: {}
+05/06/2018 19:37:19 - root - DEBUG - load returned: None
+05/06/2018 19:37:19 - root - INFO - Called function: add_task
+05/06/2018 19:37:19 - root - DEBUG - 
+	Self type: <class 'comand_line_interface.app.app.App'>, 
+	Args: ('5c6a134b-0a41-4c0a-ad91-b02479c7c5b0', 'Do nothing'), 
+	Kwargs: {'description': None, 'status': None, 'priority': 0}
+05/06/2018 19:37:19 - root - INFO - Called function: add_task
+05/06/2018 19:37:19 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: ('5c6a134b-0a41-4c0a-ad91-b02479c7c5b0', <adastra_library.adastra_library.task.Task object at 0xb70cfeec>), 
+	Kwargs: {}
+05/06/2018 19:37:19 - root - INFO - Called function: get_task_list_by_id
+05/06/2018 19:37:19 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: ('5c6a134b-0a41-4c0a-ad91-b02479c7c5b0',), 
+	Kwargs: {}
+05/06/2018 19:37:19 - root - DEBUG - get_task_list_by_id returned: None
+05/06/2018 19:37:19 - root - ERROR - No task list with such id
+05/06/2018 19:37:19 - root - ERROR - No task list with such id
+05/06/2018 19:37:19 - root - INFO - App is about to finish
+05/06/2018 19:37:36 - root - INFO - App started
+05/06/2018 19:37:36 - root - INFO - Called function: load_user
+05/06/2018 19:37:36 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:37:36 - root - INFO - Called function: save_db_info
+05/06/2018 19:37:36 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:37:36 - root - DEBUG - save_db_info returned: None
+05/06/2018 19:37:36 - root - DEBUG - load_user returned: <adastra_library.adastra_library.user.User object at 0xb7262f4c>
+05/06/2018 19:37:36 - root - INFO - Called function: load_uprs
+05/06/2018 19:37:36 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:37:36 - root - DEBUG - load_uprs returned: <adastra_library.adastra_library.upr_collection.UPRCollection object at 0xb7262fec>
+05/06/2018 19:37:36 - root - INFO - Called function: load
+05/06/2018 19:37:36 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (None,), 
+	Kwargs: {}
+05/06/2018 19:37:36 - root - DEBUG - load returned: None
+05/06/2018 19:37:36 - root - INFO - Called function: add_task
+05/06/2018 19:37:36 - root - DEBUG - 
+	Self type: <class 'comand_line_interface.app.app.App'>, 
+	Args: ('fdf9711b-25ce-4b7d-86b5-ce92f55551b7', 'Do nothing'), 
+	Kwargs: {'description': None, 'status': None, 'priority': 0}
+05/06/2018 19:37:36 - root - INFO - Called function: add_task
+05/06/2018 19:37:36 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: ('fdf9711b-25ce-4b7d-86b5-ce92f55551b7', <adastra_library.adastra_library.task.Task object at 0xb7197eec>), 
+	Kwargs: {}
+05/06/2018 19:37:36 - root - INFO - Called function: get_task_list_by_id
+05/06/2018 19:37:36 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: ('fdf9711b-25ce-4b7d-86b5-ce92f55551b7',), 
+	Kwargs: {}
+05/06/2018 19:37:36 - root - DEBUG - get_task_list_by_id returned: <adastra_library.adastra_library.task_list.TaskList object at 0xb726e52c>
+05/06/2018 19:37:36 - root - INFO - Called function: save
+05/06/2018 19:37:36 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:37:36 - root - INFO - Called function: save_db_info
+05/06/2018 19:37:36 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:37:36 - root - DEBUG - save_db_info returned: None
+05/06/2018 19:37:36 - root - DEBUG - save returned: None
+05/06/2018 19:37:36 - root - DEBUG - add_task returned: None
+05/06/2018 19:37:36 - root - DEBUG - add_task returned: None
+05/06/2018 19:37:36 - root - INFO - App is about to finish
+05/06/2018 19:37:41 - root - INFO - App started
+05/06/2018 19:37:41 - root - INFO - Called function: load_user
+05/06/2018 19:37:41 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:37:41 - root - INFO - Called function: save_db_info
+05/06/2018 19:37:41 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:37:41 - root - DEBUG - save_db_info returned: None
+05/06/2018 19:37:41 - root - DEBUG - load_user returned: <adastra_library.adastra_library.user.User object at 0xb70f0ecc>
+05/06/2018 19:37:41 - root - INFO - Called function: load_uprs
+05/06/2018 19:37:41 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:37:41 - root - DEBUG - load_uprs returned: <adastra_library.adastra_library.upr_collection.UPRCollection object at 0xb70f0f6c>
+05/06/2018 19:37:41 - root - INFO - Called function: load
+05/06/2018 19:37:41 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (None,), 
+	Kwargs: {}
+05/06/2018 19:37:41 - root - DEBUG - load returned: None
+05/06/2018 19:37:41 - root - INFO - Called function: get_tasks
+05/06/2018 19:37:41 - root - DEBUG - 
+	Self type: <class 'comand_line_interface.app.app.App'>, 
+	Args: (None,), 
+	Kwargs: {}
+05/06/2018 19:37:41 - root - INFO - Called function: get_plans
+05/06/2018 19:37:41 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:37:41 - root - DEBUG - get_plans returned: [<adastra_library.adastra_library.plan_manager.PlanManager object at 0xb710370c>, <adastra_library.adastra_library.plan_manager.PlanManager object at 0xb711330c>]
+05/06/2018 19:37:41 - root - INFO - Called function: get_task_list_by_id
+05/06/2018 19:37:41 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: ('fdf9711b-25ce-4b7d-86b5-ce92f55551b7',), 
+	Kwargs: {}
+05/06/2018 19:37:41 - root - DEBUG - get_task_list_by_id returned: <adastra_library.adastra_library.task_list.TaskList object at 0xb710356c>
+05/06/2018 19:37:41 - root - INFO - Called function: get_task_list_by_id
+05/06/2018 19:37:41 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: ('fdf9711b-25ce-4b7d-86b5-ce92f55551b7',), 
+	Kwargs: {}
+05/06/2018 19:37:41 - root - DEBUG - get_task_list_by_id returned: <adastra_library.adastra_library.task_list.TaskList object at 0xb710356c>
+05/06/2018 19:37:41 - root - INFO - Called function: get_tasks
+05/06/2018 19:37:41 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (None,), 
+	Kwargs: {}
+05/06/2018 19:37:41 - root - DEBUG - get_tasks returned: [<adastra_library.adastra_library.task.Task object at 0xb71034cc>, <adastra_library.adastra_library.task.Task object at 0xb710358c>, <adastra_library.adastra_library.task.Task object at 0xb71035ac>, <adastra_library.adastra_library.task.Task object at 0xb71035cc>, <adastra_library.adastra_library.task.Task object at 0xb710360c>, <adastra_library.adastra_library.task.Task object at 0xb710368c>, <adastra_library.adastra_library.task.Task object at 0xb710b24c>, <adastra_library.adastra_library.task.Task object at 0xb710bbec>, <adastra_library.adastra_library.task.Task object at 0xb710bb4c>, <adastra_library.adastra_library.task.Task object at 0xb710364c>]
+05/06/2018 19:37:41 - root - DEBUG - get_tasks returned: [<adastra_library.adastra_library.task.Task object at 0xb732bf2c>, <adastra_library.adastra_library.task.Task object at 0xb732bdac>, <adastra_library.adastra_library.task.Task object at 0xb732baec>, <adastra_library.adastra_library.task.Task object at 0xb732b78c>, <adastra_library.adastra_library.task.Task object at 0xb732b76c>, <adastra_library.adastra_library.task.Task object at 0xb732b4cc>, <adastra_library.adastra_library.task.Task object at 0xb732b3ec>, <adastra_library.adastra_library.task.Task object at 0xb732b10c>, <adastra_library.adastra_library.task.Task object at 0xb732b06c>, <adastra_library.adastra_library.task.Task object at 0xb7327fcc>]
+05/06/2018 19:37:41 - root - INFO - App is about to finish
+05/06/2018 19:37:45 - root - INFO - App started
+05/06/2018 19:37:45 - root - INFO - Called function: load_user
+05/06/2018 19:37:45 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:37:45 - root - INFO - Called function: save_db_info
+05/06/2018 19:37:45 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:37:45 - root - DEBUG - save_db_info returned: None
+05/06/2018 19:37:45 - root - DEBUG - load_user returned: <adastra_library.adastra_library.user.User object at 0xb7180f2c>
+05/06/2018 19:37:45 - root - INFO - Called function: load_uprs
+05/06/2018 19:37:45 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:37:45 - root - DEBUG - load_uprs returned: <adastra_library.adastra_library.upr_collection.UPRCollection object at 0xb7180fcc>
+05/06/2018 19:37:45 - root - INFO - Called function: load
+05/06/2018 19:37:45 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (None,), 
+	Kwargs: {}
+05/06/2018 19:37:45 - root - DEBUG - load returned: None
+05/06/2018 19:37:45 - root - INFO - Called function: get_tasks
+05/06/2018 19:37:45 - root - DEBUG - 
+	Self type: <class 'comand_line_interface.app.app.App'>, 
+	Args: (None,), 
+	Kwargs: {}
+05/06/2018 19:37:45 - root - INFO - Called function: get_plans
+05/06/2018 19:37:45 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (), 
+	Kwargs: {}
+05/06/2018 19:37:45 - root - DEBUG - get_plans returned: [<adastra_library.adastra_library.plan_manager.PlanManager object at 0xb718b76c>, <adastra_library.adastra_library.plan_manager.PlanManager object at 0xb719c36c>]
+05/06/2018 19:37:45 - root - INFO - Called function: get_task_list_by_id
+05/06/2018 19:37:45 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: ('fdf9711b-25ce-4b7d-86b5-ce92f55551b7',), 
+	Kwargs: {}
+05/06/2018 19:37:45 - root - DEBUG - get_task_list_by_id returned: <adastra_library.adastra_library.task_list.TaskList object at 0xb718b5cc>
+05/06/2018 19:37:45 - root - INFO - Called function: get_task_list_by_id
+05/06/2018 19:37:45 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: ('fdf9711b-25ce-4b7d-86b5-ce92f55551b7',), 
+	Kwargs: {}
+05/06/2018 19:37:45 - root - DEBUG - get_task_list_by_id returned: <adastra_library.adastra_library.task_list.TaskList object at 0xb718b5cc>
+05/06/2018 19:37:45 - root - INFO - Called function: get_tasks
+05/06/2018 19:37:45 - root - DEBUG - 
+	Self type: <class 'database.db.DataBase'>, 
+	Args: (None,), 
+	Kwargs: {}
+05/06/2018 19:37:45 - root - DEBUG - get_tasks returned: [<adastra_library.adastra_library.task.Task object at 0xb718b52c>, <adastra_library.adastra_library.task.Task object at 0xb718b5ec>, <adastra_library.adastra_library.task.Task object at 0xb718b60c>, <adastra_library.adastra_library.task.Task object at 0xb718b62c>, <adastra_library.adastra_library.task.Task object at 0xb718b66c>, <adastra_library.adastra_library.task.Task object at 0xb718b6ec>, <adastra_library.adastra_library.task.Task object at 0xb71942ac>, <adastra_library.adastra_library.task.Task object at 0xb7194c4c>, <adastra_library.adastra_library.task.Task object at 0xb7194bac>, <adastra_library.adastra_library.task.Task object at 0xb718b6ac>]
+05/06/2018 19:37:45 - root - DEBUG - get_tasks returned: [<adastra_library.adastra_library.task.Task object at 0xb73b4e6c>, <adastra_library.adastra_library.task.Task object at 0xb73b4bac>, <adastra_library.adastra_library.task.Task object at 0xb73b4b4c>, <adastra_library.adastra_library.task.Task object at 0xb73b47cc>, <adastra_library.adastra_library.task.Task object at 0xb73b452c>, <adastra_library.adastra_library.task.Task object at 0xb73b444c>, <adastra_library.adastra_library.task.Task object at 0xb73b416c>, <adastra_library.adastra_library.task.Task object at 0xb73b40cc>, <adastra_library.adastra_library.task.Task object at 0xb73b404c>, <adastra_library.adastra_library.task.Task object at 0xb73b0f8c>]
+05/06/2018 19:37:45 - root - INFO - App is about to finish
