@@ -66,6 +66,7 @@ class DataBase:
 
     # endregion
     # region load methods
+
     def load_from_file(self, project_id):
         try:
             with open(self._db_path + "projects/" + project_id + ".json", "r") as \
