@@ -2,17 +2,19 @@ import copy
 import logging
 import os
 
-from adastra_library import Project
+from adastra_library import Project, DataBase
 from adastra_library import TaskList
 from adastra_library.adastra_library.plan_manager import PlanManager
 from adastra_library.adastra_library.project_container import ProjectContainer
 from adastra_library.adastra_library.task import Task
 from adastra_library.adastra_library.task_pattern import TaskPattern
 from adastra_library.adastra_library.user import User
-from database.db import DataBase
 
 from comand_line_interface.app.log_config import LOG_CONFIG
 from library_util.log import log_func, init_logging
+
+
+CLI_LOGGER_NAME = __name__
 
 
 class NoContainerError(AttributeError):
@@ -79,7 +81,7 @@ class App:
     # region add/remove methods
     # region user
 
-    @log_func
+    @log_func(CLI_LOGGER_NAME)
     def add_user(self, name):
         new_user = User(name=name)
         self._db.save_user(new_user)
@@ -87,12 +89,12 @@ class App:
     # endregion
     # region relation
 
-    @log_func
+    @log_func(CLI_LOGGER_NAME)
     @check_attribute("container", "user")
     def add_relation(self, from_id, to_id, description=None):
         self.container.add_relation(from_id, to_id, description)
 
-    @log_func
+    @log_func(CLI_LOGGER_NAME)
     @check_attribute("container", "user")
     def remove_relation(self, from_id, to_id):
         self.container.remove_relation(from_id, to_id)
@@ -100,7 +102,7 @@ class App:
     # endregion
     # region project
 
-    @log_func
+    @log_func(CLI_LOGGER_NAME)
     @check_attribute("user")
     def add_project(self, name):
         new_project = Project(name=name)
@@ -109,7 +111,7 @@ class App:
         self.uprs_collection.add_upr(current_user_id, new_project.unique_id)
         self._db.save_uprs(self.uprs_collection)
 
-    @log_func
+    @log_func(CLI_LOGGER_NAME)
     @check_attribute("user")
     def remove_project(self, project_id):
         if not self._has_user_access(project_id):
@@ -123,7 +125,7 @@ class App:
     # endregion
     # region upr
 
-    @log_func
+    @log_func(CLI_LOGGER_NAME)
     @check_attribute("user")
     def add_upr(self, user_id, project_id):
         if not self._has_user_access(project_id):
@@ -133,7 +135,7 @@ class App:
             self.uprs_collection.add_upr(user_id, project_id)
             self._db.save_uprs(self.uprs_collection)
 
-    @log_func
+    @log_func(CLI_LOGGER_NAME)
     @check_attribute("user")
     def remove_upr(self, user_id, project_id):
         if not self._has_user_access(project_id):
@@ -150,13 +152,13 @@ class App:
     # endregion
     # region list
 
-    @log_func
+    @log_func(CLI_LOGGER_NAME)
     @check_attribute("container", "user")
     def add_list(self, name):
         new_list = TaskList(name=name)
         self.container.add_list(new_list)
 
-    @log_func
+    @log_func(CLI_LOGGER_NAME)
     @check_attribute("container", "user")
     def remove_list(self, task_list_id):
         self.container.remove_list(task_list_id)
@@ -164,13 +166,13 @@ class App:
     # endregion
     # region task
 
-    @log_func
+    @log_func(CLI_LOGGER_NAME)
     @check_attribute("container", "user")
     def add_task(self, task_list_id, name, **kwargs):
         new_task = Task(name=name, author=self.user.unique_id, **kwargs)
         self.container.add_task(task_list_id, new_task)
 
-    @log_func
+    @log_func(CLI_LOGGER_NAME)
     @check_attribute("container", "user")
     def remove_task(self, task_id):
         self.container.remove_task(task_id)
@@ -178,7 +180,7 @@ class App:
     # endregion
     # region plan
 
-    @log_func
+    @log_func(CLI_LOGGER_NAME)
     @check_attribute("user", "container")
     def add_plan(self,
                  name,
@@ -193,7 +195,7 @@ class App:
         new_plan = PlanManager(delta, task_pattern, task_list_id, start_date, end_date)
         self.container.add_plan(task_list_id, new_plan)
 
-    @log_func
+    @log_func(CLI_LOGGER_NAME)
     @check_attribute("user", "container")
     def remove_plan(self, plan_id):
         self.container.remove_plan(plan_id)
@@ -202,13 +204,13 @@ class App:
     # endregion
     # region change/checkout methods
 
-    @log_func
+    @log_func(CLI_LOGGER_NAME)
     def change_user(self, user_id):
         self.user = self._db.load_user(user_id)
         self.container.leave_project()
         self.container = None
 
-    @log_func
+    @log_func(CLI_LOGGER_NAME)
     @check_attribute("user")
     def load_project(self, project_id):
         has_access = self._has_user_access(project_id)
@@ -222,12 +224,12 @@ class App:
     # region get methods
     # region project
 
-    @log_func
+    @log_func(CLI_LOGGER_NAME)
     @check_attribute("container", "user")
     def get_current_project(self):
         return copy.deepcopy(self.container.get_current_project())
 
-    @log_func
+    @log_func(CLI_LOGGER_NAME)
     @check_attribute("user")
     def get_projects_info(self):
         projects_info, current_project_id = self._db.get_projects_info()
@@ -238,19 +240,19 @@ class App:
     # endregion
     # region user
 
-    @log_func
+    @log_func(CLI_LOGGER_NAME)
     @check_attribute("user")
     def get_user(self):
         return copy.deepcopy(self.user)
 
-    @log_func
+    @log_func(CLI_LOGGER_NAME)
     def get_users_info(self):
         return self._db.get_users_info()
 
     # endregion
     # region list
 
-    @log_func
+    @log_func(CLI_LOGGER_NAME)
     @check_attribute("container", "user")
     def get_task_lists(self):
         return copy.deepcopy(self.container.get_task_lists())
@@ -258,12 +260,12 @@ class App:
     # endregion
     # region plan
 
-    @log_func
+    @log_func(CLI_LOGGER_NAME)
     @check_attribute("user", "container")
     def get_plans(self):
         return copy.deepcopy(self.container.get_plans())
 
-    @log_func
+    @log_func(CLI_LOGGER_NAME)
     @check_attribute("user", "container")
     def get_plan_by_id(self, plan_id):
         return copy.deepcopy(self.container.get_plan_by_id(plan_id))
@@ -271,13 +273,13 @@ class App:
     # endregion
     # region task
 
-    @log_func
+    @log_func(CLI_LOGGER_NAME)
     @check_attribute("container", "user")
     def get_tasks(self, task_list_id=None):
         tasks = copy.deepcopy(self.container.get_tasks(task_list_id))
         return tasks
 
-    @log_func
+    @log_func(CLI_LOGGER_NAME)
     @check_attribute("container", "user")
     def get_task_by_id(self, task_id):
         return self.container.get_task_by_id(task_id)
@@ -286,23 +288,23 @@ class App:
     # endregion
     # region edit methods
 
-    @log_func
+    @log_func(CLI_LOGGER_NAME)
     @check_attribute("container", "user")
     def edit_project(self, new_name):
         if new_name is not None:
             self.container.edit_project(new_name)
 
-    @log_func
+    @log_func(CLI_LOGGER_NAME)
     @check_attribute("container", "user")
     def edit_task_list(self, task_list_id, new_name):
         self.container.edit_list(task_list_id, new_name)
 
-    @log_func
+    @log_func(CLI_LOGGER_NAME)
     @check_attribute("container", "user")
     def edit_task(self, **kwargs):
         self.container.edit_task(**kwargs)
 
-    @log_func
+    @log_func(CLI_LOGGER_NAME)
     @check_attribute("container", "user")
     def free_tasks_list(self, task_list_id):
         self.container.free_tasks_list(task_list_id)

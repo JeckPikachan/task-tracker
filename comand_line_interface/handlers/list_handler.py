@@ -28,7 +28,7 @@ def show_list(app, args):
     if args.title is not None:
         lists = [task_list for task_list in lists if task_list.name == args.title]
     elif args.id is not None:
-        lists = find_one(lists, args.id)
+        lists = [find_one(lists, args.id)]
 
     for task_list in lists:
         tasks = app.get_tasks(task_list.unique_id)

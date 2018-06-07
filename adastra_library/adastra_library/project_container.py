@@ -1,5 +1,7 @@
 from datetime import datetime
 
+from library_util.log import LIBRARY_LOGGER_NAME, log_func
+
 
 class ProjectContainer:
     """
@@ -15,9 +17,11 @@ class ProjectContainer:
         self._db = db
         self.load()
 
+    @log_func(LIBRARY_LOGGER_NAME)
     def load(self, project_id=None):
         self._db.load(project_id)
 
+    @log_func(LIBRARY_LOGGER_NAME)
     def leave_project(self):
         self._db.leave_project()
         self._db.load()
@@ -26,6 +30,7 @@ class ProjectContainer:
     # region add/remove methods
     # region list
 
+    @log_func(LIBRARY_LOGGER_NAME)
     def add_list(self, task_list):
         """
         Adds passed task list lists list
@@ -35,6 +40,7 @@ class ProjectContainer:
         """
         self._db.add_list(task_list)
 
+    @log_func(LIBRARY_LOGGER_NAME)
     def remove_list(self, task_list_id):
         """
         Removes task list with specified task list id from lists list\
@@ -46,6 +52,7 @@ class ProjectContainer:
 
     # endregion
     # region task
+    @log_func(LIBRARY_LOGGER_NAME)
     def add_task(self, task_list_id, task):
         """
         Adds passed task to list with specified task list id if exists
@@ -56,6 +63,7 @@ class ProjectContainer:
         """
         self._db.add_task(task_list_id, task)
 
+    @log_func(LIBRARY_LOGGER_NAME)
     def remove_task(self, task_id):
         """
         Removes task with specified task id
@@ -68,6 +76,7 @@ class ProjectContainer:
     # endregion
     # region relation
 
+    @log_func(LIBRARY_LOGGER_NAME)
     def add_relation(self, from_id, to_id, description=None):
         """
         Adds relation between two tasks
@@ -79,6 +88,7 @@ class ProjectContainer:
         """
         return self._db.add_relation(from_id, to_id, description)
 
+    @log_func(LIBRARY_LOGGER_NAME)
     def remove_relation(self, from_id, to_id):
         """
         Removes relation between two tasks with specified ids
@@ -92,6 +102,7 @@ class ProjectContainer:
     # endregion
     # region plan
 
+    @log_func(LIBRARY_LOGGER_NAME)
     def add_plan(self, task_list_id, plan):
         """
 
@@ -102,6 +113,7 @@ class ProjectContainer:
         """
         self._db.add_plan(task_list_id, plan)
 
+    @log_func(LIBRARY_LOGGER_NAME)
     def remove_plan(self, plan_id):
         """
         Removes plan with specified id
@@ -115,6 +127,7 @@ class ProjectContainer:
     # endregion
     # region edit methods
 
+    @log_func(LIBRARY_LOGGER_NAME)
     def edit_list(self, task_list_id, new_name):
         """
 
@@ -124,6 +137,7 @@ class ProjectContainer:
         """
         self._db.edit_list(task_list_id, new_name)
 
+    @log_func(LIBRARY_LOGGER_NAME)
     def edit_task(self, **kwargs):
         """
 
@@ -138,9 +152,11 @@ class ProjectContainer:
         """
         self._db.edit_task(**kwargs)
 
+    @log_func(LIBRARY_LOGGER_NAME)
     def edit_project(self, new_name):
         self._db.edit_project(new_name)
 
+    @log_func(LIBRARY_LOGGER_NAME)
     def free_tasks_list(self, task_list_id):
         """
         Removes all tasks from task list with specified id
@@ -152,6 +168,7 @@ class ProjectContainer:
 
     # endregion
     # region get methods
+    @log_func(LIBRARY_LOGGER_NAME)
     def get_tasks(self, task_list_id=None):
         """
 
@@ -161,6 +178,7 @@ class ProjectContainer:
         self._check_plans()
         return self._db.get_tasks(task_list_id)
 
+    @log_func(LIBRARY_LOGGER_NAME)
     def get_task_by_id(self, task_id):
         """
 
@@ -169,9 +187,11 @@ class ProjectContainer:
         """
         return self._db.get_task_by_id(task_id)
 
+    @log_func(LIBRARY_LOGGER_NAME)
     def get_task_lists(self):
         return self._db.get_task_lists()
 
+    @log_func(LIBRARY_LOGGER_NAME)
     def get_plans(self):
         """
 
@@ -179,6 +199,7 @@ class ProjectContainer:
         """
         return self._db.get_plans()
 
+    @log_func(LIBRARY_LOGGER_NAME)
     def get_plan_by_id(self, plan_id):
         """
 
@@ -187,6 +208,7 @@ class ProjectContainer:
         """
         self._db.get_plan_by_id(plan_id)
 
+    @log_func(LIBRARY_LOGGER_NAME)
     def get_current_project_id(self):
         """
 
@@ -194,6 +216,7 @@ class ProjectContainer:
         """
         return self._db.get_projects_info()[1]
 
+    @log_func(LIBRARY_LOGGER_NAME)
     def get_current_project(self):
         """
 

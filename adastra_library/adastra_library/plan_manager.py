@@ -49,7 +49,6 @@ class PlanManager(UniqueObject):
         if self.start_date is not None and current_date < self.start_date:
             return tasks
 
-        print(self.delta)
         delta = relativedelta(**DELTAS.get(self.delta))
         while self.last_created < current_date - delta and \
                 (self.end_date is None or

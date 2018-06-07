@@ -7,7 +7,7 @@ from adastra_library import Project, TaskList, Task, TaskPattern, PlanManager, U
 from database import serialization
 from library_util.enum_json import as_enum
 from library_util.find import find_one_in_dicts, find_one
-from library_util.log import log_func
+from library_util.log import log_func, LIBRARY_LOGGER_NAME
 
 
 class DBInfo:
@@ -113,7 +113,7 @@ class DataBase:
         except IOError as e:
             raise e
 
-    @log_func
+    @log_func(LIBRARY_LOGGER_NAME)
     def load(self, project_id=None):
         if project_id is None:
             current_project_id = self.db_info.current_project_id
@@ -126,7 +126,7 @@ class DataBase:
             if new_current_project_id is not None:
                 self.save_db_info()
 
-    @log_func
+    @log_func(LIBRARY_LOGGER_NAME)
     def load_user(self, user_id=None):
         if user_id is None:
             user_id = self.db_info.current_user_id
@@ -142,7 +142,7 @@ class DataBase:
         except IOError as e:
             raise e
 
-    @log_func
+    @log_func(LIBRARY_LOGGER_NAME)
     def load_uprs(self):
         try:
             with open(self._db_path + "uprs/uprs.json", "r") as uprs_file:
@@ -155,7 +155,7 @@ class DataBase:
     # endregion
     # region save methods
 
-    @log_func
+    @log_func(LIBRARY_LOGGER_NAME)
     def save(self):
         tasks = [serialization.transform_task(task) for task in self._tasks]
         task_lists = [serialization.transform_object(task_list) for
@@ -180,7 +180,7 @@ class DataBase:
         except IOError as e:
             return e
 
-    @log_func
+    @log_func(LIBRARY_LOGGER_NAME)
     def save_db_info(self):
         try:
             with open(self._db_path + "db_info.json", "w+") as config_file:
@@ -190,7 +190,7 @@ class DataBase:
         except IOError as e:
             return e
 
-    @log_func
+    @log_func(LIBRARY_LOGGER_NAME)
     def save_user(self, user):
         try:
             with open(self._db_path + "users/" + user.unique_id + ".json", "w+") as \
@@ -202,7 +202,7 @@ class DataBase:
         except IOError as e:
             return e
 
-    @log_func
+    @log_func(LIBRARY_LOGGER_NAME)
     def save_uprs(self, uprs_collection):
         try:
             with open(self._db_path + "uprs/uprs.json", "w+") as uprs_file:
@@ -215,7 +215,7 @@ class DataBase:
     # endregion
     # region remove methods
 
-    @log_func
+    @log_func(LIBRARY_LOGGER_NAME)
     def remove(self, project_id):
         try:
             os.remove(self._db_path + "projects/" + project_id + ".json")
@@ -232,7 +232,7 @@ class DataBase:
     # endregion
     # region get methods
 
-    @log_func
+    @log_func(LIBRARY_LOGGER_NAME)
     def get_projects_info(self):
         return (self.db_info.projects_info,
                 self.db_info.current_project_id)
@@ -240,7 +240,7 @@ class DataBase:
     def get_current_project(self):
         return self._project
 
-    @log_func
+    @log_func(LIBRARY_LOGGER_NAME)
     def get_users_info(self):
         return (self.db_info.users_info,
                 self.db_info.current_user_id)
@@ -248,7 +248,7 @@ class DataBase:
     # endregion
     # region change methods
 
-    @log_func
+    @log_func(LIBRARY_LOGGER_NAME)
     def leave_project(self):
         self.db_info.current_project_id = None
         self.save_db_info()
@@ -256,7 +256,7 @@ class DataBase:
     # endregion
     # region API
 
-    @log_func
+    @log_func(LIBRARY_LOGGER_NAME)
     def add_project(self, project):
         dict_to_save = {'project': serialization.transform_project(project)}
         project_id = project.unique_id
@@ -273,13 +273,13 @@ class DataBase:
         except IOError as e:
             return e
 
-    @log_func
+    @log_func(LIBRARY_LOGGER_NAME)
     def add_list(self, task_list):
         self._task_lists.append(task_list)
         self._project.lists.append(task_list.unique_id)
         self.save()
 
-    @log_func
+    @log_func(LIBRARY_LOGGER_NAME)
     def remove_list(self, task_list_id):
         self.free_tasks_list(task_list_id)
         self._project.lists.remove(task_list_id)
@@ -287,7 +287,7 @@ class DataBase:
                             task_list.unique_id != task_list_id]
         self.save()
 
-    @log_func
+    @log_func(LIBRARY_LOGGER_NAME)
     def add_task(self, task_list_id, task):
         task_list = self.get_task_list_by_id(task_list_id)
         if task_list is not None:
@@ -297,7 +297,7 @@ class DataBase:
             raise ValueError("No task list with such id")
         self.save()
 
-    @log_func
+    @log_func(LIBRARY_LOGGER_NAME)
     def remove_task(self, task_id):
         for task_list in self._task_lists:
             if task_id in task_list.tasks_list:
@@ -306,7 +306,7 @@ class DataBase:
                        task.unique_id != task_id]
         self.save()
 
-    @log_func
+    @log_func(LIBRARY_LOGGER_NAME)
     def add_relation(self, from_id, to_id, description=None):
         from_task = self.get_task_by_id(from_id)
         to_task = self.get_task_by_id(to_id)
@@ -318,7 +318,7 @@ class DataBase:
         self.save()
         return new_relation
 
-    @log_func
+    @log_func(LIBRARY_LOGGER_NAME)
     def remove_relation(self, from_id, to_id):
         from_task = self.get_task_by_id(from_id)
         if from_task is None:
@@ -326,7 +326,7 @@ class DataBase:
         from_task.remove_relation(to_id)
         self.save()
 
-    @log_func
+    @log_func(LIBRARY_LOGGER_NAME)
     def add_plan(self, task_list_id, plan):
         task_list = self.get_task_list_by_id(task_list_id)
         if task_list is not None:
@@ -335,20 +335,20 @@ class DataBase:
             raise ValueError("No task list with such id")
         self.save()
 
-    @log_func
+    @log_func(LIBRARY_LOGGER_NAME)
     def remove_plan(self, plan_id):
         self._plans = [plan for plan in
                        self._plans if plan.unique_id != plan_id]
         self.save()
 
-    @log_func
+    @log_func(LIBRARY_LOGGER_NAME)
     def edit_list(self, task_list_id, new_name):
         task_list = self.get_task_list_by_id(task_list_id)
         if task_list is not None and new_name is not None:
             task_list.name = new_name
         self.save()
 
-    @log_func
+    @log_func(LIBRARY_LOGGER_NAME)
     def edit_task(self, task_id, **kwargs):
         task = self.get_task_by_id(task_id)
         if task is None:
@@ -376,12 +376,12 @@ class DataBase:
 
         self.save()
 
-    @log_func
+    @log_func(LIBRARY_LOGGER_NAME)
     def edit_project(self, new_name):
         self._project.name = new_name
         self.save()
 
-    @log_func
+    @log_func(LIBRARY_LOGGER_NAME)
     def free_tasks_list(self, task_list_id):
         task_list = self.get_task_list_by_id(task_list_id)
         self._tasks = [task for task in self._tasks if
@@ -389,7 +389,7 @@ class DataBase:
         task_list.tasks_list.clear()
         self.save()
 
-    @log_func
+    @log_func(LIBRARY_LOGGER_NAME)
     def get_tasks(self, task_list_id=None):
         if task_list_id is None:
             return self._tasks
@@ -400,27 +400,27 @@ class DataBase:
                         task.unique_id in task_list.tasks_list]
             return None
 
-    @log_func
+    @log_func(LIBRARY_LOGGER_NAME)
     def get_task_lists(self):
         return self._task_lists
 
-    @log_func
+    @log_func(LIBRARY_LOGGER_NAME)
     def get_task_by_id(self, task_id):
         if task_id is None:
             return None
         return find_one(self._tasks, task_id)
 
-    @log_func
+    @log_func(LIBRARY_LOGGER_NAME)
     def get_task_list_by_id(self, task_list_id):
         if task_list_id is None:
             return None
         return find_one(self._task_lists, task_list_id)
 
-    @log_func
+    @log_func(LIBRARY_LOGGER_NAME)
     def get_plans(self):
         return self._plans
 
-    @log_func
+    @log_func(LIBRARY_LOGGER_NAME)
     def get_plan_by_id(self, plan_id):
         if plan_id is None:
             return None
