@@ -1,26 +1,32 @@
+import shutil
 import unittest
 
-from adastra_library import TaskList
+from adastra_library import TaskList, Project
 from adastra_library.adastra_library.plan_manager import PlanManager
 from adastra_library.adastra_library.project_container import ProjectContainer
 from adastra_library.adastra_library.task import Task, TaskRelation
 from adastra_library.adastra_library.task_pattern import TaskPattern
 from database.db import DataBase
 
+TEST_DB_PATH = '/tmp/test_data/'
+PROJECT_NAME = "TEST NAME"
+
 
 class TestProjectContainer(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.db_test = DataBase({'db_path':
-                                '/home/eugene/Projects/isp_business_tracker/database/db_test/'})
+        cls.db_test = DataBase({'db_path': TEST_DB_PATH})
 
     @classmethod
     def tearDownClass(cls):
-        pass
+        shutil.rmtree(TEST_DB_PATH)
 
     def setUp(self):
         self.container = ProjectContainer(self.db_test)
+        new_project = Project(name=PROJECT_NAME)
+        self.db_test.add_project(new_project)
+        self.container.load(new_project.unique_id)
 
     def tearDown(self):
         self.container = None

@@ -1,11 +1,13 @@
 import json
 import os
 from datetime import datetime
+from json import JSONDecodeError
 
 from adastra_library import Project, TaskList, Task, TaskPattern, PlanManager, User, UPRCollection
 
 from database import serialization
 from library_util.enum_json import as_enum
+from library_util.files import create_file_if_not_exists
 from library_util.find import find_one_in_dicts, find_one
 from library_util.log import log_func, LIBRARY_LOGGER_NAME
 
@@ -54,12 +56,13 @@ class DataBase:
                                                   config.get('db_path', None) is not None else
                          os.path.dirname(__file__) + "/data/")
         try:
+            create_file_if_not_exists(self._db_path, "db_info.json")
             with open(self._db_path + "db_info.json", "r") as config_file:
                 self.db_info = DBInfo(**json.load(config_file))
-        except IOError:
+        except BaseException:
             self.db_info = DBInfo()
 
-        self._project = Project()
+        self._project = None
         self._task_lists = []
         self._tasks = []
         self._plans = []
@@ -69,6 +72,8 @@ class DataBase:
 
     def load_from_file(self, project_id):
         try:
+            create_file_if_not_exists(self._db_path + "projects/",
+                                      project_id + ".json")
             with open(self._db_path + "projects/" + project_id + ".json", "r") as \
                     project_file:
                 loaded = json.load(project_file)
@@ -134,6 +139,8 @@ class DataBase:
             if user_id is None:
                 return None
         try:
+            create_file_if_not_exists(self._db_path  + "users/",
+                                      user_id + ".json")
             with open(self._db_path + "users/" + user_id + ".json", "r") as user_file:
                 loaded = json.load(user_file)
                 user = User(**loaded)
@@ -146,12 +153,16 @@ class DataBase:
     @log_func(LIBRARY_LOGGER_NAME)
     def load_uprs(self):
         try:
+            create_file_if_not_exists(self._db_path + "uprs/",
+                                      "uprs.json")
             with open(self._db_path + "uprs/uprs.json", "r") as uprs_file:
                 loaded = json.load(uprs_file)
                 uprs_collection = UPRCollection(**loaded)
-            return uprs_collection
         except IOError as e:
             raise e
+        except JSONDecodeError as e:
+            uprs_collection = UPRCollection()
+        return uprs_collection
 
     # endregion
     # region save methods
@@ -171,6 +182,8 @@ class DataBase:
             {'project': project, 'task_lists': task_lists, 'tasks': tasks, 'plans': plans}
 
         try:
+            create_file_if_not_exists(self._db_path + "projects/",
+                                      project_id + ".json")
             with open(self._db_path + "projects/" + project_id + ".json", "w+") as \
                     project_file:
                 json.dump(dict_to_save, project_file, indent=4)
@@ -184,6 +197,8 @@ class DataBase:
     @log_func(LIBRARY_LOGGER_NAME)
     def save_db_info(self):
         try:
+            create_file_if_not_exists(self._db_path,
+                                      "db_info.json")
             with open(self._db_path + "db_info.json", "w+") as config_file:
                 json.dump(serialization.transform_object(self.db_info),
                           config_file, indent=4)
@@ -194,6 +209,8 @@ class DataBase:
     @log_func(LIBRARY_LOGGER_NAME)
     def save_user(self, user):
         try:
+            create_file_if_not_exists(self._db_path + "users/",
+                                      user.unique_id + ".json")
             with open(self._db_path + "users/" + user.unique_id + ".json", "w+") as \
                     user_file:
                 json.dump(serialization.transform_object(user), user_file, indent=4)
@@ -206,6 +223,8 @@ class DataBase:
     @log_func(LIBRARY_LOGGER_NAME)
     def save_uprs(self, uprs_collection):
         try:
+            create_file_if_not_exists(self._db_path + "uprs/",
+                                      "uprs.json")
             with open(self._db_path + "uprs/uprs.json", "w+") as uprs_file:
                 json.dump(serialization.transform_upr_collection(uprs_collection),
                           uprs_file, indent=4)
@@ -239,7 +258,10 @@ class DataBase:
                 self.db_info.current_project_id)
 
     def get_current_project(self):
-        return self._project
+        if self._project:
+            return self._project
+        else:
+            raise AttributeError("Project not chosen or doesn't exist!")
 
     @log_func(LIBRARY_LOGGER_NAME)
     def get_users_info(self):
@@ -264,6 +286,8 @@ class DataBase:
         project_name = project.name
 
         try:
+            create_file_if_not_exists(self._db_path + "projects/",
+                                      project_id + ".json")
             with open(self._db_path + "projects/" + project_id + ".json", "w+") as \
                     project_file:
                 json.dump(dict_to_save, project_file, indent=4)
