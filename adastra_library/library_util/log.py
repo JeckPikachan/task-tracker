@@ -5,6 +5,10 @@ import logging
 LIBRARY_LOGGER_NAME = 'adastra_library'
 
 
+def get_logger():
+    return logging.getLogger(LIBRARY_LOGGER_NAME)
+
+
 def log_func(logger_name):
     logger = logging.getLogger(logger_name)
 
