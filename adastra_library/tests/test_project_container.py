@@ -16,7 +16,7 @@ class TestProjectContainer(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.db_test = DataBase({'db_path': TEST_DB_PATH})
+        cls.db_test = DataBase(TEST_DB_PATH)
 
     @classmethod
     def tearDownClass(cls):

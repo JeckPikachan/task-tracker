@@ -51,9 +51,9 @@ class DataBase:
 
     # region magic methods
 
-    def __init__(self, config=None):
-        self._db_path = (config.get('db_path') if config is not None and
-                                                  config.get('db_path', None) is not None else
+    def __init__(self, connection_string=None):
+        self._db_path = (os.path.dirname(connection_string) + "/" if
+                         connection_string is not None else
                          os.path.dirname(__file__) + "/data/")
         try:
             create_file_if_not_exists(self._db_path, "db_info.json")
