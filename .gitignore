@@ -6,3 +6,4 @@ issue_tracker/venv/
 *.egg-info/
 wcl.sh
 edits.txt
+db.sqlite3
