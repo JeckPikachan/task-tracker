@@ -6,17 +6,18 @@ from adastra_library import Status
 from adastra_library.adastra_library.plan_manager import PlanManager
 from adastra_library.adastra_library.task_pattern import TaskPattern
 from dateutil.relativedelta import relativedelta
+from library_util import delta_time
 
-DELTA = 2
+DELTA = delta_time.MONTHLY
 NAME = "Name"
 DESCRIPTION = "Description"
-STATUS = 2
-PRIORITY = 2
+STATUS_DONE = 2
+PRIORITY_HIGH = 2
 ID = "ID1234567890"
 TASK_PATTERN = TaskPattern(name=NAME,
                            description=DESCRIPTION,
-                           status=STATUS,
-                           priority=PRIORITY,
+                           status=STATUS_DONE,
+                           priority=PRIORITY_HIGH,
                            author=ID)
 TASK_LIST_ID = "ID0987654321"
 
@@ -40,7 +41,6 @@ class TestPlanManager(unittest.TestCase):
         self.assertEqual(self.plan.task_list_id, TASK_LIST_ID)
 
     def test_get_planned_tasks(self):
-        delta = DELTA
         n = 3
         current_time = datetime.now() + relativedelta(months=+n)
         tasks, task_list_id = self.plan.get_planned_tasks(current_time)
@@ -49,6 +49,6 @@ class TestPlanManager(unittest.TestCase):
         for task in tasks:
             self.assertEqual(task.name, NAME),
             self.assertEqual(task.description, DESCRIPTION)
-            self.assertEqual(task.priority, Priority.get_by_number(PRIORITY))
-            self.assertEqual(task.status, Status.get_by_number(STATUS))
+            self.assertEqual(task.priority, Priority.get_by_number(PRIORITY_HIGH))
+            self.assertEqual(task.status, Status.get_by_number(STATUS_DONE))
             self.assertEqual(task.author, ID)

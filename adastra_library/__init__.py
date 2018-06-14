@@ -42,7 +42,7 @@ PlanManager:
     Second argument is TaskPattern object.
     Third is task list id.
     Others are optional.
-    >>> plan = PlanManager()
+    >>> plan = PlanManager(DAILY, task_pattern, "[task list id]")
 
 ProjectContainer:
     ProjectContainer constructor gets database you want to use
@@ -51,7 +51,10 @@ ProjectContainer:
     By default it loads project saved as current project in database.
     To switch to another project use:
     >>> container.load("[project id]")
-
+    Add task list:
+    >>> container.add_list(task_list)
+    Add task to task list with specified id:
+    >>> container.add_task("[task list id]", task)
 
 """
 from .adastra_library import *
