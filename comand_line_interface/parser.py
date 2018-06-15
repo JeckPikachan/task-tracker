@@ -1,6 +1,7 @@
 import argparse
 from datetime import datetime
 
+import sys
 from library_util import delta_time
 
 
@@ -12,6 +13,13 @@ def parse_valid_date(s):
         raise argparse.ArgumentTypeError(msg)
 
 
+class DefaultHelpParser(argparse.ArgumentParser):
+    def error(self, message):
+        print('error: %s\n' % message, file=sys.stderr)
+        self.print_help()
+        sys.exit(2)
+
+
 class Parser:
     """
 
@@ -19,7 +27,9 @@ class Parser:
     """
 
     def __init__(self):
-        self.parser = argparse.ArgumentParser(description='Issue Tracker CLI')
+        self.parser = DefaultHelpParser(
+            description='Issue Tracker CLI',
+            usage="adastra <object> <action> [<args>] (Note: upr stands for User Project Relation)\n")
         self.object_subparsers = self.parser.add_subparsers(dest='object')
         self._add_all_parsers()
 

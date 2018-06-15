@@ -76,6 +76,10 @@ def main():
     parser = Parser()
     args = parser.parse()
 
+    if args.object is None:
+        parser.parser.print_help()
+        quit(0)
+
     try:
         handle_args(app, args)
     except NoContainerError as e:
