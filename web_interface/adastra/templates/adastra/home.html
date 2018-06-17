@@ -1,0 +1,13 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+  <div class='jumbotron'>
+  	<h1 class='display-1'>Hello, {{ username }} 👋</h1>
+    <div class='display-4'>
+      It's time to complete <a href="#">your tasks</a>!
+    </div>
+  </div>
+{% endblock %}
