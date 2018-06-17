@@ -9,5 +9,5 @@ class UniqueObject:
         :param unique_id: {string} Unique id of object
             (use for restoring only )
         """
-        self.unique_id = str((unique_id is None and uuid.uuid4()) or uuid.UUID(unique_id))
+        self.unique_id = str((unique_id is None and uuid.uuid4()) or unique_id)
         self.name = name

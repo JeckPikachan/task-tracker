@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Your Projects{% endblock %}
+
+{% block content %}
+<br>
+<a role="button" class="btn btn-primary" href="{% url 'adastra:create_project' %}"> + Add Project</a>
+<br><br>
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for project in user_projects %}
+    <tr>
+        <td>{{ project.unique_id }}</td>
+        <td>{{ project.name }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

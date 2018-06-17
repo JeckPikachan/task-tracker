@@ -3,6 +3,10 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 
+from .models import UserProjectRelationModel, ProjectModel
+from . import storage
+from .forms import ProjectForm
+
 
 def signup(request):
     if request.method == 'POST':
@@ -25,9 +29,31 @@ def home(request):
         username = request.user.username
     return render(
         request, 'adastra/home.html',
-        {'username': username})
+        {'username': username, 'nav_bar': 'home'})
 
 
 @login_required
 def projects(request):
-    return render(request, 'adastra/projects.html')
+    user_projects = storage.get_user_projects(request.user)
+    return render(
+        request, 'adastra/projects.html',
+        {'user_projects': user_projects, 'nav_bar': 'projects'})
+
+
+@login_required
+def create_project(request):
+    if request.method == 'POST':
+        form = ProjectForm(request.POST)
+        if form.is_valid():
+            project = ProjectModel(name=form.cleaned_data['name'])
+            storage.save_project(project)
+            upr = UserProjectRelationModel(user=request.user, project=project)
+            storage.save_user_project_relation(upr)
+            return redirect('adastra:projects')
+    else:
+        form = ProjectForm()
+
+    return render(
+        request, 'adastra/create_project.html',
+        {'form': form, 'nav_bar': 'projects'}
+    )
