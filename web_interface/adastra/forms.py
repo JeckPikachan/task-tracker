@@ -1,4 +1,4 @@
-from django.forms import ModelForm, HiddenInput
+from django.forms import ModelForm, HiddenInput, ModelChoiceField
 
 from .models import ProjectModel, TaskListModel
 
@@ -10,9 +10,11 @@ class ProjectForm(ModelForm):
 
 
 class TaskListForm(ModelForm):
+    project = ModelChoiceField(
+        queryset=ProjectModel.objects.all(),
+        widget=HiddenInput()
+    )
+
     class Meta:
         model = TaskListModel
-        fields = ['name', 'id']
-        widgets = {
-            'id': HiddenInput()
-        }
+        fields = ['name', 'project']

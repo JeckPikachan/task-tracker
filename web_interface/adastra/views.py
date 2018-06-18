@@ -3,9 +3,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 
-from .models import UserProjectRelationModel, ProjectModel
+from .models import UserProjectRelationModel, ProjectModel, TaskListModel
 from . import storage
-from .forms import ProjectForm
+from .forms import ProjectForm, TaskListForm
 
 
 def signup(request):
@@ -85,6 +85,7 @@ def delete_project(request, project_id):
     return redirect('adastra:projects')
 
 
+@login_required
 def tasks(request, project_id):
     project = storage.get_project_by_id(project_id)
     task_lists = storage.get_task_lists_by_project(project)
@@ -96,3 +97,25 @@ def tasks(request, project_id):
             'nav-bar': 'projects'
         }
     )
+
+
+@login_required
+def create_task_list(request, project_id):
+    project = storage.get_project_by_id(project_id)
+    if request.method == 'POST':
+        form = TaskListForm(request.POST)
+        if form.is_valid():
+            task_list = TaskListModel(
+                name=form.cleaned_data['name'],
+                project=form.cleaned_data['project']
+            )
+            storage.save_task_list(task_list)
+            return redirect('adastra:tasks', project_id)
+    else:
+        form = TaskListForm(initial={'project': project})
+
+    return render(
+        request, 'adastra/create_task_list.html',
+        {'form': form, 'project': project}
+    )
+

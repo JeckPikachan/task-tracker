@@ -40,3 +40,7 @@ def remove_project_by_id(project_id):
 
 def get_task_lists_by_project(project):
     return list(project.tasklistmodel_set.all())
+
+
+def save_task_list(task_list):
+    task_list.save()
