@@ -4,11 +4,13 @@
     <meta charset="utf-8">
     <title>{% block title %}Base view{% endblock %}</title>
     {% load fontawesome %}
+    {% load static %}
     {% fontawesome_stylesheet %}
     {% load bootstrap4 %}
     {% bootstrap_css %}
     {% bootstrap_javascript jquery='full' %}
-    {{ form.media }}
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 </head>
 <body>

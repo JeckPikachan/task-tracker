@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load fontawesome %}
+
+{% block title %}Your Tasks{% endblock %}
+
+{% block content %}
+<h2>Tasks of "{{ project.name }}"</h2>
+<a
+        role="button"
+        class="btn btn-primary float-right"
+        href="#">
+    + Add Task List
+</a>
+<div class="clearfix"></div>
+<div class="flex-container">
+    {% for task_list in task_lists %}
+    <div class="flex-container__item min-height-100px background-lightgray margin-top-bottom-10px padding-10px border-radius-5px">
+        <span class="task-list-title">{{ task_list.name }}</span>
+        <div class="flex-container inner-shadow min-height-100px background-light margin-10px padding-10px border-radius-5px">
+
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+{% endblock %}

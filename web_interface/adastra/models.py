@@ -32,7 +32,7 @@ class TaskModel(models.Model):
 
     name = models.CharField(max_length=140)
     description = models.CharField(blank=True, max_length=10000)
-    expiration_date = models.DateTimeField(blank=True)
+    expiration_date = models.DateTimeField(blank=True, null=True)
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     status = models.IntegerField(choices=STATUS_CHOICES)
     priority = models.IntegerField(choices=PRIORITY_CHOICES)

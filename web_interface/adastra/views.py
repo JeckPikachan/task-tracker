@@ -57,3 +57,42 @@ def create_project(request):
         request, 'adastra/create_project.html',
         {'form': form, 'nav_bar': 'projects'}
     )
+
+
+@login_required
+def edit_project(request, project_id):
+    project = storage.get_project_by_id(project_id)
+    if project is None:
+        return redirect('adastra:projects')
+    if request.method == 'POST':
+        form = ProjectForm(request.POST)
+        if form.is_valid():
+            project.name = form.cleaned_data['name']
+            storage.save_project(project)
+            return redirect('adastra:projects')
+    else:
+        form = ProjectForm(initial={'name': project.name})
+    return render(
+        request, 'adastra/edit_project.html',
+        {'form': form, 'nav_bar': 'projects'}
+    )
+
+
+@login_required
+def delete_project(request, project_id):
+    if request.method == 'POST':
+        storage.remove_project_by_id(project_id)
+    return redirect('adastra:projects')
+
+
+def tasks(request, project_id):
+    project = storage.get_project_by_id(project_id)
+    task_lists = storage.get_task_lists_by_project(project)
+    return render(
+        request, 'adastra/tasks.html',
+        {
+            'project': project,
+            'task_lists': task_lists,
+            'nav-bar': 'projects'
+        }
+    )
