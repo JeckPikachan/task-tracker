@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Task{% endblock %}
+
+{% block content %}
+<h2>Create Task</h2>
+<form method="post">
+    {% csrf_token %}
+    {% load bootstrap4 %}
+    {% bootstrap_form form %}
+    {% buttons %}
+    <button type="submit" class="btn btn-success">Create Task</button>
+    {% endbuttons %}
+</form>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+<script>
+    $( ".datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+      // You can put more options here.
+
+    });
+
+</script>
+{% endblock %}

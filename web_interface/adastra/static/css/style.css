@@ -3,6 +3,12 @@
     flex-direction: column;
 }
 
+.flex-container--row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 .flex-container__item {
     flex-basis: 20%
 }
@@ -49,4 +55,24 @@
 
 .inline-block {
     display: inline-block;
+}
+
+.task {
+    background: white;
+    border-radius: 5px;
+    padding: 5px 15px;
+    flex-basis: 22%;
+    border: gray solid 1px;
+}
+
+.task .task__title {
+    font-size: 1.2em;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.ui-datepicker {
+    background: white;
+    border-radius: 5px;
+    border: solid black 1px;
 }

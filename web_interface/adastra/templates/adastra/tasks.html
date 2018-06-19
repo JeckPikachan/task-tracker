@@ -20,7 +20,7 @@
             <a
                     role="button"
                     class="btn btn-success"
-                    href="#">
+                    href="{% url 'adastra:create_task' project.id task_list.id %}">
                 {% fontawesome_icon 'plus' %}
             </a>
             <a
@@ -43,8 +43,12 @@
             </form>
         </div>
         <div class="clearfix"></div>
-        <div class="flex-container inner-shadow min-height-100px background-light margin-10px padding-10px border-radius-5px">
-
+        <div class="flex-container--row inner-shadow min-height-100px background-light margin-10px padding-10px border-radius-5px">
+            {% for task in task_list.taskmodel_set.all %}
+            <div class="task margin-10px">
+                <span class="task__title">{{task.name}}</span>
+            </div>
+            {% endfor %}
         </div>
     </div>
     {% endfor %}

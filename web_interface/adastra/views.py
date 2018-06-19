@@ -3,9 +3,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 
-from .models import UserProjectRelationModel, ProjectModel, TaskListModel
+from .models import UserProjectRelationModel, ProjectModel, TaskListModel, TaskModel
 from . import storage
-from .forms import ProjectForm, TaskListForm
+from .forms import ProjectForm, TaskListForm, TaskForm
 
 
 def signup(request):
@@ -143,4 +143,30 @@ def edit_task_list(request, project_id, task_list_id):
     return render(
         request, 'adastra/edit_task_list.html',
         {'form': form, 'nav_bar': 'projects'}
+    )
+
+
+@login_required
+def create_task(request, project_id, task_list_id):
+    task_list = storage.get_task_list_by_id(task_list_id)
+    if request.method == 'POST':
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            task = TaskModel(
+                name=form.cleaned_data['name'],
+                task_list=form.cleaned_data['task_list'],
+                author=form.cleaned_data['author'],
+                description=form.cleaned_data['description'],
+                expiration_date=form.cleaned_data['expiration_date'],
+                status=form.cleaned_data['status'],
+                priority=form.cleaned_data['priority']
+            )
+            storage.save_task(task)
+            return redirect('adastra:tasks', project_id)
+    else:
+        form = TaskForm(initial={'task_list': task_list, 'author': request.user})
+
+    return render(
+        request, 'adastra/create_task.html',
+        {'form': form}
     )

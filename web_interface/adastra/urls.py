@@ -21,6 +21,7 @@ projects_patterns = [
 
 tasks_patterns = [
     url(r'^(?P<project_id>[0-9]+)/$', views.tasks, name='tasks'),
+    url(r'^create/(?P<project_id>[0-9]+)/(?P<task_list_id>[0-9]+)/$', views.create_task, name='create_task'),
 ]
 
 task_lists_patterns = [

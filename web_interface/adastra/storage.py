@@ -57,3 +57,7 @@ def remove_task_list_by_id(task_list_id):
     task_list = get_task_list_by_id(task_list_id)
     if task_list_id is not None:
         task_list.delete()
+
+
+def save_task(task):
+    task.save()
