@@ -33,7 +33,7 @@
                     href="{% url 'adastra:edit_project' project.unique_id %}">
                 Edit
             </a>
-            <form style='display: inline-block;' action="{% url 'adastra:delete_project' project.unique_id %}"
+            <form class="inline-block" action="{% url 'adastra:delete_project' project.unique_id %}"
                   method='post'>
                 {% csrf_token %}
                 <button

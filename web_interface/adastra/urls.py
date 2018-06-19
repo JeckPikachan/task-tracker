@@ -24,7 +24,9 @@ tasks_patterns = [
 ]
 
 task_lists_patterns = [
-    url(r'^create/(?P<project_id>[0-9]+)/$', views.create_task_list, name='create_task_list')
+    url(r'^create/(?P<project_id>[0-9]+)/$', views.create_task_list, name='create_task_list'),
+    url(r'^delete/(?P<project_id>[0-9]+)/(?P<task_list_id>[0-9]+)/$', views.delete_task_list, name='delete_task_list'),
+    url(r'^edit/(?P<project_id>[0-9]+)/(?P<task_list_id>[0-9]+)/$', views.edit_task_list, name='edit_task_list')
 ]
 
 urlpatterns = [

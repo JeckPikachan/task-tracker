@@ -1,7 +1,7 @@
 from adastra_library import Project
 from peewee import DoesNotExist
 
-from .models import UserProjectRelationModel, ProjectModel
+from .models import UserProjectRelationModel, ProjectModel, TaskListModel
 
 
 def get_user_projects(user):
@@ -42,5 +42,18 @@ def get_task_lists_by_project(project):
     return list(project.tasklistmodel_set.all())
 
 
+def get_task_list_by_id(task_list_id):
+    try:
+        return TaskListModel.objects.get(id=task_list_id)
+    except DoesNotExist:
+        return None
+
+
 def save_task_list(task_list):
     task_list.save()
+
+
+def remove_task_list_by_id(task_list_id):
+    task_list = get_task_list_by_id(task_list_id)
+    if task_list_id is not None:
+        task_list.delete()

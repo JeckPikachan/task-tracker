@@ -119,3 +119,28 @@ def create_task_list(request, project_id):
         {'form': form, 'project': project}
     )
 
+
+@login_required
+def delete_task_list(request, project_id, task_list_id):
+    if request.method == 'POST':
+        storage.remove_task_list_by_id(task_list_id)
+    return redirect('adastra:tasks', project_id)
+
+
+@login_required
+def edit_task_list(request, project_id, task_list_id):
+    task_list = storage.get_task_list_by_id(task_list_id)
+    if task_list is None:
+        return redirect('adastra:tasks', project_id)
+    if request.method == 'POST':
+        form = TaskListForm(request.POST)
+        if form.is_valid():
+            task_list.name = form.cleaned_data['name']
+            storage.save_task_list(task_list)
+            return redirect('adastra:tasks', project_id)
+    else:
+        form = TaskListForm(initial={'name': task_list.name, 'project': task_list.project})
+    return render(
+        request, 'adastra/edit_task_list.html',
+        {'form': form, 'nav_bar': 'projects'}
+    )

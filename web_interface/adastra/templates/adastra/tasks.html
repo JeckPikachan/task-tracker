@@ -16,6 +16,33 @@
     {% for task_list in task_lists %}
     <div class="flex-container__item min-height-100px background-lightgray margin-top-bottom-10px padding-10px border-radius-5px">
         <span class="task-list-title">{{ task_list.name }}</span>
+        <div class="float-right inline-block margin-10px">
+            <a
+                    role="button"
+                    class="btn btn-success"
+                    href="#">
+                {% fontawesome_icon 'plus' %}
+            </a>
+            <a
+                    role="button"
+                    class="btn btn-primary"
+                    href="{% url 'adastra:edit_task_list' project.id task_list.id %}">
+                {% fontawesome_icon 'pencil' %}
+            </a>
+            <form
+                    class="inline-block"
+                    method="post"
+                    action="{% url 'adastra:delete_task_list' project.id task_list.id %}">
+                {% csrf_token %}
+                <button
+                        type="submit"
+                        class="btn btn-danger"
+                        onclick="return confirm('Are you sure you want to delete this task list?');">
+                    {% fontawesome_icon 'trash' %}
+                </button>
+            </form>
+        </div>
+        <div class="clearfix"></div>
         <div class="flex-container inner-shadow min-height-100px background-light margin-10px padding-10px border-radius-5px">
 
         </div>
