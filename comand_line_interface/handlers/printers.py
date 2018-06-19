@@ -52,10 +52,10 @@ def get_date(timestamp):
 
 
 def get_delta(delta):
-    deltas = {delta_time.DAILY: "DAILY",
-              delta_time.WEEKLY: "WEEKLY",
-              delta_time.MONTHLY: "MONTHLY",
-              delta_time.YEARLY: "YEARLY"}
+    deltas = {delta_time.DAILY_TIME_DELTA_CODE: "DAILY",
+              delta_time.WEEKLY_TIME_DELTA_CODE: "WEEKLY",
+              delta_time.MONTHLY_TIME_DELTA_CODE: "MONTHLY",
+              delta_time.YEARLY_TIME_DELTA_CODE: "YEARLY"}
     return deltas.get(delta, None)
 
 

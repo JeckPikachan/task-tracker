@@ -1,6 +1,6 @@
 import unittest
 
-from adastra_library.adastra_library.task_pattern import TaskPattern
+from adastra_library.models.task_pattern import TaskPattern
 
 NAME = "SOME NAME"
 DESCRIPTION = "ANY DESCRIPTION"

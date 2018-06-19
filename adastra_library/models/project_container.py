@@ -13,18 +13,18 @@ class ProjectContainer:
 
     # region magic methods
 
-    def __init__(self, db):
-        self._db = db
+    def __init__(self, tracker):
+        self._tracker = tracker
         self.load()
 
     @log_func(LIBRARY_LOGGER_NAME)
     def load(self, project_id=None):
-        self._db.load(project_id)
+        self._tracker.load_project(project_id)
 
     @log_func(LIBRARY_LOGGER_NAME)
     def leave_project(self):
-        self._db.leave_project()
-        self._db.load()
+        self._tracker.leave_project()
+        self._tracker.load_project()
 
     # endregion
     # region add/remove methods
@@ -38,7 +38,7 @@ class ProjectContainer:
         :param task_list: {TaskList} TaskList object to be added
         :return:
         """
-        self._db.add_list(task_list)
+        self._tracker.add_list(task_list)
 
     @log_func(LIBRARY_LOGGER_NAME)
     def remove_list(self, task_list_id):
@@ -48,7 +48,7 @@ class ProjectContainer:
         :param task_list_id: {string} task list id
         :return:
         """
-        self._db.remove_list(task_list_id)
+        self._tracker.remove_list(task_list_id)
 
     # endregion
     # region task
@@ -61,7 +61,7 @@ class ProjectContainer:
         :param task: {Task} Task object to be added
         :return:
         """
-        self._db.add_task(task_list_id, task)
+        self._tracker.add_task(task_list_id, task)
 
     @log_func(LIBRARY_LOGGER_NAME)
     def remove_task(self, task_id):
@@ -71,7 +71,7 @@ class ProjectContainer:
         :param task_id: {string} task id
         :return:
         """
-        self._db.remove_task(task_id)
+        self._tracker.remove_task(task_id)
 
     # endregion
     # region relation
@@ -86,7 +86,7 @@ class ProjectContainer:
         :param description: {string} Describes type of relation
         :return: Created TaskRelation object
         """
-        return self._db.add_relation(from_id, to_id, description)
+        return self._tracker.add_relation(from_id, to_id, description)
 
     @log_func(LIBRARY_LOGGER_NAME)
     def remove_relation(self, from_id, to_id):
@@ -97,7 +97,7 @@ class ProjectContainer:
         :param to_id: {string} id of task to which relation will be unset
         :return:
         """
-        self._db.remove_relation(from_id, to_id)
+        self._tracker.remove_relation(from_id, to_id)
 
     # endregion
     # region plan
@@ -111,7 +111,7 @@ class ProjectContainer:
         :param plan: {PlanManager} Plan to be added
         :return:
         """
-        self._db.add_plan(task_list_id, plan)
+        self._tracker.add_plan(task_list_id, plan)
 
     @log_func(LIBRARY_LOGGER_NAME)
     def remove_plan(self, plan_id):
@@ -121,7 +121,7 @@ class ProjectContainer:
         :param plan_id: {string} plan id
         :return:
         """
-        self._db.remove_plan(plan_id)
+        self._tracker.remove_plan(plan_id)
 
     # endregion
     # endregion
@@ -135,7 +135,7 @@ class ProjectContainer:
         :param new_name: {string} new name
         :return:
         """
-        self._db.edit_list(task_list_id, new_name)
+        self._tracker.edit_list(task_list_id, new_name)
 
     @log_func(LIBRARY_LOGGER_NAME)
     def edit_task(self, **kwargs):
@@ -150,11 +150,11 @@ class ProjectContainer:
             expiration_date: {date} new expiration date
         :return:
         """
-        self._db.edit_task(**kwargs)
+        self._tracker.edit_task(**kwargs)
 
     @log_func(LIBRARY_LOGGER_NAME)
     def edit_project(self, new_name):
-        self._db.edit_project(new_name)
+        self._tracker.edit_project(new_name)
 
     @log_func(LIBRARY_LOGGER_NAME)
     def free_tasks_list(self, task_list_id):
@@ -164,7 +164,7 @@ class ProjectContainer:
         :param task_list_id: {string} task list id
         :return:
         """
-        self._db.free_tasks_list(task_list_id)
+        self._tracker.free_tasks_list(task_list_id)
 
     # endregion
     # region get methods
@@ -176,7 +176,7 @@ class ProjectContainer:
         :return: All project tasks or from specified task list only
         """
         self._check_plans()
-        return self._db.get_tasks(task_list_id)
+        return self._tracker.get_tasks(task_list_id)
 
     @log_func(LIBRARY_LOGGER_NAME)
     def get_task_by_id(self, task_id):
@@ -185,11 +185,11 @@ class ProjectContainer:
         :param task_id: {string} id of task
         :return: task with passed id or None
         """
-        return self._db.get_task_by_id(task_id)
+        return self._tracker.get_task_by_id(task_id)
 
     @log_func(LIBRARY_LOGGER_NAME)
     def get_task_lists(self):
-        return self._db.get_task_lists()
+        return self._tracker.get_task_lists()
 
     @log_func(LIBRARY_LOGGER_NAME)
     def get_plans(self):
@@ -197,7 +197,7 @@ class ProjectContainer:
 
         :return: All plans
         """
-        return self._db.get_plans()
+        return self._tracker.get_plans()
 
     @log_func(LIBRARY_LOGGER_NAME)
     def get_plan_by_id(self, plan_id):
@@ -206,7 +206,7 @@ class ProjectContainer:
         :param plan_id: {string} plan id
         :return: Plan with passed id or None
         """
-        self._db.get_plan_by_id(plan_id)
+        self._tracker.get_plan_by_id(plan_id)
 
     @log_func(LIBRARY_LOGGER_NAME)
     def get_current_project_id(self):
@@ -214,7 +214,7 @@ class ProjectContainer:
 
         :return: id of current project
         """
-        return self._db.get_projects_info()[1]
+        return self._tracker.get_projects_info()[1]
 
     @log_func(LIBRARY_LOGGER_NAME)
     def get_current_project(self):
@@ -222,17 +222,17 @@ class ProjectContainer:
 
         :return: instance of current project
         """
-        return self._db.get_current_project()
+        return self._tracker.get_current_project()
 
     # endregion
 
     def _check_plans(self):
-        plans = self._db.get_plans()
+        plans = self._tracker.get_plans()
         for plan in plans:
             tasks, task_list_id = plan.get_planned_tasks(datetime.now())
-            task_list = self._db.get_task_list_by_id(task_list_id)
+            task_list = self._tracker.get_task_list_by_id(task_list_id)
             if task_list is not None:
                 for task in tasks:
                     self.add_task(task_list_id, task)
             else:
-                self._db.remove_plan(plan.unique_id)
+                self._tracker.remove_plan(plan.unique_id)

@@ -2,7 +2,7 @@ import inspect
 import logging
 
 
-LIBRARY_LOGGER_NAME = 'adastra_library'
+LIBRARY_LOGGER_NAME = 'models'
 
 
 def get_logger():

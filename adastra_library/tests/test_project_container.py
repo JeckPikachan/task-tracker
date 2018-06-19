@@ -2,11 +2,11 @@ import shutil
 import unittest
 
 from adastra_library import TaskList, Project
-from adastra_library.adastra_library.plan_manager import PlanManager
-from adastra_library.adastra_library.project_container import ProjectContainer
-from adastra_library.adastra_library.task import Task, TaskRelation
-from adastra_library.adastra_library.task_pattern import TaskPattern
-from database.db import DataBase
+from adastra_library.models.plan_manager import PlanManager
+from adastra_library.models.project_container import ProjectContainer
+from adastra_library.models.task import Task, TaskRelation
+from adastra_library.models.task_pattern import TaskPattern
+from database.tracker import Tracker, TrackerDAO
 
 TEST_DB_PATH = '/tmp/test_data/'
 PROJECT_NAME = "TEST NAME"
@@ -16,16 +16,17 @@ class TestProjectContainer(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        cls.db_test = DataBase(TEST_DB_PATH)
+        tracker_dao = TrackerDAO(TEST_DB_PATH)
+        cls.tracker_test = Tracker(tracker_dao)
 
     @classmethod
     def tearDownClass(cls):
         shutil.rmtree(TEST_DB_PATH)
 
     def setUp(self):
-        self.container = ProjectContainer(self.db_test)
+        self.container = ProjectContainer(self.tracker_test)
         new_project = Project(name=PROJECT_NAME)
-        self.db_test.add_project(new_project)
+        self.tracker_test.add_project(new_project)
         self.container.load(new_project.unique_id)
 
     def tearDown(self):

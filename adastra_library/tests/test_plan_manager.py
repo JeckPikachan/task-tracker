@@ -3,12 +3,12 @@ from datetime import datetime
 
 from adastra_library import Priority
 from adastra_library import Status
-from adastra_library.adastra_library.plan_manager import PlanManager
-from adastra_library.adastra_library.task_pattern import TaskPattern
+from adastra_library.models.plan_manager import PlanManager
+from adastra_library.models.task_pattern import TaskPattern
 from dateutil.relativedelta import relativedelta
 from library_util import delta_time
 
-DELTA = delta_time.MONTHLY
+DELTA = delta_time.MONTHLY_TIME_DELTA_CODE
 NAME = "Name"
 DESCRIPTION = "Description"
 STATUS_DONE = 2

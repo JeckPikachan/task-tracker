@@ -1,7 +1,7 @@
 from datetime import datetime
 from enum import Enum
 
-from adastra_library.adastra_library.unique_object import UniqueObject
+from adastra_library.models.unique_object import UniqueObject
 
 
 class TaskRelation:

@@ -1,4 +1,4 @@
-from adastra_library.adastra_library.user_project_relation import UserProjectRelation
+from adastra_library.models.user_project_relation import UserProjectRelation
 
 
 class UPRCollection:

@@ -6,12 +6,12 @@ PUBLIC_ENUMS = {
 }
 
 
-def enum_serializable(obj):
+def serialize_enum(obj):
     if type(obj) in PUBLIC_ENUMS.values():
         return {"__enum__": str(obj)}
 
 
-def as_enum(d):
+def deserialize_enum(d):
     if d is None:
         return None
     if "__enum__" in d:

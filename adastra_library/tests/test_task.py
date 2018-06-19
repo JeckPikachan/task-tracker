@@ -2,7 +2,7 @@ import unittest
 
 from adastra_library import Priority
 from adastra_library import Status
-from adastra_library.adastra_library.task import Task
+from adastra_library.models.task import Task
 
 
 class TestTask(unittest.TestCase):

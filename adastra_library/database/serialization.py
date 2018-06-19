@@ -1,7 +1,7 @@
 import copy
 import time
 
-from library_util.enum_json import enum_serializable
+from library_util.enum_json import serialize_enum
 
 
 def transform_object(obj):
@@ -35,8 +35,8 @@ def transform_plan(plan):
 def transform_task(task):
     task = copy.deepcopy(task)
     task_dict = transform_object(task)
-    task_dict['status'] = enum_serializable(task_dict['_status'])
-    task_dict['priority'] = enum_serializable(task_dict['_priority'])
+    task_dict['status'] = serialize_enum(task_dict['_status'])
+    task_dict['priority'] = serialize_enum(task_dict['_priority'])
     task_dict['expiration_date'] = '{0:%Y-%m-%d %H:%M}' \
         .format(task_dict['_expiration_date']) if \
         task_dict['_expiration_date'] is not None else None

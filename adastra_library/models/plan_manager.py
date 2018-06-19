@@ -3,14 +3,14 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
 from library_util import delta_time
-from adastra_library.adastra_library.task import Task
-from adastra_library.adastra_library.unique_object import UniqueObject
+from adastra_library.models.task import Task
+from adastra_library.models.unique_object import UniqueObject
 
 DELTAS = {
-    delta_time.DAILY: {'days': +1},
-    delta_time.WEEKLY: {'weeks': +1},
-    delta_time.MONTHLY: {'months': +1},
-    delta_time.YEARLY: {'years': +1}
+    delta_time.DAILY_TIME_DELTA_CODE: {'days': +1},
+    delta_time.WEEKLY_TIME_DELTA_CODE: {'weeks': +1},
+    delta_time.MONTHLY_TIME_DELTA_CODE: {'months': +1},
+    delta_time.YEARLY_TIME_DELTA_CODE: {'years': +1}
 }
 
 

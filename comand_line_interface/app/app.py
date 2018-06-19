@@ -2,13 +2,14 @@ import copy
 import logging
 import os
 
-from adastra_library import Project, DataBase
+from adastra_library import Project, Tracker
 from adastra_library import TaskList
-from adastra_library.adastra_library.plan_manager import PlanManager
-from adastra_library.adastra_library.project_container import ProjectContainer
-from adastra_library.adastra_library.task import Task
-from adastra_library.adastra_library.task_pattern import TaskPattern
-from adastra_library.adastra_library.user import User
+from adastra_library.models.plan_manager import PlanManager
+from adastra_library.models.project_container import ProjectContainer
+from adastra_library.models.task import Task
+from adastra_library.models.task_pattern import TaskPattern
+from adastra_library.models.user import User
+from database.tracker import TrackerDAO
 
 from comand_line_interface.app.log_config import LOG_CONFIG
 from library_util.log import log_func, init_logging
@@ -70,10 +71,11 @@ class App:
                      log_config['datefmt'])
 
         logging.info("App started")
-        self._db = DataBase()
-        self.user = self._db.load_user()
-        self.uprs_collection = self._db.load_uprs()
-        self.container = ProjectContainer(self._db)
+        tracker_dao = TrackerDAO()
+        self._tracker = Tracker(tracker_dao)
+        self.user = self._tracker.get_user()
+        self.uprs_collection = self._tracker.get_uprs()
+        self.container = ProjectContainer(self._tracker)
 
     def __del__(self):
         logging.info("App is about to finish")
@@ -84,7 +86,7 @@ class App:
     @log_func(CLI_LOGGER_NAME)
     def add_user(self, name):
         new_user = User(name=name)
-        self._db.save_user(new_user)
+        self._tracker.save_user(new_user)
 
     # endregion
     # region relation
@@ -106,10 +108,10 @@ class App:
     @check_attribute("user")
     def add_project(self, name):
         new_project = Project(name=name)
-        self._db.add_project(new_project)
+        self._tracker.add_project(new_project)
         current_user_id = self.user.unique_id
         self.uprs_collection.add_upr(current_user_id, new_project.unique_id)
-        self._db.save_uprs(self.uprs_collection)
+        self._tracker.save_uprs(self.uprs_collection)
 
     @log_func(CLI_LOGGER_NAME)
     @check_attribute("user")
@@ -120,7 +122,7 @@ class App:
             self.uprs_collection.remove_by_project_id(project_id)
             if self.container.get_current_project_id() == project_id:
                 self.container = None
-            self._db.remove(project_id)
+            self._tracker.remove_project(project_id)
 
     # endregion
     # region upr
@@ -133,7 +135,7 @@ class App:
         upr = self._find_upr(user_id, project_id)
         if upr is None:
             self.uprs_collection.add_upr(user_id, project_id)
-            self._db.save_uprs(self.uprs_collection)
+            self._tracker.save_uprs(self.uprs_collection)
 
     @log_func(CLI_LOGGER_NAME)
     @check_attribute("user")
@@ -141,13 +143,13 @@ class App:
         if not self._has_user_access(project_id):
             raise PermissionError("Access denied to project with id: " + project_id)
         self.uprs_collection.remove_upr(user_id, project_id)
-        self._db.save_uprs(self.uprs_collection)
+        self._tracker.save_uprs(self.uprs_collection)
         if user_id == self.user.unique_id and\
                 self.container and\
                 project_id == self.container.get_current_project_id():
-            self._db.db_info.current_project_id = None
+            self._tracker.tracker_data.current_project_id = None
             self.container = None
-            self._db.save_db_info()
+            self._tracker.save_tracker_data()
 
     # endregion
     # region list
@@ -206,7 +208,7 @@ class App:
 
     @log_func(CLI_LOGGER_NAME)
     def change_user(self, user_id):
-        self.user = self._db.load_user(user_id)
+        self.user = self._tracker.get_user(user_id)
         self.container.leave_project()
         self.container = None
 
@@ -215,7 +217,7 @@ class App:
     def load_project(self, project_id):
         has_access = self._has_user_access(project_id)
         if has_access:
-            self.container = ProjectContainer(self._db)
+            self.container = ProjectContainer(self._tracker)
             self.container.load(project_id)
         else:
             raise PermissionError("Access denied to project with id: " + project_id)
@@ -232,7 +234,7 @@ class App:
     @log_func(CLI_LOGGER_NAME)
     @check_attribute("user")
     def get_projects_info(self):
-        projects_info, current_project_id = self._db.get_projects_info()
+        projects_info, current_project_id = self._tracker.get_projects_info()
         return ([x for x in projects_info if
                  self._has_user_access(x['unique_id'])],
                 current_project_id)
@@ -247,7 +249,7 @@ class App:
 
     @log_func(CLI_LOGGER_NAME)
     def get_users_info(self):
-        return self._db.get_users_info()
+        return self._tracker.get_users_info()
 
     # endregion
     # region list

@@ -167,10 +167,10 @@ class Parser:
 
         parser_add_plan = plan_subparsers.add_parser('add')
         parser_add_plan.add_argument('delta', type=int,
-                                     choices=[delta_time.DAILY,
-                                              delta_time.WEEKLY,
-                                              delta_time.MONTHLY,
-                                              delta_time.YEARLY],
+                                     choices=[delta_time.DAILY_TIME_DELTA_CODE,
+                                              delta_time.WEEKLY_TIME_DELTA_CODE,
+                                              delta_time.MONTHLY_TIME_DELTA_CODE,
+                                              delta_time.YEARLY_TIME_DELTA_CODE],
                                      help="0 - day, 1 - week, 2 - month, 3 - year")
         parser_add_plan.add_argument('list_id')
         parser_add_plan.add_argument('name')

@@ -1,4 +1,4 @@
-r"""
+"""
 Adastra library is designed to be used as Task tracker.
 It contains all needed classes. You only have to create your own
 interface. It can be whatever you want: console, web or any other.
@@ -7,23 +7,25 @@ you can override its settings.
 
 The following block is covering the most common use cases:
 
-DataBase object:
-    DataBase object gets connection string as first argument:
-    >>> db = DataBase("[path to your database]")
+Tracker object:
+    To create Trcker object you need to path TrackerDAO object to it.
+    TrackerDAO object gets connection string as first argument:
+    >>> tracker_dao = TrackerDAO("[path to your database]")
     Or you can leave it empty and it will use default path:
-    >>> db = DataBase()
+    >>> tracker_dao = TrackerDAO()
+    >>> tracker = Tracker(tracker_dao)
 
 User:
     >>> new_user = User("[user name]")
     To save user use:
-    >>> db.save_user(new_user)
+    >>> tracker.save_user(new_user)
     Getting user from database:
-    >>> user = db.load_user("[user id]")
+    >>> user = tracker.get_user("[user id]")
 
 Project:
     >>> new_project = Project("[project name]")
     To save project use:
-    >>> db.add_project(new_project)
+    >>> tracker.add_project(new_project)
 
 TaskList:
     >>> new_task_list = TaskList("[task list name]")
@@ -42,22 +44,23 @@ PlanManager:
     Second argument is TaskPattern object.
     Third is task list id.
     Others are optional.
-    >>> plan = PlanManager(DAILY, task_pattern, "[task list id]")
+    >>> plan = PlanManager(DAILY_TIME_DELTA_CODE, task_pattern, "[task list id]")
 
 ProjectContainer:
-    ProjectContainer constructor gets database you want to use
+    ProjectContainer constructor gets tracker you want to use
     as its first argument:
-    >>> container = ProjectContainer(db)
+    >>> container = ProjectContainer(tracker)
     By default it loads project saved as current project in database.
     To switch to another project use:
-    >>> container.load("[project id]")
+    >>> container.load_project("[project id]")
     Add task list:
     >>> container.add_list(task_list)
     Add task to task list with specified id:
     >>> container.add_task("[task list id]", task)
 
 """
-from .adastra_library import *
+
+from .models import *
 from .database import *
 from adastra_library.library_util import *
 
@@ -66,7 +69,7 @@ __version__ = '0.0.1'
 __all__ = [
     'Task', 'TaskList', 'PlanManager', 'Project', 'ProjectContainer',
     'TaskPattern', 'TaskRelation', 'Status', 'Priority', 'UPRCollection',
-    'User', 'UserProjectRelation', 'DataBase', 'DBInfo'
+    'User', 'UserProjectRelation', 'Tracker', 'TrackerData', 'TrackerDAO'
 ]
 
 __author__ = 'Eugene Kachanovski'
