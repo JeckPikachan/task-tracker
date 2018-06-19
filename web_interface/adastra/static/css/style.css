@@ -43,6 +43,8 @@
 
 .task-list-title {
     font-size: 1.5em;
+    margin: 15px 0 0 10px;
+    display: inline-block;
 }
 
 .shadow {
@@ -60,7 +62,7 @@
 .task {
     background: white;
     border-radius: 5px;
-    padding: 5px 15px;
+    padding: 15px;
     flex-basis: 22%;
     border: gray solid 1px;
 }
@@ -68,7 +70,7 @@
 .task .task__title {
     font-size: 1.2em;
     display: block;
-    margin-bottom: 5px;
+    margin-top: 5px;
 }
 
 .ui-datepicker {

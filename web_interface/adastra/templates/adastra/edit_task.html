@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 
-{% block title %}Create Task{% endblock %}
+{% block title %}Edit task{% endblock %}
 
 {% block content %}
-<h2>Create Task</h2>
+<h2>Edit task</h2>
 <form method="post">
     {% csrf_token %}
     {% load bootstrap4 %}
     {% bootstrap_form form %}
     {% buttons %}
-    <button type="submit" class="btn btn-success">Create Task</button>
+    <button type="submit" class="btn btn-success">Edit task</button>
     {% endbuttons %}
 </form>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>

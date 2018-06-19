@@ -1,6 +1,7 @@
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
+from django.http import Http404
 from django.shortcuts import render, redirect
 
 from .models import UserProjectRelationModel, ProjectModel, TaskListModel, TaskModel
@@ -168,5 +169,60 @@ def create_task(request, project_id, task_list_id):
 
     return render(
         request, 'adastra/create_task.html',
+        {'form': form}
+    )
+
+
+@login_required
+def delete_task(request, project_id, task_id):
+    if request.method == 'POST':
+        storage.remove_task_by_id(task_id)
+    return redirect('adastra:tasks', project_id)
+
+
+@login_required
+def show_task(request, project_id, task_id):
+    task = storage.get_task_by_id(task_id)
+    project = storage.get_project_by_id(project_id)
+    if task is None or project is None:
+        return Http404()
+    else:
+        return render(
+            request, 'adastra/show_task.html',
+            {'task': task, 'project': project}
+        )
+
+
+@login_required
+def edit_task(request, project_id, task_id):
+    task = storage.get_task_by_id(task_id)
+    if task is None:
+        return redirect('adastra:tasks', project_id)
+    if request.method == 'POST':
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            task.author = form.cleaned_data['author']
+            task.task_list = form.cleaned_data['task_list']
+            task.name = form.cleaned_data['name']
+            task.description = form.cleaned_data['description']
+            task.expiration_date = form.cleaned_data['expiration_date']
+            task.status = form.cleaned_data['status']
+            task.priority = form.cleaned_data['priority']
+
+            storage.save_task(task)
+            return redirect('adastra:tasks', project_id)
+    else:
+        form = TaskForm(initial={
+            'task_list': task.task_list,
+            'author': task.author,
+            'name': task.name,
+            'description': task.description,
+            'expiration_date': task.expiration_date,
+            'status': task.status,
+            'priority': task.priority
+        })
+
+    return render(
+        request, 'adastra/edit_task.html',
         {'form': form}
     )

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Task info{% endblock %}
+
+{% block content %}
+<h2>Task "{{ task.name }}"</h2>
+<table class="table">
+    <tbody>
+    <tr>
+        <td>Name:</td>
+        <td>{{ task.name }}</td>
+    </tr>
+    <tr>
+        <td>Description:</td>
+        <td>{{ task.description }}</td>
+    </tr>
+    <tr>
+        <td>Expiration date:</td>
+        <td>{{ task.expiration_date|date }}</td>
+    </tr>
+    <tr>
+        <td>Status:</td>
+        <td>{{ task.get_status_display }}</td>
+    </tr>
+    <tr>
+        <td>Priority:</td>
+        <td>{{ task.get_priority_display }}</td>
+    </tr>
+    <tr>
+        <td>Author:</td>
+        <td>{{ task.author.username }}(ID: {{ task.author.id }})</td>
+    </tr>
+    </tbody>
+</table>
+<a role="button" class="btn btn-secondary" href="{% url 'adastra:tasks' project.id %}">Back</a>
+{% endblock %}

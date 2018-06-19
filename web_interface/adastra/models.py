@@ -19,7 +19,7 @@ class TaskListModel(models.Model):
 class TaskModel(models.Model):
     STATUS_CHOICES = (
         (0, "CREATED"),
-        (1, "IN_WORK"),
+        (1, "IN WORK"),
         (2, "DONE")
     )
     PRIORITY_CHOICES = (

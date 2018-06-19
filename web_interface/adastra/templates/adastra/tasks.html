@@ -9,7 +9,7 @@
         role="button"
         class="btn btn-primary float-right"
         href="{% url 'adastra:create_task_list' project.id %}">
-    + Add Task List
+    + Add task list
 </a>
 <div class="clearfix"></div>
 <div class="flex-container">
@@ -46,7 +46,48 @@
         <div class="flex-container--row inner-shadow min-height-100px background-light margin-10px padding-10px border-radius-5px">
             {% for task in task_list.taskmodel_set.all %}
             <div class="task margin-10px">
+
+                <div class="float-right">
+                    <a
+                            role="button"
+                            class="btn btn-success btn-sm"
+                            href="{% url 'adastra:show_task' project.id task.id %}">
+                        {% fontawesome_icon 'eye' %}
+                    </a>
+                    <a
+                            role="button"
+                            class="btn btn-primary btn-sm"
+                            href="{% url 'adastra:edit_task' project.id task.id %}">
+                        {% fontawesome_icon 'pencil' %}
+                    </a>
+                    <form
+                            class="inline-block"
+                            method="post"
+                            action="{% url 'adastra:delete_task' project.id task.id %}">
+                        {% csrf_token %}
+                        <button
+                                type="submit"
+                                class="btn btn-danger btn-sm"
+                                onclick="return confirm('Are you sure you want to delete this task list?');">
+                            {% fontawesome_icon 'trash' %}
+                        </button>
+                    </form>
+                </div>
+                <div>
+                    {% if task.priority == 2 %}
+                        {% fontawesome_icon 'arrow-up' color='red' %}
+                    {% endif %}
+                    {% if task.priority == 1 %}
+                        {% fontawesome_icon 'arrow-up' color='orange' %}
+                    {% endif %}
+                    {% if task.priority == 0 %}
+                        {% fontawesome_icon 'arrow-up' color='green' %}
+                    {% endif %}
+                </div>
+                <div class="clearfix"></div>
+                <!--<div class="clearfix"></div>-->
                 <span class="task__title">{{task.name}}</span>
+
             </div>
             {% endfor %}
         </div>
