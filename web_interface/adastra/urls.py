@@ -28,12 +28,17 @@ task_lists_patterns = [
     url(r'^(?P<task_list_id>[0-9]+)/', include(exact_task_list_patterns)),
 ]
 
+plans_patterns = [
+    url(r'^$', views.plans, name='plans')
+]
+
 exact_project_patterns = [
     url(r'^$', views.tasks, name='tasks'),
     url(r'^edit/$', views.edit_project, name='edit_project'),
     url(r'^delete/$', views.delete_project, name='delete_project'),
     url(r'^task_list/', include(task_lists_patterns)),
     url(r'^task/(?P<task_id>[0-9]+)/', include(exact_task_patterns)),
+    url(r'^plan/', include(plans_patterns))
 ]
 
 projects_patterns = [

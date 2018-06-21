@@ -95,7 +95,6 @@ def tasks(request, project_id):
         {
             'project': project,
             'task_lists': task_lists,
-            'nav-bar': 'projects'
         }
     )
 
@@ -238,4 +237,21 @@ def edit_task(request, project_id, task_id):
     return render(
         request, 'adastra/edit_task.html',
         {'form': form}
+    )
+
+
+@login_required
+def plans(request, project_id):
+    project = storage.get_project_by_id(project_id)
+    if project is None:
+        return Http404()
+    task_lists = storage.get_task_lists_by_project(project)
+    plans_list = []
+
+    for task_list in task_lists:
+        plans_list.extend(task_list.planmodel_set.all())
+
+    return render(
+        request, 'adastra/plans.html',
+        {'project': project, 'plans': plans_list}
     )
