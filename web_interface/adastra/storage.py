@@ -1,7 +1,7 @@
 from adastra_library import Project
-from peewee import DoesNotExist
+from django.core.exceptions import ObjectDoesNotExist
 
-from .models import UserProjectRelationModel, ProjectModel, TaskListModel, TaskModel
+from .models import UserProjectRelationModel, ProjectModel, TaskListModel, TaskModel, TaskRelationModel
 
 
 def get_user_projects(user):
@@ -28,7 +28,7 @@ def save_user_project_relation(user_project_relation):
 def get_project_by_id(project_id):
     try:
         return ProjectModel.objects.get(id=project_id)
-    except DoesNotExist:
+    except ObjectDoesNotExist:
         return None
 
 
@@ -45,7 +45,7 @@ def get_task_lists_by_project(project):
 def get_task_list_by_id(task_list_id):
     try:
         return TaskListModel.objects.get(id=task_list_id)
-    except DoesNotExist:
+    except ObjectDoesNotExist:
         return None
 
 
@@ -66,7 +66,7 @@ def save_task(task):
 def get_task_by_id(task_id):
     try:
         return TaskModel.objects.get(id=task_id)
-    except DoesNotExist:
+    except ObjectDoesNotExist:
         return None
 
 
@@ -74,3 +74,44 @@ def remove_task_by_id(task_id):
     task = get_task_by_id(task_id)
     if task is not None:
         task.delete()
+
+
+def get_tasks_by_project(project):
+    task_lists = project.tasklistmodel_set.all()
+    tasks = []
+    for task_list in task_lists:
+        tasks.extend(task_list.taskmodel_set.all())
+
+    return tasks
+
+
+def get_task_relation_by_two_tasks(task_to, task_from):
+    try:
+        return TaskRelationModel.objects.get(task_to=task_to, task_from=task_from)
+    except ObjectDoesNotExist:
+        return None
+
+
+def get_task_relations_by_task_from(task_from):
+    return list(TaskRelationModel.objects.filter(task_from=task_from))
+
+
+def save_task_relation(task_relation):
+    task_relation.save()
+
+
+def update_task_relations(task_from, task_to_ids):
+    tasks_to = [get_task_by_id(task_to_id) for task_to_id in task_to_ids]
+    for task_to in tasks_to:
+        task_relation = get_task_relation_by_two_tasks(task_to, task_from)
+        if task_relation is None:
+            task_relation = TaskRelationModel(task_from=task_from, task_to=task_to, description='')
+            save_task_relation(task_relation)
+
+    task_relations_to_be_deleted = TaskRelationModel.objects.filter(task_from=task_from)
+    for task_to in tasks_to:
+        task_relations_to_be_deleted = task_relations_to_be_deleted.exclude(
+            task_to=task_to
+        )
+
+    task_relations_to_be_deleted.delete()

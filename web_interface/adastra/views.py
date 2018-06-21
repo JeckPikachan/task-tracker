@@ -150,8 +150,9 @@ def edit_task_list(request, project_id, task_list_id):
 @login_required
 def create_task(request, project_id, task_list_id):
     task_list = storage.get_task_list_by_id(task_list_id)
+    project = storage.get_project_by_id(project_id)
     if request.method == 'POST':
-        form = TaskForm(request.POST)
+        form = TaskForm(project, request.POST)
         if form.is_valid():
             task = TaskModel(
                 name=form.cleaned_data['name'],
@@ -163,9 +164,12 @@ def create_task(request, project_id, task_list_id):
                 priority=form.cleaned_data['priority']
             )
             storage.save_task(task)
+
+            storage.update_task_relations(task, form.cleaned_data['related_tasks'])
+
             return redirect('adastra:tasks', project_id)
     else:
-        form = TaskForm(initial={'task_list': task_list, 'author': request.user})
+        form = TaskForm(project, initial={'task_list': task_list, 'author': request.user})
 
     return render(
         request, 'adastra/create_task.html',
@@ -187,19 +191,22 @@ def show_task(request, project_id, task_id):
     if task is None or project is None:
         return Http404()
     else:
+        task_relations = storage.get_task_relations_by_task_from(task)
+        related_tasks = [task_relation.task_to for task_relation in task_relations]
         return render(
             request, 'adastra/show_task.html',
-            {'task': task, 'project': project}
+            {'task': task, 'project': project, 'related_tasks': related_tasks}
         )
 
 
 @login_required
 def edit_task(request, project_id, task_id):
     task = storage.get_task_by_id(task_id)
+    project = storage.get_project_by_id(project_id)
     if task is None:
         return redirect('adastra:tasks', project_id)
     if request.method == 'POST':
-        form = TaskForm(request.POST)
+        form = TaskForm(project, request.POST)
         if form.is_valid():
             task.author = form.cleaned_data['author']
             task.task_list = form.cleaned_data['task_list']
@@ -210,16 +217,22 @@ def edit_task(request, project_id, task_id):
             task.priority = form.cleaned_data['priority']
 
             storage.save_task(task)
+
+            storage.update_task_relations(task, form.cleaned_data['related_tasks'])
+
             return redirect('adastra:tasks', project_id)
     else:
-        form = TaskForm(initial={
+        task_relations = storage.get_task_relations_by_task_from(task)
+        chosen_tasks_ids = [task_relation.task_to.id for task_relation in task_relations]
+        form = TaskForm(project, initial={
             'task_list': task.task_list,
             'author': task.author,
             'name': task.name,
             'description': task.description,
             'expiration_date': task.expiration_date,
             'status': task.status,
-            'priority': task.priority
+            'priority': task.priority,
+            'related_tasks': chosen_tasks_ids
         })
 
     return render(

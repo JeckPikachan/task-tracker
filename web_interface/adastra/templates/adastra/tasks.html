@@ -73,7 +73,7 @@
                         </button>
                     </form>
                 </div>
-                <div>
+                <div style="display: inline-block; margin-right: 10px;">
                     {% if task.priority == 2 %}
                         {% fontawesome_icon 'arrow-up' color='red' %}
                     {% endif %}
@@ -82,6 +82,17 @@
                     {% endif %}
                     {% if task.priority == 0 %}
                         {% fontawesome_icon 'arrow-up' color='green' %}
+                    {% endif %}
+                </div>
+                <div style="display: inline-block;">
+                    {% if task.status == 2 %}
+                        <span class="badge badge-pill badge-secondary">done</span>
+                    {% endif %}
+                    {% if task.status == 1 %}
+                        <span class="badge badge-pill badge-success">in work</span>
+                    {% endif %}
+                    {% if task.status == 0 %}
+                        <span class="badge badge-pill badge-primary">open</span>
                     {% endif %}
                 </div>
                 <div class="clearfix"></div>

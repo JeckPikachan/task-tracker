@@ -36,3 +36,9 @@ class TaskModel(models.Model):
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     status = models.IntegerField(choices=STATUS_CHOICES)
     priority = models.IntegerField(choices=PRIORITY_CHOICES)
+
+
+class TaskRelationModel(models.Model):
+    description = models.CharField(max_length=140, blank=True)
+    task_from = models.ForeignKey(TaskModel, on_delete=models.CASCADE, related_name='task_from')
+    task_to = models.ForeignKey(TaskModel, on_delete=models.CASCADE, related_name='task_to')
