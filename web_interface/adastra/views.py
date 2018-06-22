@@ -1,12 +1,14 @@
+from datetime import date
+
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.http import Http404
 from django.shortcuts import render, redirect
 
-from .models import UserProjectRelationModel, ProjectModel, TaskListModel, TaskModel
 from . import storage
-from .forms import ProjectForm, TaskListForm, TaskForm
+from .forms import ProjectForm, TaskListForm, TaskForm, PlanForm
+from .models import UserProjectRelationModel, ProjectModel, TaskListModel, TaskModel, TaskPatternModel, PlanModel
 
 
 def signup(request):
@@ -90,6 +92,13 @@ def delete_project(request, project_id):
 def tasks(request, project_id):
     project = storage.get_project_by_id(project_id)
     task_lists = storage.get_task_lists_by_project(project)
+
+    plans_list = storage.get_plans_by_project(project)
+    for plan in plans_list:
+        for task in plan.get_planned_tasks(date.today()):
+            storage.save_task(task)
+        storage.save_plan(plan)
+
     return render(
         request, 'adastra/tasks.html',
         {
@@ -245,13 +254,96 @@ def plans(request, project_id):
     project = storage.get_project_by_id(project_id)
     if project is None:
         return Http404()
-    task_lists = storage.get_task_lists_by_project(project)
-    plans_list = []
-
-    for task_list in task_lists:
-        plans_list.extend(task_list.planmodel_set.all())
+    plans_list = storage.get_plans_by_project(project)
 
     return render(
         request, 'adastra/plans.html',
         {'project': project, 'plans': plans_list}
     )
+
+
+@login_required
+def create_plan(request, project_id):
+    project = storage.get_project_by_id(project_id)
+    if project is None:
+        return Http404()
+    if request.method == 'POST':
+        form = PlanForm(project, request.POST)
+        if form.is_valid():
+            task_pattern = TaskPatternModel(
+                name=form.cleaned_data['name'],
+                description=form.cleaned_data['description'],
+                status=form.cleaned_data['status'],
+                priority=form.cleaned_data['priority'],
+                author=form.cleaned_data['author']
+            )
+            storage.save_task_pattern(task_pattern)
+
+            task_list = \
+                storage.get_task_list_by_id(form.cleaned_data['task_list'])
+            plan = PlanModel(
+                delta=int(form.cleaned_data['delta']),
+                task_pattern=task_pattern,
+                task_list=task_list,
+                start_date=form.cleaned_data['start_date'],
+                end_date=form.cleaned_data['end_date']
+            )
+            storage.save_plan(plan)
+
+            return redirect('adastra:plans', project_id)
+    else:
+        form = PlanForm(project, initial={'author': request.user, 'start_date': date.today()})
+
+    return render(
+        request, 'adastra/create_plan.html',
+        {'form': form}
+    )
+
+
+@login_required
+def edit_plan(request, project_id, plan_id):
+    project = storage.get_project_by_id(project_id)
+    plan = storage.get_plan_by_id(plan_id)
+    if project is None or plan is None:
+        return Http404()
+    if request.method == 'POST':
+        form = PlanForm(project, request.POST)
+        task_pattern = plan.task_pattern
+        if form.is_valid():
+            task_pattern.name = form.cleaned_data['name']
+            task_pattern.description = form.cleaned_data['description']
+            task_pattern.status = form.cleaned_data['status']
+            task_pattern.priority = form.cleaned_data['priority']
+
+            storage.save_task_pattern(task_pattern)
+
+            task_list = \
+                storage.get_task_list_by_id(form.cleaned_data['task_list'])
+            plan.delta = int(form.cleaned_data['delta'])
+            plan.task_list = task_list
+            plan.start_date = form.cleaned_data['start_date']
+            plan.end_date = form.cleaned_data['end_date']
+
+            storage.save_plan(plan)
+
+            return redirect('adastra:plans', project_id)
+    else:
+        form = PlanForm(
+            project, initial={
+                'name': plan.task_pattern.name,
+                'description': plan.task_pattern.description,
+                'status': plan.task_pattern.status,
+                'priority': plan.task_pattern.priority,
+                'author': plan.task_pattern.author,
+                'delta': plan.delta,
+                'task_list': plan.task_list.id,
+                'start_date': plan.start_date,
+                'end_date': plan.end_date
+            }
+        )
+
+    return render(
+        request, 'adastra/edit_plan.html',
+        {'form': form}
+    )
+

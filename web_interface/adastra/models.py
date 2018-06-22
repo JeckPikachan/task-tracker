@@ -64,6 +64,15 @@ class TaskPatternModel(models.Model):
     priority = models.IntegerField(choices=PRIORITY_CHOICES)
     author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
+    def get_task(self):
+        return TaskModel(
+            name=self.name,
+            description=self.description,
+            status=self.status,
+            priority=self.priority,
+            author=self.author
+        )
+
 
 class PlanModel(models.Model):
     delta = models.IntegerField(choices=DELTA_CHOICES)
@@ -75,6 +84,22 @@ class PlanModel(models.Model):
 
     def __init__(self, *args, **kwargs):
         super(PlanModel, self).__init__(*args, **kwargs)
-        self.last_created = (kwargs.get('last_created') if
-                             kwargs.get('last_created', None) is not None else
+        self.last_created = (self.last_created if
+                             self.last_created is not None else
                              self.start_date - relativedelta(**DELTAS.get(self.delta)))
+
+    def get_planned_tasks(self, current_date):
+        tasks = []
+        if self.start_date is not None and current_date < self.start_date:
+            return tasks
+
+        delta = relativedelta(**DELTAS.get(self.delta))
+        while self.last_created <= current_date - delta and \
+                (self.end_date is None or
+                 self.last_created <= self.end_date - delta):
+            planned_task = self.task_pattern.get_task()
+            planned_task.task_list = self.task_list
+            tasks.append(planned_task)
+            self.last_created += delta
+
+        return tasks

@@ -3,7 +3,7 @@ from django.forms import ModelForm, HiddenInput, ModelChoiceField, DateInput, Fo
     ChoiceField, MultipleChoiceField
 
 from . import storage
-from .models import ProjectModel, TaskListModel, TaskModel
+from .models import ProjectModel, TaskListModel, TaskModel, STATUS_CHOICES, PRIORITY_CHOICES, DELTA_CHOICES
 
 
 class ProjectForm(ModelForm):
@@ -43,11 +43,11 @@ class TaskForm(Form):
         required=False
     )
     status = ChoiceField(
-        choices=TaskModel.STATUS_CHOICES,
+        choices=STATUS_CHOICES,
         required=True
     )
     priority = ChoiceField(
-        choices=TaskModel.PRIORITY_CHOICES,
+        choices=PRIORITY_CHOICES,
         required=True
     )
 
@@ -61,3 +61,43 @@ class TaskForm(Form):
     def _get_related_tasks_options(self, project):
         tasks = storage.get_tasks_by_project(project)
         return [(task.id, task.name) for task in tasks]
+
+
+class PlanForm(Form):
+    name = CharField(max_length=140, required=True)
+    description = CharField(
+        max_length=10000,
+        widget=Textarea,
+        required=False
+    )
+    status = ChoiceField(
+        choices=STATUS_CHOICES,
+        required=True
+    )
+    priority = ChoiceField(
+        choices=PRIORITY_CHOICES,
+        required=True
+    )
+    author = ModelChoiceField(
+        queryset=User.objects.all(),
+        widget=HiddenInput()
+    )
+    delta = ChoiceField(
+        choices=DELTA_CHOICES,
+        required=True
+    )
+    start_date = DateField(
+        widget=DateInput(attrs={'class': 'datepicker'}),
+        required=True
+    )
+    end_date = DateField(
+        widget=DateInput(attrs={'class': 'datepicker'}),
+        required=False
+    )
+
+    def __init__(self, project, *args, **kwargs):
+        super(PlanForm, self).__init__(*args, **kwargs)
+        task_list_choices = [(task_list.id, task_list.name) for task_list in storage.get_task_lists_by_project(project)]
+        self.fields['task_list'] = ChoiceField(
+            choices=task_list_choices
+        )

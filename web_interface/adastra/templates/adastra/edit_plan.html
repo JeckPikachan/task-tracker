@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit plan{% endblock %}
+
+{% block content %}
+<h2>Edit plan</h2>
+<form method="post">
+    {% csrf_token %}
+    {% load bootstrap4 %}
+    {% bootstrap_form form %}
+    {% buttons %}
+    <button type="submit" class="btn btn-success">Edit</button>
+    {% endbuttons %}
+</form>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+<script>
+    $( ".datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+    });
+
+</script>
+{% endblock %}

@@ -1,7 +1,7 @@
 from adastra_library import Project
 from django.core.exceptions import ObjectDoesNotExist
 
-from .models import UserProjectRelationModel, ProjectModel, TaskListModel, TaskModel, TaskRelationModel
+from .models import UserProjectRelationModel, ProjectModel, TaskListModel, TaskModel, TaskRelationModel, PlanModel
 
 
 def get_user_projects(user):
@@ -39,7 +39,7 @@ def remove_project_by_id(project_id):
 
 
 def get_task_lists_by_project(project):
-    return list(project.tasklistmodel_set.all())
+    return project.tasklistmodel_set.all()
 
 
 def get_task_list_by_id(task_list_id):
@@ -115,3 +115,32 @@ def update_task_relations(task_from, task_to_ids):
         )
 
     task_relations_to_be_deleted.delete()
+
+
+def save_task_pattern(task_pattern):
+    task_pattern.save()
+
+
+def save_plan(plan):
+    plan.save()
+
+
+def get_plan_by_id(plan_id):
+    try:
+        return PlanModel.objects.get(id=plan_id)
+    except ObjectDoesNotExist:
+        return None
+
+
+def get_plans_by_task_list(task_list):
+    return task_list.planmodel_set.all()
+
+
+def get_plans_by_project(project):
+    task_lists = get_task_lists_by_project(project)
+    plans_list = []
+
+    for task_list in task_lists:
+        plans_list.extend(get_plans_by_task_list(task_list))
+
+    return plans_list
