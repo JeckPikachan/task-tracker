@@ -1,4 +1,5 @@
 from adastra_library import Project
+from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 
 from .models import UserProjectRelationModel, ProjectModel, TaskListModel, TaskModel, TaskRelationModel, PlanModel
@@ -150,3 +151,41 @@ def remove_plan_by_id(plan_id):
     plan = get_plan_by_id(plan_id)
     if plan is not None:
         plan.delete()
+
+
+def get_project_users(project):
+    return [
+        save_user_project_relation.user for
+        save_user_project_relation in
+        UserProjectRelationModel.objects.filter(project=project)
+    ]
+
+
+def get_user_by_username(username):
+    try:
+        return User.objects.get(username=username)
+    except ObjectDoesNotExist:
+        return None
+
+
+def get_user_project_relation(user, project):
+    try:
+        return UserProjectRelationModel.objects.get(
+            user=user,
+            project=project
+        )
+    except ObjectDoesNotExist:
+        return None
+
+
+def get_user_by_id(user_id):
+    try:
+        return User.objects.get(id=user_id)
+    except ObjectDoesNotExist:
+        return None
+
+
+def remove_user_project_relation(user, project):
+    user_project_relation = get_user_project_relation(user, project)
+    if user_project_relation is not None:
+        user_project_relation.delete()

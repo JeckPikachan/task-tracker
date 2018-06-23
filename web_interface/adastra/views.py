@@ -7,7 +7,7 @@ from django.http import Http404
 from django.shortcuts import render, redirect
 
 from . import storage
-from .forms import ProjectForm, TaskListForm, TaskForm, PlanForm
+from .forms import ProjectForm, TaskListForm, TaskForm, PlanForm, UserAddForm
 from .models import UserProjectRelationModel, ProjectModel, TaskListModel, TaskModel, TaskPatternModel, PlanModel
 
 
@@ -366,3 +366,69 @@ def delete_plan(request, project_id, plan_id):
     if request.method == 'POST':
         storage.remove_plan_by_id(plan_id)
     return redirect('adastra:plans', project_id)
+
+
+@login_required
+def users(request, project_id):
+    project = storage.get_project_by_id(project_id)
+    if project is None:
+        return Http404()
+    users_list = storage.get_project_users(project)
+
+    return render(
+        request, 'adastra/users.html',
+        {
+            'users': users_list,
+            'project': project,
+            'current_user': request.user
+        }
+    )
+
+
+@login_required
+def add_user(request, project_id):
+    project = storage.get_project_by_id(project_id)
+    if project is None:
+        return Http404()
+    if request.method == 'POST':
+        form = UserAddForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            user = storage.get_user_by_username(username)
+            if user is None:
+                form.add_error('username', 'No user with such username!')
+            else:
+                user_project_relation = \
+                    storage.get_user_project_relation(user, project)
+
+                if user_project_relation is None:
+                    user_project_relation = \
+                        UserProjectRelationModel(
+                            project=project,
+                            user=user
+                        )
+                    storage.save_user_project_relation(user_project_relation)
+
+                return redirect('adastra:users', project_id)
+    else:
+        form = UserAddForm()
+
+    return render(
+        request, 'adastra/add_user.html',
+        {'form': form}
+    )
+
+
+@login_required
+def remove_user(request, project_id, user_id):
+    if request.method == 'POST':
+        user = storage.get_user_by_id(user_id)
+        project = storage.get_project_by_id(project_id)
+        storage.remove_user_project_relation(user, project)
+
+        users_list = storage.get_project_users(project)
+        if not users_list:
+            storage.remove_project_by_id(project_id)
+        if request.user == user:
+            return redirect('adastra:projects')
+    return redirect('adastra:users', project_id)

@@ -17,6 +17,12 @@
         href="{% url 'adastra:plans' project.id %}">
     Plans
 </a>
+<a
+        role="button"
+        class="btn btn-outline-primary"
+        href="{% url 'adastra:users' project.id %}">
+    Users
+</a>
 <div class="clearfix"></div>
 <div class="flex-container">
     {% for task_list in task_lists %}

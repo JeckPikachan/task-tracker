@@ -102,3 +102,9 @@ class PlanForm(Form):
         self.fields['task_list'] = ChoiceField(
             choices=task_list_choices
         )
+
+
+class UserAddForm(Form):
+    username = CharField(
+        max_length=140
+    )
