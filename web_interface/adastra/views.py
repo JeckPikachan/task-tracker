@@ -347,3 +347,22 @@ def edit_plan(request, project_id, plan_id):
         {'form': form}
     )
 
+
+@login_required
+def show_plan(request, project_id, plan_id):
+    project = storage.get_project_by_id(project_id)
+    plan = storage.get_plan_by_id(plan_id)
+    if project is None or plan is None:
+        return Http404()
+
+    return render(
+        request, 'adastra/show_plan.html',
+        {'project': project, 'plan': plan}
+    )
+
+
+@login_required
+def delete_plan(request, project_id, plan_id):
+    if request.method == 'POST':
+        storage.remove_plan_by_id(plan_id)
+    return redirect('adastra:plans', project_id)

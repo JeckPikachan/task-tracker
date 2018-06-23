@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}Plan info{% endblock %}
+
+{% block content %}
+<h2>Plan "{{ plan.task_pattern.name }} (ID: {{ plan.id }})"</h2>
+<table class="table">
+    <tbody>
+    <tr>
+        <td>Name:</td>
+        <td>{{ plan.task_pattern.name }}</td>
+    </tr>
+    <tr>
+        <td>Description:</td>
+        <td>{{ plan.task_pattern.description }}</td>
+    </tr>
+    <tr>
+        <td>Status:</td>
+        <td>{{ plan.task_pattern.get_status_display }}</td>
+    </tr>
+    <tr>
+        <td>Priority:</td>
+        <td>{{ plan.task_pattern.get_priority_display }}</td>
+    </tr>
+    <tr>
+        <td>Author:</td>
+        <td>{{ plan.task_pattern.author.username }}(ID: {{ plan.task_pattern.author.id }})</td>
+    </tr>
+    <tr>
+        <td>Delta:</td>
+        <td>{{ plan.get_delta_display }}</td>
+    </tr>
+    <tr>
+        <td>task_list:</td>
+        <td>{{ plan.task_list.name }}</td>
+    </tr>
+    <tr>
+        <td>Start_date:</td>
+        <td>{{ plan.start_date|date }}</td>
+    </tr>
+    <tr>
+        <td>End date:</td>
+        <td>{{ plan.end_date|date }}</td>
+    </tr>
+    <tr>
+        <td>Last created:</td>
+        <td>
+            {% if plan.last_created >= plan.start_date %}
+                {{ plan.last_created|date }}
+            {% endif %}
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a role="button" class="btn btn-secondary" href="{% url 'adastra:plans' project.id %}">Back</a>
+{% endblock %}

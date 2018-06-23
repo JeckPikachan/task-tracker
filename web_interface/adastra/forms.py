@@ -80,7 +80,8 @@ class PlanForm(Form):
     )
     author = ModelChoiceField(
         queryset=User.objects.all(),
-        widget=HiddenInput()
+        widget=HiddenInput(),
+        required=False
     )
     delta = ChoiceField(
         choices=DELTA_CHOICES,

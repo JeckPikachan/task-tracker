@@ -29,7 +29,9 @@ task_lists_patterns = [
 ]
 
 exact_plan_patterns = [
-    url(r'^edit/$', views.edit_plan, name='edit_plan')
+    url(r'^edit/$', views.edit_plan, name='edit_plan'),
+    url(r'^$', views.show_plan, name='show_plan'),
+    url(r'^delete/$', views.delete_plan, name='delete_plan')
 ]
 
 plans_patterns = [

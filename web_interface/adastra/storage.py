@@ -144,3 +144,9 @@ def get_plans_by_project(project):
         plans_list.extend(get_plans_by_task_list(task_list))
 
     return plans_list
+
+
+def remove_plan_by_id(plan_id):
+    plan = get_plan_by_id(plan_id)
+    if plan is not None:
+        plan.delete()
